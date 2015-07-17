@@ -1,0 +1,53 @@
+<link href="css/deal_list.css" rel="stylesheet" rev="stylesheet" type="text/css"/>
+<% _.each(list,function(n){ %>
+<div class="deal_list" lid="<%= n.id %>">
+	<div class="top">
+    	<div class="icon"><span class="fa fa-street-view"></span></div>
+        <div class="type"><%= n.type %> | </div>
+        <div class="state"><% if(n.state=="0"){print("已确认/待签约支付")}
+        else if(n.state=="1"){print("已提交/待确认")}
+        else if(n.state=="2"){print("已支付/待出游")}
+        else if(n.state=="3"){print("出游归来/已成交/待点评")}
+        else if(n.state=="4"){print("已取消/待退款")}
+        else if(n.state=="5"){print("已退款")}
+        else if(n.state=="6"){print("支付超时")}
+        else if(n.state=="7"){print("已提交/待确认")}
+         %></div>
+        <div class="clear"></div>
+    </div>
+    <div class="center">
+    	<div class="title"><%= n.title %></div>
+        <div class="clear"></div>
+        <div class="time">服务起止 <%= n.start %>——<%= n.end %></div>
+        <div class="deg"><span class="fa fa-angle-right"></span></div>
+        <div class="clear"></div>
+    </div>
+    <div class="bottom">
+    <% if(n.state=="0"){ %>
+    <div class="succeed">
+    <div class="price">￥989</div>
+    <div class="last">支付时限 00时32分52秒</div>
+    </div>
+        <div class="button zhifu">支付</div>
+        <div class="button zuofei">作废</div>
+        <div class="clear"></div>
+    <% }else{ %>
+    <div class="price">￥989</div>
+    	<% if(n.state=="1"){ %>
+        	<div class="button zuofei">作废</div>
+        <% }else if(n.state=="2"){ %>
+        <div class="button quxiao">申请取消</div>
+        <% }else if(n.state=="3"){ %>
+        <div class="button dianpin">点评</div>
+    	<% }else if(n.state=="4"||n.state=="5"){ %>
+        <div class="button chakan">查看详情</div>
+        <% }else{ %>
+        <div class="button sanchu">删除</div>
+        <% } %>
+        
+        <div class="clear"></div>
+    <% } %>
+    	
+    </div>
+</div>
+<% }) %>

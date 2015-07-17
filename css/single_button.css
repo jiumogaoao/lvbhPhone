@@ -1,0 +1,14 @@
+@charset "utf-8";
+/* CSS Document */
+.single_button{
+	width:90%;
+	height:1rem;
+	line-height:1rem;
+	text-align:center;
+	color:#FFFFFF;
+	background-color:#ff840b;
+	font-size:.6rem;
+	margin:auto;
+	margin-top:.5rem;
+	border-radius:.2rem;
+	}

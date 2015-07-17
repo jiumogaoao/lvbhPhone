@@ -1,0 +1,19 @@
+@charset "utf-8";
+/* CSS Document */
+.simple_list{
+	width:100%;
+	background-color:#fff;
+	height:1.5rem;
+	color:#8e8e8e;}
+.simple_list.odd{
+	background-color:transparent;}
+.simple_list .name{
+	float:left;
+	font-size:.6rem;
+	line-height:1.5rem;
+	margin-left:.6rem;}
+.simple_list .icon{
+	float:right;
+	font-size:.6rem;
+	line-height:1.5rem;
+	margin-right:.6rem;}

@@ -1,0 +1,27 @@
+@charset "utf-8";
+/* CSS Document */
+.top_third{
+	width:100%;
+	position:relative;
+	}
+.top_third .leftButton{
+	position:absolute;
+	top:0px;
+	left:0px;
+	width:10%;
+	text-align:center;
+	font-size:1rem;}
+.top_third .center{
+	position:absolute;
+	top:0px;
+	left:10%;
+	width:80%;
+	text-align:center;
+	font-size:.6rem;
+	}
+.top_third .rightButton{
+	position:absolute;
+	top:0px;
+	right:.5rem;
+	font-size:.6rem;
+	}

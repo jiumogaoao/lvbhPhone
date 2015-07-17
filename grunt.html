@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>旅博汇</title>
+<script src="bin/drunk.js"></script>
+<script type="text/javascript">
+	var uuid=function(){
+		return 'xxxxxxxx-xxxx-xxxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+	        var r = Math.random()*16|0, v = c == 'x' ? r : (r&0x3|0x8);
+	        return (v.toString(16)).toUpperCase();
+    	});
+	}
+</script>
+<script src="include/cookies.min.js"></script>
+<script src="include/moment.js"></script>
+<script src="include/iscroll.js"></script>
+<script src="include/touch.js"></script>
+<script>app.route.init()</script>
+<script type="text/javascript">
+document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+</script>
+<link href="css/common.css" rel="stylesheet" rev="stylesheet" type="text/css"/>
+<link href="css/font-awesome.css" rel="stylesheet" rev="stylesheet" type="text/css"/>
+</head>
+
+<body>
+<div id="head">
+	
+</div>
+<div id="middle">
+<div id="scroller">
+
+	</div>
+</div>
+<div id="foot">
+	
+</div>
+</body>
+<script>
+var myScroll = new IScroll('#middle', { scrollbars: true,
+		mouseWheel: true,
+		interactiveScrollbars: true,
+		shrinkScrollbars: 'scale',
+		fadeScrollbars: true });
+function resize(){
+	if($(window).width()<$(window).height()){
+	$("html").css("font-size",$(window).width()*0.1)
+	}else{
+		$("html").css("font-size",$(window).height()*0.1)
+		}
+		myScroll.refresh();
+	}
+resize();
+$(window).on("resize",resize);
+
+
+
+</script>
+</html>
