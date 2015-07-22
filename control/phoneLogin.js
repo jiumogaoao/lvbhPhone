@@ -1,6 +1,6 @@
 // JavaScript Document
 ;(function($,obj,config){
-	obj.set({
+	obj.control.set({
 		name:"phoneLogin",
 		par:"",
 		tem:["top_third","nav_two","icon_input_list","single_button"],
@@ -23,7 +23,37 @@
 			$(".nav_two #left").unbind("tap").bind("tap",function(){
 				window.location.hash="login";
 				});
+			$("#loginButton").unbind("tap").bind("tap",function(){
+				if($("[name='user'] input").val() && $("[name='user'] input").val().length&&$("[name='key'] input").val() && $("[name='key'] input").val().length){
+					obj.api.at(function(at){
+						obj.api.run("login_phone",{
+							at:at,
+							mobile:$("[name='user'] input").val(),
+							mp:$("[name='key'] input").val()
+							},function(){
+							window.location.hash="index";
+							},function(e){
+							alert(JSON.stringify(e));
+							});
+						});
+					}
+				});
+			$("[name='key'] .other").unbind("tap").bind("tap",function(){
+				if($("[name='user'] input").val() && $("[name='user'] input").val().length){
+					obj.api.at(function(at){
+						obj.api.run("login_phone_message",{
+							at:at,
+							mobile:$("[name='user'] input").val()
+							},function(data){
+							//window.location.hash="index";
+						},function(e){
+						alert(JSON.stringify(e));
+						});
+						});
+					
+					}
+				});
 			myScroll.refresh();
 			}
 		});
-	})($,app.control,config);
+	})($,app,config);

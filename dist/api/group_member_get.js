@@ -1,0 +1,1 @@
+/*! This is uglify test - 2015-07-22 */app.api.add("group_member_get",config.sour+"center/mycsl.jspx",null,"post");

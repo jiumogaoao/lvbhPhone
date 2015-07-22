@@ -1,0 +1,46 @@
+<link href="css/deal_comment.css" rel="stylesheet" rev="stylesheet" type="text/css"/>
+<div class="deal_comment">
+<div class="head">请您对产品进行评价：</div>
+<div class="main">
+	<div class="top">
+    	<div class="list" name="导游服务">
+        	<div class="title">导游服务：</div>
+            <div class="point hl" socer="5">非常满意</div>
+            <div class="point" socer="4">满意</div>
+            <div class="point" socer="3">不满意</div>
+            <div class="clear"></div>
+        </div>
+        <div class="list" name="行程安排">
+        	<div class="title">行程安排：</div>
+            <div class="point hl" socer="5">非常满意</div>
+            <div class="point" socer="4">满意</div>
+            <div class="point" socer="3">不满意</div>
+            <div class="clear"></div>
+        </div>
+        <div class="list" name="餐饮住宿">
+        	<div class="title">餐饮住宿：</div>
+            <div class="point hl" socer="5">非常满意</div>
+            <div class="point" socer="4">满意</div>
+            <div class="point" socer="3">不满意</div>
+            <div class="clear"></div>
+        </div>
+        <div class="list" name="旅行交通">
+        	<div class="title">旅行交通：</div>
+            <div class="point hl" socer="5">非常满意</div>
+            <div class="point" socer="4">满意</div>
+            <div class="point" socer="3">不满意</div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <div class="bottom">
+    	<textarea id="dsc" placeholder="分享您对导游、行程、餐饮、住宿、交通等服务的感受... ..."></textarea>
+        <div class="min">至少输入10个字</div>
+    </div>
+</div>
+</div>
+<script>
+	$(".point").unbind("tap").bind("tap",function(){
+		$(this).parents(".list").find(".point").removeClass("hl");
+		$(this).addClass("hl");
+		});
+</script>

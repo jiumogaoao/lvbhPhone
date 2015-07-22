@@ -1,9 +1,15 @@
 // JavaScript Document
-var sourArry=[location.hostname];
+var sourArry=["http://120.24.169.127:48080/","http://m.lvbh.cn/"];
 var config={
 	sour:sourArry[0],
-	loadingOn:function(){},
-	loadingOff:function(){}
+	loadingOn:function(){
+		$("#loading").show();
+		$("#loadingBG").show();
+		},
+	loadingOff:function(){
+		$("#loading").hide();
+		$("#loadingBG").hide();
+		}
 	};
 var uuid=function(){
 		return 'xxxxxxxx-xxxx-xxxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {

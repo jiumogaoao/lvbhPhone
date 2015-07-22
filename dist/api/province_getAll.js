@@ -1,0 +1,1 @@
+/*! This is uglify test - 2015-07-22 */app.api.add("province_getAll",config.sour+"user/province.jspx",null,"post");

@@ -1,0 +1,1 @@
+/*! This is uglify test - 2015-07-22 */app.api.add("head_add",config.sour+"center/tu.jspx",null,"post");

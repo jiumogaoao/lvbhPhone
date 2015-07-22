@@ -1,0 +1,1 @@
+/*! This is uglify test - 2015-07-22 */app.api.add("regist_message",config.sour+"user/regv.jspx",null,"post");

@@ -18,24 +18,30 @@
 				data=api[name].cacheTime;
 				}
 			if(data&&typeof(data) === "object"){
-				data.time=api[name].cacheTime;
-				data=JSON.stringify(data);
+				//data.time=api[name].cacheTime;
+				//data=JSON.stringify(data);
+				//data=jQuery.param(data);
 				}
-				var sendData=$.extend({},api[name].data);
-				sendData.data=data;
+				//var sendData=$.extend({},api[name].data);
+				//sendData.data=data;
+				var sendData=data;
 				config.loadingOn();
 			$.ajax({ 
 							url:api[name].url,
-							dataType:"json",
+							dataType:"text",
 							method:api[name].method,
 							data:sendData,
-							error:function(){
+							error:function(e){
 								config.loadingOff();
-								err();
+								err(e);
 								},
 							success: function(returnData){
 								config.loadingOff();
-								if(returnData&&returnData.code !== 0){
+								if(returnData&&returnData[0] === "{"){
+									returnData=JSON.parse(returnData);
+									//returnData=JSON.parse(returnData);
+								if(returnData.success === true){
+								/*if(returnData&&returnData.code !== 0){
 									if(returnData.code === 1){
 										api[name].cache=returnData.data;
 										api[name].cacheTime=returnData.time;
@@ -44,11 +50,18 @@
 										suc($.extend({},api[name].cache));
 										}else{
 											suc(api[name].cache);
-											}
-									
-								}else{
-									err();
-									}
+											}*/
+									suc(returnData.data||returnData);
+								}else if(returnData.errorCode){
+									alert(returnData.message);
+									//err(returnData.errorCode);
+									}else{
+										err("未知错误");
+										}
+									}else{
+										suc(returnData);
+										}
+								
 								}
 						});	
 			}
@@ -77,5 +90,18 @@
 		};
 	obj.run=function(name,data,suc,err){
 		run(name,data,suc,err);
+		};
+	obj.at=function(fn){
+		if(app.cookies("at")){
+			fn(app.cookies("at").at);
+			}else{
+				run("at_get",null,function(data){
+					app.cookies("at",data);
+					fn(app.cookies("at").at);
+			},function(e){
+				alert(JSON.stringify(e));
+				return false;
+			});
+				}
 		};
 	})($,app.api,config);

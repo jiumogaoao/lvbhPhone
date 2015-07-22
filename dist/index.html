@@ -37,6 +37,8 @@ document.addEventListener('touchmove', function (e) { e.preventDefault(); }, fal
 <div id="foot">
 	
 </div>
+<div id="loading"><span class="fa fa-spinner fa-spin"></span></div>
+<div id="loadingBG"></div>
 </body>
 <script>
 var myScroll = new IScroll('#middle', { scrollbars: true,
@@ -51,6 +53,7 @@ function resize(){
 		$("html").css("font-size",$(window).height()*0.1)
 		}
 		myScroll.refresh();
+		$("#loading").css("top",($(window).height()/($(window).width()/10)-1)/2+"rem");
 	}
 resize();
 $(window).on("resize",resize);

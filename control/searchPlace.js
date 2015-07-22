@@ -35,11 +35,11 @@
 					"Y":[{name:"YY",id:""}],
 					"Z":[{name:"ZZ",id:""}]
 				}
-				}
+				};
 			var tag=_.template(data.tem[2])(placeList);
 			$("#otherFrame").html(tag);
 			$(".tap").unbind("tap").bind("tap",function(){
-				myScroll.scrollToElement($(".title[index='"+$(this).html()+"']")[0])
+				myScroll.scrollToElement($(".title[index='"+$(this).html()+"']")[0]);
 				});
 			$("#otherFrame").css({
 				"position":"fixed",
@@ -64,7 +64,7 @@
 				$(".point").removeClass("hl");
 				$(this).addClass("hl");
 				});
-			var delay=setTimeout(function(){myScroll.refresh()},200);
+			var delay=setTimeout(function(){myScroll.refresh();},200);
 			}
 		});
 	})($,app.control,config);

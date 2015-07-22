@@ -1,0 +1,44 @@
+<link href="css/deal_search.css" rel="stylesheet" rev="stylesheet" type="text/css"/>
+<div class="deal_search">
+	<div class="title">出发日期：</div>
+    <div class="date_frame">
+    	<input id="goStart" type="date"/>至<input id="goEnd" type="date"/>
+    </div>
+    <div class="title">预订日期：</div>
+    <div class="date_frame">
+    	<input id="bookStart" type="date"/>至<input id="bookEnd" type="date"/>
+    </div>
+    <div class="title">产品类别：</div>
+    <div class="button_frame" id="type">
+    	<div class="button_both hl" score="12">出发地跟团游</div>
+        <div class="button_both" score="13">目的地跟团游</div>
+        <div class="clear"></div>
+    </div>
+    <div class="title">订单状态：</div>
+    <div class="button_frame" id="state">
+    <% if(type=="0"){ %>
+    	<div class="button_both hl" score="1">已提交/待确认</div>
+        <div class="button_both" score="4">已确认/待签约支付</div>
+        <div class="button_both" score="1024">支付中/待签约支付</div>
+        <div class="button_both" score="8">已签约支付/待出游</div>
+        <div class="button_single" score="2_1">出游归来/已成家/待点评</div>
+        <div class="button_single" score="2_2">出游归来/已成交/已点评</div>
+    <% } %>
+    <% if(type=="1"){ %>
+    	<div class="button_both hl" score="16">申请取消</div>
+        <div class="button_both" score="128">已退款</div>
+        <div class="button_single" score="64">已取消/待退款</div>
+    <% } %>	
+    <% if(type=="2"){ %>
+    	<div class="button_both hl" score="0">作废订单</div>
+        <div class="button_both" score="32">支付超时</div>
+    <% } %>
+        <div class="clear"></div>
+    </div>
+</div>
+<script>
+	$(".button_both,.button_single").unbind("tap").bind("tap",function(){
+		$(this).parents(".button_frame").find(".button_both,.button_single").removeClass("hl");
+		$(this).addClass("hl");
+		});
+</script>

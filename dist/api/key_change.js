@@ -1,0 +1,1 @@
+/*! This is uglify test - 2015-07-22 */app.api.add("key_change",config.sour+"home/ms.jspx",null,"post");

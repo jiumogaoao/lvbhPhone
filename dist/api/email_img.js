@@ -1,0 +1,1 @@
+/*! This is uglify test - 2015-07-22 */app.api.add("email_img",config.sour+"home/sev.jspx",null,"post");

@@ -1,0 +1,1 @@
+/*! This is uglify test - 2015-07-22 */app.api.add("login",config.sour+"user/signin.jspx",null,"post");

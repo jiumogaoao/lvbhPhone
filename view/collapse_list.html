@@ -1,0 +1,40 @@
+<link href="css/collapse_list.css" rel="stylesheet" rev="stylesheet" type="text/css"/>
+<div class="collapse_list">
+	<% _.each(list,function(l){ %>
+    	<div class="list">
+            <div class="head">
+                <div class="title"><%= l.title %></div>
+                <div class="icon"><span class="fa fa-angle-right"></span></div>
+                <div class="clear"></div>
+            </div>
+            <div class="main">
+            	<% _.each(l.group,function(g,i){ %>
+                    <div class="group<% if(i!=l.group.length-1){print(" bd")} %><% if(g.hl){print(" link")} %>">
+                    	<% _.each(g.point,function(p){ %>
+                            <div class="point<% if(p.hl){print(" hl")} %>">
+                                <div class="left"><%= p.key %></div>
+                                <div class="right"><%= p.value %></div>
+                                <div class="clear"></div>
+                                <% if(p.dsc){ %>
+                                <div class="dsc"><%= p.dsc %></div>
+                                <% } %>
+                                
+                            </div>
+                        <% }) %>
+                        <div class="deg"><span class="fa fa-angle-right"></span></div>
+                    </div>
+                <% }) %>
+            </div>
+        </div>
+    <% }) %>
+</div>
+<script>
+$(".collapse_list .list").unbind("tap").bind("tap",function(){
+	$(".collapse_list .list").removeClass("hl");
+	$(this).addClass("hl");
+	$(this).find(".group.link").each(function(){
+		$(this).find(".deg").css("line-height",($(this).height()/($(window).width()/10))+"rem");
+		});
+	myScroll.refresh();
+	});
+</script>

@@ -1,0 +1,1 @@
+/*! This is uglify test - 2015-07-22 */app.api.add("invite_check",config.sour+"user/verip.jspx",null,"post");
