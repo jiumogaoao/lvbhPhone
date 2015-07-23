@@ -3,7 +3,7 @@
 	<% _.each(list,function(n){ %>
     	<div class="point" name="<%= n.name %>">
             <div class="icon"><span class="fa <%= n.icon %>"></span></div>
-            <div class="main"><input placeholder="<%= n.placehold %>" value="<%= n.value %>"/></div>
+            <div class="main"><input <% if(n.type){print('type="'+n.type+'"')} %> placeholder="<%= n.placehold %>" value="<%= n.value %>"/></div>
             <div class="other"><%= n.other %></div>
             <div class="clear"></div>
     	</div>

@@ -38,13 +38,26 @@
 						});
 					}
 				});
-			$("[name='key'] .other").unbind("tap").bind("tap",function(){
+			function delay(){
+				$("[name='key'] .other span").html("发送动态密码");
+				$("[name='key'] .other").unbind("tap").bind("tap",function(){
 				if($("[name='user'] input").val() && $("[name='user'] input").val().length){
 					obj.api.at(function(at){
 						obj.api.run("login_phone_message",{
 							at:at,
 							mobile:$("[name='user'] input").val()
 							},function(data){
+							$("[name='key'] .other").unbind("tap");
+							var total=60;
+							var timeOut=setInterval(function(){
+								if(total !== 0){
+									$("[name='key'] .other span").html(total+"秒后可再次发送");
+									total--;
+									}else{
+										clearInterval(timeOut);
+										delay();
+										}
+								},1000);
 							//window.location.hash="index";
 						},function(e){
 						alert(JSON.stringify(e));
@@ -53,6 +66,8 @@
 					
 					}
 				});
+				}	
+			delay();
 			myScroll.refresh();
 			}
 		});

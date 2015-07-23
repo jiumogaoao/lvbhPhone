@@ -45,6 +45,9 @@ document.addEventListener('touchmove', function (e) { e.preventDefault(); }, fal
 	
 </div>
 <div id="loading"><span class="fa fa-spinner fa-spin"></span></div>
+<div id="pop">
+	
+</div>
 <div id="loadingBG"></div>
 </body>
 <script>
@@ -52,7 +55,8 @@ var myScroll = new IScroll('#middle', { scrollbars: true,
 		mouseWheel: true,
 		interactiveScrollbars: true,
 		shrinkScrollbars: 'scale',
-		fadeScrollbars: true });
+		fadeScrollbars: true,
+		chechDOMChanges:true });
 function resize(){
 	if($(window).width()<$(window).height()){
 	$("html").css("font-size",$(window).width()*0.1);
@@ -61,6 +65,7 @@ function resize(){
 		}
 		myScroll.refresh();
 		$("#loading").css("top",($(window).height()/($(window).width()/10)-1)/2+"rem");
+		$("#pop").css("top",(($(window).height()-$("#pop").height())/($(window).width()/10))/2+"rem")
 	}
 resize();
 $(window).on("resize",resize);

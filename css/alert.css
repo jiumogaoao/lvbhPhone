@@ -1,0 +1,32 @@
+@charset "utf-8";
+/* CSS Document */
+.alert{
+	width:100%;
+	background-color:#fff;
+	}
+.alert .main{
+	padding:0rem 1rem;
+	text-align:center;
+	font-size:.8rem;
+	padding:.5rem;
+	}
+.alert.confirm .main{
+	color:#f22424;}
+.alert .buttonFrame{
+	width:100%;
+	border-top:1px solid #dcdcdc;
+	}
+.alert .button,.alert.confirm .left,.alert.confirm .right{
+	width:100%;
+	height:1.5rem;
+	line-height:1.5rem;
+	text-align:center;
+	font-size:1rem;
+	}
+.alert.confirm .left,.alert.confirm .right{
+	width:50%;
+	float:left;
+	}
+.alert.confirm .left{
+	border-right:1px solid #dcdcdc;
+	background-color:#f6f6f6;}
