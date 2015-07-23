@@ -51,9 +51,13 @@
 										}else{
 											suc(api[name].cache);
 											}*/
-									suc(returnData.data||returnData);
+									if(name === "deal_list_get"){
+										suc(returnData);
+										}else{
+										suc(returnData.data||returnData);	
+										}
 								}else if(returnData.errorCode){
-									alert(returnData.message);
+									window.app.pop.on("alert",{text:returnData.message});
 									//err(returnData.errorCode);
 									}else{
 										err("未知错误");
@@ -75,7 +79,7 @@
 							cache:true,
 							error:function(err){
 								config.loadingOff();
-								window.alert("错误"+JSON.stringify(err));
+								window.app.pop.on("alert",{text:"错误"+JSON.stringify(err)});
 								return false;
 								},
 							success: function(){
@@ -99,7 +103,7 @@
 					app.cookies("at",data);
 					fn(app.cookies("at").at);
 			},function(e){
-				alert(JSON.stringify(e));
+				window.app.pop.on("alert",{text:JSON.stringify(e)});
 				return false;
 			});
 				}

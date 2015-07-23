@@ -33,7 +33,7 @@
 							},function(){
 							window.location.hash="index";
 							},function(e){
-							alert(JSON.stringify(e));
+							obj.pop.on("alert",{text:JSON.stringify(e)});
 							});
 						});
 					}
@@ -60,7 +60,7 @@
 								},1000);
 							//window.location.hash="index";
 						},function(e){
-						alert(JSON.stringify(e));
+						obj.pop.on("alert",{text:JSON.stringify(e)});
 						});
 						});
 					

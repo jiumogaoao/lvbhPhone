@@ -1,1 +1,1 @@
-/*! This is uglify test - 2015-07-22 */app.api.add("group_getById",config.sour+"center/myc.jspx",null,"post");
+/*! This is uglify test - 2015-07-23 */app.api.add("group_getById",config.sour+"center/myc.jspx",null,"post");

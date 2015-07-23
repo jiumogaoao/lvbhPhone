@@ -13,7 +13,7 @@
 							dataType:"html",
 							error:function(err){
 								config.loadingOff();
-								alert("错误"+JSON.stringify(err));
+								app.pop.on("alert",{text:"错误"+JSON.stringify(err)});
 								},
 							success: function(html){
 								config.loadingOff();								
@@ -22,7 +22,7 @@
 							$("#pop").show();
 							$("#pop").css("top",(($(window).height()-$("#pop").height())/($(window).width()/10))/2+"rem");
 							$("#loadingBG").show();
-							if(fn){fn()};
+							if(fn){fn();}
 							}
 						});
 				}		
@@ -41,5 +41,27 @@
 				}else{
 					return false;
 					}
+		};
+	var reflashLock=false;
+	var reflashArry={};
+	app.reflash={};
+	app.reflash.run=function(){
+		if(!reflashLock){
+			reflashLock=true;
+			var page=window.location.hash.replace("#","").split("/")[0]||"index";
+			console.log(page);
+			if(reflashArry[page]){
+				reflashArry[page](function(){
+					reflashLock=false;
+					});
+				}else{
+					reflashLock=false;
+					}
+			}
+		};
+	app.reflash.add=function(key,fn){
+		if(!reflashArry[key]){
+			reflashArry[key]=fn;
+			}
 		};
 	})();

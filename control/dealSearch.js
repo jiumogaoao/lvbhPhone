@@ -1,6 +1,6 @@
 // JavaScript Document
 ;(function($,obj,config){
-	obj.set({
+	obj.control.set({
 		name:"dealSearch",
 		par:"type",
 		tem:["top_third","deal_search","single_button"],
@@ -40,4 +40,4 @@
 			myScroll.refresh();
 			}
 		});
-	})($,app.control,config);
+	})($,app,config);

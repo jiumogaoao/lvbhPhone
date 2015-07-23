@@ -1,6 +1,6 @@
 // JavaScript Document
 ;(function($,obj,config){
-	obj.set({
+	obj.control.set({
 		name:"index",
 		par:"a/b/f/e/k",
 		tem:["dsc","download"],
@@ -10,4 +10,4 @@
 			myScroll.refresh();
 			}
 		});
-	})($,app.control,config);
+	})($,app,config);

@@ -1,1 +1,1 @@
-/*! This is uglify test - 2015-07-22 */app.api.add("at_get",config.sour+"user/at.jspx",null,"post");
+/*! This is uglify test - 2015-07-23 */app.api.add("at_get",config.sour+"user/at.jspx",null,"post");

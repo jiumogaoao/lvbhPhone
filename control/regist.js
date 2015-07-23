@@ -1,6 +1,6 @@
 // JavaScript Document
 ;(function($,obj,config){
-	obj.set({
+	obj.control.set({
 		name:"regist",
 		par:"",
 		tem:["top_second","icon_place_list","icon_input_list","single_button"],
@@ -27,4 +27,4 @@
 			myScroll.refresh();
 			}
 		});
-	})($,app.control,config);
+	})($,app,config);

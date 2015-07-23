@@ -23,10 +23,10 @@
 						});
 					sendString+="&b="+data.type+"&c="+data.code+"&d="+data.id+"&e="+$("#dsc");
 					obj.api.run("deal_comment",sendString,function(){
-						alert("评论提交成功");
+						obj.pop.on("alert",{text:"评论提交成功"});
 						window.location.hash="dealIndex";
 						},function(e){
-						alert(JSON.stringify(e));
+						obj.pop.on("alert",{text:JSON.stringify(e)});
 						});
 					});
 				

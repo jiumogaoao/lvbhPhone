@@ -1,6 +1,6 @@
 // JavaScript Document
 ;(function($,obj,config){
-	obj.set({
+	obj.control.set({
 		name:"dealIndex",
 		par:"",
 		tem:["top_second","simple_list"],
@@ -22,4 +22,4 @@
 			myScroll.refresh();
 			}
 		});
-	})($,app.control,config);
+	})($,app,config);

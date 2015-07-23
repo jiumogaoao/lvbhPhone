@@ -1,6 +1,6 @@
 // JavaScript Document
 ;(function($,obj,config){
-	obj.set({
+	obj.control.set({
 		name:"searchPlace",
 		par:"",
 		tem:["top_second","search_place","tap_right"],
@@ -67,4 +67,4 @@
 			var delay=setTimeout(function(){myScroll.refresh();},200);
 			}
 		});
-	})($,app.control,config);
+	})($,app,config);

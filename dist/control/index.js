@@ -1,1 +1,1 @@
-/*! This is uglify test - 2015-07-22 */!function(a,b,c){b.set({name:"index",par:"a/b/f/e/k",tem:["dsc","download"],fn:function(b){a("#main").html(b.tem[0]),a("#downLoad").html(b.tem[1]),myScroll.refresh()}})}($,app.control,config);
+/*! This is uglify test - 2015-07-23 */!function(a,b,c){b.control.set({name:"index",par:"a/b/f/e/k",tem:["dsc","download"],fn:function(b){a("#main").html(b.tem[0]),a("#downLoad").html(b.tem[1]),myScroll.refresh()}})}($,app,config);

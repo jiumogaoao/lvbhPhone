@@ -37,7 +37,7 @@
 						},function(){
 						window.location.hash="index";
 						},function(e){
-						alert(JSON.parse(e));
+						obj.pop.on("alert",{text:JSON.stringify(e)});
 						});
 					});
 				});

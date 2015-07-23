@@ -28,16 +28,11 @@ module.exports = function(grunt){
 			},
         cssmin: {
             options: {                                       //配置
-                stripBanners:true,
-                banner: '/*! This is the grunt test ' +      //添加自定义的banner
-                '<%= grunt.template.today("yyyy-mm-dd") %> */'
             },
             basic: {expand: true, cwd: 'css', src: ['*.css'], dest: 'dist/css'}
         },
         uglify: {
             options: {
-                banner: '/*! This is uglify test - ' +
-                '<%= grunt.template.today("yyyy-mm-dd") %> */'
             },
 			bin: {src: ['bin/jquery.js','bin/underscore.js','bin/config.js','bin/common.js','bin/route.js','bin/api.js','bin/control.js'], dest: 'dist/bin/drunk.js'},
 			api: {expand: true, cwd: 'api', src: ['*.js'], dest: 'dist/api'},

@@ -5,6 +5,8 @@
 		par:"type/search",
 		tem:["top_second","deal_list"],
 		fn:function(data){
+			var result=[];
+			var page=1;
 			var titleArry=["成交订单","取消订单","作废订单"];
 			var head=_.template(data.tem[0])({left:"",center:"查询结果"});
 			$("#head").html(head);
@@ -34,9 +36,11 @@
 						console.log("at="+at+"&a="+$(that).parents(".deal_list").attr("lid"));
 						obj.pop.off();
 					obj.api.run("deal_cancel","at="+at+"&a="+$(that).parents(".deal_list").attr("lid"),function(){
-					alert("退订申请已提交");
+					obj.pop.on("alert",{text:"退订申请已提交"});
 					window.location.reload();
-						},function(e){alert(JSON.stringify(e));});
+						},function(e){
+							obj.pop.on("alert",{text:JSON.stringify(e)});
+							});
 					});
 					$("#pop .right").unbind("tap").bind("tap",function(){
 						obj.pop.off();
@@ -53,7 +57,9 @@
 							console.log("at="+at+"&a="+$(that).parents(".deal_list").attr("lid"));
 				obj.api.run("deal_remove","at="+at+"&a="+$(that).parents(".deal_list").attr("lid"),function(){
 					window.location.reload();
-					},function(e){alert(JSON.stringify(e));});
+					},function(e){
+						obj.pop.on("alert",{text:JSON.stringify(e)});
+						});
 							});
 						$("#pop .right").unbind("tap").bind("tap",function(){
 						obj.pop.off();
@@ -73,10 +79,10 @@
 							obj.pop.off();	
 				console.log('at='+at+'&a='+$(that).parents(".deal_list").attr("lid"));
 				obj.api.run("deal_delect",'at='+at+'&a='+$(that).parents(".deal_list").attr("lid"),function(){
-					alert("删除成功");
+					obj.pop.on("alert",{text:"删除成功"});
 					window.location.reload();
 					},function(e){
-					alert(JSON.stringify(e));
+					obj.pop.on("alert",{text:JSON.stringify(e)});
 					});
 				});	
 				$("#pop .right").unbind("tap").bind("tap",function(){
@@ -89,20 +95,30 @@
 				myScroll.refresh();
 				},200);
 			}
-			obj.api.at(function(at){
-				console.log('at='+at+'&jparam={"c"="'+data.type+'"'+data.search+'}');
-				obj.api.run("deal_list_get",'at='+at+'&jparam={"c"="'+data.type+'"'+data.search+'}',function(returnData){
-					console.log(returnData);
-					var list=[];
+			function getPage(callback){
+				obj.api.at(function(at){
+				console.log('at='+at+'&jparam={"c"="'+data.type+'","b"="'+page+'"'+data.search+'}');
+				obj.api.run("deal_list_get",'at='+at+'&jparam={"c"="'+data.type+'","b"="'+page+'"'+data.search+'}',function(returnData){
+					if(returnData.pn === page+""){
+					page++;
+					returnData=returnData.data;
 					var typeArry={"12":"出发地跟团","13":"目的地跟团"};
 					$.each(returnData,function(i,n){
-						list[i]={type:typeArry[n.e+""],state:n.i+"",title:n.f,start:n.l.split(" ")[0],end:n.m.split(" ")[0],price:n.n,last:n.r,id:n.a};
+					var list={type:typeArry[n.e+""],state:n.i+"",title:n.f,start:n.l.split(" ")[0],end:n.m.split(" ")[0],price:n.n,last:n.r,id:n.a};
+					result.push(list);
 						});
-					layout(list,at);
+					layout(result,at);
+					}
+					if(callback){callback();}
 					},function(e){
-					alert(JSON.stringify(e));
+					obj.pop.on("alert",{text:JSON.stringify(e)});
 					});
 				});
+				}
+			getPage();
+			obj.reflash.add("dealList",function(callback){
+			getPage(callback);
+			});	
 			}
 		});
 	})($,app,config);

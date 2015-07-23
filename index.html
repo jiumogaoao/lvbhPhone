@@ -56,7 +56,11 @@ var myScroll = new IScroll('#middle', { scrollbars: true,
 		interactiveScrollbars: true,
 		shrinkScrollbars: 'scale',
 		fadeScrollbars: true,
-		chechDOMChanges:true });
+		chechDOMChanges:true
+		 });
+myScroll.on('scrollEnd', function(){if(this.y === this.maxScrollY){
+	app.reflash.run();
+	}});
 function resize(){
 	if($(window).width()<$(window).height()){
 	$("html").css("font-size",$(window).width()*0.1);
