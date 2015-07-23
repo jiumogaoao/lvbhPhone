@@ -1,0 +1,46 @@
+<link href="css/deal_list.css" rel="stylesheet" rev="stylesheet" type="text/css"/>
+<% _.each(list,function(n){ %>
+<div class="deal_list account_list" lid="<%= n.id %>">
+	<div class="top">
+    	<div class="icon"><span class="fa fa-street-view"></span></div>
+        <div class="type"><%= n.type %> | </div>
+        <div class="state"><%= n.sub %></div>
+        <div class="clear"></div>
+    </div>
+    <div class="center">
+    	<div class="title"><%= n.title %></div>
+        <div class="clear"></div>
+        <div class="time"><%= n.dsc %></div>
+        <div class="deg"><span class="fa fa-angle-right"></span></div>
+        <div class="clear"></div>
+    </div>
+    <div class="bottom">
+    <% if(type=="2"||type=="3"||type=="4"){ %>
+    	<div class="tableDouble">
+        	<div class="head first"><%= n.table[0].head %></div>
+            <div class="head"><%= n.table[1].head %></div>
+            <div class="clear"></div>
+            <div class="main first"><%= n.table[0].main %></div>
+            <div class="main"><%= n.table[1].main %></div>
+            <div class="clear"></div>
+        </div>
+    <% }else{ %>
+    	<div class="tableThird">
+        	<div class="head first"><%= n.table[0].head %></div>
+            <div class="head"><%= n.table[1].head %></div>
+            <div class="head"><%= n.table[2].head %></div>
+            <div class="clear"></div>
+            <div class="main first"><%= n.table[0].main %></div>
+            <div class="main"><%= n.table[1].main %></div>
+            <div class="main"><%= n.table[2].main %></div>
+            <div class="clear"></div>
+        </div>
+    <% } %>
+    </div>
+</div>
+<% }) %>
+<script>
+	$(".deal_list").unbind("tap").bind("tap",function(){
+		window.location.hash="accountDetail/"+$(this).attr("lid");
+		});
+</script>

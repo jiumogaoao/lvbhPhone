@@ -69,3 +69,28 @@
 	font-size:.4rem;
 	color:#f33d3d;
 	}
+.deal_list.account_list .tableDouble,.deal_list.account_list .tableThird{
+	width:95%;
+	margin:auto;
+	margin-top:.5rem;
+	}
+.deal_list.account_list .head,.deal_list.account_list .main{
+	width:50%;
+	height:1rem;
+	line-height:1rem;
+	font-size:.5rem;
+	text-align:center;
+	float:left;
+	border-bottom:1px solid #dcdcdc;
+	border-right:1px solid #dcdcdc;}
+.deal_list.account_list .tableDouble .head,.deal_list.account_list .tableDouble .main{
+	width:50%}
+.deal_list.account_list .tableThird .head,.deal_list.account_list .tableThird .main{
+	width:33%}
+.deal_list.account_list .head{
+	border-top:1px solid #dcdcdc;}
+.deal_list.account_list .main{
+	color:#ff740c;}
+.deal_list.account_list .first{
+	border-left:1px solid #dcdcdc;
+	}
