@@ -1,0 +1,25 @@
+@charset "utf-8";
+/* CSS Document */
+.cash_message{
+	width:100%;}
+.cash_message .title{
+	font-size:.5rem;
+	margin-top:.5rem;
+	font-weight:bold;
+	text-indent:.5rem;}
+.cash_message .left{
+	font-size:.4rem;
+	float:left;
+	width:10%;
+	text-align:center;
+	margin-top:.5rem;
+	margin-left:.5rem;
+	line-height:.8rem;
+	color:#7c7c7c;}
+.cash_message .right{
+	font-size:.4rem;
+	float:left;
+	width:80%;
+	margin-top:.5rem;
+	line-height:.8rem;
+	color:#7c7c7c;}

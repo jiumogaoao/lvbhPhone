@@ -18,7 +18,7 @@
 				});
 			$(".simple_list").unbind("tap").bind("tap",function(){
 				if($(this).attr("lid")==="5"){
-					window.location.hash="inIndex";
+					window.location.hash="cashList/5";
 					}else{
 						window.location.hash="accountList/"+$(this).attr("lid");
 						}

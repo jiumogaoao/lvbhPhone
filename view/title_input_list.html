@@ -1,0 +1,17 @@
+<link href="css/title_input_list.css" rel="stylesheet" rev="stylesheet" type="text/css"/>
+<div class="title_input_list">
+<% _.each(list,function(n){ %>
+	<div class="point<% if(n.link){print(" link")} %>" name="<%= n.name %>">
+    	<div class="left"><%= n.left %></div>
+        <% if(!n.link){ %>
+        <div class="center"><input placeholder="<%= n.placehold %>" value="<%= n.value %>"/></div>
+        <% } %>
+        <% if(n.right){ %>
+        <div class="right"><%= n.right %></div>
+        <% } %>
+        <div class="clear"></div>
+    </div>
+<% }) %>
+	
+    
+</div>

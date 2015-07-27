@@ -2,7 +2,7 @@
 ;(function($,obj,config){
 	obj.control.set({
 		name:"accountList",
-		par:"type",
+		par:"type/search",
 		tem:["top_third","account_list"],
 		fn:function(data){
 			var result=[];
@@ -12,22 +12,6 @@
 				"12":"出发跟团",
 				"13":"目的跟团"
 				};
-			var stateArry={
-				"1":"待确认",
-				"2":"出游归来/已成交",
-				"2_1":"出游归来/已成交/待点评",
-				"2_2":"出游归来/已成交/已点评",
-				"4":"已确认/待签约支付",
-				"8":"已签约支付/待出游",
-				"16":"申请取消",
-				"32":"支付超时",
-				"64":"已取消/待退款",
-				"128":"已退款",
-				"256":"已取消订单",
-				"521":"已删除订单",
-				"1024":"支付中/待签约支付",
-				"2048":"退款中"
-				};
 			var dscArry=["返奖时间","返奖周期","返奖时间","交易时间","交易时间"];
 			var headArry=[
 				["奖金比例","奖金比例","取消违约金","订单编号","订单编号"],
@@ -35,13 +19,49 @@
 			]	
 			var head=_.template(data.tem[0])({left:"",center:titleArry[data.type],right:'<span class="fa fa-search"></span>查询'});
 			$("#head").html(head);
-			var list=[
-				{"type":typeArry["12"],"sub":stateArry["10086"]||"订单编号 "+"3424232","title":"sdfsdfs","dsc":dscArry[data.type]+"1天","table":[{head:"订单金额",main:"234234"},{head:headArry[0][data.type],main:"234234"},{head:headArry[1][data.type],main:"234234"}]},
-				{"type":typeArry["12"],"sub":stateArry["10086"]||"订单编号 "+"3424232","title":"sdfsdfs","dsc":dscArry[data.type]+"1天","table":[{head:"订单金额",main:"234234"},{head:headArry[0][data.type],main:"234234"},{head:headArry[1][data.type],main:"234234"}]},
-				{"type":typeArry["12"],"sub":stateArry["10086"]||"订单编号 "+"3424232","title":"sdfsdfs","dsc":dscArry[data.type]+"1天","table":[{head:"订单金额",main:"234234"},{head:headArry[0][data.type],main:"234234"},{head:headArry[1][data.type],main:"234234"}]},
-				{"type":typeArry["12"],"sub":stateArry["10086"]||"订单编号 "+"3424232","title":"sdfsdfs","dsc":dscArry[data.type]+"1天","table":[{head:"订单金额",main:"234234"},{head:headArry[0][data.type],main:"234234"},{head:headArry[1][data.type],main:"234234"}]},
-				{"type":typeArry["12"],"sub":stateArry["10086"]||"订单编号 "+"3424232","title":"sdfsdfs","dsc":dscArry[data.type]+"1天","table":[{head:"订单金额",main:"234234"},{head:headArry[0][data.type],main:"234234"},{head:headArry[1][data.type],main:"234234"}]}
-			]
+			function layout(result){
+			function dscTime(n){
+				if(data.type=="0"||data.type=="2"){
+					return n.i;
+					}else if(data.type=="3"){
+						return n.p||"";
+						}else if(data.type=="4"){
+							return n.g;
+							}else{
+							return "待会算（交易当前季度）";
+							}
+				}
+			function formSecond(n){
+				if(data.type=="0"||data.type=="1"){
+					return n.g;
+					}else if(data.type=="2"){
+						return n.n;
+						}else{
+							return n.a;
+							}
+				}
+			function subNum(n){
+				if(data.type=="3"){
+					return "已成交";
+					}else{
+						return "订单编号"+n.a;
+						}
+				}
+			function getId(n){
+				if(data.type=="4"){
+					return n.a;
+					}else{
+						return n.q;
+						}
+				}
+				var list=[];
+			$.each(result,function(i,n){
+				var addData={"type":n.c,"sub":subNum(n),"title":n.d,"dsc":dscArry[data.type]+dscTime(n),"table":[{head:"订单金额",main:n.e},{head:headArry[0][data.type],main:formSecond(n)}],"id":getId(n)}
+				if(data.type=="0"||data.type=="1"){
+					addData.table[2]={head:headArry[1][data.type],main:n.h}
+					}
+				list.push(addData);
+				})
 				var listA=_.template(data.tem[1])({
 				type:data.type,
 				list:list});
@@ -50,13 +70,25 @@
 				window.history.go(-1);
 				});
 			$(".top_third .rightButton").unbind("tap").bind("tap",function(){
-				window.location.hash="dealSearch/"+data.type;
+				window.location.hash="accountSearch/"+data.type;
 				});
 			
 			var delay=setTimeout(function(){
 				myScroll.refresh();
 				},200);
+				}
+			
+			function getIncome(at){
+				if(data.type=="3"||data.type=="4"){
+					var send='at='+at+'&jparam={"c"="'+(Number(data.type)-2)+'"'+(data.search||'')+'}';
+					obj.api.run("expend_get",send,layout,function(e){alert(JSON.stringify(e))});
+					}else{
+					var send='at='+at+'&jparam={"c"="'+data.type+'"'+(data.search||'')+'}';
+					obj.api.run("income_get",send,layout,function(e){alert(JSON.stringify(e))});
+						}
 				
+				}
+			obj.api.at(getIncome);	
 			
 			}
 		});

@@ -1,0 +1,12 @@
+@charset "utf-8";
+/* CSS Document */
+.balance{
+	background-color:#fff;
+	height:1.5rem;
+	line-height:1.5rem;
+	font-size:.45rem;
+	text-indent:.5rem;
+	}
+.balance .number{
+	color:#ff840c;
+	font-weight:bold;}

@@ -1,12 +1,14 @@
 <link href="css/collapse_list.css" rel="stylesheet" rev="stylesheet" type="text/css"/>
 <div class="collapse_list">
-	<% _.each(list,function(l){ %>
-    	<div class="list">
-            <div class="head">
+	<% _.each(list,function(l,num){ %>
+    	<div class="list<% if(num == 0){print(" hl")} %>">
+        <% if(l.title){ %>
+        	<div class="head">
                 <div class="title"><%= l.title %></div>
                 <div class="icon"><span class="fa fa-angle-right"></span></div>
                 <div class="clear"></div>
             </div>
+        <% } %>
             <div class="main">
             	<% _.each(l.group,function(g,i){ %>
                     <div class="group<% if(i!=l.group.length-1){print(" bd")} %><% if(g.hl){print(" link")} %>">

@@ -30,3 +30,24 @@
 .alert.confirm .left{
 	border-right:1px solid #dcdcdc;
 	background-color:#f6f6f6;}
+.alert.password .main{
+	position:relative;
+	height:2.5rem;}
+.alert.password .top{
+	position:absolute;
+	top:.5rem;
+	left:.9rem;
+	height:1.5rem;
+	width:90%;
+	background-color:transparent;
+	letter-spacing:.8rem;
+	line-height:1.5rem;
+	font-size:1.5rem;}
+.alert.password .bottom{
+	height:100%;
+	}
+.alert.password .point{
+	width:16.6%;
+	float:left;
+	border:1px solid #dcdcdc;
+	height:100%;}

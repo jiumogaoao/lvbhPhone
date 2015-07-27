@@ -1,0 +1,7 @@
+<link href="css/bank_list.css" rel="stylesheet" rev="stylesheet" type="text/css"/>
+<div class="bank_list">
+	<% _.each(list,function(n,i){ %>
+    <div class="button<% if(i==0){print(" hl")} %>" bid="<%= n.id %>"><%= n.name %></div>
+    <% }) %>
+	<div class="clear"></div>
+</div>

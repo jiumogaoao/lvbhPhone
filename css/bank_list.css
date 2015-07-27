@@ -1,0 +1,19 @@
+@charset "utf-8";
+/* CSS Document */
+.bank_list .button{
+	width:42%;
+	float:left;
+	margin-left:5%;
+	margin-top:.3rem;
+	line-height:1rem;
+	height:1rem;
+	text-align:center;
+	color:#959595;
+	background-color:#eeeeee;
+	border-radius:.1rem;
+	font-size:.4rem;
+	}
+.bank_list .button.hl{
+	background-color:#ff840c;
+	color:#fff;
+	}

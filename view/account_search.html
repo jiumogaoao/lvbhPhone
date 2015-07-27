@@ -1,0 +1,47 @@
+<link href="css/deal_search.css" rel="stylesheet" rev="stylesheet" type="text/css"/>
+<div class="deal_search account_search">
+	<div class="title"><%= dateTitle %>：</div>
+    
+    <% if(type != "1"){ %>
+    <div class="date_frame">
+    	<input id="g" type="date"/>至<input id="h" type="date"/>
+    </div>    
+    <% }else{ %>
+    <div class="button_frame" id="round">
+    	<div class="button_four hl" g="<%= new Date().getFullYear() %>-01-01" h="<%= new Date().getFullYear() %>-03-31">一季度</div>
+        <div class="button_four" g="<%= new Date().getFullYear() %>-04-01" h="<%= new Date().getFullYear() %>-06-30">二季度</div>
+        <div class="button_four" g="<%= new Date().getFullYear() %>-07-01" h="<%= new Date().getFullYear() %>-09-30">三季度</div>
+        <div class="button_four" score="",\"g\"=\"<%= new Date().getFullYear() %>-10-01\",\"h\"=\"<%= new Date().getFullYear() %>-12-31\""">四季度</div>
+        <div class="clear"></div>
+    </div>
+    <% } %>
+    	
+    <div class="title">产品类别：</div>
+    
+    
+    <% if(type != "5"){ %>
+    <div class="button_frame" id="e">	
+    	<div class="button_both hl" score="12">出发地跟团游</div>
+        <div class="button_both" score="13">目的地跟团游</div>
+    <% }else{ %>
+    <div class="button_frame" id="f">
+    	<div class="button_both hl" score="1">已申请</div>
+        <div class="button_both" score="2">已处理</div>
+    <% } %>
+        <div class="clear"></div>
+    </div>
+    
+    <% if(type != "5"){ %>
+    	<div class="title">产品名称：</div>
+        <div class="button_frame">
+            <input id="i" type="text" placeholder="请输入产品名称"/>
+        </div>
+    <% } %>
+    
+</div>
+<script>
+	$(".button_both,.button_single").unbind("tap").bind("tap",function(){
+		$(this).parents(".button_frame").find(".button_both,.button_single").removeClass("hl");
+		$(this).addClass("hl");
+		});
+</script>
