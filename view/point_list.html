@@ -1,0 +1,16 @@
+<link href="css/point_list.css" rel="stylesheet" rev="stylesheet" type="text/css"/>
+<div class="point_list">
+<div class="total">账户积分 <span class="org"><%= total %>分</span></div>
+<div class="title">积分记录</div>
+<div class="list">
+<% _.each(list,function(n){ %>
+<div class="point">
+	<div class="name"><%= n.name %></div>
+    <div class="time"><%= n.time %></div>
+    <div class="scroe org">+<%= n.scroe %></div>
+</div>
+<% }) %>
+
+
+</div>
+</div>

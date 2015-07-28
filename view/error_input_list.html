@@ -1,0 +1,16 @@
+<link href="css/error_input_list.css" rel="stylesheet" rel="stylesheet" type="text/css"/>
+<div class="error_input_list">
+<% _.each(list,function(n){ %>
+<div class="point">
+    <div class="title"><%= n.title||"" %></div>
+    <div class="error"><%= n.err||"" %></div>
+    <input placeholder="<%= n.placeholder||"" %>" value="<%= n.value||"" %>" name="<%= n.name||"" %>" type="<%= n.type||"" %>"/>
+</div>
+<% }) %>
+
+</div>
+<script>
+$(".error_input_list input").unbind("focus").bind("focus",function(){
+	$(this).parent().removeClass("err");
+	});
+</script>
