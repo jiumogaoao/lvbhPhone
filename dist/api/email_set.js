@@ -1,1 +1,1 @@
-/*! This is uglify test - 2015-07-23 */app.api.add("email_set",config.sour+"home/mes.jspx",null,"post");
+app.api.add("email_set",config.sour+"home/mes.jspx",null,"post");

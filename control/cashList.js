@@ -9,15 +9,14 @@
 			var page=1;	
 			var head=_.template(data.tem[0])({left:"",center:"提现",right:'<span class="fa fa-search"></span>查询'});
 			$("#head").html(head);
-			function layout(result){
-				var list=[]
-			$.each(result,function(i,n){
-				var addData={"sub":"提现编号 "+n.a,"dsc":"提现时间"+n.f,"table":[{head:"提现金额",main:n.g},{head:"提现税费",main:n.h},{head:"实际提现",main:n.i}],"id":n.a}
-				list.push(addData);
+			function layout(list,at){
+			$.each(list,function(i,n){
+				var addData={"sub":"提现编号 "+n.a,"dsc":"提现时间"+n.f,"table":[{head:"提现金额",main:n.g},{head:"提现税费",main:n.h},{head:"实际提现",main:n.i}],"id":n.a};
+				result.push(addData);
 				});
 				var listA=_.template(data.tem[1])({
 				type:data.type,
-				list:list});
+				list:result});
 			$("#scroller").html(listA);
 			$(".top_third .leftButton").unbind("tap").bind("tap",function(){
 				window.history.go(-1);
@@ -33,9 +32,22 @@
 			
 			
 			function getIncome(at){
-				var send='at='+at+'&jparam={"c"="0"'+(data.search||'')+'}';
-					obj.api.run("expend_get",send,layout,function(e){alert(JSON.stringify(e))});
-				};	
+				function getPage(callback){
+					var send='at='+at+'&jparam={"c"="0"'+(data.search||'')+',"b"="'+page+'"}';
+					obj.api.run("expend_get",send,function(list){
+						if(list.pn === page+""){
+					page++;
+					list=list.data;
+						layout(list,at);
+						}
+						if(callback){callback();}
+						},function(e){alert(JSON.stringify(e));});
+					}
+				getPage();
+			obj.reflash.add("cashList",function(callback){
+			getPage(callback);
+			});	
+				}
 			obj.api.at(getIncome);	
 			}
 		});

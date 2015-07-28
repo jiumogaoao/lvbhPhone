@@ -18,16 +18,16 @@
 				window.history.go(-1);
 				});
 			$("#cashButton").unbind("tap").bind("tap",function(){
-				window.location.hash="cashInput"
+				window.location.hash="cashInput";
 				});
 			myScroll.refresh();
 				}
 			function getAccount(at){
 				var send='at='+at;
 				obj.api.run("account_get",send,layout,function(e){
-					alert(JSON.stringify(e))
+					alert(JSON.stringify(e));
 					});
-				};
+				}
 			obj.api.at(getAccount);
 			
 			

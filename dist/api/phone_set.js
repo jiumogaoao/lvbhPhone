@@ -1,1 +1,1 @@
-/*! This is uglify test - 2015-07-23 */app.api.add("phone_set",config.sour+"user/mms.jspx",null,"post");
+app.api.add("phone_set",config.sour+"user/mms.jspx",null,"post");

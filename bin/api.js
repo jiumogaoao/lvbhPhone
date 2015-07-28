@@ -51,7 +51,7 @@
 										}else{
 											suc(api[name].cache);
 											}*/
-									if(name === "deal_list_get"){
+									if(name === "deal_list_get"||name === "expend_get"||name === "income_get"){
 										suc(returnData);
 										}else{
 										suc(returnData.data||returnData);	

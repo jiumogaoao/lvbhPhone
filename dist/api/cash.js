@@ -1,1 +1,1 @@
-/*! This is uglify test - 2015-07-23 */app.api.add("cash",config.sour+"account/expend.jspx",null,"post");
+app.api.add("cash",config.sour+"account/expend.jspx",null,"post");

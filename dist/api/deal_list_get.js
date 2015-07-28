@@ -1,1 +1,1 @@
-/*! This is uglify test - 2015-07-23 */app.api.add("deal_list_get",config.sour+"order/getlist.jspx",null,"get");
+app.api.add("deal_list_get",config.sour+"order/getlist.jspx",null,"get");

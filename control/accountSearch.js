@@ -38,7 +38,7 @@
 				if($("#i").length&&$("#i").val()){
 					searchString+=',"i"="'+$("#i").val()+'"';
 					}
-				if(data.type=="5"){
+				if(data.type === "5"){
 					window.location.hash="cashList/"+data.type+"/"+searchString;
 					}else{
 						window.location.hash="accountList/"+data.type+"/"+searchString;

@@ -1,1 +1,1 @@
-/*! This is uglify test - 2015-07-23 */app.api.add("deal_detail",config.sour+"order/getordermsg.jspx",null,"post");
+app.api.add("deal_detail",config.sour+"order/getordermsg.jspx",null,"post");

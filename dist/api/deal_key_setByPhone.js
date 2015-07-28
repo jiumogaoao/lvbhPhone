@@ -1,1 +1,1 @@
-/*! This is uglify test - 2015-07-23 */app.api.add("deal_key_setByPhone",config.sour+"home/mas.jspx",null,"post");
+app.api.add("deal_key_setByPhone",config.sour+"home/mas.jspx",null,"post");

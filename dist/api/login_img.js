@@ -1,1 +1,1 @@
-/*! This is uglify test - 2015-07-23 */app.api.add("login_img",config.sour+"user/v.jspx",null,"post");
+app.api.add("login_img",config.sour+"user/v.jspx",null,"post");

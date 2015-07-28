@@ -1,1 +1,1 @@
-/*! This is uglify test - 2015-07-23 */app.api.add("forget",config.sour+"user/res.jspx",null,"post");
+app.api.add("forget",config.sour+"user/res.jspx",null,"post");

@@ -1,1 +1,1 @@
-/*! This is uglify test - 2015-07-23 */app.api.add("user_get",config.sour+"center/getuserinfo.jspx",null,"post");
+app.api.add("user_get",config.sour+"center/getuserinfo.jspx",null,"post");

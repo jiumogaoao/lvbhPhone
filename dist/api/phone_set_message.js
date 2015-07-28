@@ -1,1 +1,1 @@
-/*! This is uglify test - 2015-07-23 */app.api.add("phone_set_message",config.sour+"home/mmv.jspx",null,"post");
+app.api.add("phone_set_message",config.sour+"home/mmv.jspx",null,"post");

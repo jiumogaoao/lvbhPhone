@@ -2,7 +2,7 @@
 ;(function($,obj,config){
 	obj.control.set({
 		name:"bankList",
-		par:"",
+		par:"name/card/money/dsc",
 		tem:["top_second","bank_list"],
 		fn:function(data){
 			var head=_.template(data.tem[0])({left:"",center:"选择银行"});
@@ -31,6 +31,9 @@
 			$(".top_third .leftButton").unbind("tap").bind("tap",function(){
 				window.history.go(-1);
 				});
+			$(".bank_list .button").unbind("tap").bind("tap",function(){
+	window.location.hash="#cashInput/"+(data.name||"")+"/"+(data.card||"")+"/"+($(this).html()||"")+"/"+(data.money||"")+"/"+(data.dsc||"");
+	});
 			myScroll.refresh();
 			}
 		});

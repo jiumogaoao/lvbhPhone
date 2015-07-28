@@ -36,10 +36,10 @@
 			function getAccount(at){
 				var send='at='+at;
 				obj.api.run("account_get",send,layout,function(e){
-					alert(JSON.stringify(e))
+					alert(JSON.stringify(e));
 					});
-				};
-			obj.api.at(getAccount)
+				}
+			obj.api.at(getAccount);
 			}
 		});
 	})($,app,config);
