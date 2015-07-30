@@ -6,6 +6,8 @@
 	outline:none;
 	border:0px;
 	box-sizing:border-box;}
+body{
+	background-color:#eeeeee;}
 #head{
 	background-color:#009eff;
 	height:1.5rem;
@@ -36,7 +38,6 @@
 	top: 1.5rem;
 	bottom: 0rem;
 	left: 0;
-	background-color:#F5F6FD;
 	width:100%;
 	overflow:hidden;
 	-webkit-transform: translateZ(0);

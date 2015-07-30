@@ -25,3 +25,25 @@
 	right:.5rem;
 	font-size:.6rem;
 	}
+.top_third .top_nav{
+	width: 55%;
+  margin: auto;
+  margin-top: .25rem;
+  border: 2px solid #fff;
+  border-radius: 2rem;
+  height: 1rem;
+  color: #fff;
+  overflow:hidden;
+	}
+.top_third .top_nav a{
+	display:block;
+	width:50%;
+	float:left;
+	line-height:1rem;
+	text-align:center;
+	color:#fff;
+	text-decoration:none;}
+.top_third .top_nav a.hl{
+	background-color:#fff;
+	color:#009eff;
+	}
