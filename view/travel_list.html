@@ -1,0 +1,48 @@
+<link href="css/travel_list.css" rel="stylesheet" rev="stylesheet" type="text/css"/>
+<div class="travel_list <% if(type=="1"){print(" edit")} %>">
+	<% _.each(list,function(n){ %>
+<div class="point" pid="<%= n.id %>">
+<% if(type=="1"){ %>
+	<div class="left">
+    	<span class="fa fa-circle-o"></span>
+    </div>
+<% } %>
+	<div class="right">
+    	<div class="top">
+        <div class="title"><%= n.title %></div>
+        <div class="clear"></div>
+        <div class="place"><span class="fa fa-map-marker"></span>苏州</div>
+        <div class="tag">园林</div>
+        <div class="tag">休闲</div>
+        <div class="clear"></div>
+    	<img src="<%= n.image %>"/>
+        </div>
+        <div class="bottom">
+        	<div class="bottomL">
+            	<span class="fa fa-thumbs-o-up"></span> <%= n.pra %>
+            </div>
+            <div class="bottomC">
+            	<span class="fa fa-star-o"></span> <%= n.star %>
+            </div>
+            <div class="bottomR">
+            	<span class="fa fa-twitch"></span> <%= n.com %>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+</div>
+<% }) %>
+</div>
+<script>
+$(".travel_list.edit .left").unbind("tap").bind("tap",function(){
+	if(!$(this).data("choose")){
+		$(this).data("choose",true);
+		$(this).find(".fa").removeClass("fa-circle-o");
+		$(this).find(".fa").addClass("fa-dot-circle-o");
+		}else{
+			$(this).data("choose",false);
+		$(this).find(".fa").removeClass("fa-dot-circle-o");
+		$(this).find(".fa").addClass("fa-circle-o");
+			}
+	});
+</script>

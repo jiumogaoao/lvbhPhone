@@ -1,0 +1,46 @@
+<link href="css/product_list.css" rel="stylesheet" rev="stylesheet" type="text/css"/>
+<div class="product_list<% if(type=="1"){print(" edit")} %>">
+<% _.each(list,function(n){ %>
+<div class="point" pid="<%= n.id %>">
+<% if(type=="1"){ %>
+	<div class="left">
+    	<span class="fa fa-circle-o"></span>
+    </div>
+<% } %>
+	<div class="right">
+    	<div class="top">
+        	<img class="topL" src="<%= n.image %>"/>
+            <div class="topR">
+            	<div class="title">&lt;<%= n.title %>&gt;</div>
+                <div class="dsc"><%= n.dsc %></div>
+                <div class="money"><span class="red">￥<%= n.price %></span>起 <del>￥<%= n.old %></del></div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="bottom">
+        	<div class="bottomL">
+            	<span class="fa fa-star-o"></span> <%= n.star %>
+            </div>
+            <div class="bottomR">
+            	<span class="fa fa-twitch"></span> <%= n.com %>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+</div>
+<% }) %>
+
+</div>
+<script>
+$(".product_list.edit .left").unbind("tap").bind("tap",function(){
+	if(!$(this).data("choose")){
+		$(this).data("choose",true);
+		$(this).find(".fa").removeClass("fa-circle-o");
+		$(this).find(".fa").addClass("fa-dot-circle-o");
+		}else{
+			$(this).data("choose",false);
+		$(this).find(".fa").removeClass("fa-dot-circle-o");
+		$(this).find(".fa").addClass("fa-circle-o");
+			}
+	});
+</script>
