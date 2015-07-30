@@ -1,0 +1,16 @@
+<link href="css/group_member.css" rel="stylesheet" rev="stylesheet" type="text/css"/>
+<div class="group_member">
+<% _.each(list,function(n,i){ %>
+	<div class="point">
+		<img src="<%= config.sour+"sns/tpu.jspx?a=2&b="+n.code+"&c="+n.image %>"/>
+        <div class="name"><%= n.name %></div>
+        <div class="number"><span class="fa fa-users"></span> <%= n.fans %></div>
+        <div class="number"><span class="fa fa-jpy"></span> <%= n.money %></div>
+        <div class="deg">
+        	<div class="bg"></div>
+            <div class="font"><%= i+1 %></div>
+        </div>
+	</div>
+<% }) %>
+<div class="clear"></div>
+</div>

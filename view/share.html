@@ -1,0 +1,20 @@
+<link href="css/alert.css" rel="stylesheet" rev="stylesheet" type="text/css"/>
+<div class="alert share">
+	<div class="main">
+    	<% _.each(list,function(n){ %>
+        	<div class="point">
+            	<img class="icon" src="<%= n.image %>"/>
+                <div class="name"><%= n.name %></div>
+            </div>
+        <% }) %>
+        <div class="clear"></div>
+    </div>
+    <div class="buttonFrame">
+    <div class="button">取消</div>
+    </div>
+</div>
+<script>
+	$(".alert .button").unbind("tap").bind("tap",function(){
+		app.bottom.off();
+		})
+</script>

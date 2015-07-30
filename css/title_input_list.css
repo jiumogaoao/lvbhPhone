@@ -10,7 +10,7 @@
 	width:100%;
 	margin:auto;
 	border-bottom:1px solid #dcdcdc;
-	height:1.5rem;
+	min-height:1.5rem;
 	line-height:1.5rem;
 	position:relative;
 	color:#7c7c7c;}
@@ -32,3 +32,6 @@
 	right:.5rem;
 	font-size:.5rem;
 	color:#7c7c7c;}
+.title_input_list .dsc{
+	font-size:.4rem;
+	}

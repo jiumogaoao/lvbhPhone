@@ -1,0 +1,8 @@
+<link href="css/input_single.css" rel="stylesheet" rel="stylesheet" type="text/css"/>
+<div class="input_single">
+<% if(type==0){ %>
+	<input class="main" value="<%= value||"" %>" placeholder="<%= placeholder||"" %>"/>
+<% }else{ %>
+	<textarea class="main" placeholder="<%= placeholder||"" %>"><%= value||"" %></textarea>
+<% } %>
+</div>

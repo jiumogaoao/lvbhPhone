@@ -14,9 +14,9 @@
 				$.each(list,function(i,n){
 					var add={"image":n.e,"name":n.c,"fans":n.i,"money":n.g,"id":n.a,"code":n.b};
 					result.push(add);
-					})
-				var list=_.template(data.tem[1])({at:at,list:result});
-			$("#scroller").html(list);
+					});
+				var listA=_.template(data.tem[1])({at:at,list:result});
+			$("#scroller").html(listA);
 			$(".top_third .leftButton").unbind("tap").bind("tap",function(){
 				window.history.go(-1);
 				});

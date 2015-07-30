@@ -6,7 +6,7 @@
         <% if(!n.link){ %>
         <div class="center">
         <% if(n.type=="simple"){ %>
-        <%= n.value %>
+        <div class="dsc"><%= n.value %></div>
         <% }else{ %>
         <input placeholder="<%= n.placehold %>" value="<%= n.value %>"/>
        <% } %>

@@ -107,3 +107,10 @@ body{
 	display:none;
 	z-index:101;
 	}
+#bottomFrame{
+	position:absolute;
+	bottom:0px;
+	left:0px;
+	z-index:101;
+	width:100%;
+	}
