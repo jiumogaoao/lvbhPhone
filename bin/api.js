@@ -51,7 +51,7 @@
 										}else{
 											suc(api[name].cache);
 											}*/
-									if(name === "deal_list_get"||name === "expend_get"||name === "income_get"||name === "point_get"||name === "group_member_get"){
+									if(name === "deal_list_get"||name === "expend_get"||name === "income_get"||name === "point_get"||name === "group_member_get"||name === "collect_get"||name === "travel_get"){
 										suc(returnData);
 										}else{
 										suc(returnData.data||returnData);	
@@ -95,7 +95,10 @@
 	obj.run=function(name,data,suc,err){
 		run(name,data,suc,err);
 		};
-	obj.at=function(fn){
+	obj.at=function(fn,input){
+		if(input){
+			app.cookies("at",{at:input});
+			}
 		if(app.cookies("at")){
 			fn(app.cookies("at").at);
 			}else{

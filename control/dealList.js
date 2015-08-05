@@ -2,7 +2,7 @@
 ;(function($,obj,config){
 	obj.control.set({
 		name:"dealList",
-		par:"type",
+		par:"type/at",
 		tem:["top_third","deal_list"],
 		fn:function(data){
 			var result=[];
@@ -109,7 +109,7 @@
 					},function(e){
 					obj.pop.on("alert",{text:JSON.stringify(e)});
 					});
-				});
+				},data.at);
 			}
 			getPage();
 			obj.reflash.add("dealList",function(callback){

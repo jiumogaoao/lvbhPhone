@@ -7,7 +7,26 @@
 			hash=location.hash.replace("#","");
 			}
 		var hashArry=hash.split("/");
-		function runRoute(){	
+		function runRoute(){
+			app.pop.off();
+			if(hashArry[0]==="index"){
+				$("#foot").empty();
+				$("#foot").show();
+				$("#head").height("3rem");
+					$("#middle").css({
+						top:"3rem",
+						bottom:"1.5rem"
+						});
+				}else{
+					$("#foot").empty();
+					$("#foot").hide();
+					$("#head").height("1.5rem");
+					$("#middle").css({
+						top:"1.5rem",
+						bottom:"0rem"
+						});
+					
+					}
 				var dataObj={};
 				if(routeArry[hashArry[0]].par){
 					var dataArry=routeArry[hashArry[0]].par.split("/");

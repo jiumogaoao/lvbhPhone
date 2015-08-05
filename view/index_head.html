@@ -1,0 +1,57 @@
+<link href="css/index_head.css" rel="stylesheet" rev="stylesheet" type="text/css"/>
+<div class="index_head">
+	<div class="main">
+    <div class="left">
+    	<span id="place">深圳站</span> <span class="fa fa-angle-down"></span>
+        <select>
+        	<option value="0">深圳站</option>
+            <option value="1">南京站</option>
+        </select>
+    </div>
+    <div class="center">
+    	<input/>
+        <div class="searchButton">
+        	<span class="fa fa-search"></span>
+        </div>
+    </div>
+    <div class="right">
+    	<span class="fa fa-phone"></span>
+    </div>
+    <div class="clear"></div>
+    </div>
+	
+    <div class="bg">
+    	<div class="bgR">
+        	<img src="http://"/>
+            <img src="http://"/>
+            <img src="http://"/>
+            <img src="http://"/>
+            <div class="clear"></div>
+        </div>
+        <div class="pointFrame">
+        	<div class="point hl"></div>
+            <div class="point"></div>
+            <div class="point"></div>
+            <div class="point"></div>
+            <div class="clear"></div>
+        </div>
+    </div>	
+</div>
+<script>
+;(function(){
+	var num=0;
+	var delay=setInterval(function(){
+		if(num!=3){
+			num++;
+			}else{
+				num=0;
+				}
+			$(".index_head .bgR").animate({"left":"-"+num+"00%"});
+			$(".index_head .point").removeClass("hl");
+			$(".index_head .point").eq(num).addClass("hl");
+		},2000);
+	$(".index_head select").unbind("change").bind("change",function(){
+		$("#place").html($(this).find("[value='"+$(this).val()+"']").html());
+		})
+	})();
+</script>

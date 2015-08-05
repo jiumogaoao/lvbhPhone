@@ -1,0 +1,29 @@
+<link href="css/travel_edit.css" rel="stylesheet" rev="stylesheet" type="text/css"/>
+<div class="travel_edit">
+	<div class="point">
+    	<div class="top">
+            <img src="http://"/>
+            <textarea></textarea>
+            <div class="clear"></div>
+            <div class="addPic">添加图片<input class="addPicInput" type="file"/></div>
+            <div class="clear"></div>
+        </div>
+    	<div class="bottom">
+        	<div class="delect">删除</div>
+            <div class="clear"></div>
+        </div>
+    </div>
+</div>
+<script>
+		function preview2(file) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                var $img = $("[name='icon'] img").attr("src", e.target.result);
+            };
+            reader.readAsDataURL(file);
+        }
+			 $("[name='icon'] input").change(function(e) {
+                var file = e.target.files[0];
+                preview2(file);
+            });
+</script>

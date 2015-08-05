@@ -2,7 +2,7 @@
 ;(function($,obj,config){
 	obj.control.set({
 		name:"groupSet",
-		par:"",
+		par:"at",
 		tem:["top_second","title_input_list"],
 		fn:function(data){
 			var head=_.template(data.tem[0])({left:"",center:"圈子设置"});
@@ -75,7 +75,7 @@
 					alert(JSON.stringify(e));
 					});
 				}
-			obj.api.at(getGroup);	
+			obj.api.at(getGroup,data.at);	
 			}
 		});
 	})($,app,config);

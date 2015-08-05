@@ -1,1 +1,1 @@
-!function(a,b,c){b.control.set({name:"index",par:"a/b/f/e/k",tem:["dsc","download"],fn:function(b){a("#main").html(b.tem[0]),a("#downLoad").html(b.tem[1]),myScroll.refresh()}})}($,app,config);
+!function(a,b,c){b.control.set({name:"index",par:"",tem:["foot_nav","index_head","index_nav","product_group_list"],fn:function(b){a("#head").html(b.tem[1]),a("#scroller").html(b.tem[2]+b.tem[3]),a("#foot").html(b.tem[0]);setTimeout(function(){myScroll.refresh()},200)}})}($,app,config);

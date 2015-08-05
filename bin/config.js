@@ -1,5 +1,5 @@
 // JavaScript Document
-var sourArry=["http://120.24.169.127:48080/","http://m.lvbh.cn/"];
+var sourArry=["http://112.74.25.12:48080/","http://m.lvbh.cn/"];
 var config={
 	sour:sourArry[0],
 	loadingOn:function(){

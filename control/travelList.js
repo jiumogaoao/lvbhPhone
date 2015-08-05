@@ -2,71 +2,109 @@
 ;(function($,obj,config){
 	obj.control.set({
 		name:"travelList",
-		par:"type",
-		tem:["top_third","travel_list","single_button"],
+		par:"nav/type",
+		tem:["top_third","travel_list","second_button","nav_third"],
 		fn:function(data){
 			var result=[];
 			var page=1;
 			var titleArry=["管理","取消"];
+			var navArry=[
+			'<div class="newButton"><span class="fa fa-pencil-square-o"></span></div><div class="clear"></div>',
+			'<div class="newButton"><span class="fa fa-pencil-square-o"></span></div><div class="clear"></div>',
+			'<div class="newButton"><span class="fa fa-pencil-square-o"></span></div><div class="manageButton">'+titleArry[data.type]+'</div><div class="clear"></div>'
+			];
 			var pageArry=["1","0"];
-			var head=_.template(data.tem[0])({left:"",center:"游记",right:titleArry[data.type]});
+			var typeArry=["2","8","1"];
+			var head=_.template(data.tem[0])({left:"",center:"游记",right:navArry[data.nav]});
+			var nav=_.template(data.tem[3])({left:{text:"已发布"},center:{text:"审核中"},right:{text:"草稿箱"}});
 			$("#head").html(head);
+			$("#head .newButton").css({float:"right"});
+			$("#head .manageButton").css({float:"right","margin-right":".2rem"});
 			function layout(list,at){
 			var listA=_.template(data.tem[1])({
 				type:data.type,
 				list:list
 				});	
-			var button=_.template(data.tem[2])({text:"取消收藏",id:"send"});
-			if(data.type=="0"){
-				$("#scroller").html(listA);
+			var button=_.template(data.tem[2])({left:"删除",right:"提交审核"});
+			if(data.type === "0"){
+				$("#scroller").html(nav+listA);
 				}else{
-					$("#scroller").html(listA+button);
-					$("#send").unbind("tap").bind("tap",function(){
-						window.location.hash="productList/0";
+					$("#scroller").html(nav+listA+button);
+					$(".third_button #left").unbind("tap").bind("tap",function(){
+						
+						var remove="";
+				$(".travel_list .hl").each(function(i){
+					remove+=$(this).attr("pid");
+					if(i !== ($(".travel_list .hl").length-1)){
+						remove+="-";
+						}
+					});
+				obj.api.run("travel_remove",'at='+at+'&a='+remove,function(){
+					window.location.hash="travelList/2/0";
+					},function(e){
+					alert(JSON.stringify(e));
+					});
+						
+						});
+					$(".third_button #right").unbind("tap").bind("tap",function(){
+						var remove="";
+				$(".travel_list .hl").each(function(i){
+					remove+=$(this).attr("pid");
+					if(i !== ($(".travel_list .hl").length-1)){
+						remove+="-";
+						}
+					});
+				obj.api.run("travel_commit",'at='+at+'&a='+remove,function(){
+					window.location.hash="travelList/2/0";
+					},function(e){
+					alert(JSON.stringify(e));
+					});
 						});
 					}
-			
+			$(".nav_third .nav_point_frame").eq(data.nav).addClass("hl");
+			$(".nav_third #left").unbind("tap").bind("tap",function(){
+				window.location.hash="travelList/0/0";
+				});
+			$(".nav_third #center").unbind("tap").bind("tap",function(){
+				window.location.hash="travelList/1/0";
+				});
+			$(".nav_third #right").unbind("tap").bind("tap",function(){
+				window.location.hash="travelList/2/0";
+				});
 			$(".top_third .leftButton").unbind("tap").bind("tap",function(){
 				window.history.go(-1);
 				});
-			$(".top_third .rightButton").unbind("tap").bind("tap",function(){
-				window.location.hash="productList/"+pageArry[data.type];
+			$(".top_third .manageButton").unbind("tap").bind("tap",function(){
+				window.location.hash="travelList/2/"+pageArry[data.type];
 				});
+			if(data.nav==="2"&&data.type==="1"){
+				$(".travel_list .right").unbind("tap").bind("tap",function(){
+				window.location.hash="travelEdit/"+$(this).parents(".point").attr("pid");
+				});
+				}
+			
 			var delay=setTimeout(function(){
 				myScroll.refresh();
 				},200);
 				}
 			function getPage(callback){
 			obj.api.at(function(at){
-				var list=[
-				{image:"http://",title:"毛里求斯-塞舌尔7晚9点自助游",dsc:"毛求洲际，塞舌尔凯宾斯基。",price:"9999",old:"10299",star:"123",com:"123",id:"1"},
-				{image:"http://",title:"毛里求斯-塞舌尔7晚9点自助游",dsc:"毛求洲际，塞舌尔凯宾斯基。",price:"9999",old:"10299",star:"123",com:"123",id:"2"},
-				{image:"http://",title:"毛里求斯-塞舌尔7晚9点自助游",dsc:"毛求洲际，塞舌尔凯宾斯基。",price:"9999",old:"10299",star:"123",com:"123",id:"3"},
-				{image:"http://",title:"毛里求斯-塞舌尔7晚9点自助游",dsc:"毛求洲际，塞舌尔凯宾斯基。",price:"9999",old:"10299",star:"123",com:"123",id:"4"},
-				{image:"http://",title:"毛里求斯-塞舌尔7晚9点自助游",dsc:"毛求洲际，塞舌尔凯宾斯基。",price:"9999",old:"10299",star:"123",com:"123",id:"5"}
-				]
-				layout(list);
-				if(callback){callback();}
-				return false;
-				obj.api.run("deal_list_get",'at='+at+'&jparam={"c"="'+data.type+'","b"="'+page+'"}',function(returnData){
-				if(returnData.pn === page+""){
-					page++;
-					returnData=returnData.data;
-					var typeArry={"12":"出发地跟团","13":"目的地跟团"};
+				obj.api.run("travel_get",'at='+at+'&c='+typeArry[data.nav]+'&a='+page,function(returnData){
+					if(returnData.pn === page+""){
+						page++;
+						returnData=returnData.data;
 					$.each(returnData,function(i,n){
-						var list={type:typeArry[n.e+""],state:n.i+"",title:n.f,start:n.l.split(" ")[0],end:n.m.split(" ")[0],price:n.n,last:n.r,id:n.a};
-						result.push(list);
+						var add={image:n.e,title:n.f,place:n.g,tag:n.m,pra:n.j,star:n.i,com:n.h,id:n.c,gid:n.d};
+					result.push(add);
 						});
-					layout(result,at);
-					}
+						layout(result,at);
+						}
 					if(callback){callback();}
-					},function(e){
-					obj.pop.on("alert",{text:JSON.stringify(e)});
-					});
+					},function(e){alert(JSON.stringify(e));});
 				});
 			}
 			getPage();
-			obj.reflash.add("productList",function(callback){
+			obj.reflash.add("travelList",function(callback){
 			getPage(callback);
 			});
 			}

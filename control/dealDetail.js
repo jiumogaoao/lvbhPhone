@@ -2,7 +2,7 @@
 ;(function($,obj,config){
 	obj.control.set({
 		name:"dealDetail",
-		par:"id",
+		par:"id/at",
 		tem:["top_second","collapse_list"],
 		fn:function(data){
 			var head=_.template(data.tem[0])({left:"",center:"跟团游订单"});
@@ -16,9 +16,14 @@
 			$(".simple_list").unbind("tap").bind("tap",function(){
 				window.location.hash="dealList/"+$(this).attr("lid");
 				});
-			myScroll.refresh();
+				
+			var delay=setTimeout(function(){
+				myScroll.refresh();
+				},200);
+			
 				}
-			obj.api.at(function(at){
+			function getData(at){
+				
 				obj.api.run("deal_detail",'at='+at+'&a='+data.id,function(returnData){
 					var typeArry={"12":"出发地跟团","13":"目的地跟团"};
 					var stateArry={
@@ -155,7 +160,9 @@
 					},function(e){
 					obj.pop.on("alert",{text:JSON.stringify(e)});
 					});
-				});
+				
+				}
+			obj.api.at(getData,data.at);
 			}
 		});
 	})($,app,config);

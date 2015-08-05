@@ -14,10 +14,10 @@
 			]});
 			$("#scroller").html(list);
 			$("[name='product']").unbind("tap").bind("tap",function(){
-				window.location.hash="productList/0";
+				window.location.hash="collectProductList/0";
 				});
 			$("[name='travel']").unbind("tap").bind("tap",function(){
-				window.location.hash="travelList/0";
+				window.location.hash="collectTravelList/0";
 				});
 			$(".top_third .leftButton").unbind("tap").bind("tap",function(){
 				window.history.go(-1);
