@@ -9,7 +9,7 @@
 		var hashArry=hash.split("/");
 		function runRoute(){
 			app.pop.off();
-			if(hashArry[0]==="index"){
+			if(hashArry[0]==="index"||hashArry[0]==="foundIndex"||hashArry[0]==="vipIndex"||hashArry[0]==="mineIndex"){
 				$("#foot").empty();
 				$("#foot").show();
 				$("#head").height("3rem");

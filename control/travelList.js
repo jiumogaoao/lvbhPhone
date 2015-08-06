@@ -9,9 +9,9 @@
 			var page=1;
 			var titleArry=["管理","取消"];
 			var navArry=[
-			'<div class="newButton"><span class="fa fa-pencil-square-o"></span></div><div class="clear"></div>',
-			'<div class="newButton"><span class="fa fa-pencil-square-o"></span></div><div class="clear"></div>',
-			'<div class="newButton"><span class="fa fa-pencil-square-o"></span></div><div class="manageButton">'+titleArry[data.type]+'</div><div class="clear"></div>'
+			'<div class="newButton"><span class="fa fa-edit"></span></div><div class="clear"></div>',
+			'<div class="newButton"><span class="fa fa-edit"></span></div><div class="clear"></div>',
+			'<div class="newButton"><span class="fa fa-edit"></span></div><div class="manageButton">'+titleArry[data.type]+'</div><div class="clear"></div>'
 			];
 			var pageArry=["1","0"];
 			var typeArry=["2","8","1"];

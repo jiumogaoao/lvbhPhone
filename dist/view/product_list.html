@@ -4,7 +4,7 @@
 <div class="point" pid="<%= n.id %>">
 <% if(type=="1"){ %>
 	<div class="left">
-    	<span class="fa fa-circle-o"></span>
+    	<span class="fa fa-radio"></span>
     </div>
 <% } %>
 	<div class="right">
@@ -19,10 +19,10 @@
         </div>
         <div class="bottom">
         	<div class="bottomL">
-            	<span class="fa fa-star-o"></span> <%= n.star %>
+            	<span class="fa fa-star"></span> <%= n.star %>
             </div>
             <div class="bottomR">
-            	<span class="fa fa-twitch"></span> <%= n.com %>
+            	<span class="fa fa-comment"></span> <%= n.com %>
             </div>
             <div class="clear"></div>
         </div>
@@ -35,13 +35,11 @@
 $(".product_list.edit .left").unbind("tap").bind("tap",function(){
 	if(!$(this).data("choose")){
 		$(this).data("choose",true);
-		$(this).find(".fa").removeClass("fa-circle-o");
-		$(this).find(".fa").addClass("fa-dot-circle-o");
+		$(this).find(".fa").addClass("hl");
 		$(this).parents(".point").addClass("hl");
 		}else{
 			$(this).data("choose",false);
-		$(this).find(".fa").removeClass("fa-dot-circle-o");
-		$(this).find(".fa").addClass("fa-circle-o");
+		$(this).find(".fa").removeClass("hl");
 		$(this).parents(".point").removeClass("hl");
 			}
 	});

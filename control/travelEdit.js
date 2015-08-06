@@ -9,7 +9,7 @@
 			$("#head").html(head);
 			function layout(returnData,at){
 				var list=[
-				{name:"place",left:"目的地",right:'<span class="fa fa-angle-right"></span>',link:true},
+				{name:"place",left:"目的地",right:'<span class="fa fa-right"></span>',link:true},
 				{name:"title",left:"标题",right:'<input placeholder="请输入标题"/>',link:true},
 				{name:"talk",left:"说说这次旅行",link:true}
 				];

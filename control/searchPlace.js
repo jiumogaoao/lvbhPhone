@@ -5,38 +5,8 @@
 		par:"",
 		tem:["top_second","search_place","tap_right"],
 		fn:function(data){
-			var placeList={
-				now:"深圳",
-				place:{
-					"A":[{name:"AA",id:""}],
-					"B":[{name:"BB",id:""}],
-					"C":[{name:"CC",id:""}],
-					"D":[{name:"DD",id:""}],
-					"E":[{name:"EE",id:""}],
-					"F":[{name:"FF",id:""}],
-					"G":[{name:"GG",id:""}],
-					"H":[{name:"HH",id:""}],
-					"I":[{name:"II",id:""}],
-					"J":[{name:"JJ",id:""}],
-					"K":[{name:"KK",id:""}],
-					"L":[{name:"LL",id:""}],
-					"M":[{name:"MM",id:""}],
-					"N":[{name:"NN",id:""}],
-					"O":[{name:"OO",id:""}],
-					"P":[{name:"PP",id:""}],
-					"Q":[{name:"QQ",id:""}],
-					"R":[{name:"RR",id:""}],
-					"S":[{name:"SS",id:""}],
-					"T":[{name:"TT",id:""}],
-					"U":[{name:"UU",id:""}],
-					"V":[{name:"VV",id:""}],
-					"W":[{name:"WW",id:""}],
-					"X":[{name:"XX",id:""}],
-					"Y":[{name:"YY",id:""}],
-					"Z":[{name:"ZZ",id:""}]
-				}
-				};
-			var tag=_.template(data.tem[2])(placeList);
+			function layout(at,list){
+				var tag=_.template(data.tem[2])(list);
 			$("#otherFrame").html(tag);
 			$(".tap").unbind("tap").bind("tap",function(){
 				myScroll.scrollToElement($(".title[index='"+$(this).html()+"']")[0]);
@@ -52,7 +22,7 @@
 			$("#otherFrame").show();
 			var head=_.template(data.tem[0])({left:"",center:"选择城市"});
 			$("#head").html(head);
-			var searchList=_.template(data.tem[1])(placeList);
+			var searchList=_.template(data.tem[1])(list);
 			$("#scroller").html(searchList);
 			$(".top_third .leftButton").unbind("tap").bind("tap",function(){
 				window.history.go(-1);
@@ -65,6 +35,60 @@
 				$(this).addClass("hl");
 				});
 			var delay=setTimeout(function(){myScroll.refresh();},200);
+				}
+			
+			
+			function place(at,now){
+				obj.api.run("city_getAll","at="+at,function(returnData){
+					var placeList={
+				input:true,	
+				title:true,	
+				now:now.c,
+				place:{
+					"A":{title:"A",main:[]},
+					"B":{title:"B",main:[]},
+					"C":{title:"C",main:[]},
+					"D":{title:"D",main:[]},
+					"E":{title:"E",main:[]},
+					"F":{title:"F",main:[]},
+					"G":{title:"G",main:[]},
+					"H":{title:"H",main:[]},
+					"I":{title:"I",main:[]},
+					"J":{title:"J",main:[]},
+					"K":{title:"K",main:[]},
+					"L":{title:"L",main:[]},
+					"M":{title:"M",main:[]},
+					"N":{title:"N",main:[]},
+					"O":{title:"O",main:[]},
+					"P":{title:"P",main:[]},
+					"Q":{title:"Q",main:[]},
+					"R":{title:"R",main:[]},
+					"S":{title:"S",main:[]},
+					"T":{title:"T",main:[]},
+					"U":{title:"U",main:[]},
+					"V":{title:"V",main:[]},
+					"W":{title:"W",main:[]},
+					"X":{title:"X",main:[]},
+					"Y":{title:"Y",main:[]},
+					"Z":{title:"Z",main:[]}
+				}
+				};
+					$.each(returnData,function(i,n){
+						placeList.place[n.f[0]].main.push({name:n.b,id:n.a});
+						});
+					layout(at,placeList);
+					},function(e){
+					alert(e);
+					});
+				}
+			function now(at){
+				obj.api.run("city_get_now","at="+at,function(returnData){
+					place(at,returnData);
+					},function(e){
+					alert(e);
+					});
+				}
+			obj.api.at(now);
 			}
 		});
 	})($,app,config);

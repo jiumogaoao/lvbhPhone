@@ -8,10 +8,15 @@
 	width:25%;
 	float:left;
 	color:#7c7c7c;}
+.foot_nav .point.hl{
+	color:#009eff;}
 .foot_nav .icon{
 	font-size:.8rem;
 	text-align:center;
 	line-height:.9rem;}
+.foot_nav .icon .fa{
+	position:relative;
+	top:.1rem;}
 .foot_nav .name{
 	font-size:.3rem;
 	text-align:center;

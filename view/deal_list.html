@@ -2,7 +2,7 @@
 <% _.each(list,function(n){ %>
 <div class="deal_list" lid="<%= n.id %>">
 	<div class="top">
-    	<div class="icon"><span class="fa fa-street-view"></span></div>
+    	<div class="icon"><span class="fa fa-place3"></span></div>
         <div class="type"><%= n.type %> | </div>
         <div class="state"><% if(n.state=="4"){print("已确认/待签约支付")}
         else if(n.state=="1"){print("已提交/待确认")}
@@ -25,7 +25,7 @@
     	<div class="title"><%= n.title %></div>
         <div class="clear"></div>
         <div class="time">服务起止 <%= n.start %> - <%= n.end %></div>
-        <div class="deg"><span class="fa fa-angle-right"></span></div>
+        <div class="deg"><span class="fa fa-right"></span></div>
         <div class="clear"></div>
     </div>
     <div class="bottom">

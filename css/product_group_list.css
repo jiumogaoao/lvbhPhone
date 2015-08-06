@@ -11,7 +11,7 @@
 	line-height:1rem;
 	margin-left:.2rem;}
 .product_group_list .icon{
-	font-size:.6rem;
+	font-size:.5rem;
 	float:right;
 	line-height:1rem;
 	margin-right:.2rem;
@@ -38,5 +38,11 @@
 	float:right;
 	font-size:.4rem;
 	margin-top:.2rem;
-	margin-right:.3rem;
+	margin-right:.35rem;
 	}
+.product_group_list .red{
+	color:#fe6061;}
+.product_group_list .blue{
+	color:#4fb7f6;}
+.product_group_list .xl{
+	font-size:.6rem;}

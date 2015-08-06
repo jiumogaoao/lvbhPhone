@@ -1,23 +1,31 @@
 <link href="css/search_place.css" rel="stylesheet" rev="stylesheet" type="text/css"/>
 <div class="search_place">
-	<div class="frame">
+<% if(input){ %>
+<div class="frame">
     	<input id="search"/>
         <div class="icon"><span class="fa fa-search"></span></div>
     </div>
+<% } %>
+	
+    
     <div class="main">
+    <% if(now){ %>
         	<div class="list">
             	<div class="title">当前定位城市</div>
                 <div class="result">
-                	<div class="mark"><span class="fa fa-map-marker"></span></div>
+                	<div class="mark"><span class="fa fa-place2"></span></div>
                     <div class="now"><%= now %></div>
                     <div class="clear"></div>
                 </div>
             </div>
+            <% } %>
             <% _.each(place,function(value,index){ %>
             <div class="list">
-            	<div class="title" index="<%= index %>"><%= index %></div>
+            <% if(title){ %>
+            	<div class="title" index="<%= index %>"><%= value.title %></div>
+                <% } %>
                 <div class="result">
-                	<% _.each(value,function(n){ %>
+                	<% _.each(value.main,function(n){ %>
                     <div class="point"><%= n.name %><div class="deg"></div><div class="choosed"><span class="fa fa-check"></span></div></div>
                     <% }) %>
                     <div class="clear"></div>

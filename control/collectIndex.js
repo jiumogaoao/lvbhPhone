@@ -9,8 +9,8 @@
 			$("#head").html(head);
 			function layout(result){
 			var list=_.template(data.tem[1])({list:[
-			{name:"product",left:"产品",link:true,right:'<span class="fa fa-angle-right"></span>'},
-			{name:"travel",left:"游记",link:true,right:'<span class="fa fa-angle-right"></span>'}
+			{name:"product",left:"产品",link:true,right:'<span class="fa fa-right"></span>'},
+			{name:"travel",left:"游记",link:true,right:'<span class="fa fa-right"></span>'}
 			]});
 			$("#scroller").html(list);
 			$("[name='product']").unbind("tap").bind("tap",function(){

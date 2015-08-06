@@ -9,13 +9,13 @@
 			$("#head").html(head);
 			function layout(result){
 				var list=[
-				{name:"icon",left:"头像",right:'<img id="groupIcon" src="'+config.sour+'sns/tpu.jspx?a=1&b='+result.a+'&c='+result.f+'"/><span class="fa fa-angle-right"></span><input type="file" id="upload"/>',link:true},
+				{name:"icon",left:"头像",right:'<img id="groupIcon" src="'+config.sour+'sns/tpu.jspx?a=1&b='+result.a+'&c='+result.f+'"/><span class="fa fa-right"></span><input type="file" id="upload"/>',link:true},
 				{name:"id",left:"圈子ID",right:result.a,link:true},
-				{name:"name",left:"名称",right:result.c+' <apan class="fa fa-angle-right"></span>',link:true},
-				{name:"word",left:"宣言",right:result.d+' <apan class="fa fa-angle-right"></span>',link:true},
-				{name:"dsc",left:"介绍",right:'<apan class="fa fa-angle-right"></span>',link:true},
-				{name:"group",left:"加入的圈子",right:'<apan class="fa fa-angle-right"></span>',link:true},
-				{name:"invite",left:"分享与邀请",right:'<apan class="fa fa-angle-right"></span>',link:true},
+				{name:"name",left:"名称",right:result.c+' <apan class="fa fa-right"></span>',link:true},
+				{name:"word",left:"宣言",right:result.d+' <apan class="fa fa-right"></span>',link:true},
+				{name:"dsc",left:"介绍",right:'<apan class="fa fa-right"></span>',link:true},
+				{name:"group",left:"加入的圈子",right:'<apan class="fa fa-right"></span>',link:true},
+				{name:"invite",left:"分享与邀请",right:'<apan class="fa fa-right"></span>',link:true},
 				];
 				var listA=_.template(data.tem[1])({list:list});
 			$("#scroller").html(listA);

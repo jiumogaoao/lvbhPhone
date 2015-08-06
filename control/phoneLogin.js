@@ -9,7 +9,7 @@
 			$("#head").html(head);
 			var nav=_.template(data.tem[1])({left:{text:"普通登录",hl:false},right:{text:"手动动态密码登录",hl:true}});
 			var list=_.template(data.tem[2])({list:[
-				{"name":"user","placehold":"请输入手机号","icon":"fa-user","value":"","other":""},
+				{"name":"user","placehold":"请输入手机号","icon":"fa-man","value":"","other":""},
 				{"name":"key","placehold":"请输入动态密码","icon":"fa-lock","value":"","other":"<span style='font-size:.5rem;display:block;'>发送动态密码</span>"}
 			]});
 			var button=_.template(data.tem[3])({"text":"登录","id":"loginButton"});

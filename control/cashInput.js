@@ -12,7 +12,7 @@
 				var list=_.template(data.tem[2])({list:[
 				{"name":"name","placehold":"请输入开户名","value":data.name||"","left":"开户名"},
 				{"name":"number","placehold":"请输入卡号","value":data.card||"","left":"卡号"},
-				{"name":"bank","placehold":"请输入右侧验证码","value":"","right":'<span class="result">'+(data.bank||"请选择银行")+'</span>'+' <span class="fa fa-angle-right"></span>',"left":"银行","link":true},
+				{"name":"bank","placehold":"请输入右侧验证码","value":"","right":'<span class="result">'+(data.bank||"请选择银行")+'</span>'+' <span class="fa fa-right"></span>',"left":"银行","link":true},
 				{"name":"money","placehold":"本次最多可提xxxx元，限100的倍数。","value":data.money||"","left":"金额"},
 				{"name":"dsc","placehold":"填写您对本次提现的备注说明","value":data.dsc||"","left":"备注"}
 			]});

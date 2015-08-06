@@ -1,28 +1,49 @@
 <link href="css/foot_nav.css" rel="stylesheet" rev="stylesheet" type="text/css"/>
 <div class="foot_nav">
+
 	<div class="point">
     	<div class="icon">
         	<span class="fa fa-home"></span>
         </div>
         <div class="name">首页</div>
     </div>
+
     <div class="point">
     	<div class="icon">
-        <span class="fa fa-bullseye"></span>
+        <span class="fa fa-found"></span>
         </div>
         <div class="name">发现</div>
     </div>
+
+
     <div class="point">
     	<div class="icon">
-        <span class="fa fa-bullseye"></span>
+        <span class="fa fa-group"></span>
         </div>
         <div class="name">达人圈</div>
     </div>
+
+
     <div class="point">
     	<div class="icon">
-        <span class="fa fa-user"></span>
+        <span class="fa fa-mine"></span>
         </div>
         <div class="name">我的</div>
     </div>
+
     <div class="clear"></div>
 </div>
+<script>
+$(".foot_nav .point").eq(0).unbind("tap").bind("tap",function(){
+	window.location.hash="index";
+	})
+$(".foot_nav .point").eq(1).unbind("tap").bind("tap",function(){
+	window.location.hash="foundIndex";
+	})
+$(".foot_nav .point").eq(2).unbind("tap").bind("tap",function(){
+	window.location.hash="vipIndex";
+	})
+$(".foot_nav .point").eq(3).unbind("tap").bind("tap",function(){
+	window.location.hash="mineIndex";
+	})
+</script>

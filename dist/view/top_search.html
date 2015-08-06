@@ -1,0 +1,20 @@
+<link href="css/top_third.css" rel="stylesheet" rev="stylesheet" type="text/css"/>
+<div class="top_third top_search">
+	<div class="leftButton"><%= left||'<span class="fa fa-back"></span>' %></div>
+    <div class="center">
+    	<input/>
+        <div class="dropdown">
+        <select>
+        	<option value="0">达人圈</option>
+            <option value="1">出发地跟团</option>
+            <option value="2">目的地跟团</option>
+        </select>
+        <%= value %> <span class="fa fa-down"></span>
+        </div>
+    </div>
+</div>
+<script>
+	$(".top_third select").unbind("change").bind("change",function(){
+		window.location.hash="searchIndex/"+$(this).val()+"/0";
+		})
+</script>

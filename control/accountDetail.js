@@ -10,11 +10,10 @@
 			$("#head").html(head);
 			function layout(result){
 				if(data.type === "0"||data.type === "1"||data.type === "2"||data.type === "3"){
-					result=_.indexBy(result,"q")[data.id];
-					}else if(data.type ==="4"){
-						result=_.indexBy(result,"l")[data.id];
-						}else{
-							result=_.indexBy(result,"a")[data.id];
+					result=_.indexBy(result.data,"q")[data.id];
+			
+					}else{
+							result=_.indexBy(result.data,"a")[data.id];
 							}
 				var dataFn=[
 				function(result){

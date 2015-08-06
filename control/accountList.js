@@ -5,6 +5,12 @@
 		par:"type/search",
 		tem:["top_third","account_list"],
 		fn:function(data){
+			var titleArry=["产品体验奖励","渠道体验奖励","取消订单退回","成交订单","取消订单支出","提现"];
+			var dscArry=["返奖时间","返奖周期","返奖时间","成交订单","交易时间","提现时间"];
+			var headArry=[
+			["奖金比例","奖金比例","取消违约金","订单编号","取消违约金","提现税费","实际提现"],
+			["奖金金额","奖金金额","","","","",""]
+			];
 			var result=[];
 			var page=1;
 			var head=_.template(data.tem[0])({left:"",center:titleArry[data.type],right:'<span class="fa fa-search"></span>查询'});
