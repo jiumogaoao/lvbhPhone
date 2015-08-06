@@ -1,10 +1,10 @@
 @font-face {
 	font-family: 'icomoon';
-	src:url('../fonts/icomoon.eot?kpjqcv');
-	src:url('../fonts/icomoon.eot?#iefixkpjqcv') format('embedded-opentype'),
-		url('../fonts/icomoon.ttf?kpjqcv') format('truetype'),
-		url('../fonts/icomoon.woff?kpjqcv') format('woff'),
-		url('../fonts/icomoon.svg?kpjqcv#icomoon') format('svg');
+	src:url('../fonts/icomoon.eot?-x0g9b9');
+	src:url('../fonts/icomoon.eot?#iefix-x0g9b9') format('embedded-opentype'),
+		url('../fonts/icomoon.ttf?-x0g9b9') format('truetype'),
+		url('../fonts/icomoon.woff?-x0g9b9') format('woff'),
+		url('../fonts/icomoon.svg?-x0g9b9#icomoon') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -23,6 +23,30 @@
 	-moz-osx-font-smoothing: grayscale;
 }
 
+.fa-clown:before {
+	content: "\e627";
+}
+.fa-heart:before {
+	content: "\e628";
+}
+.fa-tree:before {
+	content: "\e629";
+}
+.fa-older:before {
+	content: "\e62a";
+}
+.fa-plane:before {
+	content: "\e62b";
+}
+.fa-build:before {
+	content: "\e62c";
+}
+.fa-cake:before {
+	content: "\e62d";
+}
+.fa-diamond:before {
+	content: "\e62e";
+}
 .fa-check:before {
 	content: "\e626";
 }

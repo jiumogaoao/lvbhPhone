@@ -9,7 +9,7 @@
 		var hashArry=hash.split("/");
 		function runRoute(){
 			app.pop.off();
-			if(hashArry[0]==="index"||hashArry[0]==="foundIndex"||hashArry[0]==="vipIndex"||hashArry[0]==="mineIndex"){
+			if(hashArry[0]==="index"||hashArry[0]==="vipIndex"||hashArry[0]==="mineIndex"){
 				$("#foot").empty();
 				$("#foot").show();
 				$("#head").height("3rem");
@@ -17,7 +17,15 @@
 						top:"3rem",
 						bottom:"1.5rem"
 						});
-				}else{
+				}else if(hashArry[0]==="foundIndex"){
+					$("#foot").empty();
+				$("#foot").show();
+				$("#head").height("1.5rem");
+					$("#middle").css({
+						top:"1.5rem",
+						bottom:"1.5rem"
+						});
+					}else{
 					$("#foot").empty();
 					$("#foot").hide();
 					$("#head").height("1.5rem");

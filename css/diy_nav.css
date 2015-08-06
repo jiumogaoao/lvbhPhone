@@ -1,0 +1,26 @@
+@charset "utf-8";
+/* CSS Document */
+.diy_nav{
+	width:100%;
+	height:100%;}
+.diy_nav .point{
+	width:100%;
+	height:12.5%;
+	text-align:center;
+	color:#8f8f8f;
+	background-color:#f2fbff;
+	border-bottom:1px solid #e5e5e5;
+	border-right:1px solid #e5e5e5;}
+.diy_nav .point.nb{
+	border-bottom:0px;}
+.diy_nav .point.hl{
+	background-color:#fff;
+	border-right:0px;
+	border-left:4px solid #019fff;
+	color:#019fff;}
+.diy_nav .point .icon{
+	font-size:.8rem;
+	padding-top:.3rem;}
+.diy_nav .point .title{
+	font-size:.4rem;
+	}
