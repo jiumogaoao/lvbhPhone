@@ -21,10 +21,9 @@
 	
     <div class="bg">
     	<div class="bgR">
-        	<img src="http://"/>
-            <img src="http://"/>
-            <img src="http://"/>
-            <img src="http://"/>
+        <% _.each(list,function(n){ %>
+        	<img src="<%= n %>"/>
+        <% }) %>
             <div class="clear"></div>
         </div>
         <div class="pointFrame">

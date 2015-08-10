@@ -12,9 +12,9 @@
 			if(hashArry[0]==="index"||hashArry[0]==="vipIndex"||hashArry[0]==="mineIndex"){
 				$("#foot").empty();
 				$("#foot").show();
-				$("#head").height("3rem");
+				$("#head").height("4rem");
 					$("#middle").css({
-						top:"3rem",
+						top:"4rem",
 						bottom:"1.5rem"
 						});
 				}else if(hashArry[0]==="foundIndex"){

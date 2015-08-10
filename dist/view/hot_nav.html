@@ -1,0 +1,13 @@
+<link href="css/hot_nav.css" rel="stylesheet" rev="stylesheet" type="text/css"/>
+<div class="hot_nav">
+	<div class="mian">
+    	<% _.each(list,function(n){ %>
+        	<div class="point" style="width:<% print(200/list.length) %>%;"><%= n %></div>
+        <% }) %>
+        <div class="clear"></div>
+    </div>
+    <div class="button">
+    	<span class="fa fa-right"></span>
+    </div>
+    <div class="clear"></div>
+</div>

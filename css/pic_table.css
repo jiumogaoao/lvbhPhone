@@ -3,7 +3,7 @@
 .pic_table{
 	width:100%;
 	position:relative;
-	height:15.7rem;
+	height:16.7rem;
 	}
 .pic_table .frame{
 	color:#fff;
@@ -31,57 +31,50 @@
 	left:0rem;}
 .pic_table .frame_1{
 	width:4.9rem;
-	height:3.5rem;
+	height:4.4rem;
 	position:absolute;
 	top:5.2rem;
 	left:0rem;
 	}
 .pic_table .frame_2{
 	width:4.9rem;
-	height:2.7rem;
+	height:3rem;
 	position:absolute;
 	top:0rem;
 	left:5.1rem;
 	}
 .pic_table .frame_3{
 	width:4.9rem;
-	height:2.7rem;
+	height:3rem;
 	position:absolute;
-	top:3rem;
+	top:3.3rem;
 	left:5.1rem;
 	}
 .pic_table .frame_4{
 	width:4.9rem;
-	height:2.7rem;
+	height:3rem;
 	position:absolute;
-	top:6rem;
+	top:6.6rem;
 	left:5.1rem;
 	}
 .pic_table .frame_5{
 	width:10rem;
 	height:3.5rem;
 	position:absolute;
-	top:8.9rem;
+	top:9.8rem;
 	left:0rem;
 	}
 .pic_table .frame_6{
-	width:4.9rem;
+	width:10rem;
 	height:3rem;
 	position:absolute;
-	top:12.6rem;
+	top:13.5rem;
 	left:0rem;
 	}
-.pic_table .frame_7{
-	width:4.9rem;
-	height:3rem;
-	position:absolute;
-	top:12.6rem;
-	left:5.1rem;
-	}
-.pic_table .frame_0 .icon{
+.pic_table .frame_0 .icon,.pic_table .frame_1 .icon{
 	margin-top:1.6rem;
 	}
-.pic_table .frame_1 .icon,.pic_table .frame_5 .icon,.pic_table .frame_6 .icon,.pic_table .frame_7 .icon{
+.pic_table .frame_5 .icon,.pic_table .frame_6 .icon,.pic_table .frame_7 .icon{
 	margin-top:1rem;
 	}
 .pic_table .frame_2 .icon,.pic_table .frame_3 .icon,.pic_table .frame_4 .icon{

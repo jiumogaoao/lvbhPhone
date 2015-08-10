@@ -23,6 +23,78 @@
 	-moz-osx-font-smoothing: grayscale;
 }
 
+.fa-type:before {
+	content: "\e644";
+}
+.fa-collect:before {
+	content: "\e645";
+}
+.fa-share:before {
+	content: "\e646";
+}
+.fa-car:before {
+	content: "\e641";
+}
+.fa-camera:before {
+	content: "\e642";
+}
+.fa-water:before {
+	content: "\e643";
+}
+.fa-groupB:before {
+	content: "\e62f";
+}
+.fa-comment3:before {
+	content: "\e630";
+}
+.fa-flower:before {
+	content: "\e631";
+}
+.fa-date:before {
+	content: "\e632";
+}
+.fa-sell:before {
+	content: "\e633";
+}
+.fa-build2:before {
+	content: "\e634";
+}
+.fa-list:before {
+	content: "\e635";
+}
+.fa-plane2:before {
+	content: "\e636";
+}
+.fa-bus:before {
+	content: "\e637";
+}
+.fa-train:before {
+	content: "\e638";
+}
+.fa-diner:before {
+	content: "\e639";
+}
+.fa-boat:before {
+	content: "\e63a";
+}
+.fa-comment2:before {
+	content: "\e63b";
+}
+.fa-travel:before {
+	content: "\e63c";
+}
+.fa-note:before {
+	content: "\e63d";
+}
+.fa-nopay:before {
+	content: "\e63e";
+}
+.fa-finish:before {
+	content: "\e63f";
+}
+.fa-phone2:before {
+	content: "\e640";
+}
 .fa-clown:before {
 	content: "\e627";
 }

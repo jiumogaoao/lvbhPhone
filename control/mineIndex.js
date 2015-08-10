@@ -31,14 +31,14 @@
 			];
 			var list=_.template(data.tem[3])({list:main});
 			var group=_.template(data.tem[4])({list:[
-			{image:"http://",name:"圈子成员",fans:"2",money:"2"},
-			{image:"http://",name:"圈子成员",fans:"2",money:"2"},
-			{image:"http://",name:"圈子成员",fans:"2",money:"2"},
-			{image:"http://",name:"圈子成员",fans:"2",money:"2"},
-			{image:"http://",name:"圈子成员",fans:"2",money:"2"},
-			{image:"http://",name:"圈子成员",fans:"2",money:"2"},
-			{image:"http://",name:"圈子成员",fans:"2",money:"2"},
-			{image:"http://",name:"圈子成员",fans:"2",money:"2"}
+			{image:config.sour+"sns/tpu.jspx?a=2&b=0&c="+"http://",name:"圈子成员",fans:"2",money:"2"},
+			{image:config.sour+"sns/tpu.jspx?a=2&b=0&c="+"http://",name:"圈子成员",fans:"2",money:"2"},
+			{image:config.sour+"sns/tpu.jspx?a=2&b=0&c="+"http://",name:"圈子成员",fans:"2",money:"2"},
+			{image:config.sour+"sns/tpu.jspx?a=2&b=0&c="+"http://",name:"圈子成员",fans:"2",money:"2"},
+			{image:config.sour+"sns/tpu.jspx?a=2&b=0&c="+"http://",name:"圈子成员",fans:"2",money:"2"},
+			{image:config.sour+"sns/tpu.jspx?a=2&b=0&c="+"http://",name:"圈子成员",fans:"2",money:"2"},
+			{image:config.sour+"sns/tpu.jspx?a=2&b=0&c="+"http://",name:"圈子成员",fans:"2",money:"2"},
+			{image:config.sour+"sns/tpu.jspx?a=2&b=0&c="+"http://",name:"圈子成员",fans:"2",money:"2"}
 			]});
 			$("#scroller").html(data.tem[2]+list+group);
 			$("#scroller .group_member").css({

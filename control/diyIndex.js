@@ -10,13 +10,13 @@
 				center:"主题游"
 				});
 			$("#head").html(head);
+			$("#head .leftButton").unbind("click").bind("click",function(){
+				window.history.go(-1);
+				});
 			$("#head .center").css("font-size",".5rem");
-			var list=_.template(data.tem[3])({list:[
-			{main:[
-				{image:"http://",name:"昆明大理丽江6天温泉SPA尊品美食团",price:"3380",place:"深圳"},
-					{image:"http://",name:"昆明大理丽江6天温泉SPA尊品美食团",price:"3380",place:"深圳"},
-					{image:"http://",name:"昆明大理丽江6天温泉SPA尊品美食团",price:"3380",place:"深圳"}
-			]}
+			function layout(main){
+				var list=_.template(data.tem[3])({list:[
+			{main:main}
 			]});
 			$("#scroller").html(data.tem[1]+list+'<div class="clear"></div>');
 			$(".product_group_list").css({
@@ -24,6 +24,12 @@
 				float:"right",
 				"background-color":"#fff"
 				});
+				var delay=setTimeout(function(){
+				myScroll.refresh();
+				},300);
+				}
+			
+				
 			$("#otherFrame").html(data.tem[2]);
 			$("#otherFrame").css({
 				"position":"fixed",
@@ -36,9 +42,20 @@
 				});
 			$("#otherFrame").show();
 			$("#otherFrame [num='"+data.type+"']").addClass("hl");
-			var delay=setTimeout(function(){
-				myScroll.refresh();
-				},200);
+			
+			function getList(at){
+				obj.api.run("diy_get","d="+data.type,function(returnData){
+					var main=[];
+					$.each(returnData,function(i,n){
+						var addData={image:"http://"+n.e,name:n.b,price:n.d,place:n.f,id:n.a};
+						main.push(addData);
+						});
+					layout(main);
+					},function(e){
+					alert(JSON.stringify(e));
+					});
+				}
+			obj.api.at(getList);
 			}
 		});
 	})($,app,config);

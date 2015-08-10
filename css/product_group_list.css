@@ -19,11 +19,12 @@
 .product_group_list .point{
 	width:95%;
 	margin:auto;
-	padding-bottom:.4rem;}
+	padding-bottom:.4rem;
+	position:relative;}
 .product_group_list img{
 	display:block;
 	margin:auto;
-	max-width:100%;
+	width:100%;
 	min-height:2rem;}
 .product_group_list .name{
 	font-size:.5rem;
@@ -46,3 +47,16 @@
 	color:#4fb7f6;}
 .product_group_list .xl{
 	font-size:.6rem;}
+.product_group_list .tag{
+	font-size:.4rem;
+	color:#fff;
+	padding:.1rem;
+	border-radius:.6rem;
+	position:absolute;
+	top:.2rem;
+	left:.2rem;}
+.product_group_list .date{
+	font-size:.4rem;
+	margin-top: .2rem;
+  	margin-left: .3rem;
+	color:#a3a3a3;}

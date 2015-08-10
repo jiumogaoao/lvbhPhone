@@ -1,8 +1,8 @@
 <link href="css/group_member.css" rel="stylesheet" rev="stylesheet" type="text/css"/>
 <div class="group_member">
 <% _.each(list,function(n,i){ %>
-	<div class="point">
-		<img src="<%= config.sour+"sns/tpu.jspx?a=2&b="+n.code+"&c="+n.image %>"/>
+	<div class="point" gid="<%= n.id %>">
+		<img src="<%= n.image %>"/>
         <div class="name"><%= n.name %></div>
         <div class="number"><span class="fa fa-member"></span> <%= n.fans %></div>
         <div class="number"><span class="fa fa-money2"></span> <%= n.money %></div>

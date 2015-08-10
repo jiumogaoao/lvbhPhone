@@ -1,0 +1,27 @@
+@charset "utf-8";
+/* CSS Document */
+.hot_nav{
+	width:100%;
+	background-color:#fff;
+	color:#878787;}
+.hot_nav .mian{
+	float:left;
+	width:9rem;
+	height:2rem;}
+.hot_nav .button{
+	float:left;
+	width:1rem;
+	height:2rem;
+	line-height:2rem;
+	border:1px solid #dcdcdc;
+	text-align:center;
+	font-size:.4rem;
+	}
+.hot_nav .point{
+	height:1rem;
+	border:1px solid #dcdcdc;
+	text-align:center;
+	line-height:1rem;
+	float:left;
+	font-size:.3rem;}
+
