@@ -3,7 +3,7 @@
 	obj.control.set({
 		name:"productDetail",
 		par:"id",
-		tem:["top_third","nav_third","product_top"],
+		tem:["top_third","nav_third","product_top","product_center","nav_third","product_bottom"],
 		fn:function(data){
 
 			var head=_.template(data.tem[0])({
@@ -15,9 +15,9 @@
 			$("#head .leftButton").unbind("click").bind("click",function(){
 				window.history.go(-1);
 				});
-			
-			$("#scroller").html(data.tem[2]);
-
+			var nav=_.template(data.tem[4])({left:{text:"产品特色",hl:true},center:{text:"详细行程"},right:{text:"费用说明"}});
+			$("#scroller").html(data.tem[2]+data.tem[3]+nav+data.tem[5]);
+			$(".nav_third").css("margin-top",".2rem");
 			var delay=setTimeout(function(){
 				myScroll.refresh();
 				},200);

@@ -23,6 +23,9 @@
 	-moz-osx-font-smoothing: grayscale;
 }
 
+.fa-close:before {
+	content: "\e647";
+}
 .fa-type:before {
 	content: "\e644";
 }

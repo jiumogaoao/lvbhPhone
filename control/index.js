@@ -22,7 +22,7 @@
 			$("#foot .point").eq(0).addClass("hl");
 			var delay=setTimeout(function(){
 				myScroll.refresh();
-				},200);
+				},2000);
 			function getMessage(at){
 				var main=[
 					{title:"出发地跟团-国内精选",main:[]},

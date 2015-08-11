@@ -55,6 +55,12 @@
 	position:absolute;
 	top:.2rem;
 	left:.2rem;}
+.product_group_list .tag_1{
+	background-color:#ffb54c;}
+.product_group_list .tag_2{
+	background-color:#39bf71;}
+.product_group_list .tag_3{
+	background-color:#ff544c;}
 .product_group_list .date{
 	font-size:.4rem;
 	margin-top: .2rem;

@@ -19,7 +19,7 @@
                 <div class="place"><%= x.place %></div>
                 <div class="clear"></div>
                 <% if(x.tag){ %>
-                    <div class="tag" style="background-color:<%= x.tag.color %>;"><%= x.tag.name %></div>
+                    <div class="tag <%= x.tag.class %>"><%= x.tag.name %></div>
                 <% } %>
                 <% if(x.date){ %>
                 	<div class="date">出发日期：<% _.each(x.date,function(o){ print(" "+o) }) %></div>

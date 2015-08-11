@@ -2,7 +2,7 @@
 <div class="hot_nav">
 	<div class="mian">
     	<% _.each(list,function(n){ %>
-        	<div class="point" style="width:<% print(200/list.length) %>%;"><%= n %></div>
+        	<div class="point" id="<%= n.id %>" style="width:<% print(200/list.length) %>%;"><%= n.name %></div>
         <% }) %>
         <div class="clear"></div>
     </div>
