@@ -23,6 +23,9 @@
 	-moz-osx-font-smoothing: grayscale;
 }
 
+.fa-shop:before {
+	content: "\e648";
+}
 .fa-close:before {
 	content: "\e647";
 }

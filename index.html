@@ -23,12 +23,14 @@
 <script src="include/moment.js"></script>
 <script src="include/iscroll.js"></script>
 <script src="include/touch.js"></script>
+<script src="include/calendar.js"></script>
 <script>app.route.init()</script>
 <script type="text/javascript">
 document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
 </script>
 <link href="css/common.css" rel="stylesheet" rev="stylesheet" type="text/css"/>
 <link href="css/font.css" rel="stylesheet" rev="stylesheet" type="text/css"/>
+<link href="css/calendar_choose.css" rel="stylesheet" rev="stylesheet" type="text/css"/>
 </head>
 
 <body>
@@ -66,11 +68,9 @@ myScroll.on('scrollEnd', function(){if(this.y === this.maxScrollY){
 	app.reflash.run();
 	}});
 function resize(){
-	if($(window).width()<$(window).height()){
+
 	$("html").css("font-size",$(window).width()*0.1);
-	}else{
-		$("html").css("font-size",$(window).height()*0.1)
-		}
+
 		myScroll.refresh();
 		$("#loading").css("top",($(window).height()/($(window).width()/10)-1)/2+"rem");
 		$("#pop").css("top",(($(window).height()-$("#pop").height())/($(window).width()/10))/2+"rem")

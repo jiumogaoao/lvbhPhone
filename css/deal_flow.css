@@ -1,0 +1,24 @@
+@charset "utf-8";
+/* CSS Document */
+.deal_flow{
+	width:100%;}
+.deal_flow .point{
+	width:100%;}
+.deal_flow .icon{
+	width:100%;
+	text-align:center;
+	color:#93d7ff;
+	font-size:2rem;
+	margin-top:.4rem;
+	}
+.deal_flow .name{
+	width:100%;
+	text-align:center;
+	font-size:.4rem;
+	color:#7c7c7c;}
+.deal_flow .line{
+	width:1px;
+	height:1.5rem;
+	background-color:#93d7ff;
+	margin:auto;
+	margin-top:.4rem;}
