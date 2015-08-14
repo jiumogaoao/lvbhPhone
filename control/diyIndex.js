@@ -19,6 +19,9 @@
 			{main:main}
 			]});
 			$("#scroller").html(data.tem[1]+list+'<div class="clear"></div>');
+			$(".product_group_list .point").unbind("tap").bind("tap",function(){
+				window.location.hash="productDetail/"+$(this).attr("type")+"/"+$(this).attr("pid");
+				});
 			$(".product_group_list").css({
 				width:"8rem",
 				float:"right",
@@ -47,7 +50,7 @@
 				obj.api.run("diy_get","d="+data.type,function(returnData){
 					var main=[];
 					$.each(returnData,function(i,n){
-						var addData={image:"http://"+n.e,name:n.b,price:n.d,place:n.f,id:n.a};
+						var addData={image:"http://"+n.e,name:n.b,price:n.d,place:n.f,id:n.a,type:n.c};
 						main.push(addData);
 						});
 					layout(main);

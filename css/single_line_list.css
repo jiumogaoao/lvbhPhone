@@ -1,0 +1,25 @@
+@charset "utf-8";
+/* CSS Document */
+.single_line_list{
+	width:100%;}
+.single_line_list .point{
+	padding:.4rem;
+	background-color:#fff;
+	border-bottom:1px solid #dcdcdc;
+	font-size:.5rem;
+	font-weight:bold;
+	color:#9a9a9a;
+	position:relative;}
+.single_line_list.double_line_list .name{
+	font-size:.6rem;
+	color:#1d1d1d;
+	}
+.single_line_list.double_line_list .dsc{
+	margin-top:.3rem;
+	font-size:.4rem;
+	}
+.single_line_list.double_line_list .check{
+	font-size:1rem;
+	position:absolute;
+	right:.5rem;
+	top:.6rem;}

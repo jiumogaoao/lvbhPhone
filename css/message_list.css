@@ -1,0 +1,24 @@
+@charset "utf-8";
+/* CSS Document */
+.message_list{
+	width:100%;
+}
+.message_list .point{
+	width:95%;
+	margin:auto;
+	background-color:#fff;
+	padding:.4rem;
+	margin-top:.4rem;}
+.message_list .point .title{
+	font-size:.5rem;
+	padding:.05rem .1rem;
+	color:#fff;
+	background-color:#ff840c;
+	border-radius:.55rem;
+	width:2.3rem;}
+.message_list .point .main{
+	font-size:.4rem;
+	color:#7c7c7c;
+	line-height:.8rem;
+	margin-top:.2rem;
+	letter-spacing: .01rem;}

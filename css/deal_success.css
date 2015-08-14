@@ -1,0 +1,33 @@
+@charset "utf-8";
+/* CSS Document */
+.deal_success{
+	background-color:#fff;}
+.deal_success .top{
+	border-bottom:1px solid #dcdcdc;}
+.deal_success .point{
+	height:1.5rem;
+	width:95%;
+	margin:auto;
+	line-height:1.5rem;
+	font-size:.5rem;
+	border-bottom:1px solid #dcdcdc;}
+.deal_success .title{
+	float:left;
+	font-weight:bold;
+	}
+.deal_success .number{
+	float:left;
+	color:#ff8e2f;
+	font-weight:bold;}
+.deal_success .number.gray{
+	color:#7c7c7c;}
+.deal_success .dsc{
+	padding:.5rem;
+	font-size:.4rem;
+	line-height:.8rem;
+	color:#7c7c7c;}
+.deal_success .bottom{
+	font-size:.4rem;
+	line-height:.8rem;
+	padding:.5rem;
+	color:#7c7c7c;}

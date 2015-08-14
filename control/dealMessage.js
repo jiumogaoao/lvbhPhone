@@ -1,18 +1,19 @@
 // JavaScript Document
 ;(function($,obj,config){
 	obj.control.set({
-		name:"dealSuccess",
+		name:"dealMessage",
 		par:"id",
-		tem:["top_third","deal_success"],
+		tem:["top_second"],
 		fn:function(data){
-
 			var head=_.template(data.tem[0])({
-				left:" ",
-				center:"订单提交信息",
-				right:"关闭"
+				left:"",
+				center:"预订须知"
 				});
 			$("#head").html(head);
-			$("#scroller").html(data.tem[1]);
+			$("#head .leftButton").unbind("click").bind("click",function(){
+				window.history.go(-1);
+				});
+			$("#scroller").html('<img src="img/message.png" style="width:100%"/>');
 			var delay=setTimeout(function(){
 				myScroll.refresh();
 				},200);

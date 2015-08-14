@@ -12,6 +12,9 @@
 			var list=_.template(data.tem[3])({list:main});
 			var group=_.template(data.tem[4])({list:vip});
 			$("#scroller").html(data.tem[2]+list+group);
+$(".product_group_list .point").unbind("tap").bind("tap",function(){
+				window.location.hash="productDetail/"+$(this).attr("type")+"/"+$(this).attr("pid");
+				});
 			$("#scroller .group_member").css({
 				"background-color":"#fff",
 				"padding-bottom":".2rem"
@@ -48,28 +51,28 @@
 					});
 				obj.api.run("index_cfgj",'at="'+at+'"',function(returnData){
 					$.each(returnData,function(i,n){
-						var addData={image:n.a,name:n.b,price:n.c,place:n.d};
+						var addData={image:n.a,name:n.b,price:n.c,place:n.d,id:n.e,type:12};
 						main[1].main.push(addData);
 						});
 						totalCount();
 					});
 				obj.api.run("index_cfgn",'at="'+at+'"',function(returnData){
 					$.each(returnData,function(i,n){
-						var addData={image:n.a,name:n.b,price:n.c,place:n.d};
+						var addData={image:n.a,name:n.b,price:n.c,place:n.d,id:n.e,type:12};
 						main[0].main.push(addData);
 						});
 						totalCount();
 					});
 				obj.api.run("index_mdgj",'at="'+at+'"',function(returnData){
 					$.each(returnData,function(i,n){
-						var addData={image:n.a,name:n.b,price:n.c,place:n.d};
+						var addData={image:n.a,name:n.b,price:n.c,place:n.d,id:n.e,type:13};
 						main[3].main.push(addData);
 						});
 						totalCount();
 					});
 				obj.api.run("index_mdgn",'at="'+at+'"',function(returnData){
 					$.each(returnData,function(i,n){
-						var addData={image:config.sour+"sns/tpu.jspx?a=2&b="+n.e+"&c="+n.a,name:n.b,price:n.c,place:n.d};
+						var addData={image:n.a,name:n.b,price:n.c,place:n.d,id:n.e,type:13};
 						main[2].main.push(addData);
 						});
 						totalCount();

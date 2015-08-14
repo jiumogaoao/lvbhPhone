@@ -15,6 +15,13 @@
 				window.history.go(-1);
 				});
 			$("#scroller").html(data.tem[1]);
+			$("#scroller .product_input .button").unbind("tap").bind("tap",function(){
+				obj.bottom.on("pay_list",{},function(){
+					
+					},function(e){
+					alert(JSON.stringify(e));
+					});
+				});
 			var delay=setTimeout(function(){
 				myScroll.refresh();
 				},200);

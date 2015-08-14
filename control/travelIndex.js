@@ -6,6 +6,7 @@
 		tem:["top_second","nav_four","nav_third","hot_nav","product_group_list"],
 		fn:function(data){
 			var titleArry=["出发地跟团","目的地跟团"];
+			var typeArry=[12,13]
 			var hlArry=["left","center","right"];
 			var tagArry=[{name:"旅博汇",color:"#ffb54c"},{name:"旅博专团",color:"#39bf71"},{name:"旅博推荐",color:"#ff504c"}];
 			var tableAtty=["cf_table_get","md_table_get"];
@@ -32,6 +33,9 @@
 				list:[{title:false,main:product}]
 				});
 			$("#scroller").html(nav+hot+list);
+			$(".product_group_list .point").unbind("tap").bind("tap",function(){
+				window.location.hash="productDetail/"+$(this).attr("type")+"/"+$(this).attr("pid");
+				});
 			$(".hot_nav .point").unbind("tap").bind("tap",function(){
 					window.location.hash="travelIndex/"+data.type+"/"+data.state+"/"+$(this).attr("id");
 					});
@@ -57,7 +61,7 @@
 				obj.api.run(apiArry[data.type],'aid='+now.startId,function(returnData){
 					var productList=[];
 					$.each(returnData,function(i,n){
-						var addData={image:"http://"+n.gd.cc,name:n.gd.b,price:n.gd.f,place:n.gd.w,tag:{name:n.cd.a,class:n.cd.b},date:n.sd,id:n.gd.a};
+						var addData={image:"http://"+n.gd.cc,name:n.gd.b,price:n.gd.f,place:n.gd.w,tag:{name:n.cd.a,class:n.cd.b},date:n.sd,id:n.gd.a,type:typeArry[data.type]};
 						productList.push(addData);
 						});
 					layout(at,now,productList);
@@ -69,7 +73,7 @@
 				obj.api.run("cf_product_get",'aid='+now.startId+'&bid='+data.id,function(returnData){
 					var productList=[];
 					$.each(returnData,function(i,n){
-						var addData={image:"http://"+n.gd.cc,name:n.gd.b,price:n.gd.f,place:n.gd.w,date:n.sd,id:n.gd.a};
+						var addData={image:"http://"+n.gd.cc,name:n.gd.b,price:n.gd.f,place:n.gd.w,date:n.sd,id:n.gd.a,type:12};
 						productList.push(addData);
 						});
 					layout(at,now,productList,hot);
@@ -81,7 +85,7 @@
 				obj.api.run("md_product_get",'aid='+data.id,function(returnData){
 					var productList=[];
 					$.each(returnData,function(i,n){
-						var addData={image:"http://"+n.gd.cc,name:n.gd.b,price:n.gd.f,place:n.gd.w,date:n.sd,id:n.gd.a};
+						var addData={image:"http://"+n.gd.cc,name:n.gd.b,price:n.gd.f,place:n.gd.w,date:n.sd,id:n.gd.a,type:13};
 						productList.push(addData);
 						});
 					layout(at,now,productList,hot);

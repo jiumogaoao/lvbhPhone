@@ -1,0 +1,37 @@
+@charset "utf-8";
+/* CSS Document */
+.pay_list{
+	width:100%;
+	background-color:#fff;}
+.pay_list .point{
+	width:100%;
+	padding:.4rem;
+	border-bottom:1px solid #cccccc;
+	line-height:1rem;
+	font-size:.4rem;}
+.pay_list .point .name{
+	float:left;}
+.pay_list .point .price{
+	float:right;
+	color:#ff8e2f;}
+.pay_list .total{
+	padding-left:.4rem;
+	padding-right:.4rem;}
+.pay_list .left{
+	float:left;
+	height:1.5rem;
+	font-size:.5rem;
+	line-height:1.5rem;}
+.pay_list .number{
+	color:#ff840c;}
+.pay_list u{
+	color:#7c7c7c;}
+.pay_list .payButton{
+	padding:.2rem .3rem;
+	color:#fff;
+	font-size:.5rem;
+	background-color:#ff840c;
+	float:right;
+	border-radius:.2rem;
+	font-weight:bold;
+	margin-top:.25rem;}
