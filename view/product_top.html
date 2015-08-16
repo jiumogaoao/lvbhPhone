@@ -2,10 +2,9 @@
 <div class="product_top">
 	<div class="banner">
     	<div class="bannerR">
-        	<img src="http://"/>
-            <img src="http://"/>
-            <img src="http://"/>
-            <img src="http://"/>
+        	<% _.each(image,function(n){ %>
+            <img src="<%= n %>"/>
+            <% }) %>
             <div class="clear"></div>
         </div>
         <div class="pointFrame">
@@ -16,19 +15,19 @@
             <div class="clear"></div>
         </div>
         <div class="typeHead"><span class="fa fa-type"></span></div>
-        <div class="typeBody">出发地跟团</div>
+        <div class="typeBody"><%= type %></div>
         <div class="collect"><span class="fa fa-collect"></span></div>
         <div class="share"><span class="fa fa-share"></span></div>
     </div>
     <div class="top">
-    	<div class="number">产品编号：12005703</div>
-        <div class="tag">浪漫</div>
-        <div class="tag">温泉</div>
-        <div class="tag">豪华游轮</div>
+    	<div class="number">产品编号：<%= number %></div>
+        <% _.each(tag,function(n){ %>
+        	<div class="tag" style="color:<%= n.color %>;border:1px solid <%= n.color %>"><%= n.name %></div>
+        <% }) %>
         <div class="clear"></div>
     </div>
-    <div class="center">[超值度假]三亚5日4晚跟团游（5钻）·全网首推 奢华凤凰岛 Super海景</div>
+    <div class="center"><%= title %></div>
     <div class="bottom">
-    	会员价 <span class="big">￥8888</span> 起  市场价 <span class="gray">￥ <del>9999</del></span>
+    	会员价 <span class="big">￥<%= price %></span> 起  市场价 <span class="gray">￥ <del><%= oldPrice %></del></span>
     </div>
 </div>

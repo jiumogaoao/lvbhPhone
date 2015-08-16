@@ -19,6 +19,27 @@
 			scope.find("[D_type = '"+type+"']").each(typeFn);
 			} 
 		};
+	obj.control.pointParse=function(target,point,value){
+		if(!target){return false;}
+		if(!point){return false;}
+		var result=false;
+		point=point.split(".");
+		function roll(key,num){
+			if(typeof(key[point[num]])==="undefined"&&num!=point.length-1){
+				key[point[num]]={}
+				}
+			if(num==point.length-1){
+				if(typeof(value)!="undefined"){
+					key[point[num]]=value	
+					}
+				result=key[point[num]];
+			}else{
+				roll(key[point[num]],num+1);
+				}
+			}
+		roll(target,0);
+		return result;
+		};
 	obj.control.set=function(data){
 		obj.route.set(data);
 		};

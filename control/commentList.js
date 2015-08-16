@@ -18,7 +18,11 @@
 			var delay=setTimeout(function(){
 				myScroll.refresh();
 				},200);
-				
+			obj.api.run("comment_get",'Pd='+data.id+'&Level=0&pageNo=0&pageSize=10',function(returnData){
+				debugger;
+				},function(e){
+				alert(JSON.stringify(e))
+				})	
 			}
 		});
 	})($,app,config);

@@ -12,11 +12,11 @@
     	<div class="numberList">
         	<div class="numberLeft">
             	<div class="numberName">成人出游</div>
-                <div class="numberPrice">￥1659/人</div>
+                <div class="numberPrice" D_type="simple" D_key="man">￥1659/人</div>
             </div>
-            <div class="numberRight">
+            <div class="numberRight" D_type="number" D_key="man">
             	<div class="numberSub"><span class="fa fa-sub"></span></div>
-                <input class="numberInput"/>
+                <input class="numberInput" value="1"/>
                 <div class="numberAdd"><span class="fa fa-add"></span></div>
                 <div class="clear"></div>
             </div>
@@ -25,11 +25,11 @@
         <div class="numberList">
         	<div class="numberLeft">
             	<div class="numberName">占床儿童出游</div>
-                <div class="numberPrice">￥1659/人</div>
+                <div class="numberPrice" D_type="simple" D_key="child">￥1659/人</div>
             </div>
-            <div class="numberRight">
+            <div class="numberRight" D_type="number" D_key="child">
             	<div class="numberSub"><span class="fa fa-sub"></span></div>
-                <input class="numberInput"/>
+                <input class="numberInput" value="0"/>
                 <div class="numberAdd"><span class="fa fa-add"></span></div>
                 <div class="clear"></div>
             </div>
@@ -38,11 +38,11 @@
         <div class="numberList">
         	<div class="numberLeft">
             	<div class="numberName">不占床儿童出游</div>
-                <div class="numberPrice">￥1659/人</div>
+                <div class="numberPrice" D_type="simple" D_key="child2">￥1659/人</div>
             </div>
-            <div class="numberRight">
+            <div class="numberRight" D_type="number" D_key="child2">
             	<div class="numberSub"><span class="fa fa-sub"></span></div>
-                <input class="numberInput"/>
+                <input class="numberInput" value="0"/>
                 <div class="numberAdd"><span class="fa fa-add"></span></div>
                 <div class="clear"></div>
             </div>
@@ -51,11 +51,11 @@
         <div class="numberList">
         	<div class="numberLeft">
             	<div class="numberName">65岁以上老人出游</div>
-                <div class="numberPrice">￥1659/人</div>
+                <div class="numberPrice" D_type="simple" D_key="oldman">￥1659/人</div>
             </div>
-            <div class="numberRight">
+            <div class="numberRight" D_type="number" D_key="oldman">
             	<div class="numberSub"><span class="fa fa-sub"></span></div>
-                <input class="numberInput"/>
+                <input class="numberInput" value="0"/>
                 <div class="numberAdd"><span class="fa fa-add"></span></div>
                 <div class="clear"></div>
             </div>
@@ -64,11 +64,11 @@
         <div class="numberList">
         	<div class="numberLeft">
             	<div class="numberName">75岁以上老人出游</div>
-                <div class="numberPrice">￥1659/人</div>
+                <div class="numberPrice" D_type="simple" D_key="oldman2">￥1659/人</div>
             </div>
-            <div class="numberRight">
+            <div class="numberRight" D_type="number" D_key="oldman2">
             	<div class="numberSub"><span class="fa fa-sub"></span></div>
-                <input class="numberInput"/>
+                <input class="numberInput" value="0"/>
                 <div class="numberAdd"><span class="fa fa-add"></span></div>
                 <div class="clear"></div>
             </div>
@@ -77,10 +77,10 @@
         <div class="numberList">
         	<div class="numberLeft">
             	<div class="numberName">单房差价</div>
-                <div class="numberPrice">￥1659/人</div>
+                <div class="numberPrice" D_type="simple" D_key="single">￥1659/人</div>
             </div>
             <div class="numberRight">
-            	<div class="numberCheck">同意拼房 <span class="fa fa-question"></span> <span class="fa fa-checkbox"></span></div>
+            	<div class="numberCheck">同意拼房 <span class="fa fa-question"></span> <span class="fa fa-checkbox" D_type="checkBox" D_key="single"></span></div>
             </div>
             <div class="clear"></div>
         </div>
@@ -99,8 +99,8 @@
                 </tr>
                 <tr>
                 	<td align="center" valign="middle">同行多省</td>
-                    <td align="center" valign="middle">2人</td>
-                    <td align="center" valign="middle">￥20元</td>
+                    <td align="center" valign="middle" D_key="total" D_type="simple">2人</td>
+                    <td align="center" valign="middle" D_key="sell" D_type="simple">￥20元</td>
                 </tr>
             </table>
             <div class="space"></div>
@@ -113,12 +113,12 @@
             </div>
             <div class="inputList">
             	<div class="inputTitle">出游人1</div>
-                <input placeholder="姓名"/>
+                <input placeholder="姓名" D_key="traveler" D_type="inputGroup"/>
                 <div class="clear"></div>
             </div>
             <div class="inputList nb">
             	<div class="inputTitle">出游人2</div>
-                <input placeholder="姓名"/>
+                <input placeholder="姓名" D_key="traveler" D_type="inputGroup"/>
                 <div class="clear"></div>
             </div>
         </div>
@@ -130,17 +130,17 @@
             </div>
             <div class="inputList">
             	<div class="inputTitle">中文姓名</div>
-                <input placeholder="请输入中文姓名"/>
+                <input placeholder="请输入中文姓名" D_key="linkMan.name" D_type="input"/>
                 <div class="clear"></div>
             </div>
             <div class="inputList">
             	<div class="inputTitle">联系手机</div>
-                <input placeholder="请输入联系人的手机号码"/>
+                <input placeholder="请输入联系人的手机号码" D_key="linkMan.tel" D_type="input"/>
                 <div class="clear"></div>
             </div>
             <div class="inputList nb">
             	<div class="inputTitle">电子邮箱</div>
-                <input placeholder="请输入邮箱地址"/>
+                <input placeholder="请输入邮箱地址" D_key="linkMan.email" D_type="input"/>
                 <div class="clear"></div>
             </div>
         </div>
