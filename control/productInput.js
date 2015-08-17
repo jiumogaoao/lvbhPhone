@@ -11,7 +11,27 @@
 				child:0,
 				child2:0,
 				oldman:0,
-				oldman2:0
+				oldman2:0,
+				single:true,
+				linkMan:{
+					name:"",
+					tel:"",
+					email:""
+				},
+				invoice:{
+					on:false,
+					title:"",
+					place:"",
+					name:"",
+					phone:""
+					},
+				contract:{
+					on:false,
+					place:"",
+					name:"",
+					phone:""
+					},
+				agree:false
 				};
 			if(obj.cache("pruduct_input_"+data.id)){
 				result=obj.cache("pruduct_input_"+data.id);
@@ -56,6 +76,22 @@
 				});
 			var main=_.template(data.tem[1])(result)
 			$("#scroller").html(main);
+			$("#scroller #usefulEmail0").unbind("tap").bind("tap",function(){
+				obj.cache("pruduct_input_"+data.id,result);
+				window.location.hash="usefulEmail/"+data.type+"/"+data.id+"/0";
+				})
+			$("#scroller #usefulEmail1").unbind("tap").bind("tap",function(){
+				obj.cache("pruduct_input_"+data.id,result);
+				window.location.hash="usefulEmail/"+data.type+"/"+data.id+"/1";
+				})
+			$("#scroller #usefulInvoice").unbind("tap").bind("tap",function(){
+				obj.cache("pruduct_input_"+data.id,result);
+				window.location.hash="usefulInvoice/"+data.type+"/"+data.id;
+				})
+			$("#scroller #usefulLinkman").unbind("tap").bind("tap",function(){
+				obj.cache("pruduct_input_"+data.id,result);
+				window.location.hash="usefulLinkman/"+data.type+"/"+data.id;
+				})
 			$("#scroller #usefulTraveler").unbind("tap").bind("tap",function(){
 				obj.cache("pruduct_input_"+data.id,result);
 				window.location.hash="usefulTraveler/"+data.type+"/"+data.id;
@@ -107,7 +143,6 @@
 				});
 			$("#scroller [D_type='toggle']").each(function(){
 				var that=this;
-				obj.control.pointParse(result,$(that).attr("D_key"),true);
 				$(that).unbind("tap").bind("tap",function(){
 				if(obj.control.pointParse(result,$(this).attr("D_key"))){
 					obj.control.pointParse(result,$(this).attr("D_key"),false);

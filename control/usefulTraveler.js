@@ -50,11 +50,12 @@
 						
 						}
 				});
-				}
-			
-			var delay=setTimeout(function(){
+				var delay=setTimeout(function(){
 				myScroll.refresh();
 				},200);
+				}
+			
+			
 			function getList(at){
 				obj.api.run("traveler_get",'at='+at+'&tp=3',function(returnData){
 					var list=[];

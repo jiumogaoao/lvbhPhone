@@ -1,9 +1,12 @@
 <link href="css/single_line_list.css" rel="stylesheet" rev="stylesheet" type="text/css"/>
 <div class="single_line_list double_line_list">
-	<% _.each(list,function(n){ %>
-        <div class="point">
+	<% _.each(list,function(n,i){ %>
+        <div class="point" num="<%= i %>">
             <div class="name"><%= n.title %></div>
-            <div class="dsc"><%= dscName %>： <%= n.dsc %></div>
+            <div class="dsc"><% if(dscName){ %>
+            <%= dscName %>： 
+            <% } %>
+            <%= n.dsc %></div>
             <% if(enable){ %>
             <div class="check"><div class="fa fa-checkbox"></div></div>
             <% } %>
