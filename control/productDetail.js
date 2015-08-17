@@ -2,7 +2,7 @@
 ;(function($,obj,config){
 	obj.control.set({
 		name:"productDetail",
-		par:"type/id/date",
+		par:"type/id",
 		tem:["top_third","nav_third","product_top","product_center","nav_third","product_bottom","title_input_list","single_button"],
 		fn:function(data){
 			var apiArry={"12":"cf_detail_get","13":"md_detail_get"}
@@ -29,7 +29,7 @@
 			var bottomT=_.template(data.tem[5])(bottom)
 			$("#scroller").html(topT+centerT+nav+bottomT+bottomList+button);
 			$("#payButton").unbind("tap").bind("tap",function(){
-				window.location.hash="productInput/"+data.id+"/"+(data.date||"");
+				window.location.hash="productInput/"+data.type+"/"+data.id+"/";
 				})
 			$(".title_input_list [name='message']").unbind("tap").bind("tap",function(){
 				window.location.hash="messageList/"+data.id;

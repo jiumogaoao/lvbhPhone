@@ -1,7 +1,7 @@
 <link href="css/product_input.css" rel="stylesheet" rev="stylesheet" type="text/css"/>
 <link href="css/title_input_list.css" rel="stylesheet" rev="stylesheet" type="text/css"/>
 <div class="product_input">
-	<div class="list">
+	<div class="list" id="date">
     	<div class="head">
         	<div class="title">选择团期</div>
             <div class="date">2015/07/28 星期四 <span class="fa fa-right"></span></div>
@@ -16,7 +16,7 @@
             </div>
             <div class="numberRight" D_type="number" D_key="man">
             	<div class="numberSub"><span class="fa fa-sub"></span></div>
-                <input class="numberInput" value="1"/>
+                <input class="numberInput" value="<%= man %>"/>
                 <div class="numberAdd"><span class="fa fa-add"></span></div>
                 <div class="clear"></div>
             </div>
@@ -29,7 +29,7 @@
             </div>
             <div class="numberRight" D_type="number" D_key="child">
             	<div class="numberSub"><span class="fa fa-sub"></span></div>
-                <input class="numberInput" value="0"/>
+                <input class="numberInput" value="<%= child %>"/>
                 <div class="numberAdd"><span class="fa fa-add"></span></div>
                 <div class="clear"></div>
             </div>
@@ -42,7 +42,7 @@
             </div>
             <div class="numberRight" D_type="number" D_key="child2">
             	<div class="numberSub"><span class="fa fa-sub"></span></div>
-                <input class="numberInput" value="0"/>
+                <input class="numberInput" value="<%= child2 %>"/>
                 <div class="numberAdd"><span class="fa fa-add"></span></div>
                 <div class="clear"></div>
             </div>
@@ -55,7 +55,7 @@
             </div>
             <div class="numberRight" D_type="number" D_key="oldman">
             	<div class="numberSub"><span class="fa fa-sub"></span></div>
-                <input class="numberInput" value="0"/>
+                <input class="numberInput" value="<%= oldman %>"/>
                 <div class="numberAdd"><span class="fa fa-add"></span></div>
                 <div class="clear"></div>
             </div>
@@ -68,7 +68,7 @@
             </div>
             <div class="numberRight" D_type="number" D_key="oldman2">
             	<div class="numberSub"><span class="fa fa-sub"></span></div>
-                <input class="numberInput" value="0"/>
+                <input class="numberInput" value="<%= oldman2 %>"/>
                 <div class="numberAdd"><span class="fa fa-add"></span></div>
                 <div class="clear"></div>
             </div>
@@ -99,7 +99,7 @@
                 </tr>
                 <tr>
                 	<td align="center" valign="middle">同行多省</td>
-                    <td align="center" valign="middle" D_key="total" D_type="simple">2人</td>
+                    <td align="center" valign="middle" D_key="total" D_type="simple" id="totalMan">1人</td>
                     <td align="center" valign="middle" D_key="sell" D_type="simple">￥20元</td>
                 </tr>
             </table>
@@ -108,18 +108,17 @@
         <div class="list">
         	<div class="head bb">
             	<div class="title">出游人信息</div>
-                <div class="link">常用旅客</div>
+                <div class="link" id="usefulTraveler">常用旅客</div>
                 <div class="clear"></div>
             </div>
-            <div class="inputList">
-            	<div class="inputTitle">出游人1</div>
-                <input placeholder="姓名" D_key="traveler" D_type="inputGroup"/>
-                <div class="clear"></div>
-            </div>
-            <div class="inputList nb">
-            	<div class="inputTitle">出游人2</div>
-                <input placeholder="姓名" D_key="traveler" D_type="inputGroup"/>
-                <div class="clear"></div>
+            <div id="traveler">
+            <% _.each(traveler,function(n,i){ %>
+            	<div class="inputList">
+                    <div class="inputTitle">出游人<%= (i+1) %></div>
+                    <input placeholder="姓名" D_num="0" D_key="traveler" D_type="inputGroup" value="<%= n %>"/>
+                    <div class="clear"></div>
+                </div>
+            <% }) %>      
             </div>
         </div>
         <div class="list">
@@ -147,52 +146,52 @@
         <div class="list">
         	<div class="head bb">
             	<div class="title">发票</div>
-                <div class="check"><span class="fa fa-checkbox"></span></div>
+                <div class="check"><span class="fa fa-checkbox hl" D_type="toggle" D_key="invoice.on"></span></div>
                 <div class="clear"></div>
             </div>
             <div class="inputList">
             	<div class="inputTitle">发票抬头</div>
-                <input placeholder="请输入发票抬头"/>
+                <input placeholder="请输入发票抬头" D_type="input" D_key="invoice.title"/>
                 <div class="link">常用发票抬头</div>
                 <div class="clear"></div>
             </div>
             <div class="inputList">
             	<div class="inputTitle">邮寄地址</div>
-                <input placeholder="请输入邮寄地址"/>
+                <input placeholder="请输入邮寄地址" D_type="input" D_key="invoice.place"/>
                 <div class="link">常用邮寄地址</div>
                 <div class="clear"></div>
             </div>
             <div class="inputList">
             	<div class="inputTitle">收件人</div>
-                <input placeholder="请输入收件人姓名"/>
+                <input placeholder="请输入收件人姓名" D_type="input" D_key="invoice.name"/>
                 <div class="clear"></div>
             </div>
             <div class="inputList nb">
             	<div class="inputTitle">手机号码</div>
-                <input placeholder="请输入收件人手机号码"/>
+                <input placeholder="请输入收件人手机号码" D_type="input" D_key="invoice.phone"/>
                 <div class="clear"></div>
             </div>
         </div>
         <div class="list">
         	<div class="head bb">
             	<div class="title">合同</div>
-                <div class="check"><span class="fa fa-checkbox"></span></div>
+                <div class="check"><span class="fa fa-checkbox hl" D_type="toggle" D_key="contract.on"></span></div>
                 <div class="clear"></div>
             </div>
             <div class="inputList">
             	<div class="inputTitle">邮寄地址</div>
-                <input placeholder="请输入邮寄地址"/>
+                <input placeholder="请输入邮寄地址" D_type="input" D_key="contract.place"/>
                 <div class="link">常用邮寄地址</div>
                 <div class="clear"></div>
             </div>
             <div class="inputList">
             	<div class="inputTitle">收件人</div>
-                <input placeholder="请输入收件人姓名"/>
+                <input placeholder="请输入收件人姓名" D_type="input" D_key="contract.name"/>
                 <div class="clear"></div>
             </div>
             <div class="inputList nb">
             	<div class="inputTitle">手机号码</div>
-                <input placeholder="请输入收件人手机号码"/>
+                <input placeholder="请输入收件人手机号码" D_type="input" D_key="contract.phone"/>
                 <div class="clear"></div>
             </div>
         </div>
@@ -214,7 +213,7 @@
 	<div class="list">
     	<div class="head">
         <div class="dsc">
-        	<span class="fa fa-checkbox"></span><div class="main">我已阅读并接受合同条款、预订须知条款及其他所有内容。</div><div class="clear"></div>
+        	<span class="fa fa-checkbox" D_type="checkBox" D_key="agree"></span><div class="main">我已阅读并接受合同条款、预订须知条款及其他所有内容。</div><div class="clear"></div>
         </div>
         	
         </div>

@@ -70,6 +70,19 @@
 					return false;
 					}
 		};
+	app.cache=function(key,value,remove){
+		if(value&&typeof(value) ==="object"){
+			localStorage.setItem("lvbh_"+key,JSON.stringify(value));
+			}else if(localStorage.getItem("lvbh_"+key)){
+				if(remove){
+					localStorage.removeItem("lvbh_"+key);
+					}else{
+				return JSON.parse(localStorage.getItem("lvbh_"+key));		
+						}
+				}else{
+					return false;
+					}
+		}
 	var reflashLock=false;
 	var reflashArry={};
 	app.reflash={};

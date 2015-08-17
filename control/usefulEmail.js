@@ -2,7 +2,7 @@
 ;(function($,obj,config){
 	obj.control.set({
 		name:"usefulEmail",
-		par:"id",
+		par:"type/id/state",
 		tem:["top_second","double_line_list","single_button"],
 		fn:function(data){
 			var head=_.template(data.tem[0])({

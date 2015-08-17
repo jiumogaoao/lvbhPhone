@@ -2,7 +2,7 @@
 ;(function($,obj,config){
 	obj.control.set({
 		name:"usefulInvoice",
-		par:"id",
+		par:"type/id",
 		tem:["top_second","single_line_list","single_button"],
 		fn:function(data){
 

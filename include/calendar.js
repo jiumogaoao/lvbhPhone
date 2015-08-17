@@ -72,7 +72,12 @@
 				}
 				if(data[year]&&data[year][showMonth]){
 					$.each(data[year][showMonth],function(x,y){
-						point.find("[date='"+year+"-"+showMonth+"-"+x+"']").removeClass("disable").addClass("enable").append('<div class="price">￥'+y.price+'</div>');	
+						if(!y.full){
+							point.find("[date='"+year+"-"+showMonth+"-"+x+"']").removeClass("disable").addClass("enable").attr("did",y.id).append('<div class="price">￥'+y.price+'</div>');	
+							}else{
+							point.find("[date='"+year+"-"+showMonth+"-"+x+"']").append('<div class="price">已满</div>');		
+								}
+						
 						});
 					}
 				if(!point.find("[num='35'] .dayNum").length){
