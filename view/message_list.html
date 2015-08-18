@@ -1,15 +1,12 @@
 <link href="css/message_list.css" rel="stylesheet" rev="stylesheet" type="text/css"/>
 <div class="message_list">
-	<div class="point">
-    	<div class="title">预订说明</div>
+<% _.each(list,function(n){ %>
+<div class="point">
+    	<div class="title"><%= n.title %></div>
         <div class="main">
-        	很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多字
+        	<%= n.main %>
         </div>
     </div>
-    <div class="point">
-    	<div class="title">注意事项</div>
-        <div class="main">
-        	很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多字
-        </div>
-    </div>
+<% }) %>
+	
 </div>

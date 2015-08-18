@@ -1,14 +1,14 @@
 <link href="css/product_top.css" rel="stylesheet" rev="stylesheet" type="text/css"/>
 <div class="product_top">
 	<div class="banner">
-    	<div class="bannerR">
+    	<div class="bannerR" style="width:<%= image.length %>00%">
         	<% _.each(image,function(n){ %>
-            <img src="<%= n %>"/>
+            <img src="http://<%= n %>" style="width:<%= (1/image.length)*100 %>%"/>
             <% }) %>
             <div class="clear"></div>
         </div>
         <div class="pointFrame">
-        	<div class="writePoint"></div>
+        	<div class="writePoint hl"></div>
             <div class="writePoint"></div>
             <div class="writePoint"></div>
             <div class="writePoint"></div>
@@ -31,3 +31,26 @@
     	会员价 <span class="big">￥<%= price %></span> 起  市场价 <span class="gray">￥ <del><%= oldPrice %></del></span>
     </div>
 </div>
+<script>
+;(function(){
+	var num=0;
+	var lock=false;
+	var delay=setInterval(function(){
+		if(!lock){
+			lock=true;
+			if(num!=3){
+			num++;
+			}else{
+				num=0;
+				}
+			$(".product_top .bannerR").animate({"left":"-"+num+"00%"},function(){
+				lock=false;
+				});
+			$(".product_top .writePoint").removeClass("hl");
+			$(".product_top .writePoint").eq(num).addClass("hl");
+			}
+		
+		},3000);
+	})();
+
+</script>

@@ -5,6 +5,40 @@
 		par:"type/id",
 		tem:["top_third","nav_third","product_top","product_center","nav_third","product_bottom","title_input_list","single_button"],
 		fn:function(data){
+			var result={
+				traveler:[""],
+				man:1,
+				child:0,
+				child2:0,
+				oldman:0,
+				oldman2:0,
+				single:true,
+				linkMan:{
+					name:"",
+					tel:"",
+					email:""
+				},
+				invoice:{
+					on:false,
+					title:"",
+					place:"",
+					name:"",
+					phone:""
+					},
+				contract:{
+					on:false,
+					place:"",
+					name:"",
+					phone:""
+					},
+				agree:false
+				};
+			if(obj.cache("pruduct_input_"+data.id)){
+				result=obj.cache("pruduct_input_"+data.id);
+				obj.cache("pruduct_input_"+data.id,null,true);
+				}
+				console.log(result);
+			var collectArry={"12":"4","13":"5"}
 			var apiArry={"12":"cf_detail_get","13":"md_detail_get"}
 			var typeArry={"12":"出发地跟团","13":"目的地跟团"}
 			var head=_.template(data.tem[0])({
@@ -28,11 +62,21 @@
 			var centerT=_.template(data.tem[3])(center);
 			var bottomT=_.template(data.tem[5])(bottom)
 			$("#scroller").html(topT+centerT+nav+bottomT+bottomList+button);
+			$("#scroller .product_top .collect").unbind("tap").bind("tap",function(){
+				obj.api.run("collect_add",'at='+at+'&t='+collectArry[data.type]+'&id='+data.id+'&cn='+result.title+'&desc='+result.title,function(returnData){
+					alert("收藏成功")
+					},function(e){alert(JSON.stringify(e))})
+				})
+			$("#scroller #date").unbind("tap").bind("tap",function(){
+				obj.cache("pruduct_input_"+data.id,result);
+				window.location.hash="calendar/"+data.type+"/"+data.id+"/0";
+				})
 			$("#payButton").unbind("tap").bind("tap",function(){
+				obj.cache("pruduct_input_"+data.id,result);
 				window.location.hash="productInput/"+data.type+"/"+data.id+"/";
 				})
 			$(".title_input_list [name='message']").unbind("tap").bind("tap",function(){
-				window.location.hash="messageList/"+data.id;
+				window.location.hash="messageList/"+data.type+"/"+data.id;
 				});
 			$(".title_input_list [name='flow']").unbind("tap").bind("tap",function(){
 				window.location.hash="dealFlow/"+data.id;
@@ -70,18 +114,21 @@
 				}
 			
 			function getList(at){
-				obj.api.run(apiArry[data.type],'aid='+data.id,function(returnData){debugger;
+				obj.api.run(apiArry[data.type],'aid='+data.id,function(returnData){
 					var gd=returnData.gtinfo.gd;
-					var pa=returnData.priceArray[0];
+					if(!result.date){
+						result.date=returnData.priceArray[0];
+						}
+					var pa=result.date;
 					var tagArry=[];
+					result.title=gd.b;
 					gd.ee=JSON.parse(gd.ee)
 					$.each(gd.ee.info.tag,function(i,n){
 						var addData={name:n.nam,color:n.cs}
 						tagArry.push(addData);
-						})
-						
+						})		
 					var top={
-					image:["http://","http://","http://","http://"],
+					image:returnData.gtinfo.pics,
 					type:typeArry[data.type],
 					number:gd.c||"",
 					tag:tagArry,
@@ -90,9 +137,9 @@
 					oldPrice:gd.g||""
 				};
 					var center={
-					satisfy:gd.l||"",
-					comment:gd.m||"",
-					collect:100,
+					satisfy:gd.l,
+					comment:gd.m,
+					collect:gd.gg,
 					date:pa.c||"",
 					twoMan:pa.n||"",
 					threeMan:pa.o||"",

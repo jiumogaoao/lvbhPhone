@@ -4,7 +4,7 @@
 	<div class="list" id="date">
     	<div class="head">
         	<div class="title">选择团期</div>
-            <div class="date">2015/07/28 星期四 <span class="fa fa-right"></span></div>
+            <div class="date"><%= date.c %> <span class="fa fa-right"></span></div>
             <div class="clear"></div>
         </div>
     </div>
@@ -12,7 +12,7 @@
     	<div class="numberList">
         	<div class="numberLeft">
             	<div class="numberName">成人出游</div>
-                <div class="numberPrice" D_type="simple" D_key="man">￥1659/人</div>
+                <div class="numberPrice" D_type="simple" D_key="man">￥<%= date.g %>/人</div>
             </div>
             <div class="numberRight" D_type="number" D_key="man">
             	<div class="numberSub"><span class="fa fa-sub"></span></div>
@@ -25,7 +25,7 @@
         <div class="numberList">
         	<div class="numberLeft">
             	<div class="numberName">占床儿童出游</div>
-                <div class="numberPrice" D_type="simple" D_key="child">￥1659/人</div>
+                <div class="numberPrice" D_type="simple" D_key="child">￥<%= date.h %>/人</div>
             </div>
             <div class="numberRight" D_type="number" D_key="child">
             	<div class="numberSub"><span class="fa fa-sub"></span></div>
@@ -38,7 +38,7 @@
         <div class="numberList">
         	<div class="numberLeft">
             	<div class="numberName">不占床儿童出游</div>
-                <div class="numberPrice" D_type="simple" D_key="child2">￥1659/人</div>
+                <div class="numberPrice" D_type="simple" D_key="child2">￥<%= date.i %>/人</div>
             </div>
             <div class="numberRight" D_type="number" D_key="child2">
             	<div class="numberSub"><span class="fa fa-sub"></span></div>
@@ -51,7 +51,7 @@
         <div class="numberList">
         	<div class="numberLeft">
             	<div class="numberName">65岁以上老人出游</div>
-                <div class="numberPrice" D_type="simple" D_key="oldman">￥1659/人</div>
+                <div class="numberPrice" D_type="simple" D_key="oldman">￥<%= date.j %>/人</div>
             </div>
             <div class="numberRight" D_type="number" D_key="oldman">
             	<div class="numberSub"><span class="fa fa-sub"></span></div>
@@ -64,7 +64,7 @@
         <div class="numberList">
         	<div class="numberLeft">
             	<div class="numberName">75岁以上老人出游</div>
-                <div class="numberPrice" D_type="simple" D_key="oldman2">￥1659/人</div>
+                <div class="numberPrice" D_type="simple" D_key="oldman2">￥<%= date.k %>/人</div>
             </div>
             <div class="numberRight" D_type="number" D_key="oldman2">
             	<div class="numberSub"><span class="fa fa-sub"></span></div>
@@ -77,7 +77,7 @@
         <div class="numberList">
         	<div class="numberLeft">
             	<div class="numberName">单房差价</div>
-                <div class="numberPrice" D_type="simple" D_key="single">￥1659/人</div>
+                <div class="numberPrice" D_type="simple" D_key="single">￥<%= date.l %>/人</div>
             </div>
             <div class="numberRight">
             	<div class="numberCheck">同意拼房 <span class="fa fa-question"></span> <span class="fa fa-checkbox <% if(single){print("hl")} %>" D_type="checkBox" D_key="single"></span></div>
@@ -100,7 +100,7 @@
                 <tr>
                 	<td align="center" valign="middle">同行多省</td>
                     <td align="center" valign="middle" D_key="total" D_type="simple" id="totalMan"><%= man+child+child2+oldman+oldman2 %>人</td>
-                    <td align="center" valign="middle" D_key="sell" D_type="simple">￥20元</td>
+                    <td align="center" valign="middle" D_key="sell" D_type="simple">￥0元</td>
                 </tr>
             </table>
             <div class="space"></div>
@@ -198,12 +198,12 @@
         
 </div>
 <div class="title_input_list" style="margin-bottom:.4rem;">
-            <div class="point link">
+            <div class="point link" id="postScript">
                 <div class="left">附言说明</div>
                 <div class="right"><span class="fa fa-right"></span></div>
                 <div class="clear"></div>
             </div>
-            <div class="point link" name="">
+            <div class="point link" id="message">
                 <div class="left">预订须知</div>
                 <div class="right"><span class="fa fa-right"></span></div>
                 <div class="clear"></div>
@@ -220,7 +220,7 @@
     </div>
     <div class="list">
     	<div class="payList">
-        	<div class="text"><b>订单金额</b> <span class="totalPrice">￥68895</span> <u>明细</u></div>
+        	<div class="text"><b>订单金额</b> <span class="totalPrice">￥0</span> <u>明细</u></div>
             <div class="button">提交订单</div>
             <div class="clear"></div>
         </div>

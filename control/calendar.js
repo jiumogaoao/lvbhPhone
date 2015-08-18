@@ -2,7 +2,7 @@
 ;(function($,obj,config){
 	obj.control.set({
 		name:"calendar",
-		par:"type/id",
+		par:"type/id/state",
 		tem:["top_second"],
 		fn:function(data){
 			var result={};
@@ -18,15 +18,20 @@
 			$("#head .leftButton").unbind("click").bind("click",function(){
 				window.history.go(-1);
 				});
-			function layout(list){
+			function layout(list,returnData){
 				calendar.setData(list);
 				calendar.setTarget("#scroller");
 				calendar.run();
 				$("#scroller .enable").unbind("tap").bind("tap",function(){
-					result.date=$(this).attr("did");
+					result.date=_.indexBy(returnData,"b")[$(this).attr("did")];
 					console.log(result);
 					obj.cache("pruduct_input_"+data.id,result);
-					window.location.hash="productInput/"+data.type+"/"+data.id;
+					if(data.state==="0"){
+						window.location.hash="productDetail/"+data.type+"/"+data.id;	
+						}else{
+						window.location.hash="productInput/"+data.type+"/"+data.id;	
+							}
+					
 					});
 			var delay=setTimeout(function(){
 				myScroll.refresh();
@@ -51,7 +56,7 @@
 					list[date[0]][date[1]][date[2]].full=true;
 					}
 				});
-				layout(list)
+				layout(list,returnData.priceArray)
 				})
 				}
 			obj.api.at(getList);	

@@ -2,94 +2,46 @@
 <div class="comment_list">
 <div class="head">
 	<div class="left">
-    	<div class="percent">80%</div>
+    	<div class="percent"><%= parseInt((good/total)*100) %>%</div>
         <div class="text">满意度</div>
     </div>
     <div class="right">
-    	<div class="button hl">所有点评(12536)</div>
-        <div class="button">满意(636)</div>
-        <div class="button">一般(652)</div>
-        <div class="button">不满意(12)</div>
+    	<div class="button hl">所有点评(<%= total %>)</div>
+        <div class="button">满意(<%= good %>)</div>
+        <div class="button">一般(<%= general %>)</div>
+        <div class="button">不满意(<%= poor %>)</div>
         <div class="clear"></div>
     </div>
     <div class="clear"></div>
 </div>
 <div class="list">
+<% _.each(list,function(n){ %>
 	<div class="point">
     	<div class="top">
-        	<img src="http://" class="icon"/>
-            <div class="name">Alex 执念</div>
-            <div class="tag tag1"></div>
-            <div class="time">2015-07-28 11:25:36</div>
+        	<img src="<%= n.head %>" class="icon"/>
+            <div class="name"><%= n.name %></div>
+            <div class="tag tag<%= n.tag %>"></div>
+            <div class="time"><%= n.time %></div>
             <div class="clear"></div>
         </div>
         <div class="middle">
-        	<div class="comment">
-            	<div class="name">导游服务：</div>
-                <div class="type">满意</div>
-                <div class="clear"></div>
-            </div>
-            <div class="comment">
-            	<div class="name">行程安排：</div>
-                <div class="type">一般</div>
-                <div class="clear"></div>
-            </div>
-            <div class="comment">
-            	<div class="name">饮食住宿：</div>
-                <div class="type">一般</div>
-                <div class="clear"></div>
-            </div>
-            <div class="comment">
-            	<div class="name">旅行交通：</div>
-                <div class="type">不满意</div>
-                <div class="clear"></div>
-            </div>
+        	<% _.each(n.step,function(x){ %>
+                <div class="comment">
+                    <div class="name"><%= x.title %>：</div>
+                    <div class="type"><% if(x.level==0||x.level==1||x.level==2){print("不满意")}else if(x.level==3){print("一般")}else{print("满意")} %></div>
+                    <div class="clear"></div>
+                </div>
+            <% }) %>
             <div class="clear"></div>
         </div>
         <div class="bottom">
-        	导游服务<br/>
-            很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多字<br/>
-            行程安排<br/>
-            很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多字<br/>
+        	<%= n.dsc %>
         </div>
     </div>
-    <div class="point">
-    	<div class="top">
-        	<img src="http://" class="icon"/>
-            <div class="name">Alex 执念</div>
-            <div class="tag tag1"></div>
-            <div class="time">2015-07-28 11:25:36</div>
-            <div class="clear"></div>
-        </div>
-        <div class="middle">
-        	<div class="comment">
-            	<div class="name">导游服务：</div>
-                <div class="type">满意</div>
-                <div class="clear"></div>
-            </div>
-            <div class="comment">
-            	<div class="name">行程安排：</div>
-                <div class="type">一般</div>
-                <div class="clear"></div>
-            </div>
-            <div class="comment">
-            	<div class="name">饮食住宿：</div>
-                <div class="type">一般</div>
-                <div class="clear"></div>
-            </div>
-            <div class="comment">
-            	<div class="name">旅行交通：</div>
-                <div class="type">不满意</div>
-                <div class="clear"></div>
-            </div>
-            <div class="clear"></div>
-        </div>
-        <div class="bottom">
-        	导游服务<br/>
-            很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多字<br/>
-            行程安排<br/>
-            很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多字<br/>
-        </div>
-    </div>
+<% }) %>
+	
+    
+
+    
 </div>
 </div>

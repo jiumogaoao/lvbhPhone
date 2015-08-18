@@ -5,7 +5,22 @@
 		par:"type/id",
 		tem:["top_second","product_input"],
 		fn:function(data){
+			var sellArry=["","","n","o","p","q"];
 			var result={
+				date:{
+					c:"请选择团期",
+					g:0,
+					h:0,
+					i:0,
+					j:0,
+					k:0,
+					l:0,
+					m:0,
+					n:0,
+					o:0,
+					p:0,
+					q:0
+					},
 				traveler:[""],
 				man:1,
 				child:0,
@@ -47,6 +62,20 @@
 				$("#scroller [D_type='number']").each(function(){
 					total+=Number($(this).find("input").val());
 					});
+				var totalPay=result.man*result.date.g+result.child*result.date.h+result.child2*result.date.i+result.oldman*result.date.j+result.oldman2*result.date.k
+				if(result.single){
+					totalPay-=(total-result.child2)*result.date.l
+					}
+				if(total>1&&total<=5){
+					totalPay-=result.date[sellArry[total]]
+					$("[D_key='sell']").html("￥"+result.date[sellArry[total]]+"元")
+					}else if(total>5){
+						result.date.q
+						$("[D_key='sell']").html("￥"+result.date.q+"元")
+						}else{
+							$("[D_key='sell']").html("￥0元")
+							}
+				$("#scroller .totalPrice").html("￥"+totalPay);
 				$("#scroller #totalMan").html(total+"人");
 				$("#scroller #traveler").empty();
 				if(!result.traveler){
@@ -69,6 +98,7 @@
 					obj.control.pointParse(result,$(this).attr("D_key"))[$(this).attr("D_num")]=$(this).val();
 					console.log(result);
 				});
+				myScroll.refresh();
 				}
 			$("#head").html(head);
 			$("#head .leftButton").unbind("click").bind("click",function(){
@@ -76,6 +106,21 @@
 				});
 			var main=_.template(data.tem[1])(result)
 			$("#scroller").html(main);
+			totalCount();
+			$("#scroller .payList u").unbind("tap").bind("tap",function(){
+				obj.bottom.on("pay_list",result,function(){
+					
+					},function(e){
+					alert(JSON.stringify(e));
+					});
+				});
+			$("#scroller #postScript").unbind("tap").bind("tap",function(){
+				obj.cache("pruduct_input_"+data.id,result);
+				window.location.hash="postScript/"+data.type+"/"+data.id
+				})
+			$("#scroller #message").unbind("tap").bind("tap",function(){
+				window.location.hash="dealMessage";
+				});
 			$("#scroller #usefulEmail0").unbind("tap").bind("tap",function(){
 				obj.cache("pruduct_input_"+data.id,result);
 				window.location.hash="usefulEmail/"+data.type+"/"+data.id+"/0";
@@ -98,7 +143,7 @@
 				});
 			$("#scroller #date").unbind("tap").bind("tap",function(){
 				obj.cache("pruduct_input_"+data.id,result);
-				window.location.hash="calendar/"+data.type+"/"+data.id;
+				window.location.hash="calendar/"+data.type+"/"+data.id+"/1";
 				});
 			$("#scroller [D_type='inputGroup']").unbind("change").bind("change",function(){
 				if(!obj.control.pointParse(result,$(this).attr("D_key"))){
@@ -157,11 +202,7 @@
 				})
 			
 			$("#scroller .product_input .button").unbind("tap").bind("tap",function(){
-				obj.bottom.on("pay_list",{},function(){
-					
-					},function(e){
-					alert(JSON.stringify(e));
-					});
+				
 				});
 			var delay=setTimeout(function(){
 				myScroll.refresh();
