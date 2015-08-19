@@ -103,6 +103,9 @@
 				window.history.go(-1);
 				});
 			myScroll.refresh();
+			$('img').load(function(){
+				myScroll.refresh();
+				})
 				}
 			
 			function getdetail(at){

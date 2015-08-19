@@ -42,6 +42,9 @@
 					});
 				});
 			myScroll.refresh();
+			$('img').load(function(){
+				myScroll.refresh();
+				})
 				}
 			obj.api.at(function(at){
 				layout(at);

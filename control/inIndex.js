@@ -20,6 +20,9 @@
 					window.location.hash="accountList/"+$(this).attr("lid");
 				});
 			myScroll.refresh();
+			$('img').load(function(){
+				myScroll.refresh();
+				})
 			}
 		});
 	})($,app,config);

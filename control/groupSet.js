@@ -69,6 +69,9 @@
 			var delay=setTimeout(function(){
 				myScroll.refresh();
 				},200);
+				$('img').load(function(){
+				myScroll.refresh();
+				})
 				}
 			function getGroup(at){
 				obj.api.run("group_getMy","at="+at,layout,function(e){

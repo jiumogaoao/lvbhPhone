@@ -25,6 +25,9 @@
 				window.location.hash="searchPlace";
 				});
 			myScroll.refresh();
+			$('img').load(function(){
+				myScroll.refresh();
+				})
 			}
 		});
 	})($,app,config);

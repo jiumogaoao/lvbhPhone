@@ -19,13 +19,17 @@ $(".product_group_list .point").unbind("tap").bind("tap",function(){
 				"background-color":"#fff",
 				"padding-bottom":".2rem"
 				});
+			var delay=setTimeout(function(){
+				myScroll.refresh();
+				},200);
+			$('img').load(function(){
+				myScroll.refresh();
+				})	
 			}
 			$("#foot").html(data.tem[0]);
 			$("#foot .fa-home").addClass("hl");
 			$("#foot .point").eq(0).addClass("hl");
-			var delay=setTimeout(function(){
-				myScroll.refresh();
-				},2000);
+			
 			function getMessage(at){
 				var main=[
 					{title:"出发地跟团-国内精选",main:[]},

@@ -24,6 +24,9 @@
 						}
 				});
 			myScroll.refresh();
+			$('img').load(function(){
+				myScroll.refresh();
+				})
 			}
 		});
 	})($,app,config);

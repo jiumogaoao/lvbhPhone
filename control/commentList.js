@@ -20,6 +20,9 @@
 			var delay=setTimeout(function(){
 				myScroll.refresh();
 				},200);	
+				$('img').load(function(){
+				myScroll.refresh();
+				})
 				}
 			
 			obj.api.run("comment_get",'c='+data.id+'&d=0&1=0&b=10',function(returnData){

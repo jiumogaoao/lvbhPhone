@@ -38,6 +38,9 @@
 				window.location.hash="dealResult/"+data.type+"/"+searchString;
 				});
 			myScroll.refresh();
+			$('img').load(function(){
+				myScroll.refresh();
+				})
 			}
 		});
 	})($,app,config);

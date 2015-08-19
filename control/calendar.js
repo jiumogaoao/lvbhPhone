@@ -37,7 +37,9 @@
 				myScroll.refresh();
 				},200);
 				}
-			
+			$('img').load(function(){
+				myScroll.refresh();
+				})
 			
 			
 			function getList(at){

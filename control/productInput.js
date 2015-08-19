@@ -6,6 +6,7 @@
 		tem:["top_second","product_input"],
 		fn:function(data){
 			var sellArry=["","","n","o","p","q"];
+			var typeArry={"12":"gtcf","13":"gtmd"};
 			var result={
 				state:data.state,
 				date:{
@@ -22,7 +23,7 @@
 					p:0,
 					q:0
 					},
-				traveler:[""],
+				traveler:[],
 				man:1,
 				child:0,
 				child2:0,
@@ -47,7 +48,8 @@
 					name:"",
 					phone:""
 					},
-				agree:false
+				agree:false,
+				dsc:""
 				};
 			if(obj.cache("pruduct_input_"+data.id)){
 				result=obj.cache("pruduct_input_"+data.id);
@@ -68,11 +70,11 @@
 					totalPay-=(total-result.child2)*result.date.l
 					}
 				if(total>1&&total<=5){
-					totalPay-=result.date[sellArry[total]]
-					$("[D_key='sell']").html("￥"+result.date[sellArry[total]]+"元")
+					totalPay-=result.date[sellArry[total]]*total
+					$("[D_key='sell']").html("￥"+(result.date[sellArry[total]]*total)+"元")
 					}else if(total>5){
-						result.date.q
-						$("[D_key='sell']").html("￥"+result.date.q+"元")
+						totalPay-=result.date.q*total
+						$("[D_key='sell']").html("￥"+(result.date.q*total)+"元")
 						}else{
 							$("[D_key='sell']").html("￥0元")
 							}
@@ -84,10 +86,10 @@
 					}
 				var newTravel=[];
 				for (var i=0;i<total;i++){
-					newTravel[i]=result.traveler[i]||"";
+					newTravel[i]=result.traveler[i]||{b:"姓名"};
 					$("#scroller #traveler").append('<div class="inputList">'+
 						'<div class="inputTitle">出游人'+(i+1)+'</div>'+
-						'<input placeholder="姓名" D_num="'+i+'" D_key="traveler" D_type="inputGroup" value="'+newTravel[i]+'"/>'+
+						'<input placeholder="姓名" readonly="true" value="'+newTravel[i].b+'"/>'+
 						'<div class="clear"></div>'+
 					'</div>')
 					}
@@ -121,6 +123,7 @@
 				window.location.hash="postScript/"+data.type+"/"+data.id+"/"+data.state
 				})
 			$("#scroller #message").unbind("tap").bind("tap",function(){
+				obj.cache("pruduct_input_"+data.id,result);
 				window.location.hash="dealMessage";
 				});
 			$("#scroller #usefulEmail0").unbind("tap").bind("tap",function(){
@@ -146,6 +149,9 @@
 			$("#scroller #date").unbind("tap").bind("tap",function(){
 				obj.cache("pruduct_input_"+data.id,result);
 				window.location.hash="calendar/"+data.type+"/"+data.id+"/"+data.state+"/1";
+				});
+			$("#scroller [D_type='input']").unbind("change").bind("change",function(){
+					obj.control.pointParse(result,$(this).attr("D_key"),$(this).val());
 				});
 			$("#scroller [D_type='inputGroup']").unbind("change").bind("change",function(){
 				if(!obj.control.pointParse(result,$(this).attr("D_key"))){
@@ -206,19 +212,65 @@
 			
 			$("#scroller .product_input .button").unbind("tap").bind("tap",function(){
 				var singleMan=0;
+				var correct=1;
 				if(!result.single){
 					singleMan=result.man+result.child+result.oldman+result.oldman2
 					}
-				obj.api.run("deal_add",'at='+at+'&goParam={"a"="'+data.type+'","b"="'+data.id+'","c"="'+result.date.b+'","j"="'+data.state+'","d1"="'+result.man+'","d3"="'+result.child+'","d5"="'+result.child2+'","d7"="'+result.oldman+'","d8"="'+result.oldman2+'","d9"="'+singleMan+'"}',function(returnData){
-					debugger;
-					window.location.hash="dealSuccess/"
+				var goParam={
+					a:data.type,
+					b:data.id,
+					c:result.date.b,
+					j:data.state,
+					d1:result.man,
+					d3:result.child,
+					d5:result.child2,
+					d7:result.oldman,
+					d8:result.oldman2,
+					d9:result.man+result.child+result.oldman+result.oldman2
+					};
+				var goiParam={
+					d:result.invoice.on?"1":"0",
+					f:result.contract.on?"1":"0",
+					g:result.agree.on?"1":"0",
+					h:result.dsc,
+					i:null,
+					toursParam:[],
+					contactParam:{b:result.linkMan.name,c:result.linkMan.tel,d:result.linkMan.email},
+					addressParam:[],
+					j:typeArry[data.type]
+					};
+				if(result.invoice.on){
+					goiParam.invoiceParam={b:result.invoice.title}
+					goiParam.addressParam.push({b:result.invoice.name,d:result.invoice.place,f:result.invoice.phone})
+					}
+				if(result.contract.on){
+					goiParam.addressParam.push({b:result.contract.name,d:result.contract.place,f:result.contract.phone})
+					}
+				$.each(result.traveler,function(i,n){
+					if(n.a){
+						goiParam.toursParam.push(n)
+						}else{
+							alert("请完成出游人信息");
+							correct=0;
+							return false;
+							}	
+					});	
+				if(correct){
+					obj.api.run("deal_add",'at='+at+'&goParam='+JSON.stringify(goParam)+'&goiParam='+JSON.stringify(goiParam),function(returnData){
+					obj.cache("pruduct_input_"+data.id,result);
+					window.location.hash="dealSuccess/"+data.id;
 					},function(e){
 					alert(JSON.stringify(e))
 					})
+					}
+				
 				});
 			var delay=setTimeout(function(){
 				myScroll.refresh();
 				},200);
+				$('img').load(function(){
+				myScroll.refresh();
+				})
 			}
 			
 			obj.api.at(layout);	

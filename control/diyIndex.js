@@ -29,7 +29,10 @@
 				});
 				var delay=setTimeout(function(){
 				myScroll.refresh();
-				},300);
+				},200);
+				$('img').load(function(){
+				myScroll.refresh();
+				})
 				}
 			
 				

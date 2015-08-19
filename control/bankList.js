@@ -35,6 +35,9 @@
 	window.location.hash="#cashInput/"+(data.name||"")+"/"+(data.card||"")+"/"+($(this).html()||"")+"/"+(data.money||"")+"/"+(data.dsc||"");
 	});
 			myScroll.refresh();
+			$('img').load(function(){
+				myScroll.refresh();
+				})
 			}
 		});
 	})($,app,config);

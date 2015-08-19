@@ -34,6 +34,9 @@
 			var delay=setTimeout(function(){
 				myScroll.refresh();
 				},200);
+				$('img').load(function(){
+				myScroll.refresh();
+				})
 				}
 			function getGroup(at){
 				obj.api.run("travel_detail","at="+at+"&a="+data.id,function(returnData){

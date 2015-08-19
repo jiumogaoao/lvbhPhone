@@ -86,13 +86,19 @@
 				});
 			$("#scroller .share").unbind("tap").bind("tap",function(){
 				obj.bottom.on("share",{list:[
-				{image:"img/weixin.png",name:"微信"},
-				{image:"img/friend.png",name:"朋友圈"},
-				{image:"img/weibo.png",name:"新浪微博"},
-				{image:"img/qq.png",name:"腾讯QQ"},
-				{image:"img/qzone.png",name:"QQ空间"}
+				{image:"img/weibo.png",name:"新浪微博",id:"xinlang"},
+				{image:"img/qq.png",name:"腾讯QQ",id:"qq"},
+				{image:"img/qzone.png",name:"QQ空间",id:"qzone"}
 				]},function(){
-					
+					$(".share [sid='xinlang']").unbind("tap").bind("tap",function(){
+						window.location.href="http://service.weibo.com/share/share.php?url="+window.location.href+"&appkey=1343713053&searchPic=true";
+						});
+					$(".share [sid='qq']").unbind("tap").bind("tap",function(){
+						window.location.href="http://service.weibo.com/share/share.php?url="+window.location.href+"&appkey=1343713053&searchPic=true";
+						});
+					$(".share [sid='qzone']").unbind("tap").bind("tap",function(){
+						window.location.href="http://service.weibo.com/share/share.php?url="+window.location.href+"&appkey=1343713053&searchPic=true";
+						});
 					},function(e){
 					alert(JSON.stringify(e));
 					});
@@ -111,6 +117,9 @@
 				$("[show='left']").show();
 				myScroll.refresh();
 				},200);
+				$('img').load(function(){
+				myScroll.refresh();
+				})
 				}
 			
 			function getList(at){
