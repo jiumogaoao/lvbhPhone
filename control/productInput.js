@@ -2,11 +2,12 @@
 ;(function($,obj,config){
 	obj.control.set({
 		name:"productInput",
-		par:"type/id",
+		par:"type/id/state",
 		tem:["top_second","product_input"],
 		fn:function(data){
 			var sellArry=["","","n","o","p","q"];
 			var result={
+				state:data.state,
 				date:{
 					c:"请选择团期",
 					g:0,
@@ -104,6 +105,7 @@
 			$("#head .leftButton").unbind("click").bind("click",function(){
 				window.history.go(-1);
 				});
+		function layout(at){
 			var main=_.template(data.tem[1])(result)
 			$("#scroller").html(main);
 			totalCount();
@@ -116,34 +118,34 @@
 				});
 			$("#scroller #postScript").unbind("tap").bind("tap",function(){
 				obj.cache("pruduct_input_"+data.id,result);
-				window.location.hash="postScript/"+data.type+"/"+data.id
+				window.location.hash="postScript/"+data.type+"/"+data.id+"/"+data.state
 				})
 			$("#scroller #message").unbind("tap").bind("tap",function(){
 				window.location.hash="dealMessage";
 				});
 			$("#scroller #usefulEmail0").unbind("tap").bind("tap",function(){
 				obj.cache("pruduct_input_"+data.id,result);
-				window.location.hash="usefulEmail/"+data.type+"/"+data.id+"/0";
+				window.location.hash="usefulEmail/"+data.type+"/"+data.id+"/"+data.state+"/0";
 				})
 			$("#scroller #usefulEmail1").unbind("tap").bind("tap",function(){
 				obj.cache("pruduct_input_"+data.id,result);
-				window.location.hash="usefulEmail/"+data.type+"/"+data.id+"/1";
+				window.location.hash="usefulEmail/"+data.type+"/"+data.id+"/"+data.state+"/1";
 				})
 			$("#scroller #usefulInvoice").unbind("tap").bind("tap",function(){
 				obj.cache("pruduct_input_"+data.id,result);
-				window.location.hash="usefulInvoice/"+data.type+"/"+data.id;
+				window.location.hash="usefulInvoice/"+data.type+"/"+data.id+"/"+data.state;
 				})
 			$("#scroller #usefulLinkman").unbind("tap").bind("tap",function(){
 				obj.cache("pruduct_input_"+data.id,result);
-				window.location.hash="usefulLinkman/"+data.type+"/"+data.id;
+				window.location.hash="usefulLinkman/"+data.type+"/"+data.id+"/"+data.state;
 				})
 			$("#scroller #usefulTraveler").unbind("tap").bind("tap",function(){
 				obj.cache("pruduct_input_"+data.id,result);
-				window.location.hash="usefulTraveler/"+data.type+"/"+data.id;
+				window.location.hash="usefulTraveler/"+data.type+"/"+data.id+"/"+data.state;
 				});
 			$("#scroller #date").unbind("tap").bind("tap",function(){
 				obj.cache("pruduct_input_"+data.id,result);
-				window.location.hash="calendar/"+data.type+"/"+data.id+"/1";
+				window.location.hash="calendar/"+data.type+"/"+data.id+"/"+data.state+"/1";
 				});
 			$("#scroller [D_type='inputGroup']").unbind("change").bind("change",function(){
 				if(!obj.control.pointParse(result,$(this).attr("D_key"))){
@@ -198,28 +200,28 @@
 						$(this).addClass("hl");
 						$(this).parents(".list").find(".inputList").show();
 						}
+						myScroll.refresh();
 				});
 				})
 			
 			$("#scroller .product_input .button").unbind("tap").bind("tap",function(){
-				
+				var singleMan=0;
+				if(!result.single){
+					singleMan=result.man+result.child+result.oldman+result.oldman2
+					}
+				obj.api.run("deal_add",'at='+at+'&goParam={"a"="'+data.type+'","b"="'+data.id+'","c"="'+result.date.b+'","j"="'+data.state+'","d1"="'+result.man+'","d3"="'+result.child+'","d5"="'+result.child2+'","d7"="'+result.oldman+'","d8"="'+result.oldman2+'","d9"="'+singleMan+'"}',function(returnData){
+					debugger;
+					window.location.hash="dealSuccess/"
+					},function(e){
+					alert(JSON.stringify(e))
+					})
 				});
 			var delay=setTimeout(function(){
 				myScroll.refresh();
 				},200);
-			function getList(at,now){
-				/*obj.api.run(apiArry[data.type],'aid='+now.startId,function(returnData){
-					debugger;
-					},function(e){
-					alert(JSON.stringify(e));
-					})*/
-				}
-			function getNow(at){
-				obj.api.run("city_cf_get","at="+at,function(returnData){
-					getList(at,returnData);
-					});
-				}
-			obj.api.at(getNow);	
+			}
+			
+			obj.api.at(layout);	
 				
 			}
 		});

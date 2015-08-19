@@ -2,7 +2,7 @@
 ;(function($,obj,config){
 	obj.control.set({
 		name:"usefulTraveler",
-		par:"type/id",
+		par:"type/id/state",
 		tem:["top_third","double_line_list","single_button"],
 		fn:function(data){
 			var result={}
@@ -26,7 +26,7 @@
 					result.traveler[i]=$(this).parents(".point").find(".name").html();
 					});
 				obj.cache("pruduct_input_"+data.id,result);
-					window.location.hash="productInput/"+data.type+"/"+data.id;
+					window.location.hash="productInput/"+data.type+"/"+data.id+"/"+data.state;
 				})
 			function layout(list){
 				var main=_.template(data.tem[1])({

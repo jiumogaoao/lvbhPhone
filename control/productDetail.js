@@ -69,11 +69,11 @@
 				})
 			$("#scroller #date").unbind("tap").bind("tap",function(){
 				obj.cache("pruduct_input_"+data.id,result);
-				window.location.hash="calendar/"+data.type+"/"+data.id+"/0";
+				window.location.hash="calendar/"+data.type+"/"+data.id+"/"+result.state+"/0";
 				})
 			$("#payButton").unbind("tap").bind("tap",function(){
 				obj.cache("pruduct_input_"+data.id,result);
-				window.location.hash="productInput/"+data.type+"/"+data.id+"/";
+				window.location.hash="productInput/"+data.type+"/"+data.id+"/"+result.state;
 				})
 			$(".title_input_list [name='message']").unbind("tap").bind("tap",function(){
 				window.location.hash="messageList/"+data.type+"/"+data.id;
@@ -115,6 +115,7 @@
 			
 			function getList(at){
 				obj.api.run(apiArry[data.type],'aid='+data.id,function(returnData){
+				result.state=returnData.gtinfo.gd.e;
 					var gd=returnData.gtinfo.gd;
 					if(!result.date){
 						result.date=returnData.priceArray[0];

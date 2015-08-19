@@ -2,7 +2,7 @@
 ;(function($,obj,config){
 	obj.control.set({
 		name:"calendar",
-		par:"type/id/state",
+		par:"type/id/state/page",
 		tem:["top_second"],
 		fn:function(data){
 			var result={};
@@ -26,10 +26,10 @@
 					result.date=_.indexBy(returnData,"b")[$(this).attr("did")];
 					console.log(result);
 					obj.cache("pruduct_input_"+data.id,result);
-					if(data.state==="0"){
+					if(data.page==="0"){
 						window.location.hash="productDetail/"+data.type+"/"+data.id;	
 						}else{
-						window.location.hash="productInput/"+data.type+"/"+data.id;	
+						window.location.hash="productInput/"+data.type+"/"+data.id+"/"+data.state;	
 							}
 					
 					});

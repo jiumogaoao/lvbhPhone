@@ -2,7 +2,7 @@
 ;(function($,obj,config){
 	obj.control.set({
 		name:"usefulLinkman",
-		par:"type/id",
+		par:"type/id/state",
 		tem:["top_second","double_line_list","single_button"],
 		fn:function(data){
 			var result={}
@@ -33,7 +33,7 @@
 					email:list[$(this).attr("num")].email
 				}
 				obj.cache("pruduct_input_"+data.id,result);
-					window.location.hash="productInput/"+data.type+"/"+data.id;
+					window.location.hash="productInput/"+data.type+"/"+data.id+"/"+data.state;
 				});
 			var delay=setTimeout(function(){
 				myScroll.refresh();

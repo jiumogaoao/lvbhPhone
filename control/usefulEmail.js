@@ -2,7 +2,7 @@
 ;(function($,obj,config){
 	obj.control.set({
 		name:"usefulEmail",
-		par:"type/id/state",
+		par:"type/id/state/key",
 		tem:["top_second","double_line_list","single_button"],
 		fn:function(data){
 			var result={}
@@ -24,11 +24,11 @@
 					dscName:""});
 			$("#scroller").html(main+button);
 			$("#scroller .point").unbind("tap").bind("tap",function(){
-				if(data.state=="0"){result.invoice.place=$(this).find(".dsc").html().replace(/ /g,"")}else{
+				if(data.key=="0"){result.invoice.place=$(this).find(".dsc").html().replace(/ /g,"")}else{
 					result.contract.place=$(this).find(".dsc").html().replace(/ /g,"");
 					}
 				obj.cache("pruduct_input_"+data.id,result);
-					window.location.hash="productInput/"+data.type+"/"+data.id;
+					window.location.hash="productInput/"+data.type+"/"+data.id+"/"+data.state;
 				})
 			var delay=setTimeout(function(){
 				myScroll.refresh();
