@@ -22,7 +22,7 @@
 				},200);
 			$('img').load(function(){
 				myScroll.refresh();
-				})
+				});
 				}
 			function getData(at){
 				

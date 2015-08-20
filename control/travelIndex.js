@@ -2,11 +2,11 @@
 ;(function($,obj,config){
 	obj.control.set({
 		name:"travelIndex",
-		par:"type/state/id",
+		par:"type/state/id/at",
 		tem:["top_second","nav_four","nav_third","hot_nav","product_group_list"],
 		fn:function(data){
 			var titleArry=["出发地跟团","目的地跟团"];
-			var typeArry=[12,13]
+			var typeArry=[12,13];
 			var hlArry=["left","center","right"];
 			var tagArry=[{name:"旅博汇",color:"#ffb54c"},{name:"旅博专团",color:"#39bf71"},{name:"旅博推荐",color:"#ff504c"}];
 			var tableAtty=["cf_table_get","md_table_get"];
@@ -57,7 +57,7 @@
 				},200);
 				$('img').load(function(){
 				myScroll.refresh();
-				})
+				});
 				}
 			
 			function getRecommend(at,now){
@@ -130,7 +130,7 @@
 							}				
 					});
 				}
-			obj.api.at(getNow);	
+			obj.api.at(getNow,data.at);	
 				
 			}
 		});

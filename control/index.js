@@ -24,7 +24,7 @@ $(".product_group_list .point").unbind("tap").bind("tap",function(){
 				},200);
 			$('img').load(function(){
 				myScroll.refresh();
-				})	
+				});	
 			}
 			$("#foot").html(data.tem[0]);
 			$("#foot .fa-home").addClass("hl");

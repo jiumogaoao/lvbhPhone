@@ -5,7 +5,7 @@
 		par:"type/id",
 		tem:["top_second","message_list","single_button"],
 		fn:function(data){
-			var apiArry={"12":"cf_detail_get","13":"md_detail_get"}
+			var apiArry={"12":"cf_detail_get","13":"md_detail_get"};
 			var head=_.template(data.tem[0])({
 				left:"",
 				center:"预订须知"
@@ -23,14 +23,14 @@
 				},200);
 				$('img').load(function(){
 				myScroll.refresh();
-				})
+				});
 				}	
 			
 			function getList(at){
 				obj.api.run(apiArry[data.type],'aid='+data.id,function(returnData){
-					var list=[{title:"预定说明",main:returnData.gtinfo.gd.u},{title:"注意事项",main:returnData.gtinfo.gd.v}]
+					var list=[{title:"预定说明",main:returnData.gtinfo.gd.u},{title:"注意事项",main:returnData.gtinfo.gd.v}];
 					layout(list);
-					})
+					});
 			}
 			obj.api.at(getList);	
 			}

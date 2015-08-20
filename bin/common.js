@@ -82,7 +82,7 @@
 				}else{
 					return false;
 					}
-		}
+		};
 	var reflashLock=false;
 	var reflashArry={};
 	app.reflash={};

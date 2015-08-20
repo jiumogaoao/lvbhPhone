@@ -2,7 +2,7 @@
 <div class="alert share">
 	<div class="main">
     	<% _.each(list,function(n){ %>
-        	<div class="point">
+        	<div class="point" sid="<%= n.id %>">
             	<img class="icon" src="<%= n.image %>"/>
                 <div class="name"><%= n.name %></div>
             </div>

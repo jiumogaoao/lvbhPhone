@@ -45,7 +45,9 @@
 	height:2rem;
 	background-color:#ff840a;
 	transform-origin:center;
+	-webkit-transform-origin:center;
 	transform:rotate(45deg);
+	-webkit-transform:rotate(45deg);
 	position:absolute;
 	top:-1rem;
 	left:-1.4rem;}

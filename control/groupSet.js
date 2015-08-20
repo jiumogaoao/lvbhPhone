@@ -71,7 +71,7 @@
 				},200);
 				$('img').load(function(){
 				myScroll.refresh();
-				})
+				});
 				}
 			function getGroup(at){
 				obj.api.run("group_getMy","at="+at,layout,function(e){

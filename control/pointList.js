@@ -27,7 +27,7 @@
 				},200);
 				$('img').load(function(){
 				myScroll.refresh();
-				})
+				});
 				}
 			
 			function getdetail(at){

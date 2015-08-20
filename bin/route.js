@@ -15,16 +15,18 @@
 				$("#head").height("4rem");
 					$("#middle").css({
 						top:"4rem",
-						bottom:"1.5rem"
+						bottom:"0rem"
 						});
+					$("#scroller").css({"padding-bottom":"1.5rem"});
 				}else if(hashArry[0]==="foundIndex"){
 					$("#foot").empty();
 				$("#foot").show();
 				$("#head").height("1.5rem");
 					$("#middle").css({
 						top:"1.5rem",
-						bottom:"1.5rem"
+						bottom:"0rem"
 						});
+					$("#scroller").css({"padding-bottom":"1.5rem"});
 					}else{
 					$("#foot").empty();
 					$("#foot").hide();
@@ -33,7 +35,7 @@
 						top:"1.5rem",
 						bottom:"0rem"
 						});
-					
+					$("#scroller").css({"padding-bottom":"0rem"});
 					}
 				var dataObj={};
 				if(routeArry[hashArry[0]].par){
@@ -41,6 +43,14 @@
 					for(var i=0;i<dataArry.length;i++){
 				dataObj[dataArry[i]]=hashArry[i+1];
 				}
+					}
+				if(dataObj.at){
+					app.cache("phone",{"phone":true});
+					}
+				if(app.cache("phone")&&app.cache("phone").phone){
+					$("#head").hide();
+					$("#middle").css({"top":"0rem","bottom":"0rem"});
+					$("#foot").hide();
 					}
 				if(routeArry[hashArry[0]].tem.length){
 					var totalUrl=0;

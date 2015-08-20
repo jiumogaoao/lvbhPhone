@@ -1,0 +1,1 @@
+!function(a,b,c){b.control.set({name:"dealSuccess",par:"id",tem:["top_third","deal_success"],fn:function(b){var c=_.template(b.tem[0])({left:" ",center:"订单提交信息",right:"关闭"});a("#head").html(c),a("#scroller").html(b.tem[1]);setTimeout(function(){myScroll.refresh()},200);a("img").load(function(){myScroll.refresh()})}})}($,app,config);

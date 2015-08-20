@@ -26,7 +26,7 @@
 				},200);
 				$('img').load(function(){
 				myScroll.refresh();
-				})
+				});
 				}
 			
 			function getmember(at){

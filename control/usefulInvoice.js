@@ -5,7 +5,7 @@
 		par:"type/id/state",
 		tem:["top_second","single_line_list","single_button"],
 		fn:function(data){
-			var result={}
+			var result={};
 			if(obj.cache("pruduct_input_"+data.id)){
 				result=obj.cache("pruduct_input_"+data.id);
 				}
@@ -33,20 +33,20 @@
 				},200);	
 				$('img').load(function(){
 				myScroll.refresh();
-				})
+				});
 				}
 			
 				
 			function getList(at){
-				obj.api.run("invoice_get",'at='+at+'&tp=3',function(returnData){debugger;
+				obj.api.run("invoice_get",'at='+at+'&tp=3',function(returnData){
 					var list=[];
 					$.each(returnData,function(i,n){
 						list.push(n.b);
-						})
-					layout(list)
+						});
+					layout(list);
 					},function(e){
-					alert(JSON.stringify(e))
-					})
+					alert(JSON.stringify(e));
+					});
 				}
 			obj.api.at(getList);	
 			}

@@ -33,7 +33,7 @@
 				},200);
 				$('img').load(function(){
 				myScroll.refresh();
-				})
+				});
 				}
 			
 			function getAccount(at){

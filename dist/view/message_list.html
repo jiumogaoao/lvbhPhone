@@ -1,0 +1,12 @@
+<link href="css/message_list.css" rel="stylesheet" rev="stylesheet" type="text/css"/>
+<div class="message_list">
+<% _.each(list,function(n){ %>
+<div class="point">
+    	<div class="title"><%= n.title %></div>
+        <div class="main">
+        	<%= n.main %>
+        </div>
+    </div>
+<% }) %>
+	
+</div>

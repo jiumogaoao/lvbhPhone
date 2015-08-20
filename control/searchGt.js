@@ -28,7 +28,7 @@
 			var delay=setTimeout(function(){myScroll.refresh();},200);
 			$('img').load(function(){
 				myScroll.refresh();
-				})
+				});
 				}
 			
 			

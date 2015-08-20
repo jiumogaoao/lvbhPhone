@@ -73,7 +73,7 @@
 				},200);
 				$('img').load(function(){
 				myScroll.refresh();
-				})
+				});
 				}
 			
 			function getIncome(at){

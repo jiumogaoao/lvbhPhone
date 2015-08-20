@@ -6,7 +6,7 @@
 		tem:["top_second"],
 		fn:function(data){
 			var result={};
-			var apiArry={"12":"cf_detail_get","13":"md_detail_get"}
+			var apiArry={"12":"cf_detail_get","13":"md_detail_get"};
 			if(obj.cache("pruduct_input_"+data.id)){
 				result=obj.cache("pruduct_input_"+data.id);
 				}
@@ -39,7 +39,7 @@
 				}
 			$('img').load(function(){
 				myScroll.refresh();
-				})
+				});
 			
 			
 			function getList(at){
@@ -48,18 +48,18 @@
 			$.each(returnData.priceArray,function(i,n){
 				var date=n.c.split("-");
 				if(!list[date[0]]){
-					list[date[0]]={}
+					list[date[0]]={};
 					}
 				if(!list[date[0]][date[1]]){
-					list[date[0]][date[1]]={}
+					list[date[0]][date[1]]={};
 					}
-				list[date[0]][date[1]][date[2]]={price:n.f,id:n.b}
+				list[date[0]][date[1]][date[2]]={price:n.f,id:n.b};
 				if(n.e===0){
 					list[date[0]][date[1]][date[2]].full=true;
 					}
 				});
-				layout(list,returnData.priceArray)
-				})
+				layout(list,returnData.priceArray);
+				});
 				}
 			obj.api.at(getList);	
 			}

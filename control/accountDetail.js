@@ -105,7 +105,7 @@
 			myScroll.refresh();
 			$('img').load(function(){
 				myScroll.refresh();
-				})
+				});
 				}
 			
 			function getdetail(at){

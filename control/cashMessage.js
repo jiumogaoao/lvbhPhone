@@ -23,7 +23,7 @@
 			myScroll.refresh();
 			$('img').load(function(){
 				myScroll.refresh();
-				})
+				});
 				}
 			function getAccount(at){
 				var send='at='+at;

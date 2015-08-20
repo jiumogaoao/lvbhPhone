@@ -40,7 +40,7 @@
 				});
 				$('img').load(function(){
 				myScroll.refresh();
-				})
+				});
 			function delay(){
 				$("[name='key'] .other span").html("发送动态密码");
 				$("[name='key'] .other").unbind("tap").bind("tap",function(){

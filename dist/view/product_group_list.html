@@ -11,7 +11,7 @@
         <% } %>
         <div class="main">
         	<% _.each(n.main,function(x){ %>
-            <div class="point" pid="<%= x.id %>">
+            <div class="point" pid="<%= x.id %>" type="<%= x.type %>" state="<%= x.state %>">
             	<img src="<%= x.image %>"/>
                 <div class="name"><%= x.name %></div>
                 <div class="clear"></div>

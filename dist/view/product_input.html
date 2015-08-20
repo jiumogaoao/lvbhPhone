@@ -1,0 +1,228 @@
+<link href="css/product_input.css" rel="stylesheet" rev="stylesheet" type="text/css"/>
+<link href="css/title_input_list.css" rel="stylesheet" rev="stylesheet" type="text/css"/>
+<div class="product_input">
+	<div class="list" id="date">
+    	<div class="head">
+        	<div class="title">选择团期</div>
+            <div class="date"><%= date.c %> <span class="fa fa-right"></span></div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <div class="list">
+    	<div class="numberList">
+        	<div class="numberLeft">
+            	<div class="numberName">成人出游</div>
+                <div class="numberPrice" D_type="simple" D_key="man">￥<%= date.g %>/人</div>
+            </div>
+            <div class="numberRight" D_type="number" D_key="man">
+            	<div class="numberSub"><span class="fa fa-sub"></span></div>
+                <input class="numberInput" value="<%= man %>"/>
+                <div class="numberAdd"><span class="fa fa-add"></span></div>
+                <div class="clear"></div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="numberList">
+        	<div class="numberLeft">
+            	<div class="numberName">占床儿童出游</div>
+                <div class="numberPrice" D_type="simple" D_key="child">￥<%= date.h %>/人</div>
+            </div>
+            <div class="numberRight" D_type="number" D_key="child">
+            	<div class="numberSub"><span class="fa fa-sub"></span></div>
+                <input class="numberInput" value="<%= child %>"/>
+                <div class="numberAdd"><span class="fa fa-add"></span></div>
+                <div class="clear"></div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="numberList">
+        	<div class="numberLeft">
+            	<div class="numberName">不占床儿童出游</div>
+                <div class="numberPrice" D_type="simple" D_key="child2">￥<%= date.i %>/人</div>
+            </div>
+            <div class="numberRight" D_type="number" D_key="child2">
+            	<div class="numberSub"><span class="fa fa-sub"></span></div>
+                <input class="numberInput" value="<%= child2 %>"/>
+                <div class="numberAdd"><span class="fa fa-add"></span></div>
+                <div class="clear"></div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="numberList">
+        	<div class="numberLeft">
+            	<div class="numberName">65岁以上老人出游</div>
+                <div class="numberPrice" D_type="simple" D_key="oldman">￥<%= date.j %>/人</div>
+            </div>
+            <div class="numberRight" D_type="number" D_key="oldman">
+            	<div class="numberSub"><span class="fa fa-sub"></span></div>
+                <input class="numberInput" value="<%= oldman %>"/>
+                <div class="numberAdd"><span class="fa fa-add"></span></div>
+                <div class="clear"></div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="numberList">
+        	<div class="numberLeft">
+            	<div class="numberName">75岁以上老人出游</div>
+                <div class="numberPrice" D_type="simple" D_key="oldman2">￥<%= date.k %>/人</div>
+            </div>
+            <div class="numberRight" D_type="number" D_key="oldman2">
+            	<div class="numberSub"><span class="fa fa-sub"></span></div>
+                <input class="numberInput" value="<%= oldman2 %>"/>
+                <div class="numberAdd"><span class="fa fa-add"></span></div>
+                <div class="clear"></div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="numberList">
+        	<div class="numberLeft">
+            	<div class="numberName">单房差价</div>
+                <div class="numberPrice" D_type="simple" D_key="single">￥<%= date.l %>/人</div>
+            </div>
+            <div class="numberRight">
+            	<div class="numberCheck">同意拼房 <span class="fa fa-question"></span> <span class="fa fa-checkbox <% if(single){print("hl")} %>" D_type="checkBox" D_key="single"></span></div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        
+    </div>
+    <div class="list">
+            <div class="head">
+                <div class="title">优惠信息</div>
+                <div class="clear"></div>
+            </div>
+            <table>
+            	<tr>
+                	<td align="center" valign="middle">优惠活动</td>
+                    <td align="center" valign="middle">总人数</td>
+                    <td align="center" valign="middle">优惠金额</td>
+                </tr>
+                <tr>
+                	<td align="center" valign="middle">同行多省</td>
+                    <td align="center" valign="middle" D_key="total" D_type="simple" id="totalMan"><%= man+child+child2+oldman+oldman2 %>人</td>
+                    <td align="center" valign="middle" D_key="sell" D_type="simple">￥0元</td>
+                </tr>
+            </table>
+            <div class="space"></div>
+        </div>
+        <div class="list">
+        	<div class="head bb">
+            	<div class="title">出游人信息</div>
+                <div class="link" id="usefulTraveler">常用旅客</div>
+                <div class="clear"></div>
+            </div>
+            <div id="traveler">
+            <% _.each(traveler,function(n,i){ %>
+            	<div class="inputList">
+                    <div class="inputTitle">出游人<%= (i+1) %></div>
+                    <input readonly="true" placeholder="姓名" D_num="0" D_key="traveler" D_type="inputGroup" value="姓名"/>
+                    <div class="clear"></div>
+                </div>
+            <% }) %>      
+            </div>
+        </div>
+        <div class="list">
+        	<div class="head bb">
+            	<div class="title">联系人信息</div>
+                <div class="link" id="usefulLinkman">常用联系人</div>
+                <div class="clear"></div>
+            </div>
+            <div class="inputList">
+            	<div class="inputTitle">中文姓名</div>
+                <input placeholder="请输入中文姓名" D_key="linkMan.name" D_type="input" value="<%= linkMan.name %>"/>
+                <div class="clear"></div>
+            </div>
+            <div class="inputList">
+            	<div class="inputTitle">联系手机</div>
+                <input placeholder="请输入联系人的手机号码" D_key="linkMan.tel" D_type="input" value="<%= linkMan.tel %>"/>
+                <div class="clear"></div>
+            </div>
+            <div class="inputList nb">
+            	<div class="inputTitle">电子邮箱</div>
+                <input placeholder="请输入邮箱地址" D_key="linkMan.email" D_type="input" value="<%= linkMan.email %>"/>
+                <div class="clear"></div>
+            </div>
+        </div>
+        <div class="list">
+        	<div class="head bb">
+            	<div class="title">发票</div>
+                <div class="check"><span class="fa fa-checkbox <% if(invoice.on){print("hl")} %>" D_type="toggle" D_key="invoice.on"></span></div>
+                <div class="clear"></div>
+            </div>
+            <div class="inputList" <% if(!invoice.on){print('style="display:none;"')} %>>
+            	<div class="inputTitle">发票抬头</div>
+                <input placeholder="请输入发票抬头" D_type="input" D_key="invoice.title" value="<%= invoice.title %>"/>
+                <div class="link" id="usefulInvoice">常用发票抬头</div>
+                <div class="clear"></div>
+            </div>
+            <div class="inputList" <% if(!invoice.on){print('style="display:none;"')} %>>
+            	<div class="inputTitle">邮寄地址</div>
+                <input placeholder="请输入邮寄地址" D_type="input" D_key="invoice.place" value="<%= invoice.place %>"/>
+                <div class="link" id="usefulEmail0">常用邮寄地址</div>
+                <div class="clear"></div>
+            </div>
+            <div class="inputList" <% if(!invoice.on){print('style="display:none;"')} %>>
+            	<div class="inputTitle">收件人</div>
+                <input placeholder="请输入收件人姓名" D_type="input" D_key="invoice.name" value="<%= invoice.name %>"/>
+                <div class="clear"></div>
+            </div>
+            <div class="inputList nb" <% if(!invoice.on){print('style="display:none;"')} %>>
+            	<div class="inputTitle">手机号码</div>
+                <input placeholder="请输入收件人手机号码" D_type="input" D_key="invoice.phone" value="<%= invoice.phone %>"/>
+                <div class="clear"></div>
+            </div>
+        </div>
+        <div class="list">
+        	<div class="head bb">
+            	<div class="title">合同</div>
+                <div class="check"><span class="fa fa-checkbox <% if(contract.on){print("hl")} %>" D_type="toggle" D_key="contract.on"></span></div>
+                <div class="clear"></div>
+            </div>
+            <div class="inputList" <% if(!contract.on){print('style="display:none;"')} %>>
+            	<div class="inputTitle">邮寄地址</div>
+                <input placeholder="请输入邮寄地址" D_type="input" D_key="contract.place" value="<%= contract.place %>"/>
+                <div class="link" id="usefulEmail1">常用邮寄地址</div>
+                <div class="clear"></div>
+            </div>
+            <div class="inputList" <% if(!contract.on){print('style="display:none;"')} %>>
+            	<div class="inputTitle">收件人</div>
+                <input placeholder="请输入收件人姓名" D_type="input" D_key="contract.name" value="<%= contract.name %>"/>
+                <div class="clear"></div>
+            </div>
+            <div class="inputList nb" <% if(!contract.on){print('style="display:none;"')} %>>
+            	<div class="inputTitle">手机号码</div>
+                <input placeholder="请输入收件人手机号码" D_type="input" D_key="contract.phone" value="<%= contract.phone %>"/>
+                <div class="clear"></div>
+            </div>
+        </div>
+        
+</div>
+<div class="title_input_list" style="margin-bottom:.4rem;">
+            <div class="point link" id="postScript">
+                <div class="left">附言说明</div>
+                <div class="right"><span class="fa fa-right"></span></div>
+                <div class="clear"></div>
+            </div>
+            <div class="point link" id="message">
+                <div class="left">预订须知</div>
+                <div class="right"><span class="fa fa-right"></span></div>
+                <div class="clear"></div>
+            </div>
+        </div>
+<div class="product_input">
+	<div class="list">
+    	<div class="head">
+        <div class="dsc">
+        	<span class="fa fa-checkbox <% if(agree){print("hl")} %>" D_type="checkBox" D_key="agree"></span><div class="main">我已阅读并接受合同条款、预订须知条款及其他所有内容。</div><div class="clear"></div>
+        </div>
+        	
+        </div>
+    </div>
+    <div class="list">
+    	<div class="payList">
+        	<div class="text"><b>订单金额</b> <span class="totalPrice">￥0</span> <u>明细</u></div>
+            <div class="button">提交订单</div>
+            <div class="clear"></div>
+        </div>
+    </div>
+</div>

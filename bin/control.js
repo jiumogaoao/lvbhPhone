@@ -25,12 +25,12 @@
 		var result=false;
 		point=point.split(".");
 		function roll(key,num){
-			if(typeof(key[point[num]])==="undefined"&&num!=point.length-1){
-				key[point[num]]={}
+			if(typeof(key[point[num]])==="undefined"&&num !== point.length-1){
+				key[point[num]]={};
 				}
-			if(num==point.length-1){
-				if(typeof(value)!="undefined"){
-					key[point[num]]=value	
+			if(num === point.length-1){
+				if(typeof(value) !== "undefined"){
+					key[point[num]]=value;	
 					}
 				result=key[point[num]];
 			}else{

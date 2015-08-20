@@ -2,7 +2,7 @@
 ;(function($,obj,config){
 	obj.control.set({
 		name:"diyIndex",
-		par:"type",
+		par:"type/at",
 		tem:["top_second","diy_hot","diy_nav","product_group_list"],
 		fn:function(data){
 			var head=_.template(data.tem[0])({
@@ -32,7 +32,7 @@
 				},200);
 				$('img').load(function(){
 				myScroll.refresh();
-				})
+				});
 				}
 			
 				
@@ -61,7 +61,7 @@
 					alert(JSON.stringify(e));
 					});
 				}
-			obj.api.at(getList);
+			obj.api.at(getList,data.at);
 			}
 		});
 	})($,app,config);

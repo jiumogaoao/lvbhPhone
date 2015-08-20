@@ -1,0 +1,93 @@
+<link href="css/pay_list.css" rel="stylesheet" rev="stylesheet" type="text/css"/>
+<div class="pay_list">
+<% if(man){ %>
+	<div class="point">
+    	<div class="name">成人</div>
+        <div class="price">+ ￥<%= date.g*man %>(￥<%= date.g %> X <%= man %>)</div>
+        <div class="clear"></div>
+    </div>
+<% } %>
+<% if(child){ %>	
+    <div class="point">
+    	<div class="name">占床儿童</div>
+        <div class="price">+ ￥<%= date.h*child %> (￥<%= date.h %> X <%= child %>)</div>
+        <div class="clear"></div>
+    </div>
+ <% } %> 
+<% if(child2){ %>  
+    <div class="point">
+    	<div class="name">不占床儿童</div>
+        <div class="price">+ ￥<%= date.i*child2 %> (￥<%= date.i %> X <%= child2 %>)</div>
+        <div class="clear"></div>
+    </div>
+   <% } %> 
+<% if(oldman){ %>    
+    <div class="point">
+    	<div class="name">65岁以上老人</div>
+        <div class="price">+ ￥<%= date.j*oldman %> (￥<%= date.j %> X <%= oldman %>)</div>
+        <div class="clear"></div>
+    </div>
+   <% } %> 
+<% if(oldman2){ %>   
+    <div class="point">
+    	<div class="name">75岁以上老人</div>
+        <div class="price">+ ￥<%= date.k*oldman2 %> (￥<%= date.k %> X <%= oldman2 %>)</div>
+        <div class="clear"></div>
+    </div>
+    <% } %>
+<!--    
+    <div class="point">
+    	<div class="name">机票</div>
+        <div class="price">+ ￥3198 (￥1599 X 2)</div>
+        <div class="clear"></div>
+    </div>
+    <div class="point">
+    	<div class="name">保险</div>
+        <div class="price">+ ￥3198 (￥1599 X 2)</div>
+        <div class="clear"></div>
+    </div>
+    -->
+<% if(single){ %>     
+    <div class="point">
+    	<div class="name">单房差</div>
+        <div class="price">- ￥<%= date.l*(man+child+oldman+oldman2) %> (￥<%= date.l %> X <%= man+child+oldman+oldman2 %>)</div>
+        <div class="clear"></div>
+    </div>
+    <% } %>
+<% if(man+child+child2+oldman+oldman2>1){ %>       
+    <div class="point">
+    	<div class="name">多人同省</div>
+        <div class="price">- ￥<%
+        var total=man+child+child2+oldman+oldman2;
+        var sell=0;
+        if(total==2){
+					sell=date.n
+					}else if(total==3){
+                    sell=date.o
+                    }else if(total==4){
+                    sell=date.p
+                    }else if(total>4){
+						sell=date.q
+						}
+        print(total*sell)
+        %> (￥<%= sell %> X <%= total %>)</div>
+        <div class="clear"></div>
+    </div>
+    <% } %>
+    <div class="total">
+    	<div class="left"><b>订单金额</b> <span class="number">￥<%
+        var pay=man*date.g+child*date.h+child2*date.i+oldman*date.j+oldman2*date.k+total*sell
+				if(single){
+					pay-=(total-child2)*date.l
+					}
+                    print(pay);
+        %></span> <u>明细</u></div>
+        <div class="payButton">提交订单</div>
+        <div class="clear"></div>
+    </div>
+</div>
+<script>
+	$(".pay_list .total u").unbind("tap").bind("tap",function(){
+		app.bottom.off();
+		})
+</script>

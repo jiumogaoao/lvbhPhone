@@ -2,7 +2,7 @@
 ;(function($,obj,config){
 	obj.control.set({
 		name:"productDetail",
-		par:"type/id",
+		par:"type/id/at",
 		tem:["top_third","nav_third","product_top","product_center","nav_third","product_bottom","title_input_list","single_button"],
 		fn:function(data){
 			var result={
@@ -38,9 +38,9 @@
 				obj.cache("pruduct_input_"+data.id,null,true);
 				}
 				console.log(result);
-			var collectArry={"12":"4","13":"5"}
-			var apiArry={"12":"cf_detail_get","13":"md_detail_get"}
-			var typeArry={"12":"出发地跟团","13":"目的地跟团"}
+			var collectArry={"12":"4","13":"5"};
+			var apiArry={"12":"cf_detail_get","13":"md_detail_get"};
+			var typeArry={"12":"出发地跟团","13":"目的地跟团"};
 			var head=_.template(data.tem[0])({
 				left:"",
 				center:"产品详情",
@@ -57,24 +57,24 @@
 				{left:"预订流程",right:"<span class='fa fa-right'></span>",link:true,name:"flow"},
 				{left:"产品点评",right:"<span class='fa fa-right'></span>",link:true,name:"comment"}
 			]});
-			var button=_.template(data.tem[7])({text:'立即预定',id:"payButton"})
+			var button=_.template(data.tem[7])({text:'立即预定',id:"payButton"});
 			var topT=_.template(data.tem[2])(top);
 			var centerT=_.template(data.tem[3])(center);
-			var bottomT=_.template(data.tem[5])(bottom)
+			var bottomT=_.template(data.tem[5])(bottom);
 			$("#scroller").html(topT+centerT+nav+bottomT+bottomList+button);
 			$("#scroller .product_top .collect").unbind("tap").bind("tap",function(){
 				obj.api.run("collect_add",'at='+at+'&t='+collectArry[data.type]+'&id='+data.id+'&cn='+result.title+'&desc='+result.title,function(returnData){
-					alert("收藏成功")
-					},function(e){alert(JSON.stringify(e))})
-				})
+					alert("收藏成功");
+					},function(e){alert(JSON.stringify(e));});
+				});
 			$("#scroller #date").unbind("tap").bind("tap",function(){
 				obj.cache("pruduct_input_"+data.id,result);
 				window.location.hash="calendar/"+data.type+"/"+data.id+"/"+result.state+"/0";
-				})
+				});
 			$("#payButton").unbind("tap").bind("tap",function(){
 				obj.cache("pruduct_input_"+data.id,result);
 				window.location.hash="productInput/"+data.type+"/"+data.id+"/"+result.state;
-				})
+				});
 			$(".title_input_list [name='message']").unbind("tap").bind("tap",function(){
 				window.location.hash="messageList/"+data.type+"/"+data.id;
 				});
@@ -91,18 +91,18 @@
 				{image:"img/qzone.png",name:"QQ空间",id:"qzone"}
 				]},function(){
 					$(".share [sid='xinlang']").unbind("tap").bind("tap",function(){
-						window.location.href="http://service.weibo.com/share/share.php?url="+window.location.href+"&appkey=1343713053&searchPic=true";
+						window.location.href="http://service.weibo.com/share/share.php?url="+window.location.href+"&appkey=&searchPic=true";
 						});
 					$(".share [sid='qq']").unbind("tap").bind("tap",function(){
-						window.location.href="http://service.weibo.com/share/share.php?url="+window.location.href+"&appkey=1343713053&searchPic=true";
+						window.location.href="http://connect.qq.com/widget/shareqq/index.html?url="+encodeURIComponent(window.location.href)+"&desc=&title="+encodeURIComponent(top.title)+"&summary=&pics=&flash=&site=&style=201&width=32&height=32&showcount=";
 						});
 					$(".share [sid='qzone']").unbind("tap").bind("tap",function(){
-						window.location.href="http://service.weibo.com/share/share.php?url="+window.location.href+"&appkey=1343713053&searchPic=true";
+						window.location.href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url="+window.location.href+"&title="+top.title+"&desc="+top.title+"&summary=&site=lvbh";
 						});
 					},function(e){
 					alert(JSON.stringify(e));
 					});
-				})
+				});
 			
 			$(".nav_third .nav_point_frame").unbind("tap").bind("tap",function(){
 				$(".nav_third .nav_point_frame").removeClass("hl");
@@ -116,10 +116,10 @@
 			var delay=setTimeout(function(){
 				$("[show='left']").show();
 				myScroll.refresh();
-				},200);
+				},1000);
 				$('img').load(function(){
 				myScroll.refresh();
-				})
+				});
 				}
 			
 			function getList(at){
@@ -132,11 +132,11 @@
 					var pa=result.date;
 					var tagArry=[];
 					result.title=gd.b;
-					gd.ee=JSON.parse(gd.ee)
+					gd.ee=JSON.parse(gd.ee);
 					$.each(gd.ee.info.tag,function(i,n){
-						var addData={name:n.nam,color:n.cs}
+						var addData={name:n.nam,color:n.cs};
 						tagArry.push(addData);
-						})		
+						});		
 					var top={
 					image:returnData.gtinfo.pics,
 					type:typeArry[data.type],
@@ -171,12 +171,12 @@
 				noinclude:gd.s||"",
 				payself:gd.t||""
 				};
-					layout(at,top,center,bottom)
+					layout(at,top,center,bottom);
 					},function(e){
-					alert(JSON.stringify(e))
+					alert(JSON.stringify(e));
 					});
 				}
-			obj.api.at(getList);	
+			obj.api.at(getList,data.at);	
 				
 			}
 		});

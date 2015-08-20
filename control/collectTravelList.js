@@ -48,7 +48,7 @@
 				},200);
 				$('img').load(function(){
 				myScroll.refresh();
-				})
+				});
 				}
 			function getPage(callback){
 			obj.api.at(function(at){

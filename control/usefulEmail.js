@@ -5,7 +5,7 @@
 		par:"type/id/state/key",
 		tem:["top_second","double_line_list","single_button"],
 		fn:function(data){
-			var result={}
+			var result={};
 			if(obj.cache("pruduct_input_"+data.id)){
 				result=obj.cache("pruduct_input_"+data.id);
 				}
@@ -24,18 +24,18 @@
 					dscName:""});
 			$("#scroller").html(main+button);
 			$("#scroller .point").unbind("tap").bind("tap",function(){
-				if(data.key=="0"){result.invoice.place=$(this).find(".dsc").html().replace(/ /g,"")}else{
+				if(data.key==="0"){result.invoice.place=$(this).find(".dsc").html().replace(/ /g,"");}else{
 					result.contract.place=$(this).find(".dsc").html().replace(/ /g,"");
 					}
 				obj.cache("pruduct_input_"+data.id,result);
 					window.location.hash="productInput/"+data.type+"/"+data.id+"/"+data.state;
-				})
+				});
 			var delay=setTimeout(function(){
 				myScroll.refresh();
 				},200);
 				$('img').load(function(){
 				myScroll.refresh();
-				})
+				});
 				}
 			
 			function getList(at){
@@ -43,11 +43,11 @@
 					var list=[];
 					$.each(returnData,function(i,n){
 						list.push({title:n.b,dsc:n.d});
-						})
-					layout(list)
+						});
+					layout(list);
 					},function(e){
-					alert(JSON.stringify(e))
-					})
+					alert(JSON.stringify(e));
+					});
 			}
 			obj.api.at(getList);	
 			}
