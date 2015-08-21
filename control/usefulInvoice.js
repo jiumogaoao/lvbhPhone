@@ -11,7 +11,7 @@
 				}
 			var head=_.template(data.tem[0])({
 				left:"",
-				center:"预定流程"
+				center:"常用发票抬头"
 				});
 			$("#head").html(head);
 			$("#head .leftButton").unbind("click").bind("click",function(){
@@ -21,8 +21,11 @@
 			var main=_.template(data.tem[1])({
 				list:list
 				});
-			var button=_.template(data.tem[2])({text:'<span class="fa fa-add2" style="position: relative;top: .05rem;"></span> 添加常用发票抬头',id:"payButton"});
+			var button=_.template(data.tem[2])({text:'<span class="fa fa-add2" style="position: relative;top: .05rem;"></span> 添加常用发票抬头',id:"addInvoice"});
 			$("#scroller").html(main+button);
+			$("#scroller #addInvoice").unbind("tap").bind("tap",function(){
+				window.location.hash="invoiceAdd/"+data.type+"/"+data.id+"/"+data.state;
+				})
 			$("#scroller .point").unbind("tap").bind("tap",function(){
 				result.invoice.title=$(this).html();
 				obj.cache("pruduct_input_"+data.id,result);

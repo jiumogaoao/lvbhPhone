@@ -18,11 +18,14 @@
 				window.history.go(-1);
 				});
 			function layout(list){
-				var button=_.template(data.tem[2])({text:'<span class="fa fa-add2" style="position: relative;top: .05rem;"></span> 添加常用邮寄地址',id:"payButton"});
+				var button=_.template(data.tem[2])({text:'<span class="fa fa-add2" style="position: relative;top: .05rem;"></span> 添加常用邮寄地址',id:"addMail"});
 				var main=_.template(data.tem[1])({enable:false,
 					list:list,
 					dscName:""});
 			$("#scroller").html(main+button);
+			$("#scroller #addMail").unbind("tap").bind("tap",function(){
+				window.location.hash="emailAdd/"+data.type+"/"+data.id+"/"+data.state;
+				});
 			$("#scroller .point").unbind("tap").bind("tap",function(){
 				if(data.key==="0"){result.invoice.place=$(this).find(".dsc").html().replace(/ /g,"");}else{
 					result.contract.place=$(this).find(".dsc").html().replace(/ /g,"");

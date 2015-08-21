@@ -35,7 +35,7 @@
 					list:list,
 					dscName:"手机号"
 					});
-				var button=_.template(data.tem[2])({text:'<span class="fa fa-add2" style="position: relative;top: .05rem;"></span> 添加常用旅客',id:"payButton"});
+				var button=_.template(data.tem[2])({text:'<span class="fa fa-add2" style="position: relative;top: .05rem;"></span> 添加常用旅客',id:"addTraveller"});
 			$("#scroller").html(main+button);
 			$("#scroller .fa-checkbox").unbind("tap").bind("tap",function(){
 				if($(this).data("choose")){
@@ -51,6 +51,9 @@
 						
 						}
 				});
+			$("#scroller #addTraveller").unbind("tap").bind("tap",function(){
+				window.location.hash="travellerAdd/"+data.type+"/"+data.id+"/"+data.state;
+				});	
 				var delay=setTimeout(function(){
 				myScroll.refresh();
 				},200);

@@ -24,8 +24,11 @@
 					dscName:"手机号"
 					});
 					
-			var button=_.template(data.tem[2])({text:'<span class="fa fa-add2" style="position: relative;top: .05rem;"></span> 添加常用联系人',id:"payButton"});
+			var button=_.template(data.tem[2])({text:'<span class="fa fa-add2" style="position: relative;top: .05rem;"></span> 添加常用联系人',id:"addLinkman"});
 			$("#scroller").html(main+button);
+			$("#scroller #addLinkman").unbind("tap").bind("tap",function(){
+				window.location.hash="linkmanAdd/"+data.type+"/"+data.id+"/"+data.state;
+				});
 			$("#scroller .point").unbind("tap").bind("tap",function(){
 				result.linkMan={
 					name:list[$(this).attr("num")].title,
