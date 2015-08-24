@@ -67,7 +67,7 @@
 				}	
 			getPage();
 			obj.reflash.add("usefulLinkman",function(callback){
-			getPage(callback);})
+			getPage(callback);});
 			}
 		});
 	})($,app,config);

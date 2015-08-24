@@ -66,12 +66,12 @@
 					result.man=1;
 					$("#scroller [d_key='man'] input").val(1);
 					}
-				if(result.oldman+result.oldman2==1&&!result.man){
+				if(result.oldman+result.oldman2===1&&!result.man){
 					alert("老人必须结伴或由成人陪同");
 					result.man=1;
 					$("#scroller [d_key='man'] input").val(1);
 					}
-				if(!(result.man+result.child+result.child2+result.oldman+result.oldman2)){
+				if((result.man+result.child+result.child2+result.oldman+result.oldman2)===0){
 					alert("参团人数至少1人");
 					result.man=1;
 					$("#scroller [d_key='man'] input").val(1);
@@ -396,7 +396,7 @@
 							}	
 					});	
 				if(correct){
-					obj.api.run("deal_add",'at='+at+'&goParam='+JSON.stringify(goParam)+'&goiParam='+JSON.stringify(goiParam),function(returnData){debugger;
+					obj.api.run("deal_add",'at='+at+'&goParam='+JSON.stringify(goParam)+'&goiParam='+JSON.stringify(goiParam),function(returnData){
 					window.location.hash="dealSuccess/"+returnData.go.x+"/"+returnData.go.m;
 					},function(e){
 					alert(JSON.stringify(e));

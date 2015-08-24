@@ -40,8 +40,7 @@
 				var that=this;
 				$(that).unbind("change").bind("change",function(){
 					result[$(that).attr("D_key")]=$(that).val();
-					console.log(result)
-					})
+					});
 				});
 			$(".top_third .leftButton").unbind("tap").bind("tap",function(){
 				window.history.go(-1);

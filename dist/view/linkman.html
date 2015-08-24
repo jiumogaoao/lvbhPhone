@@ -1,0 +1,29 @@
+<link href="css/title_input_list.css" rel="stylesheet" rev="stylesheet" type="text/css"/>
+<div class="title_input_list traveller">
+
+	<div class="point">
+    	<div class="left">姓名</div>
+        <div class="right"><input placeholder="必填" D_key="name" D_type="input" value="<%= name %>"/></div>
+        <div class="clear"></div>
+    </div>
+    <div class="point" name="">
+    	<div class="left">手机号</div>
+        <div class="right"><input placeholder="必填" D_key="phone" D_type="input" value="<%= phone %>"/></div>
+        <div class="clear"></div>
+    </div>
+    <div class="point" name="">
+    	<div class="left">邮箱</div>
+        <div class="right"><input placeholder="必填" D_key="mail" D_type="input" value="<%= mail %>"/></div>
+        <div class="clear"></div>
+    </div>
+    <div class="point">
+    	<div class="left">性别</div>
+        <div class="right" D_key="sex" D_type="radio"><div class="radio <% if(sex=="1"){print("hl")} %>" D_value="1" D_type="radioPoint"><div class="radioPoint"></div></div>男 <div class="radio <% if(sex=="2"){print("hl")} %>" D_value="2" D_type="radioPoint"><div class="radioPoint"></div></div>女</div>
+        <div class="clear"></div>
+    </div>
+    <div class="point" name="">
+    	<div class="left">备注</div>
+        <div class="right"><input placeholder="选填" D_key="dsc" D_type="input" value="<%= dsc %>"/></div>
+        <div class="clear"></div>
+    </div>
+</div>

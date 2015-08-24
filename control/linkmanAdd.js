@@ -20,8 +20,7 @@
 				var that=this;
 				$(that).unbind("change").bind("change",function(){
 					result[$(that).attr("D_key")]=$(that).val();
-					console.log(result)
-					})
+					});
 				});
 			$("#scroller [D_type='radio']").each(function(){
 				var that=this;
@@ -29,8 +28,7 @@
 					result[$(that).attr("D_key")]=$(this).attr("D_value");
 					$(that).find("[D_type='radioPoint']").removeClass("hl");
 					$(this).addClass("hl");
-					console.log(result)
-					})
+					});
 				});
 			$(".top_third .leftButton").unbind("tap").bind("tap",function(){
 				window.history.go(-1);

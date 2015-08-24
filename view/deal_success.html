@@ -4,12 +4,12 @@
 	<div class="top">
     	<div class="point">
         	<div class="title">订单价格：</div>
-            <div class="number">￥5598.00</div>
+            <div class="number">￥<%= price %></div>
             <div class="clear"></div>
         </div>
         <div class="point">
         	<div class="title">订单编号：</div>
-            <div class="number gray">12005703</div>
+            <div class="number gray"><%= number %></div>
             <div class="clear"></div>
         </div>
         <div class="dsc">
@@ -25,3 +25,8 @@
     &nbsp;&nbsp;订单确认后，请您在有效的付款时限内完成签约付款。未能及时完成签约付款的订单将会被取消位置，如有不便之处敬请谅解。
     </div>
 </div>
+<script>
+	$(".deal_success #payButton").unbind("tap").bind("tap",function(){
+		window.location.hash="dealIndex";
+		});
+</script>

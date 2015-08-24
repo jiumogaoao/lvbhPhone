@@ -31,12 +31,23 @@
     <% }) %>
 </div>
 <script>
-$(".collapse_list .list").unbind("tap").bind("tap",function(){
+;(function(){
+	$(".collapse_list .list").unbind("tap").bind("tap",function(){
 	$(".collapse_list .list").removeClass("hl");
 	$(this).addClass("hl");
-	$(this).find(".group.link").each(function(){
-		$(this).find(".deg").css("line-height",($(this).height()/($(window).width()/10))+"rem");
+	var linkDelay=setTimeout(function(){
+		$(this).find(".group.link").each(function(){
+		$(this).find(".deg").css("top",(($(this).height()/($(window).width()/10))-.5)/2+"rem");
 		});
 	myScroll.refresh();
+		},200);
 	});
+var linkDelay=setTimeout(function(){
+		$(".collapse_list .list").find(".group.link").each(function(){
+		$(".collapse_list .list").find(".deg").css("top",(($(this).height()/($(window).width()/10))-.5)/2+"rem");
+		});
+	myScroll.refresh();
+		},200);
+	})();
+
 </script>

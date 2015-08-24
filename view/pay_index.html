@@ -1,0 +1,119 @@
+<link href="css/pay_index.css" rel="stylesheet" rev="stylesheet" type="text/css"/>
+<div class="pay_index">
+	<div class="lastTime">
+    	剩余支付时间： <span style="color:#ff840c;">00时30分28秒</span>
+    </div>
+    <div class="top">
+    	<div class="dsc">
+        	<div class="list">
+            	<div class="point">
+                	<div class="left">订单编号：</div>
+                    <div class="right">453248732</div>
+                    <div class="clear"></div>
+                </div>
+                <div class="point">
+                	<div class="left">产品名称：</div>
+                    <div class="right">很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多字</div>
+                    <div class="clear"></div>
+                </div>
+                <div class="point">
+                	<div class="left">服务时间：</div>
+                    <div class="right">2015-07-25 至 2015-09-30</div>
+                    <div class="clear"></div>
+                </div>
+                <div class="point">
+                	<div class="left">参团城市：</div>
+                    <div class="right">巴厘岛</div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+            <div class="deg"><span class="fa fa-right"></span></div>
+        </div>
+        <div class="price">
+        	订单总额：<span style="color:#ff0000;">￥<span style="font-size:.6rem;">5598.00</span></span>
+        </div>
+    </div>
+    <div class="bottom">
+    	<div class="head">
+        	<div class="dsc">
+            	<span class="fa fa-checkbox"></span>
+                同意旅游条款并支付
+            </div>
+            <div class="deg"><span class="fa fa-right"></span></div>
+        </div>
+        <div class="list">
+        	<div class="point" id="lvbh">
+            	<img src="img/center_icom_lbh.png" class="left"/>
+                <div class="right">
+                	<div class="title">旅博账户支付</div>
+                    <div class="dsc">支持旅博账户中的奖金支付</div>
+                </div>
+                <div class="clear"></div>
+                <div class="deg"><span class="fa fa-right"></span></div>
+            </div>
+            <div class="point" id="zfb">
+            	<img src="img/center_icom_alipay.png" class="left"/>
+                <div class="right">
+                	<div class="title">支付宝支付</div>
+                    <div class="dsc">支持支付宝和网银的用户使用</div>
+                </div>
+                <div class="clear"></div>
+                <div class="deg"><span class="fa fa-right"></span></div>
+            </div>
+            <div class="point" id="wx">
+            	<img src="img/center_ciom_micro letter.png" class="left"/>
+                <div class="right">
+                	<div class="title">微信支付</div>
+                    <div class="dsc">使用微信支付安全快捷</div>
+                </div>
+                <div class="clear"></div>
+                <div class="deg"><span class="fa fa-right"></span></div>
+            </div>
+            <div class="point" id="cft">
+            	<img src="img/center_icom_tenpay.png" class="left"/>
+                <div class="right">
+                	<div class="title">财付通支付</div>
+                    <div class="dsc">支持腾讯旗下财付通支付</div>
+                </div>
+                <div class="clear"></div>
+                <div class="deg"><span class="fa fa-right"></span></div>
+            </div>
+            <div class="point" id="cxk">
+            	<img src="img/center_icom_deposit card.png" class="left"/>
+                <div class="right">
+                	<div class="title">储蓄卡支付</div>
+                    <div class="dsc">支持多家银行储蓄卡支付</div>
+                </div>
+                <div class="clear"></div>
+                <div class="deg"><span class="fa fa-right"></span></div>
+            </div>
+            <div class="point" id="xyk">
+            	<img src="img/center_icom_credit card.png" class="left"/>
+                <div class="right">
+                	<div class="title">信用卡支付</div>
+                    <div class="dsc">支持多家银行信用卡支付</div>
+                </div>
+                <div class="clear"></div>
+                <div class="deg"><span class="fa fa-right"></span></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+;(function(){
+	$(".pay_index .bottom .head .dsc .fa").unbind("tap").bind("tap",function(){
+		if($(this).data("choose")){
+			$(this).data("choose",false);
+			$(this).removeClass("hl");
+			}else{
+				$(this).data("choose",true);
+			$(this).addClass("hl");
+				}
+		});
+	var linkDelay=setTimeout(function(){
+		$(".pay_index .top .dsc .deg").css("top",(($(".pay_index .top .dsc").height()/($(window).width()/10))-.5)/2+"rem");
+	myScroll.refresh();
+		},200);
+	})();
+
+</script>

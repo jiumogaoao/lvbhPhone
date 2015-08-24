@@ -40,7 +40,7 @@
 								var list={list:[]};
 								$.each(n.cityList,function(x,y){
 									list.list.push(y.name);
-									})
+									});
 								layout(at,list);
 								}
 							});

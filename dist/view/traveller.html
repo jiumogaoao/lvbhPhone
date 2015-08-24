@@ -1,0 +1,63 @@
+<link href="css/title_input_list.css" rel="stylesheet" rev="stylesheet" type="text/css"/>
+<div class="title_input_list traveller">
+
+	<div class="point">
+    	<div class="left">姓名</div>
+        <div class="right"><input placeholder="请输入姓名" D_key="name" D_type="input" value="<%= name %>"/></div>
+        <div class="clear"></div>
+    </div>
+    <div class="point" id="cardType">
+    	<div class="left">证件</div>
+        <div class="right"><%= cardName[cardType] %><span class="fa fa-right"></span></div>
+        <div class="clear"></div>
+    </div>
+    <div class="point">
+    	<div class="left">证件号</div>
+        <div class="right"><input placeholder="请输入证件号" D_key="number" D_type="input" value="<%= number %>"/></div>
+        <div class="clear"></div>
+    </div>
+    
+    <div class="point otherShow show2 show4">
+    	<div class="left">证件有效期</div>
+        <div class="right"><input type="date" placeholder="请输入证件有效期" D_key="lastNumber" D_type="input" value="<%= lastNumber %>"/><span class="fa fa-right"></span></div>
+        <div class="clear"></div>
+    </div>
+    <div class="point otherShow show2 show4">
+    	<div class="left">证件签发地</div>
+        <div class="right"><input placeholder="请输入证件签发地" D_key="sendPlace" D_type="input" value="<%= sendPlace %>"/></div>
+        <div class="clear"></div>
+    </div>
+    <div class="point otherShow show2 show4">
+    	<div class="left">英文姓</div>
+        <div class="right"><input placeholder="请输入英文姓" D_key="enLastName" D_type="input" value="<%= enLastName %>"/></div>
+        <div class="clear"></div>
+    </div>
+    <div class="point otherShow show2 show4">
+    	<div class="left">英文名</div>
+        <div class="right"><input placeholder="请输入英文名" D_key="enName" D_type="input" value="<%= enName %>"/></div>
+        <div class="clear"></div>
+    </div>
+    <div class="point otherShow show2 show3 show4 show5 show6">
+    	<div class="left">出生日期</div>
+        <div class="right"><input type="date" placeholder="请输入出生日期" D_key="birthday" D_type="input" value="<%= birthday %>"/><span class="fa fa-right"></span></div>
+        <div class="clear"></div>
+    </div>
+    <div class="point otherShow show2 show3 show5">
+    	<div class="left">性别</div>
+        <div class="right" D_key="sex" D_type="radio"><div class="radio <% if(sex=="1"){print("hl")} %>" D_value="1" D_type="radioPoint"><div class="radioPoint"></div></div>男 <div class="radio <% if(sex=="2"){print("hl")} %>" D_value="2" D_type="radioPoint"><div class="radioPoint"></div></div>女</div>
+        <div class="clear"></div>
+    </div>
+    <div class="point otherShow show2 show4">
+    	<div class="left">国籍</div>
+        <div class="right"><input placeholder="请输入国籍" D_key="national" D_type="input" value="<%= national %>"/></div>
+        <div class="clear"></div>
+    </div>
+    <div class="point" name="">
+    	<div class="left">手机号</div>
+        <div class="right"><input placeholder="请输入手机号" D_key="phone" D_type="input" value="<%= phone %>"/></div>
+        <div class="clear"></div>
+    </div>
+</div>
+<script>
+$(".traveller .show<%= cardType %>").show();
+</script>

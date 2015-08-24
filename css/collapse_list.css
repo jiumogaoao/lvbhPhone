@@ -18,7 +18,8 @@
 	}
 .collapse_list .icon{
 	float:right;
-	margin-right:.5rem;}
+	margin-right:.5rem;
+	color:#7c7c7c;}
 .collapse_list .main{
 	width:95%;
 	margin:auto;
@@ -56,7 +57,16 @@
 	position:absolute;
 	top:0px;
 	right:.5rem;
+	height:100%;
+	line-height:100%;
 	display:none;
+	}
+.collapse_list .deg .fa-right:before{
+	line-height:100%;
+	display:block;
+	height:100%;
+	color:#7c7c7c;
+	font-size:.5rem;
 	}
 .collapse_list .list.hl .main{
 	display:block;

@@ -87,6 +87,9 @@
 				}
 				obj.pop.on("confirm",{text:"确认要删除该订单吗？"},popFn);
 			});
+			$(".zhifu").unbind("tap").bind("tap",function(e){
+				window.location.hash="payIndex/"+$(this).parents(".deal_list").attr("lid");
+				});
 			var delay=setTimeout(function(){
 				myScroll.refresh();
 				},200);

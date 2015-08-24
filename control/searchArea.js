@@ -36,22 +36,17 @@
 			function place(at,pro){
 					if(result.province){
 						$.each(pro,function(i,n){
-								if(n.name==result.province){
+								if(n.name === result.province){
 									$.each(n.cityList,function(x,y){
-									if(y.name==result.city){
+									if(y.name === result.city){
 										var list={list:[]};
 										$.each(y.areaList,function(o,p){
 										list.list.push(p);
 										});
 										layout(at,list);
 										}
-									
-									
-									})
+									});
 									}
-								
-								
-						
 							});
 						
 						}

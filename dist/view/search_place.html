@@ -19,18 +19,20 @@
                 </div>
             </div>
             <% } %>
-            <% _.each(place,function(value,index){ %>
+            <% _.each(place,function(value,index){ if(value.main.length){%>
             <div class="list">
             <% if(title){ %>
             	<div class="title" index="<%= index %>"><%= value.title %></div>
                 <% } %>
                 <div class="result">
                 	<% _.each(value.main,function(n){ %>
-                    <div class="point"><%= n.name %><div class="deg"></div><div class="choosed"><span class="fa fa-check"></span></div></div>
+                    <div class="point" value="<%= n.name %>"><%= n.name %><div class="deg"></div><div class="choosed"><span class="fa fa-check"></span></div></div>
                     <% }) %>
                     <div class="clear"></div>
                 </div>
             </div>
+            <% }%>
+            
             <% }) %>
     </div> 
 </div>

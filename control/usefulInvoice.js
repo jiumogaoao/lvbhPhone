@@ -27,7 +27,7 @@
 			$("#scroller").html(main+button);
 			$("#scroller #addInvoice").unbind("tap").bind("tap",function(){
 				window.location.hash="invoiceAdd/"+data.type+"/"+data.id+"/"+data.state;
-				})
+				});
 			$("#scroller .point").unbind("tap").bind("tap",function(){
 				result.invoice.title=$(this).html();
 				obj.cache("pruduct_input_"+data.id,result);
