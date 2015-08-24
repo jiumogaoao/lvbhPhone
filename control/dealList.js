@@ -96,7 +96,6 @@
 				}
 			function getPage(callback){
 			obj.api.at(function(at){
-				console.log('at='+at+'&jparam={"c"="'+data.type+'","b"="'+page+'"}');
 				obj.api.run("deal_list_get",'at='+at+'&jparam={"c"="'+data.type+'","b"="'+page+'"}',function(returnData){
 				if(returnData.pn === page+""){
 					page++;

@@ -25,7 +25,16 @@
 			var main=_.template(data.tem[1])(result);
 			$("#scroller").html(main);
 			$("#scroller #province").unbind("tap").bind("tap",function(){
-				
+				obj.cache("mail",result);
+				window.location.hash="searchProvince/"+data.type+"/"+data.id+"/"+data.state;
+				});
+			$("#scroller #city").unbind("tap").bind("tap",function(){
+				obj.cache("mail",result);
+				window.location.hash="searchCity/"+data.type+"/"+data.id+"/"+data.state;
+				});
+			$("#scroller #area").unbind("tap").bind("tap",function(){
+				obj.cache("mail",result);
+				window.location.hash="searchArea/"+data.type+"/"+data.id+"/"+data.state;
 				});
 			$("#scroller [D_type='input']").each(function(){
 				var that=this;

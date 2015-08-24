@@ -5,6 +5,8 @@
 		par:"type/id/state",
 		tem:["top_second","double_line_list","single_button"],
 		fn:function(data){
+			var page=1;
+			var resultA=[];
 			var result={};
 			if(obj.cache("pruduct_input_"+data.id)){
 				result=obj.cache("pruduct_input_"+data.id);
@@ -17,10 +19,10 @@
 			$("#head .leftButton").unbind("click").bind("click",function(){
 				window.history.go(-1);
 				});
-			function layout(list){
+			function layout(){
 				var main=_.template(data.tem[1])({
 					enable:false,
-					list:list,
+					list:resultA,
 					dscName:"手机号"
 					});
 					
@@ -31,9 +33,9 @@
 				});
 			$("#scroller .point").unbind("tap").bind("tap",function(){
 				result.linkMan={
-					name:list[$(this).attr("num")].title,
-					tel:list[$(this).attr("num")].dsc,
-					email:list[$(this).attr("num")].email
+					name:resultA[$(this).attr("num")].title,
+					tel:resultA[$(this).attr("num")].dsc,
+					email:resultA[$(this).attr("num")].email
 				};
 				obj.cache("pruduct_input_"+data.id,result);
 					window.location.hash="productInput/"+data.type+"/"+data.id+"/"+data.state;
@@ -45,18 +47,27 @@
 				myScroll.refresh();
 				});
 			}
-			function getList(at){
-				obj.api.run("linker_get",'at='+at+'&tp=3',function(returnData){
-					var list=[];
+			
+			function getPage(callback){
+				function getList(at){
+				obj.api.run("linker_get",'at='+at+'&tp=3&pn='+page,function(returnData){
+					if(returnData.pn === page+""){
+					page++;
+					returnData=returnData.data;
 					$.each(returnData,function(i,n){
-						list.push({title:n.b,dsc:n.c,email:n.d});
+						resultA.push({title:n.b,dsc:n.c,email:n.d});
 						});
-					layout(list);
+					layout();}
+					if(callback){callback();}
 					},function(e){
 					alert(JSON.stringify(e));
 					});
 			}
-			obj.api.at(getList);	
+			obj.api.at(getList);
+				}	
+			getPage();
+			obj.reflash.add("usefulLinkman",function(callback){
+			getPage(callback);})
 			}
 		});
 	})($,app,config);

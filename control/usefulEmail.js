@@ -5,6 +5,8 @@
 		par:"type/id/state/key",
 		tem:["top_second","double_line_list","single_button"],
 		fn:function(data){
+			var resultA=[];
+			var page=1;
 			var result={};
 			if(obj.cache("pruduct_input_"+data.id)){
 				result=obj.cache("pruduct_input_"+data.id);
@@ -17,18 +19,24 @@
 			$("#head .leftButton").unbind("click").bind("click",function(){
 				window.history.go(-1);
 				});
-			function layout(list){
+			function layout(){
 				var button=_.template(data.tem[2])({text:'<span class="fa fa-add2" style="position: relative;top: .05rem;"></span> 添加常用邮寄地址',id:"addMail"});
 				var main=_.template(data.tem[1])({enable:false,
-					list:list,
+					list:resultA,
 					dscName:""});
 			$("#scroller").html(main+button);
 			$("#scroller #addMail").unbind("tap").bind("tap",function(){
 				window.location.hash="emailAdd/"+data.type+"/"+data.id+"/"+data.state;
 				});
 			$("#scroller .point").unbind("tap").bind("tap",function(){
-				if(data.key==="0"){result.invoice.place=$(this).find(".dsc").html().replace(/ /g,"");}else{
-					result.contract.place=$(this).find(".dsc").html().replace(/ /g,"");
+				if(data.key==="0"){
+					result.invoice.place=resultA[$(this).attr("num")].dsc;
+					result.invoice.name=resultA[$(this).attr("num")].name;
+					result.invoice.phone=resultA[$(this).attr("num")].phone;
+					}else{
+					result.contract.place=resultA[$(this).attr("num")].dsc;
+					result.contract.name=resultA[$(this).attr("num")].name;
+					result.contract.phone=resultA[$(this).attr("num")].phone;
 					}
 				obj.cache("pruduct_input_"+data.id,result);
 					window.location.hash="productInput/"+data.type+"/"+data.id+"/"+data.state;
@@ -41,18 +49,27 @@
 				});
 				}
 			
-			function getList(at){
-				obj.api.run("email_get",'at='+at+'&tp=3',function(returnData){
-					var list=[];
+			
+			function getPage(callback){
+				function getList(at){
+				obj.api.run("email_get",'at='+at+'&tp=3&pn='+page,function(returnData){
+					if(returnData.pn === page+""){
+					page++;
+					returnData=returnData.data;
 					$.each(returnData,function(i,n){
-						list.push({title:n.b,dsc:n.d});
+						resultA.push({title:n.b,dsc:n.d,name:n.b,phone:n.f});
 						});
-					layout(list);
+					layout();}
+					if(callback){callback();}
 					},function(e){
 					alert(JSON.stringify(e));
 					});
 			}
-			obj.api.at(getList);	
+			obj.api.at(getList);
+				}	
+			getPage();
+			obj.reflash.add("usefulEmail",function(callback){
+			getPage(callback);});
 			}
 		});
 	})($,app,config);

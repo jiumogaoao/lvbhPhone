@@ -60,7 +60,22 @@
 				left:"",
 				center:"填写订单信息"
 				});
-			function totalCount(){
+			function totalCount(target){
+				if((result.child||result.child2)&&!result.man){
+					alert("儿童必须有成人陪同");
+					result.man=1;
+					$("#scroller [d_key='man'] input").val(1);
+					}
+				if(result.oldman+result.oldman2==1&&!result.man){
+					alert("老人必须结伴或由成人陪同");
+					result.man=1;
+					$("#scroller [d_key='man'] input").val(1);
+					}
+				if(!(result.man+result.child+result.child2+result.oldman+result.oldman2)){
+					alert("参团人数至少1人");
+					result.man=1;
+					$("#scroller [d_key='man'] input").val(1);
+					}
 				var total=0;
 				$("#scroller [D_type='number']").each(function(){
 					total+=Number($(this).find("input").val());
@@ -113,7 +128,98 @@
 			totalCount();
 			$("#scroller .payList u").unbind("tap").bind("tap",function(){
 				obj.bottom.on("pay_list",result,function(){
-					
+					$("#scroller .pay_list .payButton").unbind("tap").bind("tap",function(){
+						
+				if(!result.date.b){
+					alert("请先选择团期");
+					return false;
+					}
+				if(!result.linkMan.name||!result.linkMan.tel||!result.linkMan.email){
+					alert("请完整填写联系人信息");
+					return false;
+					}
+				if(!(/^1[3|4|5|8][0-9]\d{4,8}$/.test(result.linkMan.tel))){
+					alert("联系人手机格式有误");
+					return false;
+					}
+				if(!(/^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+/.test(result.linkMan.email))){
+					alert("联系人邮箱格式有误");
+					return false;
+					}
+				if(result.invoice.on&&(!result.invoice.title||!result.invoice.place||!result.invoice.phone||!result.invoice.name)){
+					alert("如需发票，请完整填写相关信息");
+					return false;
+					}
+				if(result.invoice.on&&!(/^1[3|4|5|8][0-9]\d{4,8}$/.test(result.invoice.phone))){
+					alert("发票手机格式有误");
+					return false;
+					}
+				if(result.contract.on&&(!result.contract.name||!result.contract.phone||!result.contract.place)){
+					alert("如需邮寄合同，请完整填写相关信息");
+					return false;
+					}
+				if(result.contract.on&&!(/^1[3|4|5|8][0-9]\d{4,8}$/.test(result.contract.phone))){
+					alert("邮寄合同手机格式有误");
+					return false;
+					}
+				if(!result.agree){
+					alert("必须接受合同条款才能报团");
+					return false;
+					}
+				var singleMan=0;
+				var correct=1;
+				if(!result.single){
+					singleMan=result.man+result.child+result.oldman+result.oldman2;
+					}
+				var goParam={
+					a:data.type,
+					b:data.id,
+					c:result.date.b,
+					j:data.state,
+					d1:result.man,
+					d3:result.child,
+					d5:result.child2,
+					d7:result.oldman,
+					d8:result.oldman2,
+					d9:result.man+result.child+result.oldman+result.oldman2
+					};
+				var goiParam={
+					d:result.invoice.on?"1":"0",
+					f:result.contract.on?"1":"0",
+					g:result.agree.on?"1":"0",
+					h:result.dsc,
+					toursParam:[],
+					contactParam:{b:result.linkMan.name,c:result.linkMan.tel,d:result.linkMan.email},
+					addressParam:[],
+					j:typeArry[data.type]
+					};
+				if(result.invoice.on){
+					goiParam.invoiceParam={b:result.invoice.title};
+					goiParam.addressParam.push({b:result.invoice.name,d:result.invoice.place,f:result.invoice.phone});
+					}
+				if(result.contract.on){
+					goiParam.addressParam.push({b:result.contract.name,d:result.contract.place,f:result.contract.phone});
+					}
+				$.each(result.traveler,function(i,n){
+					if(n.a){
+						goiParam.toursParam.push(n);
+						}else{
+							alert("请完成出游人信息");
+							correct=0;
+							return false;
+							}	
+					});	
+				if(correct){
+					obj.api.run("deal_add",'at='+at+'&goParam='+JSON.stringify(goParam)+'&goiParam='+JSON.stringify(goiParam),function(returnData){
+					obj.cache("pruduct_input_"+data.id,result);
+					window.location.hash="dealSuccess/"+data.id;
+					},function(e){
+					alert(JSON.stringify(e));
+					});
+					}
+				
+				
+						});
 					},function(e){
 					alert(JSON.stringify(e));
 					});
@@ -158,7 +264,6 @@
 					obj.control.pointParse(result,$(this).attr("D_key"),[""]);
 					}
 					obj.control.pointParse(result,$(this).attr("D_key"))[$(this).attr("D_num")]=$(this).val();
-					console.log(result);
 				});
 			$("#scroller [D_type='number']").each(function(){
 				var that=this;
@@ -211,6 +316,42 @@
 				});
 			
 			$("#scroller .product_input .button").unbind("tap").bind("tap",function(){
+				if(!result.date.b){
+					alert("请先选择团期");
+					return false;
+					}
+				if(!result.linkMan.name||!result.linkMan.tel||!result.linkMan.email){
+					alert("请完整填写联系人信息");
+					return false;
+					}
+				if(!(/^1[3|4|5|8][0-9]\d{4,8}$/.test(result.linkMan.tel))){
+					alert("联系人手机格式有误");
+					return false;
+					}
+				if(!(/^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+/.test(result.linkMan.email))){
+					alert("联系人邮箱格式有误");
+					return false;
+					}
+				if(result.invoice.on&&(!result.invoice.title||!result.invoice.place||!result.invoice.phone||!result.invoice.name)){
+					alert("如需发票，请完整填写相关信息");
+					return false;
+					}
+				if(result.invoice.on&&!(/^1[3|4|5|8][0-9]\d{4,8}$/.test(result.invoice.phone))){
+					alert("发票手机格式有误");
+					return false;
+					}
+				if(result.contract.on&&(!result.contract.name||!result.contract.phone||!result.contract.place)){
+					alert("如需邮寄合同，请完整填写相关信息");
+					return false;
+					}
+				if(result.contract.on&&!(/^1[3|4|5|8][0-9]\d{4,8}$/.test(result.contract.phone))){
+					alert("邮寄合同手机格式有误");
+					return false;
+					}
+				if(!result.agree){
+					alert("必须接受合同条款才能报团");
+					return false;
+					}
 				var singleMan=0;
 				var correct=1;
 				if(!result.single){
@@ -255,9 +396,8 @@
 							}	
 					});	
 				if(correct){
-					obj.api.run("deal_add",'at='+at+'&goParam='+JSON.stringify(goParam)+'&goiParam='+JSON.stringify(goiParam),function(returnData){
-					obj.cache("pruduct_input_"+data.id,result);
-					window.location.hash="dealSuccess/"+data.id;
+					obj.api.run("deal_add",'at='+at+'&goParam='+JSON.stringify(goParam)+'&goiParam='+JSON.stringify(goiParam),function(returnData){debugger;
+					window.location.hash="dealSuccess/"+returnData.go.x+"/"+returnData.go.m;
 					},function(e){
 					alert(JSON.stringify(e));
 					});
