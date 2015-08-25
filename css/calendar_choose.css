@@ -4,13 +4,13 @@
 	width:100%;
 	background-color:#fff;}
 .calendar_choose .head{
-	font-size:.5rem;
+	font-size:.6rem;
 	text-align:center;
 	color:#535353;
-	height:1.5rem;
-	line-height:1.5rem;}
+	height:2rem;
+	line-height:2rem;}
 .calendar_choose th{
-	font-size:.4rem;
+	font-size:.5rem;
 	color:#535353;
 	border-bottom:1px solid #dcdcdc;
 	padding-bottom:.3rem;
@@ -19,15 +19,27 @@
 	height:1.5rem;
 	padding-top:.5rem;}
 .calendar_choose td .dayNum{
-	font-size:.4rem;
+	font-size:.5rem;
 	}
 .calendar_choose td .price{
-	font-size:.3rem;
+	font-size:.35rem;
 	color:#009fff;
-	margin-top:.2rem;}
+	margin-top:.08rem;
+	position:relative;
+	left:-.05rem;}
+.calendar_choose td .price .numCLASS{
+	position:relative;
+	left:-.05rem;}
 .calendar_choose td.disable{
 	color:#aaaaaa;}
 .calendar_choose td.enable{
 	color:#535353;}
 .calendar_choose td.enable.weekend{
 	color:#ff6d00;}
+.calendar_choose td.hl{
+	background-color:#ff840c;
+	color:#fff;
+	}
+.calendar_choose td.hl .price{
+	color:#fff;
+	}

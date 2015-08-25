@@ -3,12 +3,12 @@
 .alert{
 	width:100%;
 	background-color:#fff;
+	border-radius:.2rem;
 	}
 .alert .main{
-	padding:0rem 1rem;
 	text-align:center;
-	font-size:.8rem;
-	padding:.5rem;
+	font-size:.5rem;
+	padding:.8rem .5rem;
 	}
 .alert.confirm .main{
 	color:#f22424;}
@@ -17,11 +17,16 @@
 	border-top:1px solid #dcdcdc;
 	}
 .alert .button,.alert.confirm .left,.alert.confirm .right{
-	width:100%;
+	width:90%;
+	margin:auto;
+	background-color:#cccccc;
 	height:1.5rem;
 	line-height:1.5rem;
 	text-align:center;
-	font-size:.8rem;
+	font-size:.5rem;
+	color:#fff;
+	border-radius:.2rem;
+	margin-top:.2rem;
 	}
 .alert.confirm .left,.alert.confirm .right{
 	width:50%;
@@ -53,11 +58,15 @@
 	height:100%;}
 .alert.share .point{
 	float:left;
-	margin-left:.2rem;
+	margin-left:1rem;
 	margin-bottom:.4rem;}
 .alert.share img{
-	width:2rem;
-	height:2rem;}
+	width:1.6rem;
+	height:1.6rem;}
 .alert.share .name{
 	font-size:.4rem;
 	text-align:center;}
+.alert.tel .main{
+	color:#6bbbff;
+	text-align:center;
+	}

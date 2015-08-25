@@ -22,15 +22,16 @@
 				calendar.setData(list);
 				calendar.setTarget("#scroller");
 				calendar.run();
+				if(result&&result.date&&result.date.c){
+					$("td[date='2015-08-28']").addClass("hl");
+					};
 				$("#scroller .enable").unbind("tap").bind("tap",function(){
 					result.date=_.indexBy(returnData,"b")[$(this).attr("did")];
 					console.log(result);
 					obj.cache("pruduct_input_"+data.id,result);
-					if(data.page==="0"){
-						window.location.hash="productDetail/"+data.type+"/"+data.id;	
-						}else{
+					
 						window.location.hash="productInput/"+data.type+"/"+data.id+"/"+data.state;	
-							}
+
 					
 					});
 			var delay=setTimeout(function(){

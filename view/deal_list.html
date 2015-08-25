@@ -3,7 +3,7 @@
 <div class="deal_list" lid="<%= n.id %>">
 	<div class="top">
     	<div class="icon"><span class="fa fa-place3"></span></div>
-        <div class="type"><%= n.type %> | </div>
+        <div class="type"><%= n.type %>&nbsp;&nbsp;|&nbsp;&nbsp;</div>
         <div class="state"><% if(n.state=="4"){print("已确认/待签约支付")}
         else if(n.state=="1"){print("已提交/待确认")}
         else if(n.state=="2"){print("出游归来/已成交")}
@@ -24,21 +24,21 @@
     <div class="center">
     	<div class="title"><%= n.title %></div>
         <div class="clear"></div>
-        <div class="time">服务起止 <%= n.start %> - <%= n.end %></div>
+        <div class="time">服务起止 <span class="numCLASS"><%= n.start %></span> - <span class="numCLASS"><%= n.end %></span></div>
         <div class="deg"><span class="fa fa-right"></span></div>
         <div class="clear"></div>
     </div>
     <div class="bottom">
     <% if(n.state=="4"||n.state=="1024"){ %>
     <div class="succeed">
-    <div class="price">￥989</div>
-    <div class="last">支付时限 00时32分52秒</div>
+    <div class="price">￥<span class="numCLASS">989</span></div>
+    <div class="last">支付时限 <span class="numCLASS">00</span>时<span class="numCLASS">32</span>分<span class="numCLASS">52</span>秒</div>
     </div>
         <div class="button zhifu">支付</div>
         <div class="button zuofei">作废</div>
         <div class="clear"></div>
     <% }else{ %>
-    <div class="price">￥989</div>
+    <div class="price">￥<span class="numCLASS">989</span></div>
     	<% if(n.state=="1"){ %>
         	<div class="button zuofei">作废</div>
         <% }else if(n.state=="8"){ %>

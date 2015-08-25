@@ -35,7 +35,6 @@
 				};
 			if(obj.cache("pruduct_input_"+data.id)){
 				result=obj.cache("pruduct_input_"+data.id);
-				obj.cache("pruduct_input_"+data.id,null,true);
 				}
 				console.log(result);
 			var collectArry={"12":"4","13":"5"};
@@ -44,11 +43,14 @@
 			var head=_.template(data.tem[0])({
 				left:"",
 				center:"产品详情",
-				right:'<a href="tel:400-606-2111" style="color:#fff;text-decoration: none;"><span class="fa fa-phone2"></span></a>'
+				right:'<span class="fa fa-phone2"></span>'
 				});
 			$("#head").html(head);
 			$("#head .leftButton").unbind("click").bind("click",function(){
 				window.history.go(-1);
+				});
+			$("#head .rightButton").unbind("click").bind("click",function(){
+				obj.bottom.on("tel");
 				});
 			function layout(at,top,center,bottom){
 				var nav=_.template(data.tem[4])({left:{text:"产品特色",hl:true},center:{text:"详细行程"},right:{text:"费用说明"}});
@@ -112,7 +114,13 @@
 				myScroll.refresh();
 				});
 			
-			$(".nav_third").css("margin-top",".2rem");
+			$(".nav_third").css({"margin-top":".4rem",
+			"margin-bottom":"0px",
+			"border-top":"1px solid #dcdcdc"
+			});
+			$(".title_input_list").css({
+				"border-top":"1px solid #dcdcdc"
+				});
 			var delay=setTimeout(function(){
 				$("[show='left']").show();
 				myScroll.refresh();

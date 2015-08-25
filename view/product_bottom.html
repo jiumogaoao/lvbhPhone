@@ -1,29 +1,30 @@
 <link href="css/product_bottom.css" rel="stylesheet" rev="stylesheet" type="text/css"/>
 <div class="product_bottom">
-	<div class="list" id="noChange" show="left">
+	<div class="list" id="noChange">
     	<div class="title">产品概要</div>
         <div class="clear"></div>
         <div class="half">参团城市：<%= start %></div>
         <div class="half">目的地：<%= end %></div>
-        <div class="half">线路玩法：<%= line %></div>
         <div class="half">行程天数：<%= day %></div>
         <div class="half">酒店星级：<%= hotel %></div>
-        <div class="half">交通类型：<%= traffic %></div>
         <div class="clear"></div>
+        <div class="single">线路玩法：<%= line %></div>
+        
+        <div class="single">交通类型：<%= traffic %></div> 
         <div class="single">集合地点：<%= rally %></div>
         <div class="single">客服电话：<%= tel %></div>
         <div class="dsc">
         	本产品由深圳市旅博汇国际旅行社有限公司及具备国内旅游经营资质的合作旅行社提供相关服务。
         </div>
     </div>
-    <div class="list close" show="left">
+    <div class="list close">
     	<div class="title">产品特色</div>
         <div class="main">
        		<%= special %>
         </div>
         <div class="toggle"><span class="fa fa-close"></span></div>
     </div>
-    <div class="list close" show="center">
+    <div class="list close">
     
     	<div class="title">详细行程</div>
         <div class="main">
@@ -31,7 +32,7 @@
         </div>
         <div class="toggle"><span class="fa fa-close"></span></div>
     </div>
-    <div class="list close" show="right">
+    <div class="list close">
     	<div class="title">费用说明</div>
         <div class="placeFrame">
         	<div class="date">费用已含</div>

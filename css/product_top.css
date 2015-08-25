@@ -2,10 +2,11 @@
 /* CSS Document */
 .product_top{
 	width:100%;
+	border-bottom:1px solid #dcdcdc;
 	background-color:#fff;}
 .product_top .banner{
 	width:100%;
-	height:5rem;
+	height:6rem;
 	position:relative;
 	overflow:hidden;}
 .product_top .bannerR{
@@ -20,8 +21,8 @@
 	height:100%;
 	float:left;}
 .product_top .writePoint{
-	width:.3rem;
-	height:.3rem;
+	width:.25rem;
+	height:.25rem;
 	border-radius:.3rem;
 	background-color:#fff;
 	opacity:0.6;
@@ -54,12 +55,12 @@
 	color:#fff;
 	height:.8rem;
 	line-height:.8rem;
-	width:3rem;
+	width:3.2rem;
 	position:absolute;
 	top:.48rem;
-	left:1rem;
+	left:.8rem;
 	font-size:.4rem;
-	text-align:center;
+	text-indent:.8rem;
 	border-radius:.8rem;}
 .product_top .collect{
 	width:1rem;
@@ -89,13 +90,13 @@
 	width:95%;
 	border-bottom:1px solid #dcdcdc;
 	margin:auto;
-	padding-bottom:.3rem;}
+	padding-bottom:.2rem;}
 .product_top .top .number{
 	float:left;
 	color:#43b8ff;
 	font-size:.4rem;
 	padding-right:.2rem;
-	border-right:1px solid #555;
+	border-right:1px solid #dcdcdc;
 	margin-top:.3rem;
 	}
 .product_top .top .tag{
@@ -104,26 +105,33 @@
 	color:#ff840c;
 	font-size:.4rem;
 	border: 1px solid #ff840c;
+	border-radius:.1rem;
 	margin-top:.2rem;
 	margin-left:.2rem;}
 .product_top .center{
 	font-size:.55rem;
-	font-weight:bold;
 	line-height:1rem;
 	width:95%;
 	margin:auto;
 	border-bottom:1px solid #dcdcdc;
-	padding-bottom:.5rem;
-	padding-top:.5rem;
+	padding-bottom:.2rem;
+	padding-top:.2rem;
 	}
 .product_top .bottom{
+	
 	font-size:.4rem;
 	color:#ff840c;
 	width:95%;
 	margin:auto;
-	padding-bottom:.4rem;
-	padding-top:.4rem;}
+	padding-bottom:.3rem;
+	padding-top:.2rem;}
 .product_top .bottom .gray{
 	color:#7c7c7c;}
+.product_top .bottom .gray del{
+	font-family:Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
+	}
 .product_top .bottom .big{
-	font-size:.8rem;}
+	font-family:Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size:.8rem;
+	  position: relative;
+  top: .05rem;}

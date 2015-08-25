@@ -21,6 +21,9 @@
 	left:0px;
 	opacity:0;
 	}
+.index_head .left .fa{
+	position:relative;
+	top:.1rem;}
 .index_head .center{
 	float:left;
 	width:60%;
@@ -72,8 +75,8 @@ top:.1rem;}
 	left:3.8rem;
 	}
 .index_head .point{
-	width:.5rem;
-	height:.5rem;
+	width:.4rem;
+	height:.4rem;
 	border-radius:.5rem;
 	background-color:#fff;
 	opacity:.6;

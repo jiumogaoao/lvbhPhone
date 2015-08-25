@@ -22,13 +22,14 @@
     <div class="top">
     	<div class="number">产品编号：<%= number %></div>
         <% _.each(tag,function(n){ %>
-        	<div class="tag" style="color:<%= n.color %>;border:1px solid <%= n.color %>"><%= n.name %></div>
+        	<div class="tag"><%= n.name %></div>
         <% }) %>
         <div class="clear"></div>
     </div>
     <div class="center"><%= title %></div>
     <div class="bottom">
-    	会员价 <span class="big">￥<%= price %></span> 起  市场价 <span class="gray">￥ <del><%= oldPrice %></del></span>
+    	会员价 <span style="font-size:.75rem;position: relative;
+  top: .05rem;">￥</span><span class="big"><%= price %></span> 起&nbsp;&nbsp;&nbsp;<span class="gray">市场价 ￥<del><%= oldPrice %></del></span>
     </div>
 </div>
 <script>

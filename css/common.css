@@ -131,8 +131,8 @@ body{
 #pop{
 	position:absolute;
 	top:0px;
-	left:5%;
-	width:90%;
+	left:10%;
+	width:80%;
 	display:none;
 	z-index:101;
 	}
@@ -142,4 +142,7 @@ body{
 	left:0px;
 	z-index:101;
 	width:100%;
+	}
+.numCLASS{
+	font-family: Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
 	}

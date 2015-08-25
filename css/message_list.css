@@ -8,7 +8,10 @@
 	margin:auto;
 	background-color:#fff;
 	padding:.4rem;
-	margin-top:.4rem;}
+	margin-top:.4rem;
+	border-radius:.15rem;
+	border:1px solid #dcdcdc;
+	}
 .message_list .point .title{
 	font-size:.5rem;
 	padding:.05rem .1rem;

@@ -5,8 +5,8 @@
 .product_center .nav{
 	width:100%;
 	background-color:#fff;
-	padding-top:.5rem;
-	padding-bottom:.5rem;
+	padding-top:.3rem;
+	padding-bottom:.3rem;
 	border-bottom:1px solid #dcdcdc;
 	border-top:1px solid #dcdcdc;
 	margin-top:.4rem;
@@ -19,51 +19,58 @@
 	border:0px}
 .product_center .nav .icon{
 	text-align:center;
-	font-size:1rem;
+	font-size:.8rem;
 	color:#93d7ff;}
 .product_center .nav .name{
 	font-size:.4rem;
 	text-align:center;
-	margin-top:.2rem;
 	}
 .product_center .list{
 	width:100%;
 	background-color:#fff;
-	margin-top:.2rem;
+	margin-top:.4rem;
 	border-bottom:1px solid #dcdcdc;
 	border-top:1px solid #dcdcdc;
 	}
 .product_center .list .title{
 	width:95%;
 	margin:auto;
-	padding-top:.5rem;
-	padding-bottom:.5rem;}
+	padding-top:.3rem;
+	padding-bottom:.3rem;}
 .product_center .list .icon{
 	float:left;
 	color:#43b8ff;
+	position: relative;
+  	top: .08rem;
 	font-size:.8rem;}
 .product_center .list .name{
 	float:left;
 	font-size:.5rem;
 	margin-left:.2rem;
-	line-height:.8rem;}
+	line-height: 1rem;}
 .product_center .list .date{
 	float:right;
 	font-size:.4rem;
 	color:#9a9a9a;
 	margin-left:.2rem;
-	line-height:.8rem;}
+	line-height: 1rem;}
+.product_center .list span.fa.fa-right {
+  position: relative;
+  top: .04rem;
+}
 .product_center .list .main{
 	width:95%;
 	margin:auto;
-	padding-bottom:.5rem;
-	padding-top:.5rem;
+	padding-bottom:.3rem;
+	padding-top:.3rem;
 	border-top:1px solid #dcdcdc;
 	}
 .product_center .list .point{
-	width:45%;
-	margin-left:5%;
+	width:48%;
+	margin-left:2%;
 	float:left;
-	font-size:.35rem;
+	font-size:.4rem;
 	line-height:.8rem;
-	color:#7c7c7c;}
+	color:#7c7c7c;
+	position: relative;
+  left: .1rem;}

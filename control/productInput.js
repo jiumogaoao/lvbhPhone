@@ -53,7 +53,6 @@
 				};
 			if(obj.cache("pruduct_input_"+data.id)){
 				result=obj.cache("pruduct_input_"+data.id);
-				obj.cache("pruduct_input_"+data.id,null,true);
 				}
 				console.log(result);
 			var head=_.template(data.tem[0])({
@@ -79,6 +78,11 @@
 				var total=0;
 				$("#scroller [D_type='number']").each(function(){
 					total+=Number($(this).find("input").val());
+					if($(this).find("input").val()==="0"){
+						$(this).find(".numberSub").addClass("disable");
+						}else{
+							$(this).find(".numberSub").removeClass("disable");
+							};
 					});
 				var totalPay=result.man*result.date.g+result.child*result.date.h+result.child2*result.date.i+result.oldman*result.date.j+result.oldman2*result.date.k;
 				if(result.single){
@@ -86,25 +90,29 @@
 					}
 				if(total>1&&total<=5){
 					totalPay-=result.date[sellArry[total]]*total;
-					$("[D_key='sell']").html("￥"+(result.date[sellArry[total]]*total)+"元");
+					$("[D_key='sell']").html("￥<span class='numCLASS'>"+(result.date[sellArry[total]]*total)+"</span>元");
 					}else if(total>5){
 						totalPay-=result.date.q*total;
-						$("[D_key='sell']").html("￥"+(result.date.q*total)+"元");
+						$("[D_key='sell']").html("￥<span class='numCLASS'>"+(result.date.q*total)+"</span>元");
 						}else{
-							$("[D_key='sell']").html("￥0元");
+							$("[D_key='sell']").html("￥<span class='numCLASS'>0</span>元");
 							}
-				$("#scroller .totalPrice").html("￥"+totalPay);
-				$("#scroller #totalMan").html(total+"人");
+				$("#scroller .totalPrice").html("￥<span class='numCLASS'>"+totalPay+"</span>");
+				$("#scroller #totalMan").html("<span class='numCLASS'>"+total+"</span>人");
 				$("#scroller #traveler").empty();
 				if(!result.traveler){
 					result.traveler=[];
 					}
 				var newTravel=[];
 				for (var i=0;i<total;i++){
+					var nb="";
+					if(i===(total-1)){
+						nb="nb";
+						}
 					newTravel[i]=result.traveler[i]||{b:"姓名"};
-					$("#scroller #traveler").append('<div class="inputList">'+
+					$("#scroller #traveler").append('<div class="inputList '+nb+'">'+
 						'<div class="inputTitle">出游人'+(i+1)+'</div>'+
-						'<input placeholder="姓名" readonly="true" value="'+newTravel[i].b+'"/>'+
+						'<div class="readonly">'+newTravel[i].b+'</div>"/>'+
 						'<div class="clear"></div>'+
 					'</div>');
 					}
@@ -304,12 +312,14 @@
 				$(that).unbind("tap").bind("tap",function(){
 				if(obj.control.pointParse(result,$(this).attr("D_key"))){
 					obj.control.pointParse(result,$(this).attr("D_key"),false);
-					$(this).removeClass("hl");
+					$(this).find(".fa").removeClass("hl");
 					$(this).parents(".list").find(".inputList").hide();
+					$(this).parents(".list").find(".head").removeClass("bb");
 					}else{
 						obj.control.pointParse(result,$(this).attr("D_key"),true);
-						$(this).addClass("hl");
+						$(this).find(".fa").addClass("hl");
 						$(this).parents(".list").find(".inputList").show();
+						$(this).parents(".list").find(".head").addClass("bb");
 						}
 						myScroll.refresh();
 				});
@@ -404,6 +414,7 @@
 					}
 				
 				});
+			$("#scroller .title_input_list").css({"border-top":"1px solid #dcdcdc"});
 			var delay=setTimeout(function(){
 				myScroll.refresh();
 				},200);

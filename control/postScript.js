@@ -5,6 +5,7 @@
 		par:"type/id",
 		tem:["top_third","input_single"],
 		fn:function(data){
+			$("body").css({"background-color":"#fff"});
 			var result={};
 			if(obj.cache("pruduct_input_"+data.id)){
 				result=obj.cache("pruduct_input_"+data.id);}

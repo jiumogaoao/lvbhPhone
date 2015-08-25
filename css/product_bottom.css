@@ -10,7 +10,9 @@
 	padding:.5rem;
 	overflow:hidden;
 	position:relative;
-	display:none;}
+	padding-bottom:1rem;
+	border-bottom:1px solid #dcdcdc;
+}
 .product_bottom .list.close{
 	height:5rem;}
 .product_bottom .list.close .toggle .fa-close:before{
@@ -24,25 +26,29 @@
 .product_bottom .list .half{
 	width:50%;
 	float:left;
-	font-size:.4rem;
+	font-size:.45rem;
 	margin-bottom:.4rem;
 	color:#7c7c7c;}
 .product_bottom .list .single{
-	font-size:.4rem;
+	font-size:.45rem;
 	margin-bottom:.4rem;
 	color:#7c7c7c;
 	}
 .product_bottom .list .dsc{
 	font-size:.35rem;
 	color:#aaaaaa;
+	line-height: .6rem;
 	margin-bottom:.4rem;}
 .product_bottom .list .main{
-	font-size:.4rem;
+	font-size:.45rem;
 	color:#7c7c7c;
 	line-height:.8rem;
 	margin-bottom:.4rem;}
 .product_bottom .list .toggle{
 	width:100%;
+	height:1rem;
+	line-height:1rem;
+	  color: #7c7c7c;
 	font-size:.5rem;
 	text-align:center;
 	position:absolute;

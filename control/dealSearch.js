@@ -5,6 +5,7 @@
 		par:"type",
 		tem:["top_third","deal_search","single_button"],
 		fn:function(data){
+			$("body").css({"background-color":"#fff"});
 			var head=_.template(data.tem[0])({left:"",center:"查询订单",right:"重置"});
 			$("#head").html(head);
 			var list=_.template(data.tem[1])({type:data.type});

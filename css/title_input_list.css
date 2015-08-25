@@ -5,19 +5,20 @@
 	margin:auto;
 	margin-top:.2rem;
 	background-color:#fff;
-	border-radius:.2rem;}
+}
 .title_input_list .point{
 	width:100%;
 	margin:auto;
 	border-bottom:1px solid #dcdcdc;
-	min-height:1.5rem;
-	line-height:1.5rem;
+	min-height:1.8rem;
+	line-height:1.8rem;
 	position:relative;
 	color:#7c7c7c;}
 .title_input_list .left{
 	float:left;
-	font-size:.5rem;
-	text-indent:.5rem;}
+	font-size:.6rem;
+	text-indent:.3rem;
+	color:#1b1b1b;}
 .title_input_list .center{
 	float:left;
 	margin-left:.5rem;}

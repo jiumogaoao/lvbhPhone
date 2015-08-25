@@ -9,6 +9,8 @@
 		var hashArry=hash.split("/");
 		function runRoute(){
 			app.pop.off();
+			$("body").css({"background-color":"#eeeeee"});
+			myScroll.scrollTo(0, 0);
 			if(hashArry[0]==="index"||hashArry[0]==="vipIndex"||hashArry[0]==="mineIndex"){
 				$("#foot").empty();
 				$("#foot").show();
