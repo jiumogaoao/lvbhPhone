@@ -36,22 +36,16 @@
 	bottom:.6rem;
 	left:4rem;}
 .product_top .typeHead{
-	background-color:#ff840c;
 	color:#fff;
-	width:1rem;
+	width:3.6rem;
 	height:1rem;
-	line-height:1.1rem;
-	text-align:center;
-	border-radius:1rem;
 	font-size:.7rem;
 	text-indent:.15rem;
-	border:1px solid #fff;
 	position:absolute;
 	top:.4rem;
 	left:.4rem;
 	z-index:3}
 .product_top .typeBody{
-	background-color:#ff840c;
 	color:#fff;
 	height:.8rem;
 	line-height:.8rem;
@@ -61,7 +55,7 @@
 	left:.8rem;
 	font-size:.4rem;
 	text-indent:.8rem;
-	border-radius:.8rem;}
+	z-index:4;}
 .product_top .collect{
 	width:1rem;
 	height:1rem;

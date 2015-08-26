@@ -3,7 +3,7 @@
 <div class="deal_list" lid="<%= n.id %>">
 	<div class="top">
     	<div class="icon"><span class="fa fa-place3"></span></div>
-        <div class="type"><%= n.type %>&nbsp;&nbsp;|&nbsp;&nbsp;</div>
+        <div class="type"><%= n.type %>&nbsp;&nbsp;<span style="color:#7c7c7c;position:relative;top:-.05rem;">|</span>&nbsp;&nbsp;</div>
         <div class="state"><% if(n.state=="4"){print("已确认/待签约支付")}
         else if(n.state=="1"){print("已提交/待确认")}
         else if(n.state=="2"){print("出游归来/已成交")}

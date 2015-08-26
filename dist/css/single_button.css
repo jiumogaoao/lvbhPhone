@@ -1,1 +1,1 @@
-@charset "utf-8";.single_button{width:90%;height:1rem;line-height:1rem;text-align:center;color:#FFF;background-color:#ff840b;font-size:.6rem;margin:.5rem auto auto;border-radius:.2rem}
+@charset "utf-8";.single_button,.single_button.bottom_button{width:90%;height:1.3rem;line-height:1.35rem;text-align:center;color:#FFF;background-color:#ff840b;font-size:.6rem;border-radius:.2rem}.single_button{margin:1rem auto auto}.single_button.bottom_button{margin:auto}.bottom_button_frame{width:100%;height:2rem;background-color:#fff;padding-top:.35rem;border-top:1px solid #dcdcdc}

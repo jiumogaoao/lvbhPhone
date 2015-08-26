@@ -8,7 +8,7 @@
 			var result=[];
 			var page=1;
 			var titleArry=["成交订单","取消订单","作废订单"];
-			var head=_.template(data.tem[0])({left:"",center:titleArry[data.type],right:'<span class="fa fa-search"></span>查询'});
+			var head=_.template(data.tem[0])({left:"",center:titleArry[data.type],right:'<span class="fa fa-search"></span>'});
 			$("#head").html(head);
 			function layout(list,at){
 				var listA=_.template(data.tem[1])({
@@ -88,6 +88,7 @@
 				obj.pop.on("confirm",{text:"确认要删除该订单吗？"},popFn);
 			});
 			$(".zhifu").unbind("tap").bind("tap",function(e){
+				e.stopPropagation();
 				window.location.hash="payIndex/"+$(this).parents(".deal_list").attr("lid");
 				});
 			var delay=setTimeout(function(){

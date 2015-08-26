@@ -5,7 +5,7 @@
         <% if(l.title){ %>
         	<div class="head">
                 <div class="title"><%= l.title %></div>
-                <div class="icon"><span class="fa fa-right"></span></div>
+                <div class="icon"><span class="fa <%if(num == 0){print("fa-close")}else{print("fa-open")}%>"></span></div>
                 <div class="clear"></div>
             </div>
         <% } %>
@@ -32,19 +32,30 @@
 </div>
 <script>
 ;(function(){
-	$(".collapse_list .list").unbind("tap").bind("tap",function(){
+	$(".collapse_list .list .head").unbind("tap").bind("tap",function(){
+	if($(this).parents(".list").attr("class")=="list hl"){
+	$(this).parents(".list").removeClass("hl");
+	$(this).parents(".list").find(".fa").removeClass("fa-close");
+	$(this).parents(".list").find(".fa").addClass("fa-open");
+		}else{
 	$(".collapse_list .list").removeClass("hl");
-	$(this).addClass("hl");
+	$(".collapse_list .list .fa").removeClass("fa-close");
+	$(".collapse_list .list .fa").addClass("fa-open");
+	$(this).parents(".list").addClass("hl");
+	$(this).parents(".list").find(".fa").addClass("fa-close");
+	$(this).parents(".list").find(".fa").removeClass("fa-open");
 	var linkDelay=setTimeout(function(){
-		$(this).find(".group.link").each(function(){
-		$(this).find(".deg").css("top",(($(this).height()/($(window).width()/10))-.5)/2+"rem");
+		$(this).parents(".list").find(".group.link").each(function(){
+		$(this).parents(".list").find(".deg").css("top",(($(this).height()/($(window).width()/10))-.1)/2+"rem");
 		});
 	myScroll.refresh();
-		},200);
+		},200);		
+			}	
+	
 	});
 var linkDelay=setTimeout(function(){
 		$(".collapse_list .list").find(".group.link").each(function(){
-		$(".collapse_list .list").find(".deg").css("top",(($(this).height()/($(window).width()/10))-.5)/2+"rem");
+		$(".collapse_list .list").find(".deg").css("top",(($(this).height()/($(window).width()/10))-.1)/2+"rem");
 		});
 	myScroll.refresh();
 		},200);

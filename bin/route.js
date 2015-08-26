@@ -13,6 +13,7 @@
 			myScroll.scrollTo(0, 0);
 			if(hashArry[0]==="index"||hashArry[0]==="vipIndex"||hashArry[0]==="mineIndex"){
 				$("#foot").empty();
+				$("#foot").css("height","1.5rem");
 				$("#foot").show();
 				$("#head").height("4rem");
 					$("#middle").css({
@@ -22,6 +23,7 @@
 					$("#scroller").css({"padding-bottom":"1.5rem"});
 				}else if(hashArry[0]==="foundIndex"){
 					$("#foot").empty();
+					$("#foot").css("height","1.5rem");
 				$("#foot").show();
 				$("#head").height("1.5rem");
 					$("#middle").css({
@@ -29,7 +31,12 @@
 						bottom:"0rem"
 						});
 					$("#scroller").css({"padding-bottom":"1.5rem"});
-					}else{
+					}else if(hashArry[0]==="productDetail"||hashArry[0]==="productInput"){
+						$("#scroller").css({"padding-bottom":"2rem"});
+						$("#foot").empty();
+						$("#foot").css("height","2rem");
+						$("#foot").show();
+						}else{
 					$("#foot").empty();
 					$("#foot").hide();
 					$("#head").height("1.5rem");
@@ -52,7 +59,7 @@
 				if(app.cache("phone")&&app.cache("phone").phone){
 					$("#head").hide();
 					$("#middle").css({"top":"0rem","bottom":"0rem"});
-					$("#foot").hide();
+					//$("#foot").hide();
 					}
 				if(routeArry[hashArry[0]].tem.length){
 					var totalUrl=0;

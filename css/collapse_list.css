@@ -11,6 +11,7 @@
 	background-color:#fff;
 	line-height:1.5rem;
 	font-size:.6rem;
+	border-bottom:1px solid #dcdcdc;
 	}
 .collapse_list .title{
 	float:left;
@@ -19,27 +20,31 @@
 .collapse_list .icon{
 	float:right;
 	margin-right:.5rem;
-	color:#7c7c7c;}
+	color:#7c7c7c;
+	font-size:.5rem;}
 .collapse_list .main{
 	width:95%;
 	margin:auto;
-	margin-top:.5rem;
-	margin-bottom:.5rem;
+	margin-top:.3rem;
+	margin-bottom:.3rem;
 	background-color:#FFFFFF;
 	display:none;
+	border:1px solid #dcdcdc;
+	border-radius:.2rem;
+	padding-top:.2rem;
+	padding-bottom:.2rem;
 	}
 .collapse_list .left{
 	float:left;
-	font-size:.4rem;
+	font-size:.45rem;
 	line-height:1rem;
 	width:28%;
-	text-indent:.5rem;
+	text-indent:0rem;
 	color:#7c7c7c;
 	}
 .collapse_list .right{
 	float:left;
-	font-size:.4rem;
-	font-weight:bold;
+	font-size:.45rem;
 	line-height:1rem;
 	width:60%;
 	}
@@ -49,6 +54,10 @@
 	}
 .collapse_list .group{
 	position:relative;
+		  width: 90%;
+  margin: auto;
+  padding-top:.2rem;
+	padding-bottom:.2rem;
 	}
 .collapse_list .group.link .deg{
 	display:block;
@@ -68,11 +77,17 @@
 	color:#7c7c7c;
 	font-size:.5rem;
 	}
+.collapse_list .list.hl .head{
+	color:#ff840c;}
+.collapse_list .list.hl .head .icon{
+	color:#ff840c;
+	}
 .collapse_list .list.hl .main{
 	display:block;
 	}
 .collapse_list .group.bd{
-	border-bottom:1px solid #dcdcdc}
+	border-bottom:1px solid #dcdcdc;
+}
 .collapse_list .point.hl .right{
 	color:#ff9e6b;
 	}

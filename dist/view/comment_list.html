@@ -2,14 +2,14 @@
 <div class="comment_list">
 <div class="head">
 	<div class="left">
-    	<div class="percent"><%= parseInt((good/total)*100) %>%</div>
+    	<div class="percent numCLASS"><%= parseInt((good/total)*100)||0 %>%</div>
         <div class="text">满意度</div>
     </div>
     <div class="right">
-    	<div class="button hl">所有点评(<%= total %>)</div>
-        <div class="button">满意(<%= good %>)</div>
-        <div class="button">一般(<%= general %>)</div>
-        <div class="button">不满意(<%= poor %>)</div>
+    	<div class="button hl">所有点评(<span class="numCLASS"><%= total %></span>)</div>
+        <div class="button">满意(<span class="numCLASS"><%= good %></span>)</div>
+        <div class="button">一般(<span class="numCLASS"><%= general %></span>)</div>
+        <div class="button">不满意(<span class="numCLASS"><%= poor %></span>)</div>
         <div class="clear"></div>
     </div>
     <div class="clear"></div>

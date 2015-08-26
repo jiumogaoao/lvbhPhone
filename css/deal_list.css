@@ -5,7 +5,7 @@
 	margin:auto;
 	border:1px solid #dcdcdc;
 	padding:0px .2rem;
-	margin-top:.2rem;
+	margin-top:.3rem;
 	border-radius:.15rem;
 	background-color:#fff;}
 .deal_list .top{
@@ -43,23 +43,24 @@
 	float:left;
 	font-size:.4rem;
 	line-height:.5rem;
-	color:#c5c5c5;}
+	color:#7c7c7c;}
 .deal_list .deg{
 	float:right;
 	font-size:.4rem;
 	line-height:.5rem;
-	color:#c5c5c5;}
+	color:#7c7c7c;}
 .deal_list .price{
 	float:left;
 	color:#ff840c;
 	font-size:.6rem;
-	line-height:1.5rem;}
+	line-height:1.58rem;}
 .deal_list .button{
 	float:right;
 	color:#fff;
 	font-size:.6rem;
 	line-height:1rem;
-	background-color:#ff840c;
+	color:#ff840c;
+	border:1px solid #ff840c;
 	height:1rem;
 	padding-left:.2rem;
 	padding-right:.2rem;
@@ -69,10 +70,11 @@
 	border-radius:.15rem;}
 .deal_list .succeed{
 	float:left;
-	height:1.5rem;}
+	height:1.6rem;}
 .deal_list .succeed .price{
 	float:none;
-	line-height:.8rem;}
+	line-height:.8rem;
+	margin-top:.05rem;}
 .deal_list .succeed .last{
 	font-size:.4rem;
 	color:#f33d3d;

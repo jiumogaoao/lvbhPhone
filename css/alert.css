@@ -16,7 +16,7 @@
 	width:100%;
 	border-top:1px solid #dcdcdc;
 	}
-.alert .button,.alert.confirm .left,.alert.confirm .right{
+.alert .button{
 	width:90%;
 	margin:auto;
 	background-color:#cccccc;
@@ -34,7 +34,7 @@
 	}
 .alert.confirm .left{
 	border-right:1px solid #dcdcdc;
-	background-color:#f6f6f6;}
+}
 .alert.password .main{
 	position:relative;
 	height:2.5rem;}
@@ -70,3 +70,10 @@
 	color:#6bbbff;
 	text-align:center;
 	}
+.alert.confirm .left,.alert.confirm .right{
+	background-color:transparent;
+	color:#555;
+	border-radius:0px;
+	text-align:center;
+	line-height:1.5rem;
+	font-size:.5rem;}

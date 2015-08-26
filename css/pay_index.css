@@ -11,9 +11,10 @@
 	}
 .pay_index .top{
 	background-color:#fff;
-	padding-left:.2rem;}
+	border-bottom:1px solid #dcdcdc;}
 .pay_index .top .dsc{
-	padding-bottom:.2rem;
+	  padding-bottom: .4rem;
+  padding-top: .4rem;
 	border-bottom:1px solid #dcdcdc;
 	position:relative;
 	}
@@ -24,33 +25,42 @@
 	right:.3rem;
 	top:0rem;}
 .pay_index .top .dsc .list .point{
-	padding-top:.2rem;}
+	position:relative;
+	padding-top:.1rem;
+	padding-left:.3rem;}
 .pay_index .top .dsc .list .point .left{
-	font-size:.4rem;
+	font-size:.45rem;
 	color:#7c7c7c;
-	width:2rem;
+	width:2.5rem;
 	line-height:.6rem;
 	float:left;}
 .pay_index .top .dsc .list .point .right{
 	float:left;
-	width:7rem;
+	width:6.3rem;
 	line-height:.6rem;
-	font-size:.4rem;
+	font-size:.45rem;
 	}
 .pay_index .top .price{
-	font-size:.4rem;
+	font-size:.45rem;
 	line-height:1.5rem;
+	text-indent:.3rem;
 	}
 .pay_index .bottom .head{
 	border-bottom:1px solid #dcdcdc;
 	position:relative;
+	padding-left:.3rem;
+	padding-right:.4rem;
 	}
+.pay_index .bottom .head .dsc .fa{
+	position:relative;
+	top:.05rem;}
 .pay_index .bottom{
 	background-color:#fff;
+	border-top:1px solid #dcdcdc;
 	margin-top:.3rem;}
 .pay_index .bottom .head .dsc{
 	font-size:.4rem;
-	line-height:1rem;
+	line-height:1.5rem;
 	text-indent:.2rem;
 	color:#7c7c7c;
 	}
@@ -60,39 +70,39 @@
 .pay_index .bottom .head .deg{
 	font-size:.4rem;
 	position:absolute;
-	top:.3rem;
-	right:.2rem;
+	top:.6rem;
+	right:.4rem;
 	color:#7c7c7c;
 	}
-.pay_index .bottom .list{
-	padding-left:.2rem;}
 .pay_index .bottom .list .point{
 	border-bottom:1px solid #dcdcdc;
 	position:relative;
-	height:1.5rem;}
+	padding-left:.3rem;
+	padding-right:.4rem;
+	height:2rem;}
 .pay_index .bottom .list .point .left{
 	float:left;
-	width:1rem;
-	height:1rem;
-	margin-top:.25rem;}
+	width:1.2rem;
+	height:1.2rem;
+	margin-top:.38rem;}
 .pay_index .bottom .list .point .right{
 	float:left;
 	margin-left:.2rem;
-	width:8rem;}
+	width:7rem;}
 .pay_index .bottom .list .point .right .title{
 	font-size:.5rem;
-	font-weight:bold;
-	margin-top:.2rem;}
+	margin-top:.4rem;}
 .pay_index .bottom .list .point .right .dsc{
-	font-size:.3rem;
+	font-size:.35rem;
+	margin-top:.1rem;
 	color:#7c7c7c;
 	}
 .pay_index .bottom .list .point .deg{
 	font-size:.4rem;
 	position:absolute;
 	color:#7c7c7c;
-	top:.6rem;
-	right:.2rem;}
+	top:.8rem;
+	right:.4rem;}
 .pay_index .userMassage{
 	background-color:#fff;
 	padding-top:.3rem;

@@ -82,7 +82,7 @@
 						$(this).find(".numberSub").addClass("disable");
 						}else{
 							$(this).find(".numberSub").removeClass("disable");
-							};
+							}
 					});
 				var totalPay=result.man*result.date.g+result.child*result.date.h+result.child2*result.date.i+result.oldman*result.date.j+result.oldman2*result.date.k;
 				if(result.single){

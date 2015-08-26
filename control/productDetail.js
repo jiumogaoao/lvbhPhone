@@ -3,7 +3,7 @@
 	obj.control.set({
 		name:"productDetail",
 		par:"type/id/at",
-		tem:["top_third","nav_third","product_top","product_center","nav_third","product_bottom","title_input_list","single_button"],
+		tem:["top_third","nav_third","product_top","product_center","nav_third","product_bottom","title_input_list","bottom_button"],
 		fn:function(data){
 			var result={
 				traveler:[""],
@@ -36,7 +36,9 @@
 			if(obj.cache("pruduct_input_"+data.id)){
 				result=obj.cache("pruduct_input_"+data.id);
 				}
-				console.log(result);
+			var button=_.template(data.tem[7])({text:'立即预定',id:"payButton"});
+			$("#foot").html(button);
+			$("#foot").show();
 			var collectArry={"12":"4","13":"5"};
 			var apiArry={"12":"cf_detail_get","13":"md_detail_get"};
 			var typeArry={"12":"出发地跟团","13":"目的地跟团"};
@@ -59,11 +61,11 @@
 				{left:"预订流程",right:"<span class='fa fa-right'></span>",link:true,name:"flow"},
 				{left:"产品点评",right:"<span class='fa fa-right'></span>",link:true,name:"comment"}
 			]});
-			var button=_.template(data.tem[7])({text:'立即预定',id:"payButton"});
+			
 			var topT=_.template(data.tem[2])(top);
 			var centerT=_.template(data.tem[3])(center);
 			var bottomT=_.template(data.tem[5])(bottom);
-			$("#scroller").html(topT+centerT+nav+bottomT+bottomList+button);
+			$("#scroller").html(topT+centerT+nav+bottomT+bottomList);
 			$("#scroller .product_top .collect").unbind("tap").bind("tap",function(){
 				obj.api.run("collect_add",'at='+at+'&t='+collectArry[data.type]+'&id='+data.id+'&cn='+result.title+'&desc='+result.title,function(returnData){
 					alert("收藏成功");

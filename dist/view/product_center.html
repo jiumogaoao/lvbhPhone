@@ -3,15 +3,15 @@
 	<div class="nav">
     	<div class="point">
         	<div class="icon"><span class="fa fa-groupB"></span></div>
-            <div class="name">满意度 <%= satisfy %>%</div>
+            <div class="name">满意度 <span class="numCLASS"><%= satisfy %></span>%</div>
         </div>
         <div class="point">
         	<div class="icon"><span class="fa fa-comment3"></span></div>
-            <div class="name">点评 <%= comment %>人</div>
+            <div class="name">点评 <span class="numCLASS"><%= comment %></span>人</div>
         </div>
         <div class="point nb">
         	<div class="icon"><span class="fa fa-flower"></span></div>
-            <div class="name">收藏 <%= collect %>人</div>
+            <div class="name">收藏 <span class="numCLASS"><%= collect %></span>人</div>
         </div>
         <div class="clear"></div>
     </div>
@@ -19,7 +19,7 @@
     	<div class="title">
         	<div class="icon"><span class="fa fa-date"></span></div>
             <div class="name">选择团期</div>
-            <div class="date"><%= date %> <span class="fa fa-right"></span></div>
+            <div class="date"><span class="numCLASS"><%= date %></span> <span class="fa fa-right"></span></div>
             <div class="clear"></div>
         </div>
     </div>
@@ -30,10 +30,10 @@
             <div class="clear"></div>
         </div>
         <div class="main">
-        	<div class="point">2人同行可省：￥<%= twoMan %>元/人</div>
-            <div class="point">3人同行可省：￥<%= threeMan %>元/人</div>
-            <div class="point">4人同行可省：￥<%= fourMan %>元/人</div>
-            <div class="point">5人同行可省：￥<%= fiveMan %>元/人</div>
+        	<div class="point"><span class="numCLASS">2</span>人同行可省:￥<span style="font-family:Gotham, 'Helvetica Neue', Helvetica, Arial, sans-serif;"><%= twoMan %></span>元/人</div>
+            <div class="point"><span class="numCLASS">3</span>人同行可省:￥<span style="font-family:Gotham, 'Helvetica Neue', Helvetica, Arial, sans-serif;"><%= threeMan %></span>元/人</div>
+            <div class="point"><span class="numCLASS">4</span>人同行可省:￥<span style="font-family:Gotham, 'Helvetica Neue', Helvetica, Arial, sans-serif;"><%= fourMan %></span>元/人</div>
+            <div class="point"><span class="numCLASS">5</span>人同行可省:￥<span style="font-family:Gotham, 'Helvetica Neue', Helvetica, Arial, sans-serif;"><%= fiveMan %></span>元/人</div>
             <div class="clear"></div>
         </div>
     </div>

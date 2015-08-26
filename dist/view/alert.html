@@ -1,12 +1,11 @@
 <link href="css/alert.css" rel="stylesheet" rev="stylesheet" type="text/css"/>
 <div class="alert">
 	<div class="main"><%= text %></div>
-    <div class="buttonFrame">
-    <div class="button">确定</div>
-    </div>
 </div>
 <script>
-	$(".alert .button").unbind("tap").bind("tap",function(){
+;(function(){
+	var delay=setTimeout(function(){
 		app.pop.off();
-		})
+		},1000);
+	})();
 </script>
