@@ -21,7 +21,7 @@
 				});
 			$("#otherFrame").css({
 				"position":"fixed",
-				"top":"3rem",
+				"top":"2rem",
 				"right":"0rem",
 				"width":"1rem",
 				"background-color":"#fff",
@@ -36,6 +36,9 @@
 			$("#head").html(head);
 			var searchList=_.template(data.tem[1])(list);
 			$("#scroller").html(nav+searchList);
+			if(data.state!=="0"){
+				$(".nav_two.nav_third").css({"margin-bottom":"0px"})
+				}
 			$(".top_third .leftButton").unbind("tap").bind("tap",function(){
 				window.history.go(-1);
 				});

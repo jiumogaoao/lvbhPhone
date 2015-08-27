@@ -24,4 +24,8 @@
 	line-height:1rem;
 	float:left;
 	font-size:.45rem;}
+.hot_nav .point.hl{
+	border:1px solid #009eff;
+	color:#009eff;
+	}
 

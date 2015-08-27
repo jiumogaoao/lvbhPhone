@@ -3,7 +3,7 @@
 	obj.control.set({
 		name:"productInput",
 		par:"type/id/state",
-		tem:["top_second","product_input"],
+		tem:["top_second","product_input","pay_list"],
 		fn:function(data){
 			var sellArry=["","","n","o","p","q"];
 			var typeArry={"12":"gtcf","13":"gtmd"};
@@ -124,18 +124,10 @@
 					obj.control.pointParse(result,$(this).attr("D_key"))[$(this).attr("D_num")]=$(this).val();
 					console.log(result);
 				});
-				myScroll.refresh();
-				}
-			$("#head").html(head);
-			$("#head .leftButton").unbind("click").bind("click",function(){
-				window.history.go(-1);
-				});
-		function layout(at){
-			var main=_.template(data.tem[1])(result);
-			$("#scroller").html(main);
-			totalCount();
-			$("#scroller .payList u").unbind("tap").bind("tap",function(){
-				obj.bottom.on("pay_list",result,function(){
+				debugger;
+				var foot=_.template(data.tem[2])(result);
+				$("#foot").html(foot);
+				
 					$("#scroller .pay_list .payButton").unbind("tap").bind("tap",function(){
 						
 				if(!result.date.b){
@@ -228,10 +220,19 @@
 				
 				
 						});
-					},function(e){
-					alert(JSON.stringify(e));
-					});
+					
+				myScroll.refresh();
+				}
+			$("#head").html(head);
+			$("#head .leftButton").unbind("click").bind("click",function(){
+				window.history.go(-1);
 				});
+		function layout(at){
+			var main=_.template(data.tem[1])(result);
+			$("#scroller").html(main);
+			
+			totalCount();
+
 			$("#scroller #postScript").unbind("tap").bind("tap",function(){
 				obj.cache("pruduct_input_"+data.id,result);
 				window.location.hash="postScript/"+data.type+"/"+data.id+"/"+data.state;

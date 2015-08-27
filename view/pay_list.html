@@ -1,37 +1,42 @@
 <link href="css/pay_list.css" rel="stylesheet" rev="stylesheet" type="text/css"/>
 <div class="pay_list">
+<div class="hideFrame">
+<%
+ var total=man+child+child2+oldman+oldman2;
+        var sell=0;
+%>
 <% if(man){ %>
 	<div class="point">
     	<div class="name">成人</div>
-        <div class="price">+ ￥<span class="numCLASS"><%= date.g*man %></span>（￥<span class="numCLASS"><%= date.g %> X <%= man %></span>）</div>
+        <div class="price">+ ￥<span class="numCLASS"><%= Number(date.g)*man %></span>（￥<span class="numCLASS"><%= Number(date.g) %> X <%= man %></span>）</div>
         <div class="clear"></div>
     </div>
 <% } %>
 <% if(child){ %>	
     <div class="point">
     	<div class="name">占床儿童</div>
-        <div class="price">+ ￥<span class="numCLASS"><%= date.h*child %></span> （￥<span class="numCLASS"><%= date.h %> X <%= child %></span>）</div>
+        <div class="price">+ ￥<span class="numCLASS"><%= Number(date.h)*child %></span> （￥<span class="numCLASS"><%= Number(date.h) %> X <%= child %></span>）</div>
         <div class="clear"></div>
     </div>
  <% } %> 
 <% if(child2){ %>  
     <div class="point">
     	<div class="name">不占床儿童</div>
-        <div class="price">+ ￥<span class="numCLASS"><%= date.i*child2 %></span> （￥<span class="numCLASS"><%= date.i %> X <%= child2 %></span>）</div>
+        <div class="price">+ ￥<span class="numCLASS"><%= Number(date.i)*child2 %></span> （￥<span class="numCLASS"><%= date.i %> X <%= child2 %></span>）</div>
         <div class="clear"></div>
     </div>
    <% } %> 
 <% if(oldman){ %>    
     <div class="point">
     	<div class="name">65岁以上老人</div>
-        <div class="price">+ ￥<span class="numCLASS"><%= date.j*oldman %></span> （￥<span class="numCLASS"><%= date.j %> X <%= oldman %></span>）</div>
+        <div class="price">+ ￥<span class="numCLASS"><%= Number(date.j)*oldman %></span> （￥<span class="numCLASS"><%= date.j %> X <%= oldman %></span>）</div>
         <div class="clear"></div>
     </div>
    <% } %> 
 <% if(oldman2){ %>   
     <div class="point">
     	<div class="name">75岁以上老人</div>
-        <div class="price">+ ￥<span class="numCLASS"><%= date.k*oldman2 %></span> （￥<span class="numCLASS"><%= date.k %> X <%= oldman2 %></span>）</div>
+        <div class="price">+ ￥<span class="numCLASS"><%= Number(date.k)*oldman2 %></span> （￥<span class="numCLASS"><%= date.k %> X <%= oldman2 %></span>）</div>
         <div class="clear"></div>
     </div>
     <% } %>
@@ -50,7 +55,7 @@
 <% if(single){ %>     
     <div class="point">
     	<div class="name">单房差</div>
-        <div class="price">- ￥<span class="numCLASS"><%= date.l*(man+child+oldman+oldman2) %></span> （￥<span class="numCLASS"><%= date.l %> X <%= man+child+oldman+oldman2 %></span>）</div>
+        <div class="price">- ￥<span class="numCLASS"><%= Number(date.l)*(man+child+oldman+oldman2) %></span> （￥<span class="numCLASS"><%= date.l %> X <%= man+child+oldman+oldman2 %></span>）</div>
         <div class="clear"></div>
     </div>
     <% } %>
@@ -58,8 +63,6 @@
     <div class="point">
     	<div class="name">多人同省</div>
         <div class="price">- ￥<%
-        var total=man+child+child2+oldman+oldman2;
-        var sell=0;
         if(total==2){
 					sell=date.n
 					}else if(total==3){
@@ -74,11 +77,12 @@
         <div class="clear"></div>
     </div>
     <% } %>
+    </div>
     <div class="total">
     	<div class="left"><b>订单金额</b> <span class="number">￥<span class="numCLASS"><%
-        var pay=man*date.g+child*date.h+child2*date.i+oldman*date.j+oldman2*date.k+total*sell
+        var pay=man*Number(date.g)+child*Number(date.h)+child2*Number(date.i)+oldman*Number(date.j)+oldman2*Number(date.k)+total*sell;
 				if(single){
-					pay-=(total-child2)*date.l
+					pay-=(total-child2)*Number(date.l)
 					}
                     print(pay||0);
         %></span></span>&nbsp;&nbsp;<u>明细</u></div>
@@ -88,6 +92,6 @@
 </div>
 <script>
 	$(".pay_list .total u").unbind("tap").bind("tap",function(){
-		app.bottom.off();
+		$(".pay_list .hideFrame").toggle();
 		})
 </script>

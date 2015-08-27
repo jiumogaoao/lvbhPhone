@@ -38,39 +38,45 @@
 	}
 #otherFrame .tap{
 	text-align:center;
-	font-size:.35rem;}
+	font-size:.35rem;
+	line-height:.5rem;
+	color:#7c7c7c;}
 .search_place .list{
 	width:90%;}
 .search_place .title{
-	height:1rem;
+	color:#555;
+	height:.8rem;
 	background-color:#eeeeee;
-	font-size:.6rem;
-	line-height:1rem;
-	text-indent:.8rem;
+	font-size:.4rem;
+	line-height:.8rem;
+	text-indent:.7rem;
 	}
 .search_place .mark{
 	float:left;
 	margin-left:.8rem;
-	font-size:.8rem;
+	font-size:.65rem;
 	line-height:1.5rem;
 	color:#7c7c7c;
+	position:relative;
+	top:.05rem;
 	}
 .search_place .mark .fa{
 	color:#ff840c;}
 .search_place .now{
 	float:left;
 	line-height:1.5rem;
-	font-size:.8rem;
+	font-size:.5rem;
 	margin-left:.2rem;
 	color:#7c7c7c;}
 .search_place .point{
 	width:25%;
 	height:1.5rem;
-	border:1px solid #e5e5e5;
+	border:1px solid #F5F5F5;
 	float:left;
 	line-height:1.5rem;
 	text-align:center;
-	font-size:.8rem;
+	font-size:.5rem;
+	color:#7c7c7c;
 	position:relative;
 	overflow:hidden;
 	}

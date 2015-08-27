@@ -11,7 +11,7 @@
 .foot_nav .point.hl{
 	color:#009eff;}
 .foot_nav .icon{
-	font-size:.8rem;
+	font-size:.7rem;
 	text-align:center;
 	line-height:.9rem;}
 .foot_nav .icon .fa{
@@ -20,4 +20,6 @@
 .foot_nav .name{
 	font-size:.3rem;
 	text-align:center;
-	line-height:.6rem;}
+	line-height:.6rem;
+	position:relative;
+	top:-.02rem;}

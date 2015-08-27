@@ -15,9 +15,9 @@
 				$("#foot").empty();
 				$("#foot").css("height","1.5rem");
 				$("#foot").show();
-				$("#head").height("4rem");
+				$("#head").height("3.8rem");
 					$("#middle").css({
-						top:"4rem",
+						top:"3.8rem",
 						bottom:"0rem"
 						});
 					$("#scroller").css({"padding-bottom":"1.5rem"});

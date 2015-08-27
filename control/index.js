@@ -5,13 +5,13 @@
 		par:"",
 		tem:["foot_nav","index_head","index_nav","product_group_list","group_member"],
 		fn:function(data){
-			
 			function layout(main,vip,pomo){
 			var banner=	_.template(data.tem[1])({list:pomo});
 			$("#head").html(banner);
 			var list=_.template(data.tem[3])({list:main});
 			var group=_.template(data.tem[4])({list:vip});
 			$("#scroller").html(data.tem[2]+list+group);
+			$(".product_group_list .group").css("border-top","0px");
 $(".product_group_list .point").unbind("tap").bind("tap",function(){
 				window.location.hash="productDetail/"+$(this).attr("type")+"/"+$(this).attr("pid");
 				});

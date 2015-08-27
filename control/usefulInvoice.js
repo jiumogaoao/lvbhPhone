@@ -48,7 +48,7 @@
 				function getList(at){
 				if(!out){
 					obj.api.run("invoice_get",'at='+at+'&tp=3&pn='+page,function(returnData){
-				if(returnData.data.length==10){
+				if(returnData.data.length===10){
 					page++;
 					}else{
 						out=true;

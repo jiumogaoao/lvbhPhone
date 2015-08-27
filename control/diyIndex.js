@@ -55,7 +55,7 @@
 			
 			function getPage(callback){
 				function getList(at){
-				obj.api.run("diy_get","d="+data.type+"&a="+page,function(returnData){
+				obj.api.run("diy_get","at="+at+"&d="+data.type+"&a="+page,function(returnData){
 					if(returnData.pn === page+""){
 					page++;
 					returnData=returnData.data;

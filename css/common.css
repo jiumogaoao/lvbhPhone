@@ -1,5 +1,13 @@
 @charset "utf-8";
 /* CSS Document */
+@font-face {
+	font-family: 'sb';
+	src:url('../include/sb.ttf?-x0g9b9');
+	src:url('../include/sb.ttf?-x0g9b9') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
 *{
 	padding:0px;
 	margin:0px;
@@ -10,7 +18,8 @@
 	border-radius:0px;
 	background-color:transparent;
 	background-image:none;
-	-webkit-appearance: none;}
+	-webkit-appearance: none;
+	font-family:'sb';}
 body{
 	background-color:#eeeeee;}
 #head{
@@ -144,5 +153,5 @@ body{
 	width:100%;
 	}
 .numCLASS{
-	font-family: Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-family: 'sb';
 	}

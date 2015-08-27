@@ -1,40 +1,47 @@
 @charset "utf-8";
 /* CSS Document */
 .group_member{
-	width:100%;}
+	width:100%;
+	margin-top:-.3rem;
+	}
 .group_member .point{
-	width:30%;
+	width:29%;
 	float:left;
 	background-color:#fff;
-	margin-left:2%;
+	margin-left:3%;
 	position:relative;
 	left:1%;
 	margin-top:.3rem;
 	background-color:#eeeeee;
-	padding-top:.3rem;
-	padding-bottom:.3rem;}
+	padding-top:.28rem;
+	padding-bottom:.2rem;}
 .group_member img{
-	width:2.5rem;
-	height:2.5rem;
+	width:2.2rem;
+	height:2.2rem;
+	margin-top:.1rem;
 	display:block;
 	margin:auto;}
 .group_member .name{
 	font-size:.4rem;
 	color:#565656;
 	text-align:center;
-	margin-top:.3rem;
+	margin-top:.2rem;
 	height:.6rem;}
 .group_member .number{
-	font-size:.4rem;
+	font-size:.35rem;
 	color:#565656;
-	text-indent:.2rem;
-	margin-top:.2rem;}
+	text-indent:.3rem;
+	}
+.group_member .number .fa{
+	font-size:.4rem;
+	position:relative;
+	top:.05rem;}
 .group_member .deg{
 	position:absolute;
 	top:0px;
 	left:0px;
 	z-index:2;
-	font-size:.4rem;
+	font-size:.35rem;
 	color:#fff;
 	width:1rem;
 	height:1rem;
@@ -49,9 +56,10 @@
 	transform:rotate(45deg);
 	-webkit-transform:rotate(45deg);
 	position:absolute;
-	top:-1rem;
-	left:-1.4rem;}
+	top:-1.2rem;
+	left:-1.6rem;}
 .group_member .font{
 	position:absolute;
-	top:.15rem;
-	left:.15rem;}
+	font-size:.3rem;
+	top:-.06rem;
+	left:.12rem;}

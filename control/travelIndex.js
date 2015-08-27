@@ -33,6 +33,9 @@
 				list:[{title:false,main:product}]
 				});
 			$("#scroller").html(nav+hot+list);
+			if(data.id){
+				$(".hot_nav .point#"+data.id).addClass("hl");
+				}
 			$(".product_group_list .point").unbind("tap").bind("tap",function(){
 				window.location.hash="productDetail/"+$(this).attr("type")+"/"+$(this).attr("pid");
 				});

@@ -6,9 +6,7 @@
 		tem:["top_second","search_place"],
 		fn:function(data){
 			function layout(at,list){
-
 				var titleArry=["选择出发地","选择目的地"];				
-			
 			var head=_.template(data.tem[0])({left:"",center:titleArry[data.type]});
 			$("#head").html(head);
 			$("#head .leftButton").unbind("click").bind("click",function(){
@@ -52,19 +50,19 @@
 						
 					layout(at,placeList);
 					},function(e){
-					alert(e);
+					alert(JSON.stringify(e));
 					});
 				}
 			function province(at,now){
 				obj.api.run("province_getAll","at="+at,function(returnData){
 					place(at,now,returnData);
-					},function(e){alert(e);});
+					},function(e){alert(JSON.stringify(e));});
 				}
 			function now(at){
 				obj.api.run("city_get_now","at="+at,function(returnData){
 					province(at,returnData);
 					},function(e){
-					alert(e);
+					alert(JSON.stringify(e));
 					});
 				}
 			obj.api.at(now);
