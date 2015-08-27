@@ -23,7 +23,7 @@
 				calendar.setTarget("#scroller");
 				calendar.run();
 				if(result&&result.date&&result.date.c){
-					$("td[date='2015-08-28']").addClass("hl");
+					$("td[date='"+result.date.c+"']").addClass("hl");
 					}
 				$("#scroller .enable").unbind("tap").bind("tap",function(){
 					result.date=_.indexBy(returnData,"b")[$(this).attr("did")];

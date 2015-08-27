@@ -24,7 +24,7 @@
 		var totalDay=[0,31,28,31,30,31,30,31,31,30,31,30,31];
 		function layout(year,month){
 			var point=$('<div class="list">'+
-			'<div class="head">'+year+"年"+month+"月"+'</div>'+
+			'<div class="head"><span class="numCLASS">'+year+'</span>年<span class="numCLASS">'+month+"</span>月"+'</div>'+
 				'<table width="100%" border="0px" cellpadding="0" cellspacing="0">'+
 					'<thead>'+
 					'<tr>'+
@@ -67,13 +67,13 @@
 					showMonth="0"+month;
 					}
 				point.find("[num='"+(i+firstDay)+"']").empty();
-				point.find("[num='"+(i+firstDay)+"']").append($('<div class="dayNum">'+i+'</div>'));
+				point.find("[num='"+(i+firstDay)+"']").append($('<div class="dayNum"><span class="numCLASS">'+i+'</span></div>'));
 				point.find("[num='"+(i+firstDay)+"']").attr("date",year+"-"+showMonth+"-"+showDay);
 				}
 				if(data[year]&&data[year][showMonth]){
 					$.each(data[year][showMonth],function(x,y){
 						if(!y.full){
-							point.find("[date='"+year+"-"+showMonth+"-"+x+"']").removeClass("disable").addClass("enable").attr("did",y.id).append('<div class="price">￥'+y.price+'</div>');	
+							point.find("[date='"+year+"-"+showMonth+"-"+x+"']").removeClass("disable").addClass("enable").attr("did",y.id).append('<div class="price">￥<span class="numCLASS">'+y.price+'</span></div>');	
 							}else{
 							point.find("[date='"+year+"-"+showMonth+"-"+x+"']").append('<div class="price">已满</div>');		
 								}
