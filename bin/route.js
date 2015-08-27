@@ -32,7 +32,12 @@
 						});
 					$("#scroller").css({"padding-bottom":"1.5rem"});
 					}else if(hashArry[0]==="productDetail"||hashArry[0]==="productInput"){
-						$("#scroller").css({"padding-bottom":"2rem"});
+						$("#head").height("1.5rem");
+						$("#middle").css({
+						top:"1.5rem",
+						bottom:"0rem"
+						});
+						$("#scroller").css({"padding-bottom":"4rem"});
 						$("#foot").empty();
 						$("#foot").css("height","2rem");
 						$("#foot").show();

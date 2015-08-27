@@ -51,7 +51,7 @@
 						
 						}
 				});
-			$("#scroller #addTraveller").unbind("tap").bind("tap",function(){
+			$("#scroller #addTraveller").unbind("touchstrat").bind("touchstrat",function(){
 				window.location.hash="travellerAdd/"+data.type+"/"+data.id+"/"+data.state;
 				});	
 				var delay=setTimeout(function(){
@@ -67,7 +67,7 @@
 				obj.api.run("traveler_get",'at='+at+'&tp=3',function(returnData){
 					var list=[];
 					$.each(returnData,function(i,n){
-						list.push({title:n.b,dsc:n.f});
+						list.push({title:n.b,dsc:'<span class="numCLASS">'+n.f+'</span>'});
 						});
 					layout(list,returnData);
 					},function(e){

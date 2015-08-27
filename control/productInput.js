@@ -112,7 +112,7 @@
 					newTravel[i]=result.traveler[i]||{b:"姓名"};
 					$("#scroller #traveler").append('<div class="inputList '+nb+'">'+
 						'<div class="inputTitle">出游人'+(i+1)+'</div>'+
-						'<div class="readonly">'+newTravel[i].b+'</div>"/>'+
+						'<div class="readonly">'+newTravel[i].b+'</div>'+
 						'<div class="clear"></div>'+
 					'</div>');
 					}
@@ -179,7 +179,7 @@
 				if(!result.single){
 					singleMan=result.man+result.child+result.oldman+result.oldman2;
 					}
-				var goParam={
+				var goparam={
 					a:data.type,
 					b:data.id,
 					c:result.date.b,
@@ -191,7 +191,7 @@
 					d8:result.oldman2,
 					d9:result.man+result.child+result.oldman+result.oldman2
 					};
-				var goiParam={
+				var goiparam={
 					d:result.invoice.on?"1":"0",
 					f:result.contract.on?"1":"0",
 					g:result.agree.on?"1":"0",
@@ -202,15 +202,15 @@
 					j:typeArry[data.type]
 					};
 				if(result.invoice.on){
-					goiParam.invoiceParam={b:result.invoice.title};
-					goiParam.addressParam.push({b:result.invoice.name,d:result.invoice.place,f:result.invoice.phone});
+					goiparam.invoiceParam={b:result.invoice.title};
+					goiparam.addressParam.push({b:result.invoice.name,d:result.invoice.place,f:result.invoice.phone});
 					}
 				if(result.contract.on){
-					goiParam.addressParam.push({b:result.contract.name,d:result.contract.place,f:result.contract.phone});
+					goiparam.addressParam.push({b:result.contract.name,d:result.contract.place,f:result.contract.phone});
 					}
 				$.each(result.traveler,function(i,n){
 					if(n.a){
-						goiParam.toursParam.push(n);
+						goiparam.toursParam.push(n);
 						}else{
 							alert("请完成出游人信息");
 							correct=0;
@@ -218,7 +218,7 @@
 							}	
 					});	
 				if(correct){
-					obj.api.run("deal_add",'at='+at+'&goParam='+JSON.stringify(goParam)+'&goiParam='+JSON.stringify(goiParam),function(returnData){
+					obj.api.run("deal_add",'at='+at+'&goparam='+JSON.stringify(goParam)+'&goiparam='+JSON.stringify(goiParam),function(returnData){
 					obj.cache("pruduct_input_"+data.id,result);
 					window.location.hash="dealSuccess/"+data.id;
 					},function(e){

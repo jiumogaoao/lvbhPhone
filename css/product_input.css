@@ -175,7 +175,7 @@
 	font-size:.32rem;
 	line-height:.9rem;
 	color:#7c7c7c;
-	width:8.7rem;
+	width:9rem;
 	text-indent:.2rem;
 	letter-spacing:.01rem;
 	}
@@ -183,7 +183,8 @@
 	display:block;
 	float:left;
 	position:relative;
-	top:.05rem;
+	top: .15rem;
+  font-size: .5rem;
 	}
 .product_input .payList .text{
 	font-size:.5rem;

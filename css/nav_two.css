@@ -25,7 +25,8 @@
 	background-color:#fff;
 	}
 .nav_two.nav_third{
-	margin-bottom:.3rem;}
+	margin-bottom:.4rem;
+	border-bottom:1px solid #dcdcdc;}
 .nav_two.nav_four .nav_point_frame{
 	width:25%;
 	}

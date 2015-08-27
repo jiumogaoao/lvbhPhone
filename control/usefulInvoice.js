@@ -8,6 +8,7 @@
 			var resultA=[];
 			var page=1;
 			var result={};
+			var out=false;
 			if(obj.cache("pruduct_input_"+data.id)){
 				result=obj.cache("pruduct_input_"+data.id);
 				}
@@ -45,19 +46,26 @@
 			
 			function getPage(callback){
 				function getList(at){
-				obj.api.run("invoice_get",'at='+at+'&tp=3&pn='+page,function(returnData){
-					if(returnData.pn === page+""){
+				if(!out){
+					obj.api.run("invoice_get",'at='+at+'&tp=3&pn='+page,function(returnData){
+				if(returnData.data.length==10){
 					page++;
+					}else{
+						out=true;
+						}
 					returnData=returnData.data;
 					$.each(returnData,function(i,n){
 						resultA.push(n.b);
 						});
 					layout();
-					}
 					if(callback){callback();}
 					},function(e){
 					alert(JSON.stringify(e));
 					});
+					}else{
+						if(callback){callback();}
+						}	
+				
 				}
 			obj.api.at(getList);
 				}	

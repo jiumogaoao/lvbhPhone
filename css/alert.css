@@ -14,19 +14,19 @@
 	color:#f22424;}
 .alert .buttonFrame{
 	width:100%;
-	border-top:1px solid #dcdcdc;
+	padding-bottom:.6rem;
 	}
 .alert .button{
 	width:90%;
 	margin:auto;
 	background-color:#cccccc;
-	height:1.5rem;
-	line-height:1.5rem;
+	height:1.3rem;
+	line-height:1.3rem;
 	text-align:center;
-	font-size:.5rem;
+	font-size:.6rem;
 	color:#fff;
 	border-radius:.2rem;
-	margin-top:.2rem;
+	margin-top:.4rem;
 	}
 .alert.confirm .left,.alert.confirm .right{
 	width:50%;
@@ -56,19 +56,28 @@
 	float:left;
 	border:1px solid #dcdcdc;
 	height:100%;}
+.alert.share{border-radius:0px}
 .alert.share .point{
 	float:left;
 	margin-left:1rem;
 	margin-bottom:.4rem;}
+.alert.share .main{
+	padding-bottom:.2rem;
+	}
 .alert.share img{
 	width:1.6rem;
 	height:1.6rem;}
 .alert.share .name{
 	font-size:.4rem;
 	text-align:center;}
+.alert.tel{
+	border-radius:0px;}
 .alert.tel .main{
-	color:#6bbbff;
+	color:#009fff;
+	font-size:.6rem;
+	line-height:1rem;
 	text-align:center;
+	padding-bottom:.2rem;
 	}
 .alert.confirm .left,.alert.confirm .right{
 	background-color:transparent;
