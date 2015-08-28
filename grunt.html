@@ -52,16 +52,19 @@ document.addEventListener('touchmove', function (e) { e.preventDefault(); }, fal
 <div id="bottomBG"></div>
 </body>
 <script>
-var myScroll = new IScroll('#middle', { scrollbars: true,
+var myScroll = new IScroll('#middle', { scrollbars: false,
 		mouseWheel: true,
-		interactiveScrollbars: true,
+		interactiveScrollbars: false,
 		shrinkScrollbars: 'scale',
 		fadeScrollbars: true,
 		chechDOMChanges:true
 		 });
 myScroll.on('scrollEnd', function(){if(this.y === this.maxScrollY){
 	app.reflash.run();
-	}});
+	}else{
+		app.scrollFn.run(this.y>>0);
+		}
+	});
 function resize(){
 	if($(window).width()<$(window).height()){
 	$("html").css("font-size",$(window).width()*0.1);

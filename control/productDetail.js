@@ -66,6 +66,9 @@
 			var centerT=_.template(data.tem[3])(center);
 			var bottomT=_.template(data.tem[5])(bottom);
 			$("#scroller").html(topT+centerT+nav+bottomT+bottomList);
+			obj.scrollFn.add("productDetail",function(y){
+				console.log(y);
+				});
 			$("#scroller .product_top .collect").unbind("tap").bind("tap",function(){
 				obj.api.run("collect_add",'at='+at+'&t='+collectArry[data.type]+'&id='+data.id+'&cn='+result.title+'&desc='+result.title,function(returnData){
 					alert("收藏成功");

@@ -105,4 +105,19 @@
 			reflashArry[key]=fn;
 			}
 		};
+	var scrollLock=false;
+	var scrollArry={};
+	app.scrollFn={};
+	app.scrollFn.run=function(h){
+			var page=window.location.hash.replace("#","").split("/")[0]||"index";
+			if(scrollArry[page]){
+				scrollArry[page](h);
+				}
+
+		};
+	app.scrollFn.add=function(key,fn){
+		if(!scrollArry[key]){
+			scrollArry[key]=fn;
+			}
+		};
 	})();
