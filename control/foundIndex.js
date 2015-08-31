@@ -21,6 +21,17 @@
 			$('img').load(function(){
 				myScroll.refresh();
 				});
+			function getIndex(at){
+				obj.api.run("found_index_get","at="+at,function(returnData){
+					$.each(returnData,function(i,n){
+						$(".frame_"+i+" img").attr("src",n.pic);
+						});
+					},function(e){
+					alert(JSON.stringify(e));
+					});
+				}
+			
+			obj.api.at(getIndex);
 			}
 		});
 	})($,app,config);

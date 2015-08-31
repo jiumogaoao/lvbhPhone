@@ -26,7 +26,7 @@
                 <% } %>
                 <div class="result">
                 	<% _.each(value.main,function(n){ %>
-                    <div class="point" value="<%= n.name %>"><%= n.name %><div class="deg"></div><div class="choosed"><span class="fa fa-check"></span></div></div>
+                    <div class="point" value="<%= n.name %>" pid="<%= n.id %>" type="<%= n.type %>"><%= n.name %><div class="deg"></div><div class="choosed"><span class="fa fa-check"></span></div></div>
                     <% }) %>
                     <div class="clear"></div>
                 </div>

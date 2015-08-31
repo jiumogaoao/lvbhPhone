@@ -21,6 +21,7 @@
 			$(".point").unbind("tap").bind("tap",function(){
 				$(".point").removeClass("hl");
 				$(this).addClass("hl");
+				window.location.hash="travelIndex/"+data.type+"/"+(Number(data.state)+1)+"/"+$(this).attr("pid");
 				});
 
 			var delay=setTimeout(function(){myScroll.refresh();},200);
@@ -46,8 +47,7 @@
 					});	
 				$.each(returnData,function(i,n){
 						placeList.place[n.c].main.push({name:n.b,id:n.a});
-					});
-						
+					});	
 					layout(at,placeList);
 					},function(e){
 					alert(JSON.stringify(e));

@@ -1,9 +1,9 @@
 <link href="css/hot_nav.css" rel="stylesheet" rev="stylesheet" type="text/css"/>
 <div class="hot_nav">
 	<div class="mian">
-    	<% _.each(list,function(n){ %>
-        	<div class="point" id="<%= n.id %>" style="width:<% print(200/list.length) %>%;"><%= n.name %></div>
-        <% }) %>
+    	<% for(var i=0;i<8;i++){ %>
+        <div class="point" <% if(list[i]){print('id="'+ list[i].id +'"')} %> style="width:25%;"><% if(list[i]){print( list[i].name )} %></div>
+        <% } %>
         <div class="clear"></div>
     </div>
     <div class="button">

@@ -3,48 +3,24 @@
 	obj.control.set({
 		name:"vipIndex",
 		par:"",
-		tem:["foot_nav","index_head","index_nav","product_group_list","group_member"],
+		tem:["foot_nav","top_third","vip_list"],
 		fn:function(data){
-			$("#head").html(data.tem[1]);
-			var main=[
-				{title:"出发地跟团-国内精选",main:[
-					{image:"http://",name:"昆明大理丽江6天温泉SPA尊品美食团",price:"3380",place:"深圳"},
-					{image:"http://",name:"昆明大理丽江6天温泉SPA尊品美食团",price:"3380",place:"深圳"},
-					{image:"http://",name:"昆明大理丽江6天温泉SPA尊品美食团",price:"3380",place:"深圳"}
-				]},
-				{title:"出发地跟团-出境精选",main:[
-					{image:"http://",name:"昆明大理丽江6天温泉SPA尊品美食团",price:"3380",place:"深圳"},
-					{image:"http://",name:"昆明大理丽江6天温泉SPA尊品美食团",price:"3380",place:"深圳"},
-					{image:"http://",name:"昆明大理丽江6天温泉SPA尊品美食团",price:"3380",place:"深圳"}
-				]},
-				{title:"目的地跟团-国内惠",main:[
-					{image:"http://",name:"昆明大理丽江6天温泉SPA尊品美食团",price:"3380",place:"深圳"},
-					{image:"http://",name:"昆明大理丽江6天温泉SPA尊品美食团",price:"3380",place:"深圳"},
-					{image:"http://",name:"昆明大理丽江6天温泉SPA尊品美食团",price:"3380",place:"深圳"}
-				]},
-				{title:"目的地跟团-出境惠",main:[
-					{image:"http://",name:"昆明大理丽江6天温泉SPA尊品美食团",price:"3380",place:"深圳"},
-					{image:"http://",name:"昆明大理丽江6天温泉SPA尊品美食团",price:"3380",place:"深圳"},
-					{image:"http://",name:"昆明大理丽江6天温泉SPA尊品美食团",price:"3380",place:"深圳"}
-				]},
-				{title:"旅游达人圈",main:[]}
-			];
-			var list=_.template(data.tem[3])({list:main});
-			var group=_.template(data.tem[4])({list:[
-			{image:config.sour+"sns/tpu.jspx?a=2&b=0&c="+"http://",name:"圈子成员",fans:"2",money:"2"},
-			{image:config.sour+"sns/tpu.jspx?a=2&b=0&c="+"http://",name:"圈子成员",fans:"2",money:"2"},
-			{image:config.sour+"sns/tpu.jspx?a=2&b=0&c="+"http://",name:"圈子成员",fans:"2",money:"2"},
-			{image:config.sour+"sns/tpu.jspx?a=2&b=0&c="+"http://",name:"圈子成员",fans:"2",money:"2"},
-			{image:config.sour+"sns/tpu.jspx?a=2&b=0&c="+"http://",name:"圈子成员",fans:"2",money:"2"},
-			{image:config.sour+"sns/tpu.jspx?a=2&b=0&c="+"http://",name:"圈子成员",fans:"2",money:"2"},
-			{image:config.sour+"sns/tpu.jspx?a=2&b=0&c="+"http://",name:"圈子成员",fans:"2",money:"2"},
-			{image:config.sour+"sns/tpu.jspx?a=2&b=0&c="+"http://",name:"圈子成员",fans:"2",money:"2"}
-			]});
-			$("#scroller").html(data.tem[2]+list+group);
-			$("#scroller .group_member").css({
-				"background-color":"#fff",
-				"padding-bottom":".2rem"
+			var page=1;
+			var result=[];
+			var type=0;
+			var head=_.template(data.tem[1])({left:"",center:'<div class="top_nav"><a class="top_nav_point top_nav_pointL">人气</a><a class="top_nav_point top_nav_pointR">财富</a><div class="clear"></div></div>',"right":'<span class="fa fa-search"></span>'});
+			$("#head").html(head);
+			$("#head .top_nav_pointL").addClass("hl");
+			function layout(){
+				var main=_.template(data.tem[2])({list:result});
+				$("#scroller").html(main);
+				var delay=setTimeout(function(){
+				myScroll.refresh();
+				},200);
+			$('img').load(function(){
+				myScroll.refresh();
 				});
+				}
 			$("#foot").html(data.tem[0]);
 			$("#foot .fa-group").addClass("hl");
 			$("#foot .point").eq(2).addClass("hl");
@@ -54,6 +30,48 @@
 			$('img').load(function(){
 				myScroll.refresh();
 				});
+			function getVip(at){
+			function getPage(callback){
+				obj.api.run("group_get","at="+at+"&a="+page+"&b=10&d="+type,function(returnData){
+				if(Number(returnData.pn) === page){
+					page++;
+					returnData=returnData.data;
+					$.each(returnData,function(i,n){
+				result.push({"img":n.l,"title":n.c,"id":n.b,"des":n.h,"hot":n.r,"money":n.p,"step":n.m});	
+				});
+			layout();
+					}
+			if(callback){callback();}
+					},function(e){
+					alert(JSON.stringify(e));
+					});
+				}
+				getPage();
+			obj.reflash.add("vipIndex",function(callback){
+			getPage(callback);
+			});	
+				
+				}
+			function typeBind(at){
+				$("#head .top_nav_pointL").unbind("tap").bind("tap",function(){
+					type=0;
+					page=1;
+					result=[];
+					$("#head .top_nav_point").removeClass("hl");
+					$(this).addClass("hl");
+					getVip(at);
+					});
+				$("#head .top_nav_pointR").unbind("tap").bind("tap",function(){
+					type=1;
+					page=1;
+					result=[];
+					$("#head .top_nav_point").removeClass("hl");
+					$(this).addClass("hl");
+					getVip(at);
+					});
+				getVip(at);
+				}
+			obj.api.at(typeBind);
 			}
 		});
 	})($,app,config);

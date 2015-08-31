@@ -51,7 +51,7 @@
 						
 						}
 				});
-			$("#scroller #addTraveller").unbind("touchstrat").bind("touchstrat",function(){
+			$("#scroller #addTraveller").unbind("tap").bind("tap",function(){
 				window.location.hash="travellerAdd/"+data.type+"/"+data.id+"/"+data.state;
 				});	
 				var delay=setTimeout(function(){
@@ -67,7 +67,24 @@
 				obj.api.run("traveler_get",'at='+at+'&tp=3',function(returnData){
 					var list=[];
 					$.each(returnData,function(i,n){
-						list.push({title:n.b,dsc:'<span class="numCLASS">'+n.f+'</span>'});
+						var collect=1;
+						if(!(n.b&&n.f)){
+							collect=0;
+							}
+						if(n.o){
+								if(moment(n.o,"YYYY-MM-DD").format("X")-(new Date().getTime())>0){
+									collect=0;			
+									}
+								}
+						if(n.m){
+								if(moment(n.m,"YYYY-MM-DD").format("X")-(new Date().getTime())<0){
+									collect=0;			
+									}
+								}
+						if(collect){
+							list.push({title:n.b,dsc:n.f});
+							}
+							
 						});
 					layout(list,returnData);
 					},function(e){

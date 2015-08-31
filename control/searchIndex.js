@@ -7,6 +7,7 @@
 		fn:function(data){
 			function layout(at,list){
 				var nav="";
+				var urlArry=["","12","13"];
 				var hlArry=[
 				{left:{text:"热门",hl:true},center:{text:"国内"},right:{text:"出境"}},{left:{text:"热门"},center:{text:"国内",hl:true},right:{text:"出境"}},{left:{text:"热门"},center:{text:"国内"},right:{text:"出境",hl:true}}
 				];
@@ -29,15 +30,13 @@
 				});
 			$("#otherFrame").show();
 						}
-
-				
-			
 			var head=_.template(data.tem[0])({left:"",value:titleArry[data.type]});
 			$("#head").html(head);
 			var searchList=_.template(data.tem[1])(list);
 			$("#scroller").html(nav+searchList);
+			
 			if(data.state!=="0"){
-				$(".nav_two.nav_third").css({"margin-bottom":"0px"})
+				$(".nav_two.nav_third").css({"margin-bottom":"0px"});
 				}
 			$(".top_third .leftButton").unbind("tap").bind("tap",function(){
 				window.history.go(-1);
@@ -45,9 +44,12 @@
 			$("#registButton").unbind("tap").bind("tap",function(){
 				window.location.hash="index";
 				});
-			$(".point").unbind("tap").bind("tap",function(){
+			$(".search_place .point").unbind("tap").bind("tap",function(){
 				$(".point").removeClass("hl");
 				$(this).addClass("hl");
+				if(data.type !== "0"){
+					window.location.hash="#travelIndex/"+(Number(data.type)-1)+"/"+$(this).attr("type")+"/"+$(this).attr("pid");
+					}
 				});
 			if(data.type === "0"){
 				$(".search_place .list").css("width","90%");
@@ -68,8 +70,6 @@
 				myScroll.refresh();
 				});
 				}
-			
-			
 			function place(at,now,pro){
 				obj.api.run("city_getAll","at="+at,function(returnData){
 					var placeList={
@@ -115,29 +115,26 @@
 					if(data.state === "0"){
 						placeList.title=false;
 						placeList.place.al={title:"al",main:[
-						{name:"海南",id:""},
-						{name:"云南",id:""},
-						{name:"四川",id:""},
-						{name:"广西",id:""},
-						{name:"贵州",id:""},
-						{name:"华东连线",id:""},
-						{name:"泰国",id:""},
-						{name:"东南亚连线",id:""},
-						{name:"欧洲连线",id:""}
+						{name:"海南",id:"163",type:"1"},
+						{name:"云南",id:"204",type:"1"},
+						{name:"四川",id:"202",type:"1"},
+						{name:"广西",id:"162",type:"1"},
+						{name:"贵州",id:"203",type:"1"},
+						{name:"华东连线",id:"0",type:"1"},
+						{name:"泰国",id:"0",type:"2"},
+						{name:"东南亚连线",id:"0",type:"2"},
+						{name:"欧洲连线",id:"0",type:"2"}
 						]};
 						}else{
 						$.each(pro,function(i,n){
 						placeList.place[n.a+""]={title:n.b,main:[]};
 						});	
 						$.each(returnData,function(i,n){
-						placeList.place[n.c].main.push({name:n.b,id:n.a});
+						placeList.place[n.c].main.push({name:n.b,id:n.a,type:data.state});
 						});
 							}
 						
 						}
-					
-					
-						
 					layout(at,placeList);
 					},function(e){
 					alert(e);

@@ -60,7 +60,7 @@
 						}
 					returnData=returnData.data;
 					$.each(returnData,function(i,n){
-						resultA.push({title:n.b,dsc:'<span class="numCLASS">'+n.c+'</span>',email:n.d});
+						resultA.push({title:n.b,dsc:n.c,email:n.d});
 						});
 					layout();	
 					if(callback){callback();}

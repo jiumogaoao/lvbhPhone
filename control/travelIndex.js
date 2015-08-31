@@ -2,7 +2,7 @@
 ;(function($,obj,config){
 	obj.control.set({
 		name:"travelIndex",
-		par:"type/state/id/at",
+		par:"type/state/id/at/ut",
 		tem:["top_second","nav_four","nav_third","hot_nav","product_group_list"],
 		fn:function(data){
 			var titleArry=["出发地跟团","目的地跟团"];
@@ -41,6 +41,9 @@
 				});
 			$(".hot_nav .point").unbind("tap").bind("tap",function(){
 					window.location.hash="travelIndex/"+data.type+"/"+data.state+"/"+$(this).attr("id");
+					});
+			$(".nav_four #four").unbind("tap").bind("tap",function(){
+					window.location.hash="searchGt/"+data.type+"/"+(Number(data.state)-1);
 					});
 			$(".hot_nav .button").unbind("tap").bind("tap",function(){
 				window.location.hash="searchGt/"+data.type+"/"+(Number(data.state)-1);

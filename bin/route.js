@@ -10,18 +10,31 @@
 		function runRoute(){
 			app.pop.off();
 			$("body").css({"background-color":"#eeeeee"});
+			$("#head").css("background-color","#009eff");
 			myScroll.scrollTo(0, 0);
-			if(hashArry[0]==="index"||hashArry[0]==="vipIndex"||hashArry[0]==="mineIndex"){
+			if(hashArry[0]==="index"||hashArry[0]==="mineIndex"){
 				$("#foot").empty();
 				$("#foot").css("height","1.5rem");
 				$("#foot").show();
-				$("#head").height("3.8rem");
+				$("#head").height("1.5rem");
+				$("#head").css("background-color","rgba(0,158,255,0)");
 					$("#middle").css({
-						top:"3.8rem",
+						top:"0rem",
 						bottom:"0rem"
 						});
 					$("#scroller").css({"padding-bottom":"1.5rem"});
-				}else if(hashArry[0]==="foundIndex"){
+				}else if(hashArry[0]==="vipIndex"){
+					$("#foot").empty();
+				$("#foot").css("height","1.5rem");
+				$("#foot").show();
+				$("#head").height("1.5rem");
+				$("#head").css("background-color","rgba(0,158,255,1)");
+					$("#middle").css({
+						top:"1.5rem",
+						bottom:"0rem"
+						});
+					$("#scroller").css({"padding-bottom":"1.5rem"});
+					}else if(hashArry[0]==="foundIndex"){
 					$("#foot").empty();
 					$("#foot").css("height","1.5rem");
 				$("#foot").show();
@@ -60,6 +73,9 @@
 					}
 				if(dataObj.at){
 					app.cache("phone",{"phone":true});
+					}
+				if(dataObj.ut){
+					app.cookies("login_"+at,{login:dataObj.ut});	
 					}
 				if(app.cache("phone")&&app.cache("phone").phone){
 					$("#head").hide();
@@ -112,7 +128,6 @@
 								runRoute();
 							}
 						});
-			
 			}
 		}
 	window.onhashchange=function(){

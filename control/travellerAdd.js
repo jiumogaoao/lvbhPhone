@@ -25,12 +25,131 @@
 					}
 			var apiArry=[
 			function(){return false;},
-			function(){return JSON.stringify({b:result.name,d:result.cardType,e:result.number,f:result.phone});},
-			function(){return JSON.stringify({b:result.name,d:result.cardType,e:result.number,m:result.lastNumber,l:result.sendPlace,k:result.enLastName,j:result.enName,o:result.birthday,c:result.sex,n:result.national,f:result.phone});},
-			function(){return JSON.stringify({b:result.name,d:result.cardType,e:result.number,o:result.birthday,c:result.sex,f:result.phone});},
-			function(){return JSON.stringify({b:result.name,d:result.cardType,e:result.number,m:result.lastNumber,l:result.sendPlace,k:result.enLastName,j:result.enName,o:result.birthday,n:result.national,f:result.phone});},
-			function(){return JSON.stringify({b:result.name,d:result.cardType,e:result.number,o:result.birthday,c:result.sex,f:result.phone});},
-			function(){return JSON.stringify({b:result.name,d:result.cardType,e:result.number,o:result.birthday,f:result.phone});}
+			function(){
+				if(!(/^[\sa-zA-Z0-9\u4e00-\u9fa5]+$/.test(result.name)&&/^[\sa-zA-Z0-9\u4e00-\u9fa5]+$/.test(result.cardType)&&/^[\sa-zA-Z0-9\u4e00-\u9fa5]+$/.test(result.number)&&/^[\sa-zA-Z0-9\u4e00-\u9fa5]+$/.test(result.phone))){
+					alert("只能输入汉字，字母，数字或空格");
+					return false;
+					}
+				if(!/^(\d{6})()?(\d{4})(\d{2})(\d{2})(\d{3})([0-9xX])$/.test(result.number)){
+					alert("身份证格式有误");
+					return false;
+					}
+				if(!/^0?1[3|4|5|8][0-9]\d{8}$/.test(result.phone)){
+					alert("手机号格式有误");
+					return false;
+					}
+				return JSON.stringify({b:result.name,d:result.cardType,e:result.number,f:result.phone
+				});},
+			function(){
+				if(!(/^[\sa-zA-Z0-9\u4e00-\u9fa5]+$/.test(result.name)&&/^[\sa-zA-Z0-9\u4e00-\u9fa5]+$/.test(result.cardType)&&/^[\sa-zA-Z0-9\u4e00-\u9fa5]+$/.test(result.number)&&/^[\sa-zA-Z0-9\u4e00-\u9fa5]+$/.test(result.phone)&&/^[\sa-zA-Z0-9\u4e00-\u9fa5]+$/.test(result.lastNumber)&&/^[\sa-zA-Z0-9\u4e00-\u9fa5]+$/.test(result.sendPlace)&&/^[\sa-zA-Z0-9\u4e00-\u9fa5]+$/.test(result.enLastName)&&/^[\sa-zA-Z0-9\u4e00-\u9fa5]+$/.test(result.enName)&&/^[\sa-zA-Z0-9\u4e00-\u9fa5]+$/.test(result.national))){
+					alert("只能输入汉字，字母，数字或空格");
+					return false;
+					}
+				if(!/^(\d{6})()?(\d{4})(\d{2})(\d{2})(\d{3})([0-9xX])$/.test(result.number)){
+					alert("证件号格式有误");
+					return false;
+					}
+				if(!/^\\d{4}-\\d{2}-\\d{2}$/.test(result.lastNumber)){
+					alert("有效期不能小于当天");
+					return false;
+					}
+				if(!(/^[\sa-zA-Z0-9\u4e00-\u9fa5]+$/.test(result.enLastName)&&/^[\sa-zA-Z0-9\u4e00-\u9fa5]+$/.test(result.enName))){
+					alert("英文姓名只能包含字母，且不能超过20个");
+					return false;
+					}
+				if(!/^[A-Za-z0-9]+$/.test(result.birthday)){
+					alert("日期格式有误");
+					return false;
+					}
+				if(!/^0?1[3|4|5|8][0-9]\d{8}$/.test(result.phone)){
+					alert("手机号格式有误");
+					return false;
+					}
+				return JSON.stringify({b:result.name,d:result.cardType,e:result.number,m:result.lastNumber,l:result.sendPlace,k:result.enLastName,j:result.enName,o:result.birthday,c:result.sex,n:result.national,f:result.phone});
+				},
+			function(){
+				if(!(/^[\sa-zA-Z0-9\u4e00-\u9fa5]+$/.test(result.name)&&/^[\sa-zA-Z0-9\u4e00-\u9fa5]+$/.test(result.cardType)&&/^[\sa-zA-Z0-9\u4e00-\u9fa5]+$/.test(result.number)&&/^[\sa-zA-Z0-9\u4e00-\u9fa5]+$/.test(result.phone))){
+					alert("只能输入汉字，字母，数字或空格");
+					return false;
+					}
+				if(!/^(\d{6})()?(\d{4})(\d{2})(\d{2})(\d{3})([0-9xX])$/.test(result.number)){
+					alert("证件号格式有误");
+					return false;
+					}
+				if(!/^[A-Za-z0-9]+$/.test(result.birthday)){
+					alert("日期格式有误");
+					return false;
+					}
+				if(!/^0?1[3|4|5|8][0-9]\d{8}$/.test(result.phone)){
+					alert("手机号格式有误");
+					return false;
+					}
+				return JSON.stringify({b:result.name,d:result.cardType,e:result.number,o:result.birthday,c:result.sex,f:result.phone});
+				},
+			function(){
+				if(!(/^[\sa-zA-Z0-9\u4e00-\u9fa5]+$/.test(result.name)&&/^[\sa-zA-Z0-9\u4e00-\u9fa5]+$/.test(result.cardType)&&/^[\sa-zA-Z0-9\u4e00-\u9fa5]+$/.test(result.number)&&/^[\sa-zA-Z0-9\u4e00-\u9fa5]+$/.test(result.phone)&&/^[\sa-zA-Z0-9\u4e00-\u9fa5]+$/.test(result.lastNumber)&&/^[\sa-zA-Z0-9\u4e00-\u9fa5]+$/.test(result.sendPlace)&&/^[\sa-zA-Z0-9\u4e00-\u9fa5]+$/.test(result.enLastName)&&/^[\sa-zA-Z0-9\u4e00-\u9fa5]+$/.test(result.enName)&&/^[\sa-zA-Z0-9\u4e00-\u9fa5]+$/.test(result.national))){
+					alert("只能输入汉字，字母，数字或空格");
+					return false;
+					}
+				if(!/^(\d{6})()?(\d{4})(\d{2})(\d{2})(\d{3})([0-9xX])$/.test(result.number)){
+					alert("证件号格式有误");
+					return false;
+					}
+				if(!/^\\d{4}-\\d{2}-\\d{2}$/.test(result.lastNumber)){
+					alert("有效期不能小于当天");
+					return false;
+					}
+				if(!(/^[\sa-zA-Z0-9\u4e00-\u9fa5]+$/.test(result.enLastName)&&/^[\sa-zA-Z0-9\u4e00-\u9fa5]+$/.test(result.enName))){
+					alert("英文姓名只能包含字母，且不能超过20个");
+					return false;
+					}
+				if(!/^[A-Za-z0-9]+$/.test(result.birthday)){
+					alert("日期格式有误");
+					return false;
+					}
+				if(!/^0?1[3|4|5|8][0-9]\d{8}$/.test(result.phone)){
+					alert("手机号格式有误");
+					return false;
+					}
+				return JSON.stringify({b:result.name,d:result.cardType,e:result.number,m:result.lastNumber,l:result.sendPlace,k:result.enLastName,j:result.enName,o:result.birthday,n:result.national,f:result.phone});
+				},
+			function(){
+				if(!(/^[\sa-zA-Z0-9\u4e00-\u9fa5]+$/.test(result.name)&&/^[\sa-zA-Z0-9\u4e00-\u9fa5]+$/.test(result.cardType)&&/^[\sa-zA-Z0-9\u4e00-\u9fa5]+$/.test(result.number)&&/^[\sa-zA-Z0-9\u4e00-\u9fa5]+$/.test(result.phone))){
+					alert("只能输入汉字，字母，数字或空格");
+					return false;
+					}
+				if(!/^(\d{6})()?(\d{4})(\d{2})(\d{2})(\d{3})([0-9xX])$/.test(result.number)){
+					alert("证件号格式有误");
+					return false;
+					}
+				if(!/^[A-Za-z0-9]+$/.test(result.birthday)){
+					alert("日期格式有误");
+					return false;
+					}
+				if(!/^0?1[3|4|5|8][0-9]\d{8}$/.test(result.phone)){
+					alert("手机号格式有误");
+					return false;
+					}
+				return JSON.stringify({b:result.name,d:result.cardType,e:result.number,o:result.birthday,c:result.sex,f:result.phone});
+				},
+			function(){
+				if(!(/^[\sa-zA-Z0-9\u4e00-\u9fa5]+$/.test(result.name)&&/^[\sa-zA-Z0-9\u4e00-\u9fa5]+$/.test(result.cardType)&&/^[\sa-zA-Z0-9\u4e00-\u9fa5]+$/.test(result.number)&&/^[\sa-zA-Z0-9\u4e00-\u9fa5]+$/.test(result.phone))){
+					alert("只能输入汉字，字母，数字或空格");
+					return false;
+					}
+				if(!/^(\d{6})()?(\d{4})(\d{2})(\d{2})(\d{3})([0-9xX])$/.test(result.number)){
+					alert("证件号格式有误");
+					return false;
+					}
+				if(!/^[A-Za-z0-9]+$/.test(result.birthday)){
+					alert("日期格式有误");
+					return false;
+					}
+				if(!/^0?1[3|4|5|8][0-9]\d{8}$/.test(result.phone)){
+					alert("手机号格式有误");
+					return false;
+					}
+				return JSON.stringify({b:result.name,d:result.cardType,e:result.number,o:result.birthday,f:result.phone});}
 			];
 			var head=_.template(data.tem[0])({left:"",center:"添加常用旅客",right:"保存"});
 			$("#head").html(head);

@@ -1,0 +1,39 @@
+<link href="css/index_banner.css" rel="stylesheet" rev="stylesheet" type="text/css"/>
+<div class="index_banner">
+    	<div class="bgR">
+        <% _.each(list,function(n){ %>
+        	<img src="<%= n %>" onerror="app.nofound('img/home_ad_img.png')"/>
+        <% }) %>
+            <div class="clear"></div>
+        </div>
+        <div class="pointFrame">
+        	<div class="point hl"></div>
+            <div class="point"></div>
+            <div class="point"></div>
+            <div class="point"></div>
+            <div class="clear"></div>
+        </div>
+</div>
+<script>
+;(function(){
+	var num=0;
+	var lock=false;
+	var delay=setInterval(function(){
+		if(!lock){
+			lock=true;
+			if(num!=3){
+			num++;
+			}else{
+				num=0;
+				}
+			$(".index_banner .bgR").animate({"left":"-"+num+"00%"},function(){
+				lock=false;
+				});
+			$(".index_banner .point").removeClass("hl");
+			$(".index_banner .point").eq(num).addClass("hl");
+			}
+		
+		},3000);
+	})();
+
+</script>

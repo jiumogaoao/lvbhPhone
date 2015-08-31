@@ -4,17 +4,31 @@
     <div class="center">
     	<input/>
         <div class="dropdown">
-        <select>
-        	<option value="0">达人圈</option>
-            <option value="1">出发地跟团</option>
-            <option value="2">目的地跟团</option>
-        </select>
         <%= value %> <span class="fa fa-down"></span>
         </div>
     </div>
+    <div class="menu">
+    	<div class="degMask">
+        	<div class="deg"></div>
+        </div>
+    	<div class="point bb" sid="0">达人圈</div>
+        <div class="point bb" sid="1">出发地跟团</div>
+        <div class="point" sid="2">目的地跟团</div>
+    </div>
 </div>
 <script>
-	$(".top_third select").unbind("change").bind("change",function(){
-		window.location.hash="searchIndex/"+$(this).val()+"/0";
+;(function(){
+	$("body").on("tap",function(){
+		$(".top_third.top_search .menu").hide();
+		});
+	$(".top_third.top_search .dropdown").unbind("tap").bind("tap",function(e){
+		e.stopPropagation();
+		$(".top_third.top_search .menu").show();
+		});
+	$(".top_third.top_search .point").unbind("tap").bind("tap",function(e){
+		window.location.hash="searchIndex/"+$(this).attr("sid")+"/0";
 		})
+	})();
+	
+		
 </script>

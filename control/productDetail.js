@@ -2,7 +2,7 @@
 ;(function($,obj,config){
 	obj.control.set({
 		name:"productDetail",
-		par:"type/id/at",
+		par:"type/id/at/ut",
 		tem:["top_third","nav_third","product_top","product_center","nav_third","product_bottom","title_input_list","bottom_button"],
 		fn:function(data){
 			var result={
@@ -66,8 +66,32 @@
 			var centerT=_.template(data.tem[3])(center);
 			var bottomT=_.template(data.tem[5])(bottom);
 			$("#scroller").html(topT+centerT+nav+bottomT+bottomList);
+			$(".nav_two.nav_third").attr("id","guding");
+			$("#otherFrame").html(nav);
+			$("#otherFrame").css({
+				width:"100%",
+				height:"1.3rem",
+				position:"absolute",
+				top:"1.05rem",
+				"z-index":"10"
+				});
+			$("#otherFrame").hide();
 			obj.scrollFn.add("productDetail",function(y){
-				console.log(y);
+				if(($("#guding").offset().top*10)/$(window).width()<=1.5){
+					$("#otherFrame").show();
+					if($("#cpts").offset().top>0&&($("#cpts").offset().top*10)/$(window).width()<3){
+						$(".nav_two.nav_third .nav_point_frame").removeClass("hl");
+						$(".nav_two.nav_third #left").addClass("hl");	
+						}
+					if($("#xxxc").offset().top>0&&($("#xxxc").offset().top*10)/$(window).width()<3){
+						$(".nav_two.nav_third .nav_point_frame").removeClass("hl");
+						$(".nav_two.nav_third #center").addClass("hl");	
+						}
+					if($("#fysm").offset().top>0&&($("#fysm").offset().top*10)/$(window).width()<3){
+						$(".nav_two.nav_third .nav_point_frame").removeClass("hl");
+						$(".nav_two.nav_third #right").addClass("hl");	
+						}
+					}else{$("#otherFrame").hide();}
 				});
 			$("#scroller .product_top .collect").unbind("tap").bind("tap",function(){
 				obj.api.run("collect_add",'at='+at+'&t='+collectArry[data.type]+'&id='+data.id+'&cn='+result.title+'&desc='+result.title,function(returnData){
@@ -75,12 +99,22 @@
 					},function(e){alert(JSON.stringify(e));});
 				});
 			$("#scroller #date").unbind("tap").bind("tap",function(){
+				if(app.cookies("login_"+at)&&app.cookies("login_"+at).login){
 				obj.cache("pruduct_input_"+data.id,result);
 				window.location.hash="calendar/"+data.type+"/"+data.id+"/"+result.state+"/0";
+				}else{
+					alert("请先登录");
+						window.location.hash="login";
+					}
 				});
 			$("#payButton").unbind("tap").bind("tap",function(){
-				obj.cache("pruduct_input_"+data.id,result);
+				if(app.cookies("login_"+at)&&app.cookies("login_"+at).login){
+					obj.cache("pruduct_input_"+data.id,result);
 				window.location.hash="productInput/"+data.type+"/"+data.id+"/"+result.state;
+					}else{
+						alert("请先登录");
+						window.location.hash="login/productDetail$"+data.type+"$"+data.id;
+						}
 				});
 			$(".title_input_list [name='message']").unbind("tap").bind("tap",function(){
 				window.location.hash="messageList/"+data.type+"/"+data.id;

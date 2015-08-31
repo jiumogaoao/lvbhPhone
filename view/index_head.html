@@ -3,10 +3,13 @@
 	<div class="main">
     <div class="left">
     	<span id="place">深圳站</span> <span class="fa fa-open"></span>
-        <select>
-        	<option value="0">深圳站</option>
-            <option value="1">南京站</option>
-        </select>
+    </div>
+    <div class="menu">
+    	<div class="degMask">
+        	<div class="deg"></div>
+        </div>
+    	<div class="point bb">深圳站</div>
+        <div class="point">南京站</div>
     </div>
     <div class="center">
         <div class="searchButton">
@@ -15,47 +18,25 @@
         </div>
     </div>
     <div class="right">
-    	<span class="fa fa-phone"></span>
+    	<span class="fa fa-phone2"></span>
     </div>
     <div class="clear"></div>
     </div>
 	
-    <div class="bg">
-    	<div class="bgR">
-        <% _.each(list,function(n){ %>
-        	<img src="<%= n %>"/>
-        <% }) %>
-            <div class="clear"></div>
-        </div>
-        <div class="pointFrame">
-        	<div class="point hl"></div>
-            <div class="point"></div>
-            <div class="point"></div>
-            <div class="point"></div>
-            <div class="clear"></div>
-        </div>
-    </div>	
+    	
 </div>
 <script>
 ;(function(){
-	var num=0;
-	var lock=false;
-	var delay=setInterval(function(){
-		if(!lock){
-			lock=true;
-			if(num!=3){
-			num++;
-			}else{
-				num=0;
-				}
-			$(".index_head .bgR").animate({"left":"-"+num+"00%"},function(){
-				lock=false;
-				});
-			$(".index_head .point").removeClass("hl");
-			$(".index_head .point").eq(num).addClass("hl");
-			}
-		
-		},3000);
+	$("body").on("tap",function(){
+		$(".index_head .menu").hide();
+		});
+	$(".index_head .left").unbind("tap").bind("tap",function(e){
+		e.stopPropagation();
+		$(".index_head .menu").show();
+		});
+	$(".index_head .point").unbind("tap").bind("tap",function(){
+		$("#place").html($(this).html());
+		});
 	$(".index_head select").unbind("change").bind("change",function(){
 		$("#place").html($(this).find("[value='"+$(this).val()+"']").html());
 		})

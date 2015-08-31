@@ -124,7 +124,6 @@
 					obj.control.pointParse(result,$(this).attr("D_key"))[$(this).attr("D_num")]=$(this).val();
 					console.log(result);
 				});
-				debugger;
 				var foot=_.template(data.tem[2])(result);
 				$("#foot").html(foot);
 				
@@ -307,6 +306,7 @@
 						obj.control.pointParse(result,$(that).attr("D_key"),true);
 						$(that).addClass("hl");
 						}
+					totalCount();
 				});
 			$("#scroller [D_type='toggle']").each(function(){
 				var that=this;
@@ -326,7 +326,7 @@
 				});
 				});
 			
-			$("#scroller .product_input .button").unbind("tap").bind("tap",function(){
+			$("#foot .pay_list .payButton").unbind("tap").bind("tap",function(){
 				if(!result.date.b){
 					alert("请先选择团期");
 					return false;
@@ -407,7 +407,7 @@
 							}	
 					});	
 				if(correct){
-					obj.api.run("deal_add",'at='+at+'&goParam='+JSON.stringify(goParam)+'&goiParam='+JSON.stringify(goiParam),function(returnData){
+					obj.api.run("deal_add",'at='+at+'&goparam='+JSON.stringify(goParam)+'&goiparam='+JSON.stringify(goiParam),function(returnData){
 					window.location.hash="dealSuccess/"+returnData.go.x+"/"+returnData.go.m;
 					},function(e){
 					alert(JSON.stringify(e));

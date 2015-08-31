@@ -22,7 +22,7 @@
 </script>
 <script src="include/cookies.min.js"></script>
 <script src="include/moment.js"></script>
-<script src="include/iscroll.js"></script>
+<script src="include/iscroll-probe.js"></script>
 <script src="include/touch.js"></script>
 <script src="include/calendar.js"></script>
 <script>app.route.init()</script>
@@ -65,12 +65,10 @@ var myScroll = new IScroll('#middle', { probeType: 3,scrollbars: false,
 		fadeScrollbars: true,
 		checkDOMChanges:true
 		 });
-myScroll.on('scrollEnd', function(){if(this.y === this.maxScrollY){
-	app.reflash.run();
-	}else{
-		app.scrollFn.run(this.y>>0);
-		}
-	});
+function updatePosition(){
+	app.scrollFn.run(this.y>>0);}
+myScroll.on('scroll', updatePosition);
+myScroll.on('scrollEnd', function(){if(this.y === this.maxScrollY){app.reflash.run();}});
 
 function resize(){
 

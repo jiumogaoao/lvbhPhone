@@ -120,4 +120,9 @@
 			scrollArry[key]=fn;
 			}
 		};
+	app.nofound=function(url){
+		var img=event.srcElement;
+		img.src=url;
+		img.onerror=null; 
+		};
 	})();

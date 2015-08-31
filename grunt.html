@@ -59,12 +59,10 @@ var myScroll = new IScroll('#middle', { scrollbars: false,
 		fadeScrollbars: true,
 		chechDOMChanges:true
 		 });
-myScroll.on('scrollEnd', function(){if(this.y === this.maxScrollY){
-	app.reflash.run();
-	}else{
-		app.scrollFn.run(this.y>>0);
-		}
-	});
+function updatePosition(){
+	app.scrollFn.run(this.y>>0);}
+myScroll.on('scroll', updatePosition);
+myScroll.on('scrollEnd', function(){if(this.y === this.maxScrollY){app.reflash.run();}});
 function resize(){
 	if($(window).width()<$(window).height()){
 	$("html").css("font-size",$(window).width()*0.1);

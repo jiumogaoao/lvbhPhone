@@ -1,0 +1,33 @@
+<link href="css/vip_list.css" rel="stylesheet" rev="stylesheet" type="text/css"/>
+<div class="vip_list">
+<% _.each(list,function(n,i){ %>
+	<div class="point">
+    	<div class="degFrame">
+        	<div class="deg"></div>
+            <div class="num"><%= i+1 %></div>
+        </div>
+        <div class="top">
+        	<img class="left" src="<%= n.img %>" onerror="app.nofound('img/collect_img_picture.png')"/>
+            <div class="right">
+            	<div class="title"><%= n.title %>&nbsp;&nbsp;&nbsp;<img src="img/vip<%= n.step %>.png"/></div>
+                <div class="des">ID:<%= n.id %></div>
+                <div class="des"><%= n.des %></div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="bottom">
+        	<div class="left">
+            	<span class="fa fa-member"></span>
+                <%= n.hot %>
+            </div>
+            <div class="right">
+            	<span class="fa fa-money2"></span>
+                <%= n.money %>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+<% }) %>
+	
+    
+</div>

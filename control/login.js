@@ -2,7 +2,7 @@
 ;(function($,obj,config){
 	obj.control.set({
 		name:"login",
-		par:"",
+		par:"url",
 		tem:["top_third","nav_two","icon_input_list","single_button"],
 		fn:function(data){
 			var head=_.template(data.tem[0])({left:"",center:"登录",right:"注册"});
@@ -16,7 +16,6 @@
 			]});
 			var button=_.template(data.tem[3])({"text":"登录","id":"loginButton"});
 			$("#scroller").html(nav+list+button);
-				
 			$(".top_third .leftButton").unbind("tap").bind("tap",function(){
 				window.history.go(-1);
 				});
@@ -34,8 +33,13 @@
 						p:$("[name='key'] input").val(),
 						v:$("[name='code'] input").val(),
 						r:null
-						},function(){
-						window.location.hash="index";
+						},function(returnData){
+						app.cookies("login_"+at,{login:returnData.ut});	
+						if(data.url){
+							window.location.hash=data.url.replace(/\$/g,"/");
+							}else{
+							window.location.hash="index";	
+								}
 						},function(e){
 						obj.pop.on("alert",{text:JSON.stringify(e)});
 						});
@@ -49,9 +53,6 @@
 			obj.api.at(function(at){
 				layout(at);
 				});
-			
-			
-			
 			}
 		});
 	})($,app,config);

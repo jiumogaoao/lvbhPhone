@@ -1,1 +1,1 @@
-app.api.add("traveler_add",config.sour+"custom/travelleropera.jspx",null,"post");
+app.api.add("traveler_add",config.sour+"custom/tadd.jspx",null,"post");

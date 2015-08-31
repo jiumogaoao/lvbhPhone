@@ -85,3 +85,35 @@
 	left:0px;
 	opacity:0;
 	}
+.top_third.top_search .menu{
+	position:absolute;
+	left:0px;
+	top:1.3rem;
+	display:none;}
+.top_third.top_search .deg{
+	background-color:#fff;
+	width:.25rem;
+	height:.25rem;
+	  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  position: relative;
+  top: .04rem;
+	}
+.top_third.top_search .degMask{
+	width:.25rem;
+	height:.15rem;
+	overflow:hidden;
+	position:absolute;
+	bottom:100%;
+	left:2.4rem;
+	}
+.top_third.top_search .point{
+	background-color:#fff;
+	line-height:1rem;
+	width:10rem;
+	color:#555;
+	text-indent:.5rem;
+	text-align:left;
+	font-size:.4rem;}
+.top_third.top_search .point.bb{
+	border-bottom:1px solid #cccccc;}

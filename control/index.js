@@ -3,14 +3,20 @@
 	obj.control.set({
 		name:"index",
 		par:"",
-		tem:["foot_nav","index_head","index_nav","product_group_list","group_member"],
+		tem:["foot_nav","index_head","index_nav","product_group_list","group_member","index_banner"],
 		fn:function(data){
 			function layout(main,vip,pomo){
-			var banner=	_.template(data.tem[1])({list:pomo});
-			$("#head").html(banner);
+			obj.scrollFn.add("index",function(y){
+				$("#head").css("background-color","rgba(0,158,255,"+((-1*y)/200)+")");
+				});
+			var banner=	_.template(data.tem[5])({list:pomo});
+			$("#head").html(data.tem[1]);
+			$("#head .right").unbind("click").bind("click",function(){
+				obj.bottom.on("tel");
+				});
 			var list=_.template(data.tem[3])({list:main});
 			var group=_.template(data.tem[4])({list:vip});
-			$("#scroller").html(data.tem[2]+list+group);
+			$("#scroller").html(banner+data.tem[2]+list+group);
 			$(".product_group_list .group").css("border-top","0px");
 $(".product_group_list .point").unbind("tap").bind("tap",function(){
 				window.location.hash="productDetail/"+$(this).attr("type")+"/"+$(this).attr("pid");
