@@ -1,0 +1,31 @@
+@charset "utf-8";
+/* CSS Document */
+.mine_bottom{
+	width:100%;}
+.mine_bottom .group{
+	background-color:#fff;
+	border-top:1px solid #dcdcdc;
+	border-bottom:1px solid #dcdcdc;
+	margin-top:.4rem;
+	}
+.mine_bottom .point{
+	color:#7c7c7c;
+	height:1.5rem;
+	line-height:1.5rem;
+	}
+.mine_bottom .icon{
+	float:left;
+	margin-left:.5rem;
+	line-height:1.5rem;}
+.mine_bottom .main{
+	float:left;
+	font-size:.5rem;
+	height:1.5rem;
+	margin-left:.5rem;
+	width:8rem;
+	border-bottom:1px solid #dcdcdc;}
+.mine_bottom .title{
+	float:left;}
+.mine_bottom .deg{
+	float:right;
+	margin-right:.5rem;}

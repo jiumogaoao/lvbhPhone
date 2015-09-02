@@ -14,6 +14,9 @@
 			function layout(){
 				var main=_.template(data.tem[2])({list:result});
 				$("#scroller").html(main);
+				$("#scroller .vip_list .point").unbind("tap").bind("tap",function(){
+					window.location.hash="vipMemberList/"+$(this).attr("vid");
+					});
 				var delay=setTimeout(function(){
 				myScroll.refresh();
 				},200);
@@ -37,7 +40,7 @@
 					page++;
 					returnData=returnData.data;
 					$.each(returnData,function(i,n){
-				result.push({"img":n.l,"title":n.c,"id":n.b,"des":n.h,"hot":n.r,"money":n.p,"step":n.m});	
+				result.push({"img":"http://112.74.25.12:48080/sns/tpu.jspx?&a=2&b="+n.i+"&c="+n.l,"title":n.c,"id":n.b,"des":n.h,"hot":n.r,"money":n.p,"step":n.m});	
 				});
 			layout();
 					}

@@ -23,6 +23,39 @@
 	-moz-osx-font-smoothing: grayscale;
 }
 
+.fa-star3:before {
+	content: "\e655";
+}
+.fa-com:before {
+	content: "\e656";
+}
+.fa-pra:before {
+	content: "\e657";
+}
+.fa-star2:before {
+	content: "\e64d";
+}
+.fa-lock2:before {
+	content: "\e64e";
+}
+.fa-group2:before {
+	content: "\e64f";
+}
+.fa-notebook:before {
+	content: "\e650";
+}
+.fa-set:before {
+	content: "\e651";
+}
+.fa-morefile:before {
+	content: "\e652";
+}
+.fa-info:before {
+	content: "\e653";
+}
+.fa-email:before {
+	content: "\e654";
+}
 .fa-money3:before {
 	content: "\e64c";
 }
@@ -253,28 +286,4 @@
 }
 .fa-cross:before {
 	content: "\e620";
-}
-.fa-star2:before {
-	content: "\e64d";
-}
-.fa-lock2:before {
-	content: "\e64e";
-}
-.fa-group2:before {
-	content: "\e64f";
-}
-.fa-notebook:before {
-	content: "\e650";
-}
-.fa-set:before {
-	content: "\e651";
-}
-.fa-morefile:before {
-	content: "\e652";
-}
-.fa-info:before {
-	content: "\e653";
-}
-.fa-email:before {
-	content: "\e654";
 }

@@ -20,7 +20,10 @@
 			$(".top_third .leftButton").unbind("tap").bind("tap",function(){
 				window.history.go(-1);
 				});
-				
+			$("#scroller .group_member").css({
+				"background-color":"#fff",
+				"padding-top":".3rem",
+				"padding-bottom":".3rem"});	
 			var delay=setTimeout(function(){
 				myScroll.refresh();
 				},200);

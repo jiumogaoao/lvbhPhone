@@ -12,7 +12,7 @@
 			$("body").css({"background-color":"#eeeeee"});
 			$("#head").css("background-color","#009eff");
 			myScroll.scrollTo(0, 0);
-			if(hashArry[0]==="index"||hashArry[0]==="mineIndex"){
+			if(hashArry[0]==="index"||hashArry[0]==="mineIndex"||hashArry[0]==="vipTravelDetail"){
 				$("#foot").empty();
 				$("#foot").css("height","1.5rem");
 				$("#foot").show();
@@ -54,7 +54,16 @@
 						$("#foot").empty();
 						$("#foot").css("height","2rem");
 						$("#foot").show();
-						}else{
+						}else if(hashArry[0]==="vipTravelList"||hashArry[0]==="vipMemberList"){
+				$("#foot").hide();
+				$("#head").height("1.5rem");
+				$("#head").css("background-color","rgba(0,158,255,0)");
+					$("#middle").css({
+						top:"0rem",
+						bottom:"0rem"
+						});
+					$("#scroller").css({"padding-bottom":"0rem"});
+							}else{
 					$("#foot").empty();
 					$("#foot").hide();
 					$("#head").height("1.5rem");

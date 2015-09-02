@@ -1,0 +1,37 @@
+@charset "utf-8";
+/* CSS Document */
+.travel_detail_middle{
+	background-color:#fff;
+	position:relative;
+	padding-top:.4rem;
+	padding-bottom:.4rem;
+	}
+.travel_detail_middle .top{
+	height:1px;
+	width:100%;
+	border-top:1px solid #ff840d;
+	position:relative;}
+.travel_detail_middle .top img{
+	background-color:#fff;
+	height:.5rem;
+	padding-left:.3rem;
+	padding-right:.3rem;
+	position:absolute;
+	top:-.25rem;
+	left:3.7rem;
+	}
+.travel_detail_middle .bottom{
+	height:1px;
+	width:100%;
+	border-top:1px solid #ff840d;
+	position:relative;
+	}
+.travel_detail_middle .bottom img{
+	background-color:#fff;
+	height:.5rem;
+	padding-left:.3rem;
+	padding-right:.3rem;
+	position:absolute;
+	top:-.25rem;
+	left:4rem;
+	}
