@@ -1,37 +1,37 @@
 <link href="css/pay_index.css" rel="stylesheet" rev="stylesheet" type="text/css"/>
 <div class="pay_index">
 	<div class="lastTime">
-    	剩余支付时间： <span style="color:#ff840c;">00时30分28秒</span>
+    	剩余支付时间： <span style="color:#ff840c;"><%= lastTime %></span>
     </div>
     <div class="top">
     	<div class="dsc">
         	<div class="list">
             	<div class="point">
                 	<div class="left">订单编号：</div>
-                    <div class="right">453248732</div>
+                    <div class="right"><%= number %></div>
                     <div class="clear"></div>
                 </div>
                 <div class="point">
                 	<div class="left">产品名称：</div>
-                    <div class="right">很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多字</div>
+                    <div class="right"><%= name %></div>
                     <div class="clear"></div>
                     <div class="deg"><span class="fa fa-right"></span></div>
                 </div>
                 <div class="point">
                 	<div class="left">服务时间：</div>
-                    <div class="right">2015-07-25 至 2015-09-30</div>
+                    <div class="right"><%= start %> 至 <%= end %></div>
                     <div class="clear"></div>
                 </div>
                 <div class="point">
                 	<div class="left">参团城市：</div>
-                    <div class="right">巴厘岛</div>
+                    <div class="right"><%= city %></div>
                     <div class="clear"></div>
                 </div>
             </div>
             
         </div>
         <div class="price">
-        	订单总额：<span style="color:#ff0000;">￥<span class="numCLASS" style="font-size:.6rem;">5598.00</span></span>
+        	订单总额：<span style="color:#ff0000;">￥<span class="numCLASS" style="font-size:.6rem;"><%= price %></span></span>
         </div>
     </div>
     <div class="bottom">

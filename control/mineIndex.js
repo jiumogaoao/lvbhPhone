@@ -7,6 +7,11 @@
 		fn:function(data){
 			$("#head").html("");
 			$("#scroller").html(data.tem[1]+data.tem[2]);
+			$(".mine_top .bottom .point").unbind("tap").bind("tap",function(){
+				if($(this).attr("src")){
+					window.location.hash=$(this).attr("src");
+					}
+				});
 			$(".mine_bottom .point").unbind("tap").bind("tap",function(){
 				window.location.hash=$(this).attr("href");
 				});
