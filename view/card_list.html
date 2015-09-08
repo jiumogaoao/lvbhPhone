@@ -1,0 +1,16 @@
+<link href="css/card_list.css" rel="stylesheet" rev="stylesheet" type="text/css"/>
+<div class="card_list">
+	<div class="top">
+    	<img class="left" src="img/center_logo_tenpay.png"/>
+        <div class="right">为您提供以下网上支付服务</div>
+        <div class="clear"></div>
+    </div>
+    <div class="bottom">
+    <% _.each(cardList,function(n){ %>
+    <div class="point" bankId="<%= n.id %>" bankCode="<%= n.name %>">
+        	<span class="fa fa-radio"></span><img src="<%= n.img %>"/>
+        </div>
+    <% }) %>
+        <div class="clear"></div>
+    </div>
+</div>

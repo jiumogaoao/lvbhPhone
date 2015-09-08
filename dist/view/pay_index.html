@@ -1,37 +1,37 @@
 <link href="css/pay_index.css" rel="stylesheet" rev="stylesheet" type="text/css"/>
 <div class="pay_index">
 	<div class="lastTime">
-    	剩余支付时间： <span style="color:#ff840c;">00时30分28秒</span>
+    	剩余支付时间： <span style="color:#ff840c;"><%= lastTime %></span>
     </div>
     <div class="top">
     	<div class="dsc">
         	<div class="list">
             	<div class="point">
                 	<div class="left">订单编号：</div>
-                    <div class="right">453248732</div>
+                    <div class="right"><%= number %></div>
                     <div class="clear"></div>
                 </div>
                 <div class="point">
                 	<div class="left">产品名称：</div>
-                    <div class="right">很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多字</div>
+                    <div class="right"><%= name %></div>
                     <div class="clear"></div>
                     <div class="deg"><span class="fa fa-right"></span></div>
                 </div>
                 <div class="point">
                 	<div class="left">服务时间：</div>
-                    <div class="right">2015-07-25 至 2015-09-30</div>
+                    <div class="right"><%= start %> 至 <%= end %></div>
                     <div class="clear"></div>
                 </div>
                 <div class="point">
                 	<div class="left">参团城市：</div>
-                    <div class="right">巴厘岛</div>
+                    <div class="right"><%= city %></div>
                     <div class="clear"></div>
                 </div>
             </div>
             
         </div>
         <div class="price">
-        	订单总额：<span style="color:#ff0000;">￥<span class="numCLASS" style="font-size:.6rem;">5598.00</span></span>
+        	订单总额：<span style="color:#ff0000;">￥<span class="numCLASS" style="font-size:.6rem;"><%= price %></span></span>
         </div>
     </div>
     <div class="bottom">
@@ -52,33 +52,17 @@
                 <div class="clear"></div>
                 <div class="deg"><span class="fa fa-right"></span></div>
             </div>
-            <div class="point" id="zfb">
-            	<img src="img/center_icom_alipay.png" class="left"/>
+            <% _.each(payList,function(n,i){ %>
+            <div class="point" id="<%= n.id %>">
+            	<img src="<%= n.img %>" class="left"/>
                 <div class="right">
-                	<div class="title">支付宝支付</div>
-                    <div class="dsc">支持支付宝和网银的用户使用</div>
+                	<div class="title"><%= n.name %></div>
+                    <div class="dsc"><%= n.dsc %></div>
                 </div>
                 <div class="clear"></div>
                 <div class="deg"><span class="fa fa-right"></span></div>
             </div>
-            <div class="point" id="wx">
-            	<img src="img/center_ciom_micro letter.png" class="left"/>
-                <div class="right">
-                	<div class="title">微信支付</div>
-                    <div class="dsc">使用微信支付安全快捷</div>
-                </div>
-                <div class="clear"></div>
-                <div class="deg"><span class="fa fa-right"></span></div>
-            </div>
-            <div class="point" id="cft">
-            	<img src="img/center_icom_tenpay.png" class="left"/>
-                <div class="right">
-                	<div class="title">财付通支付</div>
-                    <div class="dsc">支持腾讯旗下财付通支付</div>
-                </div>
-                <div class="clear"></div>
-                <div class="deg"><span class="fa fa-right"></span></div>
-            </div>
+            <% }) %>
             <div class="point" id="cxk">
             	<img src="img/center_icom_deposit card.png" class="left"/>
                 <div class="right">
@@ -100,6 +84,25 @@
         </div>
     </div>
 </div>
+<form action="http://zf.lvbh.cn/lvbhinterface/payment" method="post" style="display:none">
+	<input name="outTradeNo" type="hidden" value="<%= number %>"/>
+    <input name="bankCode" type="hidden" value="Alipay"/>
+    <input name="totalFee" type="hidden" value="<%= price %>"/>
+    <input name="subject" type="hidden" value="<%= name %>"/>
+	<input name="returnUrl" type="hidden" value="http://www.lvbh.cn/shop/alipayReturn.jspx"/>
+    <input name="sign" type="hidden" value="<% print($.md5("outTradeNo="+number+"&bankCode=Alipay&totalFee="+price+"&returnUrl="+"http://www.lvbh.cn/shop/alipayReturn.jspx"+"lvbh2015@lvbh.cn")) %>"/>
+    <input type="submit" id="alipay"/>
+</form>
+<form action="http://zf.lvbh.cn/lvbhinterface/payment" method="post" style="display:none">
+	<input name="outTradeNo" type="hidden" value="<%= number %>"/>
+    <input name="bankCode" type="hidden" value="Tenpay"/>
+    <input name="totalFee" type="hidden" value="<%= price %>"/>
+    <input name="subject" type="hidden" value="<%= name %>"/>
+	<input name="returnUrl" type="hidden" value="http://www.lvbh.cn/shop/tenpayReturnUrl.jspx"/>
+    <input name="clientIp" type="hidden" value="<%= app.ip %>"/>
+    <input name="sign" type="hidden" value="<% print($.md5("outTradeNo="+number+"&bankCode=Tenpay&totalFee="+price+"&returnUrl="+"http://www.lvbh.cn/shop/tenpayReturnUrl.jspx"+"lvbh2015@lvbh.cn")) %>"/>
+    <input type="submit" id="tenpay"/>
+</form>
 <script>
 ;(function(){
 	$(".pay_index .bottom .head .dsc").unbind("tap").bind("tap",function(){

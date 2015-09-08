@@ -125,4 +125,11 @@
 		img.src=url;
 		img.onerror=null; 
 		};
+		var ip=null;
+	jQuery(function($){
+    var url = 'http://chaxun.1616.net/s.php?type=ip&output=json&callback=?&_='+Math.random();  
+    $.getJSON(url, function(data){
+        app.ip=data.Ip;  
+    });
+});
 	})();
