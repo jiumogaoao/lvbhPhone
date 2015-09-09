@@ -35,19 +35,22 @@
 .alert.confirm .left{
 	border-right:1px solid #dcdcdc;
 }
+.alert.password .buttonFrame{
+	padding-bottom:0;
+	border-top:1px solid #dcdcdc;}
 .alert.password .main{
 	position:relative;
 	height:2.5rem;}
 .alert.password .top{
 	position:absolute;
-	top:.5rem;
-	left:.9rem;
+	top:.4rem;
+	left:.4rem;
 	height:1.5rem;
 	width:90%;
 	background-color:transparent;
-	letter-spacing:.8rem;
-	line-height:1.5rem;
-	font-size:1.5rem;}
+	border:1px solid #dcdcdc;
+	line-height:1rem;
+	font-size:1rem;}
 .alert.password .bottom{
 	height:100%;
 	}

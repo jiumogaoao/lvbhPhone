@@ -64,27 +64,10 @@
 			
 			
 			function getList(at){
-				obj.api.run("traveler_get",'at='+at+'&tp=3',function(returnData){
+				obj.api.run("traveler_get",'at='+at+'&a=1',function(returnData){debugger;
 					var list=[];
 					$.each(returnData,function(i,n){
-						var collect=1;
-						if(!(n.b&&n.f)){
-							collect=0;
-							}
-						if(n.o){
-								if(moment(n.o,"YYYY-MM-DD").format("X")-(new Date().getTime())>0){
-									collect=0;			
-									}
-								}
-						if(n.m){
-								if(moment(n.m,"YYYY-MM-DD").format("X")-(new Date().getTime())<0){
-									collect=0;			
-									}
-								}
-						if(collect){
-							list.push({title:n.b,dsc:n.f});
-							}
-							
+							list.push({title:n.b,dsc:n.f,type:n.q});
 						});
 					layout(list,returnData);
 					},function(e){

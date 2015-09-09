@@ -13,4 +13,15 @@
     <% }) %>
         <div class="clear"></div>
     </div>
+    <form action="http://zf.lvbh.cn/lvbhinterface/payment" method="post" style="display:none">
+	<input name="outTradeNo" type="hidden" value="<%= number %>"/>
+    <input name="bankCode" type="hidden" value="Tenpay"/>
+    <input name="totalFee" type="hidden" value="<%= price %>"/>
+    <input name="subject" type="hidden" value="<%= name %>"/>
+	<input name="returnUrl" type="hidden" value="http://www.lvbh.cn/shop/tenpayReturnUrl.jspx"/>
+    <input name="clientIp" type="hidden" value="<%= app.ip %>"/>
+    <input name="bankType" type="hidden" value=""/>
+    <input name="sign" type="hidden" value="<% print($.md5("outTradeNo="+number+"&bankCode=Tenpay&totalFee="+price+"&returnUrl="+"http://www.lvbh.cn/shop/tenpayReturnUrl.jspx"+"lvbh2015@lvbh.cn")) %>"/>
+    <input type="submit" id="tenpay"/>
+</form>
 </div>

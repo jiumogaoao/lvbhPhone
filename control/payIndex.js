@@ -70,9 +70,6 @@
 					$.each(returnData.list1,function(i,n){
 						payList.push(bankArry[n.a]);
 						});
-					$.each(returnData.list2,function(i,n){
-						payList.push(bankArry[n.a]);
-						});
 					layout({
 						lastTime:returnData.b,
 						number:returnData.go.x,

@@ -46,6 +46,11 @@
 			$("#foot").html(button);
 			$(".single_button").css({"margin-top":"0px"});
 			$("#foot").show();
+			$("#gotopay").unbind("tap").bind("tap",function(){
+				if($("#scroller [name='bankType']").val()){
+					$("#tenpay").click();
+					}
+				});
 			function layout(result){
 				var main=_.template(data.tem[1])(result);
 				$("#scroller").html(main);
@@ -54,6 +59,7 @@
 					$("#scroller .point .fa").removeClass("hl");
 					$(this).addClass("hl");
 					$(this).find(".fa").addClass("hl");
+				$("#scroller [name='bankType']").val($(this).attr("bankCode"));	
 					});
 				$("#scroller").css("padding-bottom","1.5rem");
 				var delay=setTimeout(function(){
@@ -63,11 +69,9 @@
 				myScroll.refresh();
 				});
 				}
-			
 			$(".top_third .leftButton").unbind("tap").bind("tap",function(){
 				window.history.go(-1);
-				});
-			
+				});	
 			function getDetail(at){
 				obj.api.run("pay_detail",'at='+at+'&a='+data.id,function(returnData){
 					console.log(returnData);
