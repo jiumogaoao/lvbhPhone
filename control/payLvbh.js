@@ -15,23 +15,29 @@
 				var main = _.template(data.tem[1])(result);
 				$("#scroller").html(main+button);
 				$("#pay").unbind("tap").bind("tap",function(){
-					//if(result.balance>=result.price){
+					if(result.balance>=result.price){
 						app.pop.on("password",null,function(){
 					$("#pop .left").unbind("tap").bind("tap",function(){
 						if(!$("#pop .top").val()){
 							app.pop.on("alert",{text:"交易密码不能为空"});
 							return false;
 							}
-						obj.api.run("key_check",'at='+at+'&a='+result.number+'&b='+$("#pop .top").val(),function(){
+						obj.api.run("key_check",'at='+at+'&a='+data.id+'&b='+$("#pop .top").val(),function(returnData){
+							if(returnData === 1){
+								obj.api.run("pay_account",'at='+at+'&a='+data.id+'&b='+$("#pop .top").val(),function(dataA){
+									alert("支付成功");
+									window.location.hash="dealList/0";
+									},function(e){alert(e);});
+								}
 							},function(e){alert(e);});
 						});
 					$("#pop .right").unbind("tap").bind("tap",function(){
 						app.pop.off();
 						});	
 					});
-					//	}else{
-					//		alert("余额不足");
-					//		}
+						}else{
+							alert("余额不足");
+							}
 					
 					});
 				}
@@ -46,7 +52,6 @@
 				});
 			function getDetail(at){
 				obj.api.run("pay_detail",'at='+at+'&a='+data.id,function(returnData){
-					console.log(returnData);
 					layout(at,{
 						lastTime:returnData.b,
 						number:returnData.go.x,

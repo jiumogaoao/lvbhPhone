@@ -1,4 +1,92 @@
-<link href="css/alert.css" rel="stylesheet" rev="stylesheet" type="text/css"/>
+<style>.alert{
+	width:100%;
+	background-color:#fff;
+	border-radius:.2rem;
+	}
+.alert .main{
+	text-align:center;
+	font-size:.5rem;
+	padding:.8rem .5rem;
+	}
+.alert.confirm .main{
+	color:#f22424;}
+.alert .buttonFrame{
+	width:100%;
+	padding-bottom:.6rem;
+	}
+.alert .button{
+	width:90%;
+	margin:auto;
+	background-color:#cccccc;
+	height:1.3rem;
+	line-height:1.3rem;
+	text-align:center;
+	font-size:.6rem;
+	color:#fff;
+	border-radius:.2rem;
+	margin-top:.4rem;
+	}
+.alert.confirm .left,.alert.confirm .right{
+	width:50%;
+	float:left;
+	}
+.alert.confirm .left{
+	border-right:1px solid #dcdcdc;
+}
+.alert.password .buttonFrame{
+	padding-bottom:0;
+	border-top:1px solid #dcdcdc;}
+.alert.password .main{
+	position:relative;
+	height:2.5rem;}
+.alert.password .top{
+	position:absolute;
+	top:.4rem;
+	left:.4rem;
+	height:1.5rem;
+	width:90%;
+	background-color:transparent;
+	border:1px solid #dcdcdc;
+	line-height:1rem;
+	font-size:1rem;}
+.alert.password .bottom{
+	height:100%;
+	}
+.alert.password .point{
+	width:16.6%;
+	float:left;
+	border:1px solid #dcdcdc;
+	height:100%;}
+.alert.share{border-radius:0px}
+.alert.share .point{
+	float:left;
+	margin-left:1rem;
+	margin-bottom:.4rem;}
+.alert.share .main{
+	padding-bottom:.2rem;
+	}
+.alert.share img{
+	width:1.6rem;
+	height:1.6rem;}
+.alert.share .name{
+	font-size:.4rem;
+	text-align:center;}
+.alert.tel{
+	border-radius:0px;}
+.alert.tel .main{
+	color:#009fff;
+	font-size:.6rem;
+	line-height:1rem;
+	text-align:center;
+	padding-bottom:.2rem;
+	}
+.alert.confirm .left,.alert.confirm .right{
+	background-color:transparent;
+	color:#555;
+	border-radius:0px;
+	text-align:center;
+	line-height:1.5rem;
+	font-size:.5rem;}</style>
 <div class="alert share">
 	<div class="main">
     	<% _.each(list,function(n){ %>

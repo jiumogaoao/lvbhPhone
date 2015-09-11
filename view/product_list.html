@@ -1,4 +1,71 @@
-<link href="css/product_list.css" rel="stylesheet" rev="stylesheet" type="text/css"/>
+<style>.product_list{
+	width:100%;}
+.product_list .point{
+	width:100%;
+	margin-bottom:.3rem;
+	position:relative;}
+.product_list .right{
+	width:100%;}
+.product_list .top{
+	background-color:#fff;
+	height:2.4rem;
+	padding:.2rem;}
+.product_list .topL{
+	width:2rem;
+	height:2rem;
+	float:left;}
+.product_list .topR{
+	width:7.3rem;
+	float:left;
+	margin-left:.2rem;
+	}
+.product_list .title{
+	font-size:.5rem;}
+.product_list .dsc{
+	font-size:.5rem;
+	color:#7c7c7c;
+	margin-top:.2rem;}
+.product_list .money{
+	font-size:.3rem;
+	color:#7c7c7c;
+	margin-top:.13rem;}
+.product_list .red{
+	font-size:.45rem;
+	color:#ff0000;
+	position:relative;
+	top:.05rem;}
+.product_list .bottom{
+	border-bottom:1px solid #dcdcdc;
+	border-top:1px solid #dcdcdc;
+	height:1rem;
+	background-color:#fafafa;
+	color:#858585;
+	line-height:1rem;
+	font-size:.5rem;
+	text-align:center;
+	}
+.product_list .bottomL{
+	width:50%;
+	border-right:1px solid #dcdcdc;
+	float:left;}
+.product_list .bottomR{
+	width:50%;
+	float:left;
+	}
+.product_list.edit .right{
+	position:relative;
+	left:1rem;}
+.product_list.edit .left{
+	position:absolute;
+	top:0px;
+	left:0px;
+	width:1rem;
+	height:3.4rem;
+	text-align:center;
+	line-height:3.4rem;
+	font-size:.8rem;
+	}
+</style>
 <div class="product_list<% if(type=="1"){print(" edit")} %>">
 <% _.each(list,function(n){ %>
 <div class="point" pid="<%= n.id %>">

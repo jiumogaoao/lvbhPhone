@@ -408,7 +408,7 @@
 							}	
 					});	
 				if(correct){
-					obj.api.run("deal_add",'at='+at+'&goparam='+JSON.stringify(goParam)+'&goiparam='+JSON.stringify(goiParam),function(returnData){
+					obj.api.run("deal_add",'at='+at+'&goparam='+JSON.stringify(goparam)+'&goiparam='+JSON.stringify(goiparam),function(returnData){
 					window.location.hash="dealSuccess/"+returnData.go.x+"/"+returnData.go.m;
 					},function(e){
 					alert(JSON.stringify(e));

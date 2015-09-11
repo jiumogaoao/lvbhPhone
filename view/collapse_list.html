@@ -1,4 +1,95 @@
-<link href="css/collapse_list.css" rel="stylesheet" rev="stylesheet" type="text/css"/>
+<style>.collapse_list{
+	width:100%;}
+.collapse_list .list{
+	width:100%;
+	}
+.collapse_list .head{
+	width:100%;
+	height:1.5rem;
+	background-color:#fff;
+	line-height:1.5rem;
+	font-size:.6rem;
+	border-bottom:1px solid #dcdcdc;
+	}
+.collapse_list .title{
+	float:left;
+	margin-left:.5rem;
+	}
+.collapse_list .icon{
+	float:right;
+	margin-right:.5rem;
+	color:#7c7c7c;
+	font-size:.5rem;}
+.collapse_list .main{
+	width:95%;
+	margin:auto;
+	margin-top:.3rem;
+	margin-bottom:.3rem;
+	background-color:#FFFFFF;
+	display:none;
+	border:1px solid #dcdcdc;
+	border-radius:.2rem;
+	padding-top:.2rem;
+	padding-bottom:.2rem;
+	}
+.collapse_list .left{
+	float:left;
+	font-size:.45rem;
+	line-height:1rem;
+	width:28%;
+	text-indent:0rem;
+	color:#7c7c7c;
+	}
+.collapse_list .right{
+	float:left;
+	font-size:.45rem;
+	line-height:1rem;
+	width:60%;
+	}
+.collapse_list .dsc{
+	font-size:.4rem;
+	padding:.5rem;
+	}
+.collapse_list .group{
+	position:relative;
+		  width: 90%;
+  margin: auto;
+  padding-top:.2rem;
+	padding-bottom:.2rem;
+	}
+.collapse_list .group.link .deg{
+	display:block;
+	}
+.collapse_list .deg{
+	position:absolute;
+	top:0px;
+	right:.5rem;
+	height:100%;
+	line-height:100%;
+	display:none;
+	}
+.collapse_list .deg .fa-right:before{
+	line-height:100%;
+	display:block;
+	height:100%;
+	color:#7c7c7c;
+	font-size:.5rem;
+	}
+.collapse_list .list.hl .head{
+	color:#ff840c;}
+.collapse_list .list.hl .head .icon{
+	color:#ff840c;
+	}
+.collapse_list .list.hl .main{
+	display:block;
+	}
+.collapse_list .group.bd{
+	border-bottom:1px solid #dcdcdc;
+}
+.collapse_list .point.hl .right{
+	color:#ff9e6b;
+	}
+</style>
 <div class="collapse_list">
 	<% _.each(list,function(l,num){ %>
     	<div class="list<% if(num == 0){print(" hl")} %>">

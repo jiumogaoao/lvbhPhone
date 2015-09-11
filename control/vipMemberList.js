@@ -2,7 +2,7 @@
 ;(function($,obj,config){
 	obj.control.set({
 		name:"vipMemberList",
-		par:"id",
+		par:"id/number",
 		tem:["top_second","groupTop","group_nav","group_member"],
 		fn:function(data){
 			var page=1;
@@ -16,14 +16,15 @@
 			obj.scrollFn.add("vipMemberList",function(y){
 				$("#head").css("background-color","rgba(0,158,255,"+((-1*y)/200)+")");
 				});
-			function layout(){
+			function layout(sour){
+				var top=_.template(data.tem[1])(sour);
 				var list=_.template(data.tem[3])({list:result});
-			$("#scroller").html(data.tem[1]+data.tem[2]+list);
+			$("#scroller").html(top+data.tem[2]+list);
 			$("#scroller .groupTop .nav").eq(0).addClass("hl");
 			$("#scroller .group_nav .point").eq(0).addClass("hl");
 			
 			$("#scroller .groupTop .nav").eq(1).unbind("tap").bind("tap",function(){
-				window.location.hash="vipTravelList/"+data.id;
+				window.location.hash="vipTravelList/"+data.id+"/"+data.number;
 				});
 			$("#scroller .group_member").css({"background-color":"#fff","padding-bottom":".3rem","margin-top":"0px"});
 				var delay=setTimeout(function(){
@@ -41,19 +42,24 @@
 			$('img').load(function(){
 				myScroll.refresh();
 				});
-			function getList(at){
+			function getList(at,sour){
 				obj.api.run("group_member_get",'at='+at+'&a='+page+'&d='+type+'&e='+data.id,function(returnData){
 					returnData=returnData.data;
 					$.each(returnData,function(i,n){
 						result.push({image:n.l,name:n.c,id:n.b,fans:n.r,money:n.p});
 						});
-					layout();
+					layout(sour);
 					},function(e){
 					alert(JSON.stringify(e));
 					});
 				}
 			function getSour(at){
-				getList(at);
+				obj.api.run("group_get",'at='+at+'&a=1&b=1&d=0&e='+data.number,function(returnData){
+				returnData=returnData.data[0];
+				var sour={img:returnData.l,name:returnData.c,id:returnData.b,hot:returnData.r,money:returnData.p,dsc:returnData.h,step:returnData.m};
+				getList(at,sour);
+				},function(e){alert(json.stringify(e));});
+				
 				}
 			obj.api.at(getSour);			
 

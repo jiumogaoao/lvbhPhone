@@ -106,7 +106,19 @@
 					returnData=returnData.data;
 					var typeArry={"12":"出发地跟团","13":"目的地跟团"};
 					$.each(returnData,function(i,n){
-						var list={type:typeArry[n.e+""],state:n.i+"",title:n.f,start:n.l.split(" ")[0],end:n.m.split(" ")[0],price:n.n,last:n.r,id:n.a};
+						var lastTime=0;
+						if(n.r){
+							lastTime=moment(n.r,"YYYY-MM-DD HH:mm:ss").format("x")-moment().format("x");
+							if(lastTime>1000*60*60*24){
+								lastTime="1天以上";
+								}else{
+									var hour=parseInt(lastTime/(1000*60*60))%24;
+									var minute=parseInt(lastTime/(1000*60))%60;
+									var second=parseInt(lastTime/1000)%60;
+									lastTime=hour+"时"+minute+"分"+second+"秒";
+									}
+							}
+						var list={type:typeArry[n.e+""],state:n.i+"",title:n.f,start:n.l.split(" ")[0],end:n.m.split(" ")[0],price:n.o,last:lastTime,id:n.a};
 						result.push(list);
 						});
 					layout(result,at);

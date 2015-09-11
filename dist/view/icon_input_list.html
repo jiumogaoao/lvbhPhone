@@ -1,4 +1,31 @@
-<link href="css/icon_input_list.css" rel="stylesheet" rev="stylesheet" type="text/css"/>
+<style>.icon_input_list{
+	width:100%;
+	}
+.icon_input_list .point{
+	height:1.5rem;
+	background-color:#FFFFFF;
+	border-top:1px solid #e5e5e5;
+	line-height:1.5rem;
+	position:relative;
+	}
+.icon_input_list .icon{
+	float:left;
+	font-size:.5rem;
+	width:10%;
+	text-align:center;
+	color:#7c7c7c;}
+.icon_input_list .main{
+	float:left;
+	font-size:.5rem;
+	width:90%;
+	}
+.icon_input_list .main input{
+	font-size:.5rem;
+	width:100%;}
+.icon_input_list .other{
+	position:absolute;
+	top:0rem;
+	right:.5rem;}</style>
 <div class="icon_input_list">
 	<% _.each(list,function(n){ %>
     	<div class="point" name="<%= n.name %>">

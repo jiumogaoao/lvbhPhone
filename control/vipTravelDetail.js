@@ -2,7 +2,7 @@
 ;(function($,obj,config){
 	obj.control.set({
 		name:"vipTravelDetail",
-		par:"id",
+		par:"id/group",
 		tem:["top_second","travel_detail_top","travel_detail_middle","travel_detail_bottom","travel_detail_foot"],
 		fn:function(data){
 			var page=1;
@@ -16,15 +16,38 @@
 			obj.scrollFn.add("vipTravelDetail",function(y){
 				$("#head").css("background-color","rgba(0,158,255,"+((-1*y)/200)+")");
 				});
-			$("#foot").html(data.tem[4]);
-			$("#scroller").html(data.tem[1]+data.tem[2]+data.tem[3]);
+			
+			function layout(source,messageArry){
+				var foot=_.template(data.tem[4])(source);
+				$("#foot").html(foot);
+				var top=_.template(data.tem[1])(source);
+				var middle=_.template(data.tem[2])({list:messageArry});
+				$("#scroller").html(top+middle+data.tem[3]);
 			var delay=setTimeout(function(){
 				myScroll.refresh();
 				},200);
 			$('img').load(function(){
 				myScroll.refresh();
 				});
-			function getList(at){}
+				}
+			
+				
+			function getList(at){
+				var typeString="";
+				obj.api.run("travel_detail",'at='+at+'&a='+data.id,function(returnData){
+				var source={"id":returnData.travel.a,"title":returnData.travel.f,"place":returnData.travel.e,"image":returnData.travel.c,"pra":returnData.travel.l,"star":returnData.travel.k,"com":returnData.travel.j};
+				var messageArry=[];
+					$.each(returnData.traveldetail,function(i,n){
+						if(n.a){
+							messageArry.push("<div>"+n.a+"</div>");
+							}
+						if(n.b){
+							messageArry.push("<div><img src='"+n.a+"' onerror='app.nofound(\"img/travel_particulars_cover_img_default.png\")'/></div>");
+							}
+						});
+					layout(source,messageArry);
+					},function(e){alert(JSON.stringify(e));});
+				}
 			obj.api.at(getList);
 
 

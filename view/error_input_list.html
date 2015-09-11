@@ -1,4 +1,38 @@
-<link href="css/error_input_list.css" rel="stylesheet" rel="stylesheet" type="text/css"/>
+<style>.error_input_list{
+	width:100%;
+	background-color:#fff;
+	padding-bottom:.5rem;}
+.error_input_list .point{
+	width:100%;
+	padding-top:.5rem;
+	position:relative;
+	}
+.error_input_list .title{
+	font-size:.4rem;
+	text-indent:.5rem;}
+.error_input_list .error{
+	font-size:.3rem;
+	position:absolute;
+	top:.5rem;
+	right:.5rem;
+	color:#f22424;
+	display:none}
+.error_input_list .err .error{
+	display:block;
+	}
+.error_input_list input{
+	width:95%;
+	height:1rem;
+	display:block;
+	margin:auto;
+	background-color:#f6f6f6;
+	border-radius:.2rem;
+	border:1px solid #dcdcdc;
+	margin-top:.2rem;
+	padding:.2rem;
+	font-size:.4rem;
+	line-height:1rem;
+	}</style>
 <div class="error_input_list">
 <% _.each(list,function(n){ %>
 <div class="point">

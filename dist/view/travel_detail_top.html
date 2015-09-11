@@ -1,8 +1,34 @@
-<link href="css/travel_detail_top.css" rel="stylesheet" rev="stylesheet" type="text/css"/>
+<style>.travel_detail_top{
+	width:100%;
+	height:6rem;
+	position:relative;
+	font-size:.4rem;
+	color:#fff;}
+.travel_detail_top .tag{
+	position:absolute;
+	bottom:1rem;
+	left:.5rem;
+	background-color:#fe3a3c;
+	}
+.travel_detail_top .title{
+	position:absolute;
+	bottom:1rem;
+	left:1.5rem;
+	}
+.travel_detail_top .place{
+	position:absolute;
+	bottom:.3rem;
+	left:.5rem;
+	}
+.travel_detail_top .time{
+	position:absolute;
+	bottom:.3rem;
+	left:2.5rem;
+	}</style>
 <div class="travel_detail_top">
-	<img class="bg" src="http://" onerror="app.nofound('img/travel_particulars_cover_img_default.png')"/>
+	<img class="bg" src="<%= image %>" onerror="app.nofound('img/travel_particulars_cover_img_default.png')"/>
     <div class="tag">其他</div>
-    <div class="title">#牵手马尔代夫库拉玛提岛#</div>
-    <div class="place"><span class="fa fa-place"></span>深圳</div>
-    <div class="time"><span class="fa fa-time"></span>2015-06-29</div>
+    <div class="title"><%= title %></div>
+    <div class="place"><span class="fa fa-place"></span><%= place %></div>
+    <div class="time"><span class="fa fa-time"></span><%= star %></div>
 </div>

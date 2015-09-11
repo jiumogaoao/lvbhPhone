@@ -1,4 +1,35 @@
-<link href="css/index_banner.css" rel="stylesheet" rev="stylesheet" type="text/css"/>
+<style>.index_banner{
+	width:100%;
+	overflow:hidden;
+	position:relative;
+	height:3.8rem;}
+.index_banner .bgR{
+	width:400%;
+	height:3.8rem;
+	position:absolute;
+	top:0px;
+	left:0px;}
+.index_banner img{
+	width:25%;
+	height:4rem;
+	float:left;
+	}
+.index_banner .pointFrame{
+	position:absolute;
+	bottom:.1rem;
+	left:4rem;
+	}
+.index_banner .point{
+	width:.3rem;
+	height:.3rem;
+	border-radius:.5rem;
+	background-color:#000;
+	opacity:.2;
+	float:left;
+	margin-right:.2rem;}
+.index_banner .point.hl{
+	opacity:1;
+	background-color:#009fff;}</style>
 <div class="index_banner">
     	<div class="bgR">
         <% _.each(list,function(n){ %>

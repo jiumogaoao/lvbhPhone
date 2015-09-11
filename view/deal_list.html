@@ -1,4 +1,107 @@
-<link href="css/deal_list.css" rel="stylesheet" rev="stylesheet" type="text/css"/>
+<style>.deal_list{
+	width:96%;
+	margin:auto;
+	border:1px solid #dcdcdc;
+	padding:0px .2rem;
+	margin-top:.3rem;
+	border-radius:.15rem;
+	background-color:#fff;}
+.deal_list .top{
+	height:1.2rem;
+	line-height:1.2rem;
+	border-bottom:1px solid #dcdcdc;}
+.deal_list.cash_list .top{
+	height:.5rem;
+	line-height:1rem;
+	border:none;}
+.deal_list .icon{
+	float:left;
+	color:#ff740c;
+	font-size:.5rem;
+	}
+.deal_list .type{
+	float:left;
+	font-size:.4rem;
+	margin-left:.2rem;
+	color:#555;
+	}
+.deal_list .state{
+	float:left;
+	font-size:.4rem;
+	color:#44b9ff;
+	}
+.deal_list .center{
+	padding-top:.4rem;
+	padding-bottom:.4rem;
+	border-bottom:1px solid #dcdcdc;}
+.deal_list .title{
+	font-size:.55rem;
+	margin-bottom:.2rem;}
+.deal_list .time{
+	float:left;
+	font-size:.4rem;
+	line-height:.5rem;
+	color:#7c7c7c;}
+.deal_list .deg{
+	float:right;
+	font-size:.4rem;
+	line-height:.5rem;
+	color:#7c7c7c;}
+.deal_list .price{
+	float:left;
+	color:#ff840c;
+	font-size:.4rem;
+	line-height:1.58rem;}
+.deal_list .button{
+	float:right;
+	color:#fff;
+	font-size:.6rem;
+	line-height:1rem;
+	color:#ff840c;
+	border:1px solid #ff840c;
+	height:1rem;
+	padding-left:.2rem;
+	padding-right:.2rem;
+	position:relative;
+	top:.3rem;
+	margin-left:.3rem;
+	border-radius:.15rem;}
+.deal_list .succeed{
+	float:left;
+	height:1.6rem;}
+.deal_list .succeed .price{
+	float:none;
+	line-height:.8rem;
+	margin-top:.05rem;}
+.deal_list .succeed .last{
+	font-size:.4rem;
+	color:#f33d3d;
+	}
+.deal_list.account_list .tableDouble,.deal_list.account_list .tableThird{
+	width:95%;
+	margin:auto;
+	margin-top:.5rem;
+	}
+.deal_list.account_list .head,.deal_list.account_list .main{
+	width:50%;
+	height:1rem;
+	line-height:1rem;
+	font-size:.5rem;
+	text-align:center;
+	float:left;
+	border-bottom:1px solid #dcdcdc;
+	border-right:1px solid #dcdcdc;}
+.deal_list.account_list .tableDouble .head,.deal_list.account_list .tableDouble .main{
+	width:50%}
+.deal_list.account_list .tableThird .head,.deal_list.account_list .tableThird .main{
+	width:33%}
+.deal_list.account_list .head{
+	border-top:1px solid #dcdcdc;}
+.deal_list.account_list .main{
+	color:#ff740c;}
+.deal_list.account_list .first{
+	border-left:1px solid #dcdcdc;
+	}</style>
 <% _.each(list,function(n){ %>
 <div class="deal_list" lid="<%= n.id %>">
 	<div class="top">
@@ -31,14 +134,14 @@
     <div class="bottom">
     <% if(n.state=="4"||n.state=="1024"){ %>
     <div class="succeed">
-    <div class="price">￥<span class="numCLASS">989</span></div>
-    <div class="last">支付时限 <span class="numCLASS">00</span>时<span class="numCLASS">32</span>分<span class="numCLASS">52</span>秒</div>
+    <div class="price">￥<span class="numCLASS"><%= n.price %></span></div>
+    <div class="last">支付时限 <%= n.last %></div>
     </div>
         <div class="button zhifu">支付</div>
         <div class="button zuofei">作废</div>
         <div class="clear"></div>
     <% }else{ %>
-    <div class="price">￥<span class="numCLASS">989</span></div>
+    <div class="price">￥<span class="numCLASS"><%= n.price %></span></div>
     	<% if(n.state=="1"){ %>
         	<div class="button zuofei">作废</div>
         <% }else if(n.state=="8"){ %>

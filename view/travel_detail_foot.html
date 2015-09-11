@@ -1,19 +1,36 @@
-<link href="css/travel_detail_foot.css" rel="stylesheet" rev="stylesheet" type="text/css"/>
+<style>.travel_detail_foot{
+	width:100%;
+	height:1.5rem;
+	background-color:#fff;
+	border-top:1px solid #dcdcdc;
+	color:#7c7c7c;}
+.travel_detail_foot .point{
+	width:33.33%;
+	float:left;
+	text-align:center;
+	font-size:.4rem;
+	line-height:.4rem;
+	height:100%;
+	border-right:1px solid #dcdcdc;}
+.travel_detail_foot .point.hl .fa{
+	color:#ff840d;}
+.travel_detail_foot .point .fa{
+	line-height:.8rem;}</style>
 <div class="travel_detail_foot">
 	<div class="point">
     	<span class="fa fa-star3"></span>
         <br/>
-        234234
+        <%= star %>
     </div>
     <div class="point">
     	<span class="fa fa-com"></span>
         <br/>
-        234234
+        <%= com %>
     </div>
     <div class="point">
     	<span class="fa fa-pra"></span>
         <br/>
-        234234
+        <%= pra %>
     </div>
     <div class="clear"></div>
 </div>

@@ -1,7 +1,76 @@
-<link href="css/vip_list.css" rel="stylesheet" rev="stylesheet" type="text/css"/>
+<style>.vip_list{
+	width:100%;}
+.vip_list .point{
+	width:100%;
+	background-color:#fff;
+	position:relative;
+	margin-bottom:.4rem;}
+.vip_list .degFrame{
+	position:absolute;
+	top:0px;
+	left:0px;
+	width:1rem;
+	height:1rem;
+	overflow:hidden;}
+.vip_list .degFrame .deg{
+	background-color:#ff840a;
+	width:2rem;
+	height:2rem;
+	transform-origin: center;
+  -webkit-transform-origin: center;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  position:absolute;
+  top:-1.3rem;
+  left:-1.3rem;}
+.vip_list .num{
+	font-size:.4rem;
+	color:#fff;
+	position:absolute;
+	top:0rem;
+	left:.1rem;}
+.vip_list .top{
+	width:100%;
+	padding:.4rem;
+	border-bottom:1px solid #dcdcdc;
+	}
+.vip_list .top .left{
+	width:2rem;
+	height:2rem;
+	float:left;}
+.vip_list .top .right{
+	float:left;
+	width: 6.5rem;
+  	margin-left: .5rem;}
+.vip_list .top .right .title{
+	 font-size:.5rem;}
+.vip_list .top .right .title img{
+	width:1rem;
+	position:relative;
+	top:.1rem;
+	}
+.vip_list .top .right .des{
+	margin-top:.15rem;
+	font-size:.4rem;
+	color:#7c7c7c;}
+.vip_list .bottom .left{
+	width:50%;
+	font-size:.5rem;
+	line-height:1rem;
+	text-align:center;
+	float:left;
+	color:#7c7c7c;
+	border-right:1px solid #dcdcdc;}
+.vip_list .bottom .right{
+	width:50%;
+	font-size:.5rem;
+	line-height:1rem;
+	text-align:center;
+	color:#7c7c7c;
+	float:left;}</style>
 <div class="vip_list">
 <% _.each(list,function(n,i){ %>
-	<div class="point" vid="<%= n.id %>">
+	<div class="point" vid="<%= n.id %>" number="<%= n.number %>">
     	<div class="degFrame">
         	<div class="deg"></div>
             <div class="num"><%= i+1 %></div>

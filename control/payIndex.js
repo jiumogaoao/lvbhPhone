@@ -45,7 +45,7 @@
 						}
 				});
 			$("#scroller #xyk").unbind("tap").bind("tap",function(){
-				if($("#scroller .fa-checkbox").length){
+				if($("#scroller .fa-checkbox.hl").length){
 					window.location.hash="cardList/"+data.id+"/1";
 					}else{
 						alert("必须同意旅游条款才能继续");

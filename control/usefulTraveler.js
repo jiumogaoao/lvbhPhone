@@ -5,7 +5,11 @@
 		par:"type/id/state",
 		tem:["top_third","double_line_list","single_button"],
 		fn:function(data){
+			var page=1;
+			var last=false;
 			var result={};
+			var resultA=[];
+			var resultB=[];
 			if(obj.cache("pruduct_input_"+data.id)){
 				result=obj.cache("pruduct_input_"+data.id);
 				}
@@ -19,20 +23,20 @@
 				window.history.go(-1);
 				});
 			
-			function layout(list,returnData){
+			function layout(returnData){
 				$("#head .rightButton").unbind("click").bind("click",function(){
 				if(!result.traveler){
 					result.traveler=[""];
 					}
 				$("#scroller .hl").each(function(i){
-					result.traveler[i]=returnData[$(this).parents(".point").attr("num")];
+					result.traveler[i]=resultB[$(this).parents(".point").attr("num")];
 					});
 				obj.cache("pruduct_input_"+data.id,result);
 					window.location.hash="productInput/"+data.type+"/"+data.id+"/"+data.state;
 				});
 				var main=_.template(data.tem[1])({
 					enable:true,
-					list:list,
+					list:resultA,
 					dscName:"手机号"
 					});
 				var button=_.template(data.tem[2])({text:'<span class="fa fa-add2" style="position: relative;top: .05rem;"></span> 添加常用旅客',id:"addTraveller"});
@@ -63,18 +67,35 @@
 				}
 			
 			
-			function getList(at){
-				obj.api.run("traveler_get",'at='+at+'&a=1',function(returnData){debugger;
-					var list=[];
+			
+			function getPage(callback){
+				function getList(at){
+				if(!last){	
+				obj.api.run("traveler_get",'at='+at+'&a='+page,function(returnData){
+					if(returnData.length === 10){
+						page++;
+						}else{
+						last=true;	
+							}
 					$.each(returnData,function(i,n){
-							list.push({title:n.b,dsc:n.f,type:n.q});
+							resultB.push(n);
+							resultA.push({title:n.b,dsc:n.f,type:n.q});
 						});
-					layout(list,returnData);
+					layout(returnData);
+					if(callback){callback();}
 					},function(e){
 					alert(JSON.stringify(e));
 					});
+					}else{
+						if(callback){callback();}
+						}
 				}
-			obj.api.at(getList);		
+			obj.api.at(getList);
+				}
+			getPage();
+			obj.reflash.add("usefulTraveler",function(callback){
+			getPage(callback);
+			});		
 			}
 		});
 	})($,app,config);

@@ -1,4 +1,120 @@
-<link href="css/top_third.css" rel="stylesheet" rev="stylesheet" type="text/css"/>
+<style>.top_third{
+	width:100%;
+	position:relative;
+	}
+.top_third .leftButton{
+	position:absolute;
+	top:.06rem;
+	left:0px;
+	width:10%;
+	text-align:center;
+	font-size:.6rem;}
+.top_third .center{
+	position:absolute;
+	top:0px;
+	left:10%;
+	width:80%;
+	text-align:center;
+	font-size:.6rem;
+	}
+.top_third .rightButton{
+	position:absolute;
+	top:.05rem;
+	right:.5rem;
+	font-size:.6rem;
+	}
+.top_third .top_nav{
+	width: 55%;
+  margin: auto;
+  margin-top: .25rem;
+  border: 2px solid #fff;
+  border-radius: 2rem;
+  height: 1rem;
+  color: #fff;
+  overflow:hidden;
+	}
+.top_third .top_nav a{
+	display:block;
+	width:50%;
+	float:left;
+	line-height:1rem;
+	text-align:center;
+	color:#fff;
+	text-decoration:none;}
+.top_third .top_nav a.hl{
+	background-color:#fff;
+	color:#009eff;
+	}
+.top_third.top_search .center{
+	top:.25rem;}
+.top_third.top_search input{  
+	background-color:#fff;
+   width: 105%;
+  height: .8rem;
+  font-size:.4rem;
+  line-height: .8rem;
+  border-radius: .2rem;
+    position: relative;
+  top: .12rem;
+  left:.2rem;
+  display: block;
+  text-indent: 3rem;}
+.top_third.top_search .dropdown{
+	position:absolute;
+	top:.22rem;
+	left:.3rem;
+	height: .6rem;
+	width:36%;
+	line-height:.75rem;
+	border-right:1px solid #DDD;
+	text-align:center;
+	border-radius:.2rem 0px 0px .2rem;
+	overflow:hidden;
+	color:#545454;
+	font-size:.45rem;
+	}
+.top_third.top_search .dropdown .fa{
+	font-size:.3rem;}
+.top_third.top_search select{
+	height: 1rem;
+	width:100%;
+	position:absolute;
+	top:0px;
+	left:0px;
+	opacity:0;
+	}
+.top_third.top_search .menu{
+	position:absolute;
+	left:0px;
+	top:1.3rem;
+	display:none;}
+.top_third.top_search .deg{
+	background-color:#fff;
+	width:.25rem;
+	height:.25rem;
+	  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  position: relative;
+  top: .04rem;
+	}
+.top_third.top_search .degMask{
+	width:.25rem;
+	height:.15rem;
+	overflow:hidden;
+	position:absolute;
+	bottom:100%;
+	left:2.4rem;
+	}
+.top_third.top_search .point{
+	background-color:#fff;
+	line-height:1rem;
+	width:10rem;
+	color:#555;
+	text-indent:.5rem;
+	text-align:left;
+	font-size:.4rem;}
+.top_third.top_search .point.bb{
+	border-bottom:1px solid #cccccc;}</style>
 <div class="top_third top_search">
 	<div class="leftButton"><%= left||'<span class="fa fa-back"></span>' %></div>
     <div class="center">

@@ -1,4 +1,22 @@
-<link href="css/simple_list.css" rel="stylesheet" rev="stylesheet" type="text/css" media="screen"/>
+<style>
+.simple_list{
+	width:100%;
+	background-color:#fff;
+	height:1.5rem;
+	color:#8e8e8e;}
+.simple_list.odd{
+	background-color:transparent;}
+.simple_list .name{
+	float:left;
+	font-size:.6rem;
+	line-height:1.5rem;
+	margin-left:.6rem;}
+.simple_list .icon{
+	float:right;
+	font-size:.6rem;
+	line-height:1.5rem;
+	margin-right:.6rem;}
+</style>
 <% _.each(list,function(value,index){ %>
 	<div class="simple_list<% if(index % 2){ print(" odd") } %>" lid="<%= value.lid %>">
 	<div class="name"><%= value.name %></div>

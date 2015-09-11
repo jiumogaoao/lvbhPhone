@@ -1,4 +1,20 @@
-<link href="css/bank_list.css" rel="stylesheet" rev="stylesheet" type="text/css"/>
+<style>.bank_list .button{
+	width:42%;
+	float:left;
+	margin-left:5%;
+	margin-top:.3rem;
+	line-height:1rem;
+	height:1rem;
+	text-align:center;
+	color:#959595;
+	background-color:#eeeeee;
+	border-radius:.1rem;
+	font-size:.4rem;
+	}
+.bank_list .button.hl{
+	background-color:#ff840c;
+	color:#fff;
+	}</style>
 <div class="bank_list">
 	<% _.each(list,function(n,i){ %>
     <div class="button<% if(i==0){print(" hl")} %>" bid="<%= n.id %>"><%= n.name %></div>

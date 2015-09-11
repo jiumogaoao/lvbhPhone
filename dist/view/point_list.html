@@ -1,4 +1,40 @@
-<link href="css/point_list.css" rel="stylesheet" rev="stylesheet" type="text/css"/>
+<style>.point_list{
+	width:100%;}
+.point_list .org{
+	color:#ff740c;}
+.point_list .total{
+	height:1.5rem;
+	line-height:1.5rem;
+	text-indent:.5rem;
+	font-size:.5rem;
+	background-color:#fff;
+	border-bottom:1px solid #dcdcdc;}
+.point_list .title{
+	height:1.5rem;
+	line-height:1.5rem;
+	text-indent:.5rem;
+	font-size:.5rem;
+	background-color:#fbf3e7;
+	border-bottom:1px solid #dcdcdc;}
+.point_list .point{
+	height:2rem;
+	font-size:.5rem;
+	background-color:#fff;
+	border-bottom:1px solid #dcdcdc;
+	position:relative;}
+.point_list .name{
+	padding-top:.5rem;
+	padding-left:.5rem;}
+.point_list .time{
+	font-size:.4rem;
+	color:#b0b0b0;
+	margin-left:.5rem;
+	margin-top:.1rem;}
+.point_list .scroe{
+	position:absolute;
+	top:.8rem;
+	right:.5rem;}
+</style>
 <div class="point_list">
 <div class="total">账户积分 <span class="org"><%= total %>分</span></div>
 <div class="title">积分记录</div>

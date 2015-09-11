@@ -1,10 +1,54 @@
-<link href="css/travel_detail_middle.css" rel="stylesheet" rev="stylesheet" type="text/css"/>
+<style>
+.travel_detail_middle{
+	background-color:#fff;
+	position:relative;
+	padding-top:.4rem;
+	padding-bottom:.4rem;
+	}
+.travel_detail_middle .top{
+	height:1px;
+	width:100%;
+	border-top:1px solid #ff840d;
+	position:relative;}
+.travel_detail_middle .top img{
+	background-color:#fff;
+	height:.5rem;
+	padding-left:.3rem;
+	padding-right:.3rem;
+	position:absolute;
+	top:-.25rem;
+	left:3.7rem;
+	}
+.travel_detail_middle .middle div{
+	margin-top:.3rem;}
+.travel_detail_middle .middle img{
+	width:100%;
+	}
+.travel_detail_middle .bottom{
+	margin-top:.3rem;
+	height:1px;
+	width:100%;
+	border-top:1px solid #ff840d;
+	position:relative;
+	}
+.travel_detail_middle .bottom img{
+	background-color:#fff;
+	height:.5rem;
+	padding-left:.3rem;
+	padding-right:.3rem;
+	position:absolute;
+	top:-.25rem;
+	left:4rem;
+	}
+</style>
 <div class="travel_detail_middle">
 	<div class="top">
     	<img src="img/travels_details_icon_begin.png"/>
     </div>
     <div class="middle">
-    
+    	<% _.each(list,function(n){ %>
+        <%= n %>
+        <% }) %>
     </div>
     <div class="bottom">
     	<img src="img/travels_details_icon_end.png"/>

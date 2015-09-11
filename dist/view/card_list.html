@@ -1,4 +1,38 @@
-<link href="css/card_list.css" rel="stylesheet" rev="stylesheet" type="text/css"/>
+<style>.card_list{width:100%;}
+.card_list .top{
+	width:95%;
+	border-bottom:1px solid #dcdcdc;
+	margin:auto;
+	padding-top:.2rem;
+	padding-bottom:.2rem;}
+.card_list .left{
+	width:2.5rem;
+	height:1rem;
+	display:block;
+	float:left;}
+.card_list .right{
+	font-size:.5rem;
+	float:left;
+	width:6rem;
+	color:#7c7c7c;
+	margin-left:.5rem;
+	position:relative;
+	top:.4rem;}
+.card_list .point{
+	width:40%;
+	float:left;
+	margin-top:.3rem;
+	margin-left:.7rem;}
+.card_list .point .fa{
+	font-size:.4rem;
+	position:relative;
+	top:-.3rem;}
+.card_list .point .fa.hl{
+	color:#009eff;}
+.card_list .point img{
+	width:3rem;
+	height:1rem;
+	margin-left:.3rem;}</style>
 <div class="card_list">
 	<div class="top">
     	<img class="left" src="img/center_logo_tenpay.png"/>
@@ -21,7 +55,10 @@
 	<input name="returnUrl" type="hidden" value="http://www.lvbh.cn/shop/tenpayReturnUrl.jspx"/>
     <input name="clientIp" type="hidden" value="<%= app.ip %>"/>
     <input name="bankType" type="hidden" value=""/>
-    <input name="sign" type="hidden" value="<% print($.md5("outTradeNo="+number+"&bankCode=Tenpay&totalFee="+price+"&returnUrl="+"http://www.lvbh.cn/shop/tenpayReturnUrl.jspx"+"lvbh2015@lvbh.cn")) %>"/>
+    <input name="sign" type="hidden" value="<% print($.md5("outTradeNo="+number+"&bankCode=Tenpay&totalFee="+price+"&returnUrl="+window.location.href.split("#")[0]+"#dealList/0"+"lvbh2015@lvbh.cn")) %>"/>
     <input type="submit" id="tenpay"/>
 </form>
+<script>
+$(".card_list [name='returnUrl']").val(window.location.href.split("#")[0]+"#dealList/0");
+</script>
 </div>
