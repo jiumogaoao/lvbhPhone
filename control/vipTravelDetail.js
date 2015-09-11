@@ -17,12 +17,13 @@
 				$("#head").css("background-color","rgba(0,158,255,"+((-1*y)/200)+")");
 				});
 			
-			function layout(source,messageArry){
+			function layout(source,messageArry,com){
 				var foot=_.template(data.tem[4])(source);
 				$("#foot").html(foot);
 				var top=_.template(data.tem[1])(source);
 				var middle=_.template(data.tem[2])({list:messageArry});
-				$("#scroller").html(top+middle+data.tem[3]);
+				var bottom=_.template(data.tem[3])({list:com});
+				$("#scroller").html(top+middle+bottom);
 			var delay=setTimeout(function(){
 				myScroll.refresh();
 				},200);
@@ -31,7 +32,16 @@
 				});
 				}
 			
+			function getCom(at,source,messageArry){
+				var com=[];
+				obj.api.run("travel_comment_get",'at='+at+'&a='+data.id,function(returnData){
+					$.each(returnData,function(i,n){
+						com.push({name:n.f,img:n.g,time:n.e,main:n.d});
+						});
+				layout(source,messageArry,com);
+					},function(e){alert(JSON.stringift(e));});
 				
+				}	
 			function getList(at){
 				var typeString="";
 				obj.api.run("travel_detail",'at='+at+'&a='+data.id,function(returnData){
@@ -45,7 +55,8 @@
 							messageArry.push("<div><img src='"+n.a+"' onerror='app.nofound(\"img/travel_particulars_cover_img_default.png\")'/></div>");
 							}
 						});
-					layout(source,messageArry);
+					getCom(at,source,messageArry);
+					
 					},function(e){alert(JSON.stringify(e));});
 				}
 			obj.api.at(getList);

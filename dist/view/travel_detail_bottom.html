@@ -20,14 +20,18 @@
 	padding-bottom:.3rem;
 	border-bottom:1px solid #dcdcdc;}</style>
 <div class="travel_detail_bottom">
-	<div class="point">
-    	<img src="http://" class="left" onerror="app.nofound('img/circle_member_list_img_picture.png')"/>
+<% _.each(list,function(n){ %>
+<div class="point">
+    	<img src="<%= n.img %>" class="left" onerror="app.nofound('img/circle_member_list_img_picture.png')"/>
         <div class="right">
-    		<div class="name">名字</div>
-            <div class="time">2016-06-03</div>
+    		<div class="name"><%= n.name %></div>
+            <div class="time"><%= n.time %></div>
             <div class="clear"></div>
-            <div class="desc">很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多很多字</div>
+            <div class="desc"><%= n.main %></div>
     	</div>
         <div class="clear"></div>
     </div>
+<% }) %>
+	
+    
 </div>
