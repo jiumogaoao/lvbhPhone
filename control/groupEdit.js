@@ -21,7 +21,7 @@
 			$(".top_third .rightButton").unbind("tap").bind("tap",function(){
 				obj.api.run("group_set","at="+at+"&"+sendArry[data.type]+"="+$(".input_single .main").val(),function(){
 					window.location.hash="groupSet";
-					},function(e){alert(JSON.stringify(e));});
+					},function(e){obj.pop.on("alert",{text:(JSON.stringify(e))});});
 				});
 			var delay=setTimeout(function(){
 				myScroll.refresh();

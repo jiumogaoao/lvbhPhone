@@ -75,7 +75,7 @@
 						});
 					layout(at,now,productList);
 					},function(e){
-					alert(JSON.stringify(e));
+					obj.pop.on("alert",{text:(JSON.stringify(e))});
 					});
 				}
 			function getcf(at,now,hot){
@@ -87,7 +87,7 @@
 						});
 					layout(at,now,productList,hot);
 					},function(e){
-						alert(JSON.stringify(e));
+						obj.pop.on("alert",{text:(JSON.stringify(e))});
 						});
 				}
 			function getmd(at,now,hot){
@@ -99,7 +99,7 @@
 						});
 					layout(at,now,productList,hot);
 					},function(e){
-						alert(JSON.stringify(e));
+						obj.pop.on("alert",{text:(JSON.stringify(e))});
 						});
 				}
 			function getTable(at,now){
@@ -120,11 +120,11 @@
 					getmd(at,now,hot);	
 						}	
 						}else{
-							alert("该项暂无数据");
+							obj.pop.on("alert",{text:("该项暂无数据")});
 							}
 					
 					},function(e){
-					alert(JSON.stringify(e));
+					obj.pop.on("alert",{text:(JSON.stringify(e))});
 					});
 				}
 			function getNow(at){

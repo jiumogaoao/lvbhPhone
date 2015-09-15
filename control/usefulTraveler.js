@@ -50,7 +50,7 @@
 							$(this).data("choose",true);
 						$(this).addClass("hl");
 							}else{
-								alert("可选人数已满");
+								obj.pop.on("alert",{text:("可选人数已满")});
 								}
 						
 						}
@@ -84,7 +84,7 @@
 					layout(returnData);
 					if(callback){callback();}
 					},function(e){
-					alert(JSON.stringify(e));
+					obj.pop.on("alert",{text:(JSON.stringify(e))});
 					});
 					}else{
 						if(callback){callback();}

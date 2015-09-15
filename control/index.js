@@ -57,7 +57,7 @@ $(".product_group_list .point").unbind("tap").bind("tap",function(){
 					promo=returnData;
 					totalCount();
 					},function(e){
-					alert(JSON.stringify(e));
+					obj.pop.on("alert",{text:(JSON.stringify(e))});
 					});
 				obj.api.run("index_cfgj",'at="'+at+'"',function(returnData){
 					$.each(returnData,function(i,n){
@@ -89,12 +89,12 @@ $(".product_group_list .point").unbind("tap").bind("tap",function(){
 					});
 				obj.api.run("index_vip",'at="'+at+'"',function(returnData){
 					$.each(returnData,function(i,n){
-						var addData={image:n.a,name:n.b,fans:n.c,money:n.d,id:n.e};
+						var addData={image:config.sour+"sns/tpu.jspx?at="+at+"&a=1&b="+n.i+"&c="+n.l,name:n.c,fans:n.r,money:n.p,id:n.b};
 						vip.push(addData);
 						});
 					totalCount();
 					},function(e){
-					alert(JSON.stringify(e));
+					obj.pop.on("alert",{text:(JSON.stringify(e))});
 					});
 				}
 			obj.api.at(getMessage);

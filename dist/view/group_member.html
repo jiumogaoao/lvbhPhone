@@ -65,7 +65,12 @@
 <% _.each(list,function(n,i){ %>
 	<div class="point" gid="<%= n.id %>">
 		<img src="<%= n.image %>"  onerror="app.nofound('img/collect_img_picture.png')"/>
-        <div class="name"><%= n.name %></div>
+        <div class="name"><%
+        if(n.name){
+        n.name=n.name+"";
+        	if(n.name&&n.name.length<6){print(n.name)}else{print(n.name.substr(0,6)+"...")}
+        }
+         %></div>
         <div class="number"><span class="fa fa-member"></span> <%= n.fans %></div>
         <div class="number"><span class="fa fa-money2"></span> <%= n.money %></div>
         <div class="deg">

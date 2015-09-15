@@ -44,7 +44,7 @@
 						bottom:"0rem"
 						});
 					$("#scroller").css({"padding-bottom":"1.5rem"});
-					}else if(hashArry[0]==="productDetail"||hashArry[0]==="productInput"){
+					}else if(hashArry[0]==="productDetail"||hashArry[0]==="productInput"||hashArry[0]==="messageList"||hashArry[0]==="dealFlow"){
 						$("#head").height("1.5rem");
 						$("#middle").css({
 						top:"1.5rem",
@@ -83,7 +83,7 @@
 				if(dataObj.at){
 					app.cache("phone",{"phone":true});
 					}
-				if(dataObj.ut){
+				if(dataObj.ut&&app.cache("phone")&&app.cache("phone").phone){
 					app.cookies("login_"+at,{login:dataObj.ut});	
 					}
 				if(app.cache("phone")&&app.cache("phone").phone){
@@ -140,6 +140,9 @@
 			}
 		}
 	window.onhashchange=function(){
+		$("#foot").empty();
+		$("#head").empty();
+		$("#scroller").empty();
 		$("#otherFrame").hide();
 		changePage();
 		};

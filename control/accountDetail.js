@@ -112,13 +112,13 @@
 				var send="";
 				if(data.type === "0"||data.type === "1"||data.type === "2"){
 					send='at='+at+'&jparam={"c"="'+data.type+'"}';
-					obj.api.run("income_get",send,layout,function(e){alert(JSON.stringify(e));});
+					obj.api.run("income_get",send,layout,function(e){obj.pop.on("alert",{text:(JSON.stringify(e))});});
 					}else if(data.type === "5"){
 					send='at='+at+'&jparam={"c"="0"}';
-					obj.api.run("expend_get",send,layout,function(e){alert(JSON.stringify(e));});
+					obj.api.run("expend_get",send,layout,function(e){obj.pop.on("alert",{text:(JSON.stringify(e))});});
 						}else{
 					send='at='+at+'&jparam={"c"="'+(Number(data.type)-2)+'"}';
-					obj.api.run("expend_get",send,layout,function(e){alert(JSON.stringify(e));});	
+					obj.api.run("expend_get",send,layout,function(e){obj.pop.on("alert",{text:(JSON.stringify(e))});});	
 						}
 				}
 			obj.api.at(getdetail);

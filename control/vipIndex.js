@@ -40,13 +40,13 @@
 					page++;
 					returnData=returnData.data;
 					$.each(returnData,function(i,n){
-				result.push({"img":"http://112.74.25.12:48080/sns/tpu.jspx?&a=2&b="+n.i+"&c="+n.l,"title":n.c,"id":n.b,"des":n.h,"hot":n.r,"money":n.p,"step":n.m,"number":n.i});	
+				result.push({"img":config.sour+"sns/tpu.jspx?at="+at+"&a=1&b="+n.i+"&c="+n.l,"title":n.c,"id":n.b,"des":n.h,"hot":n.r,"money":n.p,"step":n.m,"number":n.i});	
 				});
 			layout();
 					}
 			if(callback){callback();}
 					},function(e){
-					alert(JSON.stringify(e));
+					obj.pop.on("alert",{text:(JSON.stringify(e))});
 					});
 				}
 				getPage();

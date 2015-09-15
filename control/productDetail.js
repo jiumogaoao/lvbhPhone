@@ -48,6 +48,7 @@
 				right:'<span class="fa fa-phone2"></span>'
 				});
 			$("#head").html(head);
+			
 			$("#head .leftButton").unbind("click").bind("click",function(){
 				window.history.go(-1);
 				});
@@ -77,7 +78,12 @@
 				});
 			$("#otherFrame").hide();
 			obj.scrollFn.add("productDetail",function(y){
-				if(($("#guding").offset().top*10)/$(window).width()<=1.5){
+				var juli=1.5;
+				if(app.cache("phone")&&app.cache("phone").phone){
+					juli=0;
+					$("#otherFrame").css("top","-.4rem");
+					}
+				if(($("#guding").offset().top*10)/$(window).width()<=juli){
 					$("#otherFrame").show();
 					if($("#cpts").offset().top>0&&($("#cpts").offset().top*10)/$(window).width()<3){
 						$(".nav_two.nav_third .nav_point_frame").removeClass("hl");
@@ -95,32 +101,46 @@
 				});
 			$("#scroller .product_top .collect").unbind("tap").bind("tap",function(){
 				obj.api.run("collect_add",'at='+at+'&t='+collectArry[data.type]+'&id='+data.id+'&cn='+result.title+'&desc='+result.title,function(returnData){
-					alert("收藏成功");
-					},function(e){alert(JSON.stringify(e));});
+					obj.pop.on("alert",{text:("收藏成功")});
+					},function(e){obj.pop.on("alert",{text:(JSON.stringify(e))});});
 				});
 			$("#scroller #date").unbind("tap").bind("tap",function(){
-				if(app.cookies("login_"+at)&&app.cookies("login_"+at).login){
 				obj.cache("pruduct_input_"+data.id,result);
 				window.location.hash="calendar/"+data.type+"/"+data.id+"/"+result.state+"/0";
-				}else{
-					alert("请先登录");
-						window.location.hash="login";
-					}
 				});
+			function go2(){
+				obj.cache("pruduct_input_"+data.id,result);
+				window.location.hash="productInput/"+data.type+"/"+data.id+"/"+result.state;
+				}
 			$("#payButton").unbind("tap").bind("tap",function(){
 				if(app.cookies("login_"+at)&&app.cookies("login_"+at).login){
-					obj.cache("pruduct_input_"+data.id,result);
-				window.location.hash="productInput/"+data.type+"/"+data.id+"/"+result.state;
+					if(typeof(android)!=="undefined"&&android.loginCheck){
+						loginReturn=android.loginCheck();
+						if(loginReturn){
+							app.cookies("login_"+at,{login:loginReturn});
+							go2();
+							}					
+						}else{go2();}
+					
 					}else{
-						alert("请先登录");
-						window.location.hash="login/productDetail$"+data.type+"$"+data.id;
+						if(typeof(android)!=="undefined"&&android.loginCheck){
+						loginReturn=android.loginCheck();
+						if(loginReturn){
+							app.cookies("login_"+at,{login:loginReturn});
+							go2();
+							}					
+						}else{
+							window.location.hash="login/productDetail$"+data.type+"$"+data.id+"$$"+result.state;
+							}
 						}
 				});
 			$(".title_input_list [name='message']").unbind("tap").bind("tap",function(){
-				window.location.hash="messageList/"+data.type+"/"+data.id;
+				obj.cache("pruduct_input_"+data.id,result);
+				window.location.hash="messageList/"+data.type+"/"+data.id+"/"+result.state;
 				});
 			$(".title_input_list [name='flow']").unbind("tap").bind("tap",function(){
-				window.location.hash="dealFlow/"+data.id;
+				obj.cache("pruduct_input_"+data.id,result);
+				window.location.hash="dealFlow/"+data.type+"/"+data.id+"/"+result.state;
 				});
 			$(".title_input_list [name='comment']").unbind("tap").bind("tap",function(){
 				window.location.hash="commentList/"+data.id;
@@ -141,18 +161,28 @@
 						window.location.href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url="+window.location.href+"&title="+top.title+"&desc="+top.title+"&summary=&site=lvbh";
 						});
 					},function(e){
-					alert(JSON.stringify(e));
+					obj.pop.on("alert",{text:(JSON.stringify(e))});
 					});
 				});
 			
-			$(".nav_third .nav_point_frame").unbind("tap").bind("tap",function(){
+			$(".nav_third #left").unbind("tap").bind("tap",function(){
 				$(".nav_third .nav_point_frame").removeClass("hl");
 				$(this).addClass("hl");
-				$(".product_bottom .list").hide();
-				$(".product_bottom [show='"+$(this).attr("id")+"']").show();
+				myScroll.scrollToElement($("#noChange")[0]);
 				myScroll.refresh();
 				});
-			
+			$(".nav_third #center").unbind("tap").bind("tap",function(){
+				$(".nav_third .nav_point_frame").removeClass("hl");
+				$(this).addClass("hl");
+				myScroll.scrollToElement($("#xxxc")[0]);
+				myScroll.refresh();
+				});
+			$(".nav_third #right").unbind("tap").bind("tap",function(){
+				$(".nav_third .nav_point_frame").removeClass("hl");
+				$(this).addClass("hl");
+				myScroll.scrollToElement($("#fysm")[0]);
+				myScroll.refresh();
+				});
 			$(".nav_third").css({"margin-top":".4rem",
 			"margin-bottom":"0px",
 			"border-top":"1px solid #dcdcdc"
@@ -220,7 +250,7 @@
 				};
 					layout(at,top,center,bottom);
 					},function(e){
-					alert(JSON.stringify(e));
+					obj.pop.on("alert",{text:(JSON.stringify(e))});
 					});
 				}
 			obj.api.at(getList,data.at);	

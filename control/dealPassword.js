@@ -34,9 +34,9 @@
 					return false;
 					}
 				obj.api.run("deal_password",{at:at,o:$("[name='old']").val(),p:$("[name='new']").val()},function(){
-					alert("修改成功");
+					obj.pop.on("alert",{text:("修改成功")});
 					},function(e){
-						alert(JSON.stringify(e));
+						obj.pop.on("alert",{text:(JSON.stringify(e))});
 						});
 				});
 			myScroll.refresh();

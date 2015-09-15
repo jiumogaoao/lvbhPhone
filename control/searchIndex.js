@@ -137,19 +137,19 @@
 						}
 					layout(at,placeList);
 					},function(e){
-					alert(e);
+					obj.pop.on("alert",{text:(e)});
 					});
 				}
 			function province(at,now){
 				obj.api.run("province_getAll","at="+at,function(returnData){
 					place(at,now,returnData);
-					},function(e){alert(e);});
+					},function(e){obj.pop.on("alert",{text:(e)});});
 				}
 			function now(at){
 				obj.api.run("city_get_now","at="+at,function(returnData){
 					province(at,returnData);
 					},function(e){
-					alert(e);
+					obj.pop.on("alert",{text:(e)});
 					});
 				}
 			obj.api.at(now);

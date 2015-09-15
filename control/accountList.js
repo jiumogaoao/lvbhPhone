@@ -87,7 +87,7 @@
 					list=list.data;
 						layout(list,at);}
 						if(callback){callback();}
-						},function(e){alert(JSON.stringify(e));});
+						},function(e){obj.pop.on("alert",{text:(JSON.stringify(e))});});
 					}else{
 					send='at='+at+'&jparam={"c"="'+data.type+'","b"="'+page+'"'+(data.search||'')+'}';
 					obj.api.run("income_get",send,function(list){
@@ -97,7 +97,7 @@
 						layout(list,at);}
 						if(callback){callback();}
 						},
-					function(e){alert(JSON.stringify(e));});
+					function(e){obj.pop.on("alert",{text:(JSON.stringify(e))});});
 						}
 				}
 				getPage();

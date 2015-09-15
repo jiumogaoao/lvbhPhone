@@ -25,18 +25,18 @@
 						obj.api.run("key_check",'at='+at+'&a='+data.id+'&b='+$("#pop .top").val(),function(returnData){
 							if(returnData === 1){
 								obj.api.run("pay_account",'at='+at+'&a='+data.id+'&b='+$("#pop .top").val(),function(dataA){
-									alert("支付成功");
+									obj.pop.on("alert",{text:("支付成功")});
 									window.location.hash="dealList/0";
-									},function(e){alert(e);});
+									},function(e){obj.pop.on("alert",{text:(e)});});
 								}
-							},function(e){alert(e);});
+							},function(e){obj.pop.on("alert",{text:(e)});});
 						});
 					$("#pop .right").unbind("tap").bind("tap",function(){
 						app.pop.off();
 						});	
 					});
 						}else{
-							alert("余额不足");
+							obj.pop.on("alert",{text:("余额不足")});
 							}
 					
 					});
@@ -62,7 +62,7 @@
 						price:returnData.go.i,
 						balance:returnData.c
 						});
-					},function(e){alert(JSON.stringify(e));});
+					},function(e){obj.pop.on("alert",{text:(JSON.stringify(e))});});
 				}
 			obj.api.at(getDetail);
 			}

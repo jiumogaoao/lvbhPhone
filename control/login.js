@@ -12,10 +12,13 @@
 				var list=_.template(data.tem[2])({list:[
 				{"name":"user","placehold":"请输入手机号/邮箱","icon":"fa-man","value":"","other":""},
 				{"name":"key","placehold":"请输入密码","icon":"fa-lock","value":"","other":"","type":"password"},
-				{"name":"code","placehold":"请输入右侧验证码","icon":"fa-node","value":"","other":'<img src="'+config.sour+'user/v.jspx?at='+at+'"/>'}
+				{"name":"code","placehold":"请输入右侧验证码","icon":"fa-node","value":"","other":'<img id="code" src="'+config.sour+'user/v.jspx?at='+at+'"/>'}
 			]});
 			var button=_.template(data.tem[3])({"text":"登录","id":"loginButton"});
 			$("#scroller").html(nav+list+button);
+			$("#code").unbind("tap").bind("tap",function(){
+				$(this).attr("src",config.sour+'user/v.jspx?at='+at+'&t='+new Date().getTime());
+				});
 			$(".top_third .leftButton").unbind("tap").bind("tap",function(){
 				window.history.go(-1);
 				});
@@ -42,6 +45,7 @@
 							window.location.hash="index";	
 								}
 						},function(e){
+						$("#code").attr("src",config.sour+'user/v.jspx?at='+at+'&t='+new Date().getTime());
 						obj.pop.on("alert",{text:JSON.stringify(e)});
 						});
 					});

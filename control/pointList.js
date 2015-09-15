@@ -40,7 +40,7 @@
 					}
 					if(callback){callback();}
 				},function(e){
-					alert(JSON.stringify(e));
+					obj.pop.on("alert",{text:(JSON.stringify(e))});
 					});
 				
 				}

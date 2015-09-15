@@ -42,7 +42,7 @@
 				obj.api.run("travel_detail","at="+at+"&a="+data.id,function(returnData){
 					layout(returnData,at);
 					},function(e){
-					alert(JSON.stringify(e));
+					obj.pop.on("alert",{text:(JSON.stringify(e))});
 					});
 				}
 			obj.api.at(getGroup);	

@@ -75,7 +75,7 @@
 				}
 			function getGroup(at){
 				obj.api.run("group_getMy","at="+at,layout,function(e){
-					alert(JSON.stringify(e));
+					obj.pop.on("alert",{text:(JSON.stringify(e))});
 					});
 				}
 			obj.api.at(getGroup,data.at);	

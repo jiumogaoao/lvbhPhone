@@ -1,0 +1,36 @@
+<style>
+	.title_desc{
+		width:100%;}
+	.title_desc .group{
+		width:95%;
+		margin:auto;
+		}
+	.title_desc .title{
+		text-align:center;
+		font-size:.5rem;
+		line-height:1rem;
+		border-bottom:1px solid #7c7c7c;}
+	.title_desc .desc{
+		font-size:.4rem;
+		color:#7c7c7c;
+		letter-spacing: .01rem;
+		line-height:.7rem;
+		padding-top:.3rem;
+		padding-bottom:.3rem;
+		}
+	
+</style>
+<div class="title_desc">
+	<% _.each(list,function(n){ %>
+    <div class="group">
+    <% if(n.title){ %>
+    <div class="title"><%= n.title %></div>
+    <% } %>
+        
+        <div class="desc">
+        <%= n.desc %>
+        </div>
+    </div>
+    <% }) %>
+    
+</div>

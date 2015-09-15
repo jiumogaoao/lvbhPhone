@@ -27,7 +27,7 @@
 						$(".frame_"+i+" img").attr("src",n.pic);
 						});
 					},function(e){
-					alert(JSON.stringify(e));
+					obj.pop.on("alert",{text:(JSON.stringify(e))});
 					});
 				}
 			

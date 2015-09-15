@@ -11,23 +11,37 @@
 	font-size:.4rem;
 	line-height:.4rem;
 	height:100%;
-	border-right:1px solid #dcdcdc;}
+	border-right:1px solid #dcdcdc;
+	position:relative;
+	}
+.travel_detail_foot .point input{
+	position:absolute;
+	top:0px;
+	left:0px;
+	width:100%;
+	height:100%;
+	z-index:2;
+	opacity:0;}
 .travel_detail_foot .point.hl .fa{
 	color:#ff840d;}
 .travel_detail_foot .point .fa{
-	line-height:.8rem;}</style>
+	line-height:.8rem;}
+.travel_detail_foot .disable .fa{
+	color:#ff840a;}
+    </style>
 <div class="travel_detail_foot">
-	<div class="point">
+	<div class="point <% if(stared==1){print("disable")}else{print("enable")} %>" id="showchang">
     	<span class="fa fa-star3"></span>
         <br/>
         <%= star %>
     </div>
-    <div class="point">
+    <div class="point <% if(comed==1){print("disable")}else{print("enable")} %>">
+    	<input id="comInput"/>
     	<span class="fa fa-com"></span>
         <br/>
         <%= com %>
     </div>
-    <div class="point">
+    <div class="point <% if(praed==1){print("disable")}else{print("enable")} %>" id="prise">
     	<span class="fa fa-pra"></span>
         <br/>
         <%= pra %>

@@ -32,7 +32,7 @@
 				obj.api.run("collect_remove",'at='+at+'&a='+remove,function(){
 					window.location.hash="collectProductList/0";
 					},function(e){
-					alert(JSON.stringify(e));
+					obj.pop.on("alert",{text:(JSON.stringify(e))});
 					});
 						});
 					}
@@ -67,7 +67,7 @@
 						layout(result,at);
 						}
 					if(callback){callback();}
-					},function(e){alert(JSON.stringify(e));});
+					},function(e){obj.pop.on("alert",{text:(JSON.stringify(e))});});
 				
 				});
 			}

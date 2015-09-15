@@ -20,35 +20,35 @@
 				if($("#scroller .fa-checkbox").length){
 					$("#alipay").click();
 					}else{
-						alert("必须同意旅游条款才能继续");
+						obj.pop.on("alert",{text:("必须同意旅游条款才能继续")});
 						}
 				});
 			$("#scroller #cft").unbind("tap").bind("tap",function(){
 				if($("#scroller .fa-checkbox").length){
 					$("#tenpay").click();
 					}else{
-						alert("必须同意旅游条款才能继续");
+						obj.pop.on("alert",{text:("必须同意旅游条款才能继续")});
 						}
 				});
 			$("#scroller #lvbh").unbind("tap").bind("tap",function(){
 				if($("#scroller .fa-checkbox").length){
 					window.location.hash="payLvbh/"+data.id;
 					}else{
-						alert("必须同意旅游条款才能继续");
+						obj.pop.on("alert",{text:("必须同意旅游条款才能继续")});
 						}
 				});
 			$("#scroller #cxk").unbind("tap").bind("tap",function(){
 				if($("#scroller .fa-checkbox").length){
 					window.location.hash="cardList/"+data.id+"/0";
 					}else{
-						alert("必须同意旅游条款才能继续");
+						obj.pop.on("alert",{text:("必须同意旅游条款才能继续")});
 						}
 				});
 			$("#scroller #xyk").unbind("tap").bind("tap",function(){
 				if($("#scroller .fa-checkbox.hl").length){
 					window.location.hash="cardList/"+data.id+"/1";
 					}else{
-						alert("必须同意旅游条款才能继续");
+						obj.pop.on("alert",{text:("必须同意旅游条款才能继续")});
 						}
 				});
 				var delay=setTimeout(function(){
@@ -65,7 +65,6 @@
 			
 			function getDetail(at){
 				obj.api.run("pay_detail",'at='+at+'&a='+data.id,function(returnData){
-					console.log(returnData);
 					var payList=[];
 					$.each(returnData.list1,function(i,n){
 						payList.push(bankArry[n.a]);
@@ -80,7 +79,7 @@
 						price:returnData.go.i,
 						payList:payList
 						});
-					},function(e){alert(JSON.stringify(e));});
+					},function(e){obj.pop.on("alert",{text:(JSON.stringify(e))});});
 				}
 			obj.api.at(getDetail);
 			}

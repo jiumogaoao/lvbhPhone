@@ -85,7 +85,7 @@
 						price:returnData.go.i,
 						cardList:cardArry[data.type]
 						});
-					},function(e){alert(JSON.stringify(e));});
+					},function(e){obj.pop.on("alert",{text:(JSON.stringify(e))});});
 				}
 			obj.api.at(getDetail);
 			}

@@ -56,7 +56,7 @@
 				obj.api.run("place_get","at="+at,function(returnData){
 					place(at,returnData);
 					},function(e){
-					alert(e);
+					obj.pop.on("alert",{text:(e)});
 					});
 				}
 			obj.api.at(province);

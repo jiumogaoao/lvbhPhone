@@ -44,7 +44,7 @@
 						layout(list,at);
 						}
 						if(callback){callback();}
-						},function(e){alert(JSON.stringify(e));});
+						},function(e){obj.pop.on("alert",{text:(JSON.stringify(e))});});
 					}
 				getPage();
 			obj.reflash.add("cashList",function(callback){

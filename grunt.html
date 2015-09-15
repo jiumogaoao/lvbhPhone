@@ -30,7 +30,7 @@
 </script>
 <script src="include/cookies.min.js"></script>
 <script src="include/moment.js"></script>
-<script src="include/iscroll.js"></script>
+<script src="include/iscroll-probe.js"></script>
 <script src="include/touch.js"></script>
 <script src="include/calendar.js"></script>
 <script src="include/md5.js"></script>
@@ -67,30 +67,28 @@ document.addEventListener('touchmove', function (e) { e.preventDefault(); }, fal
 <div id="bottomBG"></div>
 </body>
 <script>
-var myScroll = new IScroll('#middle', { scrollbars: false,
+var myScroll = new IScroll('#middle', { probeType: 3,scrollbars: false,
 		mouseWheel: true,
 		interactiveScrollbars: false,
 		shrinkScrollbars: 'scale',
 		fadeScrollbars: true,
-		chechDOMChanges:true
+		checkDOMChanges:true
 		 });
 function updatePosition(){
 	app.scrollFn.run(this.y>>0);}
 myScroll.on('scroll', updatePosition);
 myScroll.on('scrollEnd', function(){if(this.y === this.maxScrollY){app.reflash.run();}});
+
 function resize(){
-	if($(window).width()<$(window).height()){
+
 	$("html").css("font-size",$(window).width()*0.1);
-	}else{
-		$("html").css("font-size",$(window).height()*0.1)
-		}
+
 		myScroll.refresh();
 		$("#loading").css("top",($(window).height()/($(window).width()/10)-1)/2+"rem");
 		$("#pop").css("top",(($(window).height()-$("#pop").height())/($(window).width()/10))/2+"rem")
 	}
 resize();
 $(window).on("resize",resize);
-
 
 
 </script>

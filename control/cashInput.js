@@ -28,35 +28,35 @@
 				app.pop.on("password",null,function(){
 					$("#pop .left").unbind("tap").bind("tap",function(){
 						if(!$("[name='name'] input").val()){
-							app.pop.on("alert",{text:"开户名不能为空"});
+							obj.pop.on("alert",{text:"开户名不能为空"});
 							return false;
 							}
 						if(!$("[name='number'] input").val()){
-							app.pop.on("alert",{text:"卡号不能为空"});
+							obj.pop.on("alert",{text:"卡号不能为空"});
 							return false;
 							}
 						if($("[name='bank'] .result").html() === '请选择银行'){
-							app.pop.on("alert",{text:"请选择银行"});
+							obj.pop.on("alert",{text:"请选择银行"});
 							return false;
 							}
 						if(!$("[name='money'] input").val()){
-							app.pop.on("alert",{text:"金额不能为空"});
+							obj.pop.on("alert",{text:"金额不能为空"});
 							return false;
 							}
 						if(!$("#pop .top").val()){
-							app.pop.on("alert",{text:"交易密码不能为空"});
+							obj.pop.on("alert",{text:"交易密码不能为空"});
 							return false;
 							}
 						var send='at='+at+'&jparam={"a"="'+$("[name='money'] input").val()+'","b"="'+$("[name='bank'] .result").html()+'","c"="'+$("[name='name'] input").val()+'","d"="'+$("[name='number'] input").val()+'","e"="'+$("#pop .top").val()+'","f"="'+$("[name='dsc'] input").val()+'"}';
 						obj.api.run("cash_order",send,function(){
-							app.pop.on("alert",{text:"提现申请已提交"});
+							obj.pop.on("alert",{text:"提现申请已提交"});
 							window.location.hash="accountIndex";
 							},function(e){
-							alert(JSON.stringify(e));
+							obj.pop.on("alert",{text:(JSON.stringify(e))});
 							});
 						});
 					$("#pop .right").unbind("tap").bind("tap",function(){
-						app.pop.off();
+						obj.pop.off();
 						});	
 					});
 				});
@@ -70,7 +70,7 @@
 				obj.api.run("account_get",send,function(result){
 					layout(result,at);
 					},function(e){
-					alert(JSON.stringify(e));
+					obj.pop.on("alert",{text:(JSON.stringify(e))});
 					});
 				}
 			obj.api.at(getAccount);

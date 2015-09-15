@@ -42,7 +42,7 @@
 				obj.api.run("travel_remove",'at='+at+'&a='+remove,function(){
 					window.location.hash="travelList/2/0";
 					},function(e){
-					alert(JSON.stringify(e));
+					obj.pop.on("alert",{text:(JSON.stringify(e))});
 					});
 						
 						});
@@ -57,7 +57,7 @@
 				obj.api.run("travel_commit",'at='+at+'&a='+remove,function(){
 					window.location.hash="travelList/2/0";
 					},function(e){
-					alert(JSON.stringify(e));
+					obj.pop.on("alert",{text:(JSON.stringify(e))});
 					});
 						});
 					}
@@ -103,7 +103,7 @@
 						layout(result,at);
 						}
 					if(callback){callback();}
-					},function(e){alert(JSON.stringify(e));});
+					},function(e){obj.pop.on("alert",{text:(JSON.stringify(e))});});
 				});
 			}
 			getPage();
