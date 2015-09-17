@@ -12,6 +12,9 @@
 					user:{"number":user?user.t:false,"image":user?config.sour+"center/tp.jspx?at="+at+"&a=2&b="+user.n:false,"name":user?user.e:false,"id":user?user.u:false,"hot":user?user.c:false,"money":user?user.d:false,"tap":user?user.tap:false}
 					});
 				$("#scroller").html(top+data.tem[2]);
+				$(".mine_top .message").unbind("tap").bind("tap",function(){
+					window.location.hash="messageIndex/0/0";
+					});
 				$(".mine_top .deg").unbind("tap").bind("tap",function(){
 					window.location.hash="selfInfo";
 					});

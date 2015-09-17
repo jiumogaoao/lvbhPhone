@@ -12,10 +12,11 @@
 			$("body").css({"background-color":"#eeeeee"});
 			$("#head").css("background-color","#009eff");
 			myScroll.scrollTo(0, 0);
-			if(hashArry[0]==="index"||hashArry[0]==="mineIndex"){
+			if(hashArry[0]==="index"){
 				$("#foot").empty();
 				$("#foot").css("height","1.5rem");
 				$("#foot").show();
+				$("#head").show();
 				$("#head").height("1.5rem");
 				$("#head").css("background-color","rgba(0,158,255,0)");
 					$("#middle").css({
@@ -23,8 +24,15 @@
 						bottom:"0rem"
 						});
 					$("#scroller").css({"padding-bottom":"1.5rem"});
-				}else if(hashArry[0]==="vipTravelDetail"){
-					
+				}else if(hashArry[0]==="mineIndex"){
+					$("#foot").empty();
+				$("#foot").css("height","1.5rem");
+				$("#foot").show();
+				$("#head").hide();
+				$("#middle").css("top","0px");
+					$("#scroller").css({"padding-bottom":"1.5rem"});
+					}else if(hashArry[0]==="vipTravelDetail"){
+					$("#head").show();
 				$("#foot").empty();
 				$("#foot").css("height","1.3rem");
 				$("#foot").show();
@@ -40,6 +48,7 @@
 					$("#foot").empty();
 				$("#foot").css("height","1.5rem");
 				$("#foot").show();
+				$("#head").show();
 				$("#head").height("1.5rem");
 				$("#head").css("background-color","rgba(0,158,255,1)");
 					$("#middle").css({
@@ -51,6 +60,7 @@
 					$("#foot").empty();
 					$("#foot").css("height","1.5rem");
 				$("#foot").show();
+				$("#head").show();
 				$("#head").height("1.5rem");
 					$("#middle").css({
 						top:"1.5rem",
@@ -59,6 +69,7 @@
 					$("#scroller").css({"padding-bottom":"1.5rem"});
 					}else if(hashArry[0]==="productDetail"||hashArry[0]==="productInput"||hashArry[0]==="messageList"||hashArry[0]==="dealFlow"||hashArry[0]==="travelAdd"){
 						$("#head").height("1.5rem");
+						$("#head").show();
 						$("#middle").css({
 						top:"1.5rem",
 						bottom:"0rem"
@@ -69,6 +80,7 @@
 						$("#foot").show();
 						}else if(hashArry[0]==="vipTravelList"||hashArry[0]==="vipMemberList"){
 				$("#foot").hide();
+				$("#head").show();
 				$("#head").height("1.5rem");
 				$("#head").css("background-color","rgba(0,158,255,0)");
 					$("#middle").css({
@@ -79,6 +91,7 @@
 							}else{
 					$("#foot").empty();
 					$("#foot").hide();
+					$("#head").show();
 					$("#head").height("1.5rem");
 					$("#middle").css({
 						top:"1.5rem",

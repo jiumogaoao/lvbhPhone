@@ -1,0 +1,19 @@
+<div class="mine_message_list">
+<% _.each(list,function(n,i){ %>
+<div class="point">
+    	<img src="<%= n.img %>" class="left"/>
+        <% if(n.hot){ %>
+        <div class="hot"></div>
+        <% } %>
+        <div class="right">
+        	<div class="title"><%= n.title %></div>
+            <div class="time"><%= n.time %></div>
+            <div class="clear"></div>
+            <div class="desc"><%= n.desc %></div>
+        </div>
+        <div class="clear"></div>
+    </div>
+<% }) %>
+	
+    
+</div>
