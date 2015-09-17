@@ -23,9 +23,7 @@
 				});
 			function getIndex(at){
 				obj.api.run("found_index_get","at="+at,function(returnData){
-					$.each(returnData,function(i,n){
-						$(".frame_"+i+" img").attr("src",n.pic);
-						});
+
 					},function(e){
 					obj.pop.on("alert",{text:(JSON.stringify(e))});
 					});

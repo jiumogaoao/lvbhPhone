@@ -1,0 +1,132 @@
+<style>.travel_list{
+	width:100%;}
+.travel_list .point{
+	width:100%;
+	margin-bottom:.3rem;
+	position:relative;}
+.travel_list .right{
+	width:100%;}
+.travel_list .top{
+	width:100%;
+	padding:.2rem;
+	height:7rem;
+	background-color:#fff;
+	}
+.travel_list .title{
+	font-size:.45rem;
+}
+.travel_list .place{
+	float:left;
+	font-size:.38rem;
+	line-height:.5rem;
+	margin-left:.3rem;
+	margin-top:.2rem;
+	color:#7c7c7c;
+	}
+.travel_list .time{
+	float:left;
+	font-size:.38rem;
+	line-height:.5rem;
+	margin-left:.3rem;
+	margin-top:.2rem;
+	color:#7c7c7c;
+	}
+.travel_list .tag{
+	color:#fff;
+	background-color:#009fff;
+	font-size:.35rem;
+	text-align:center;
+	float:left;
+	margin-left:.3rem;
+	padding-left:.1rem;
+	padding-right:.1rem;
+	margin-top:.1rem;
+	margin-right:.3rem;
+	}
+.travel_list img{
+	width:100%;
+	display:block;
+	margin:auto;
+	margin-top:.2rem;
+	height:5rem;}
+.travel_list .bottom{
+	height:1rem;
+	font-size:.5rem;
+	background-color:#fafafa;
+	color:#7c7c7c;
+	line-height:1rem;
+	text-align:center;
+	border-bottom:1px solid #dcdcdc;
+	border-top:1px solid #dcdcdc;
+	}
+.travel_list .bottom .fa{
+	position:relative;
+	top:.05rem;}
+.travel_list .bottomL,.travel_list .bottomC{
+	width:33.33%;
+	float:left;
+	border-right:1px solid #dcdcdc;
+	}
+.travel_list .bottomR{
+	width:33.33%;
+	float:left;
+	}
+.travel_list.edit .right{
+	position:relative;
+	left:1rem;}
+.travel_list.edit .left{
+	position:absolute;
+	top:0px;
+	left:0px;
+	width:1rem;
+	height:8rem;
+	text-align:center;
+	line-height:8rem;
+	font-size:.8rem;
+	}</style>
+<div class="travel_list <% if(type=="1"){print(" edit")} %>">
+	<% _.each(list,function(n){ %>
+<div class="point" pid="<%= n.id %>" gid="<%= n.gid||'' %>">
+<% if(type=="1"){ %>
+	<div class="left">
+    	<span class="fa fa-radio"></span>
+    </div>
+<% } %>
+	<div class="right">
+    	<div class="top">
+        <div class="title"><div class="tag"><%= n.tag||"标签" %></div><%= n.title %></div>
+        <div class="clear"></div>
+        <div class="place"><span class="fa fa-place2"></span>&nbsp;<%= n.place%></div>
+        <div class="time"><span class="fa fa-time"></span>&nbsp;<%= n.place%></div>
+        <div class="clear"></div>
+    	<img src="<%= config.sour %>tra/ppu.jspx?at=<%= n.at||3 %>&a=2&b=<%= n.id %>&c=<%= n.image %>" onerror="app.nofound('img/product_list_img.png')"/>
+        </div>
+        <div class="bottom">
+        	<div class="bottomL">
+            	<span class="fa fa-pra"></span> <%= n.pra %>
+            </div>
+            <div class="bottomC">
+            	<span class="fa fa-star3"></span> <%= n.star %>
+            </div>
+            <div class="bottomR">
+            	<span class="fa fa-com"></span> <%= n.com %>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+</div>
+<% }) %>
+</div>
+<script>
+$(".travel_list.edit .left").unbind("tap").bind("tap",function(){
+	if(!$(this).data("choose")){
+		$(this).data("choose",true);
+		$(this).find(".fa").addClass("hl");
+		$(this).parents(".point").addClass("hl");
+		}else{
+			$(this).data("choose",false);
+		$(this).find(".fa").removeClass("hl");
+		$(this).parents(".point").removeClass("hl");
+			}
+	});
+</script>

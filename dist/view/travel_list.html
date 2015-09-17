@@ -31,7 +31,7 @@
 	border-radius:.2rem;
 	float:left;
 	margin-left:.3rem;
-	margin-top:.2rem;
+	margin-top:.1rem;
 	}
 .travel_list img{
 	width:100%;
@@ -73,7 +73,7 @@
 	}</style>
 <div class="travel_list <% if(type=="1"){print(" edit")} %>">
 	<% _.each(list,function(n){ %>
-<div class="point" pid="<%= n.id %>">
+<div class="point" pid="<%= n.id %>" gid="<%= n.gid||'' %>">
 <% if(type=="1"){ %>
 	<div class="left">
     	<span class="fa fa-radio"></span>

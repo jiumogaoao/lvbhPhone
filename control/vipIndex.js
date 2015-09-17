@@ -8,7 +8,7 @@
 			var page=1;
 			var result=[];
 			var type=0;
-			var head=_.template(data.tem[1])({left:"",center:'<div class="top_nav"><a class="top_nav_point top_nav_pointL">人气</a><a class="top_nav_point top_nav_pointR">财富</a><div class="clear"></div></div>',"right":'<span class="fa fa-search"></span>'});
+			var head=_.template(data.tem[1])({left:"",center:'<div class="top_nav"><a class="top_nav_point top_nav_pointL">人气</a><a class="top_nav_point top_nav_pointR">财富</a><div class="clear"></div></div>',"right":'<span style="font-size:.7rem;" class="fa fa-search"></span>'});
 			$("#head").html(head);
 			$("#head .top_nav_pointL").addClass("hl");
 			function layout(){

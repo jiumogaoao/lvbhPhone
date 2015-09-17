@@ -36,9 +36,7 @@
 						p:$("[name='key'] input").val(),
 						v:$("[name='code'] input").val(),
 						r:null
-						},function(returnData){
-						app.cookies("user",returnData.userinfo);	
-						app.cookies("login_"+at,{login:returnData.ut});	
+						},function(returnData){	
 						if(data.url){
 							window.location.hash=data.url.replace(/\$/g,"/");
 							}else{

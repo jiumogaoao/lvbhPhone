@@ -10,11 +10,13 @@
 			var result=[];
 			var head=_.template(data.tem[0])({
 				left:"",
-				center:" ",
+				center:"游记详情",
 				right:'<span class="fa fa-share2"></span>'
 				});
 			$("#head").html(head);
-			
+			$(".top_third .leftButton").unbind("tap").bind("tap",function(){
+				window.history.go(-1);
+				});
 			obj.scrollFn.add("vipTravelDetail",function(y){
 				$("#head").css("background-color","rgba(0,158,255,"+((-1*y)/200)+")");
 				});
@@ -48,40 +50,41 @@
 				var bottom=_.template(data.tem[3])({list:com});
 				$("#scroller").html(top+middle+bottom);
 				$("#comInput").unbind("change").bind("change",function(){
-					if(app.cookies("login_"+at)&&app.cookies("login_"+at).login){
-					obj.api.run("com_send",'at='+at+'&a='+data.id+'&b='+$(this).val(),function(){
+					obj.api.run("user_get","at="+at,function(user){
+				obj.api.run("com_send",'at='+at+'&a='+data.id+'&b='+$(this).val(),function(){
 						window.location.reload();
 						},function(e){
 						obj.pop.on("alert",{text:JSON.stringify(e)});
 						});
-					}else{
-						obj.pop.on("alert",{text:"请先登录"});
+					},function(e){
+					obj.pop.on("alert",{text:"请先登录"});
 						window.location.hash="login/vipTravelDetail$"+data.id+"$"+data.group;
-					}
+					});
 					});
 				$("#prise.enable").unbind("tap").bind("tap",function(){
-					if(app.cookies("login_"+at)&&app.cookies("login_"+at).login){
-					obj.api.run("pra_add",'at='+at+'&a='+data.id,function(){
+					obj.api.run("user_get","at="+at,function(user){
+				obj.api.run("pra_add",'at='+at+'&a='+data.id,function(){
 						window.location.reload();
 						},function(e){
 						obj.pop.on("alert",{text:JSON.stringify(e)});
 						});
-					}else{
-						obj.pop.on("alert",{text:"请先登录"});
+					},function(e){
+					obj.pop.on("alert",{text:"请先登录"});
 						window.location.hash="login/vipTravelDetail$"+data.id+"$"+data.group;
-					}	
+					});	
 					});
 				$("#showchang.enable").unbind("tap").bind("tap",function(){
-					if(app.cookies("login_"+at)&&app.cookies("login_"+at).login){
-					obj.api.run("collect_add","at="+at+"&t=2&id="+data.id+"&cn="+source.title+"&desc= ",function(){
+					
+					obj.api.run("user_get","at="+at,function(user){
+				obj.api.run("collect_add","at="+at+"&t=2&id="+data.id+"&cn="+source.title+"&desc= ",function(){
 						window.location.reload();
 						},function(e){
 						obj.pop.on("alert",{text:JSON.stringify(e)});
 						});
-					}else{
-						obj.pop.on("alert",{text:"请先登录"});
+					},function(e){
+					obj.pop.on("alert",{text:"请先登录"});
 						window.location.hash="login/vipTravelDetail$"+data.id+"$"+data.group;
-					}		
+					});		
 					});
 			var delay=setTimeout(function(){
 				myScroll.refresh();
@@ -108,10 +111,7 @@
 				var messageArry=[];
 					$.each(returnData.traveldetail,function(i,n){
 						if(n.a){
-							messageArry.push("<div>"+n.a+"</div>");
-							}
-						if(n.b){
-							messageArry.push("<div><img src='"+n.a+"' onerror='app.nofound(\"img/travel_particulars_cover_img_default.png\")'/></div>");
+							messageArry.push("<div class='text'>"+n.a+"</div>");
 							}
 						});
 					getCom(at,source,messageArry);

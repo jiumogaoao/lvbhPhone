@@ -18,12 +18,7 @@
 				data=api[name].cacheTime;
 				}
 			if(data&&typeof(data) === "object"){
-				//data.time=api[name].cacheTime;
-				//data=JSON.stringify(data);
-				//data=jQuery.param(data);
 				}
-				//var sendData=$.extend({},api[name].data);
-				//sendData.data=data;
 				var sendData=data;
 				config.loadingOn();
 			$.ajax({ 
@@ -39,26 +34,14 @@
 								config.loadingOff();
 								if(returnData&&returnData[0] === "{"){
 									returnData=JSON.parse(returnData);
-									//returnData=JSON.parse(returnData);
 								if(returnData.success === true){
-								/*if(returnData&&returnData.code !== 0){
-									if(returnData.code === 1){
-										api[name].cache=returnData.data;
-										api[name].cacheTime=returnData.time;
-										}
-									if(typeof(api[name].cache) === "object"){
-										suc($.extend({},api[name].cache));
-										}else{
-											suc(api[name].cache);
-											}*/
 									if(name === "deal_list_get"||name === "expend_get"||name === "income_get"||name === "point_get"||name === "group_member_get"||name === "collect_get"||name === "travel_get"||name === "diy_get"||name === "linker_get"||name === "invoice_get"||name === "email_get"||name === "group_get"||name === "other_group_member_get"||name === "other_travel_get"){
 										suc(returnData);
 										}else{
 										suc(returnData.data||returnData);	
 										}
 								}else if(returnData.errorCode){
-									window.app.pop.on("alert",{text:returnData.message});
-									//err(returnData.errorCode);
+									if(err){err(returnData.message);}
 									}else{
 										err("未知错误");
 										}

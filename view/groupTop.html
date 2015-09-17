@@ -2,9 +2,10 @@
 	width:100%;}
 .mine_top .top{
 	width:100%;
-	height:4rem;
+	height:5.5rem;
 	background: radial-gradient(circle at top,rgba(120,230,220,1),rgba(20,100,110,1));
 	background: -webkit-radial-gradient(circle at top,rgba(120,230,220,1),rgba(20,100,110,1));
+	position:relative;
 	}
 .mine_top .nologin{
 	margin:auto;
@@ -42,8 +43,8 @@
 .mine_top .left{
 	margin-left:.5rem;
 	float:left;
-	height:2rem;
-	width:2rem;
+	height:3rem;
+	width:3rem;
 	}
 .mine_top .right{
 	margin-left:.5rem;
@@ -51,14 +52,14 @@
 	width:6rem;
 	}
 .mine_top .title{
-	font-size:.5rem;
+	font-size:.45rem;
 	color:#fff;}
 .mine_top .title img{
-	width:.8rem;
+	width:.6rem;
 	position:relative;
 	top:.1rem;}
 .mine_top .dsc{
-	font-size:.4rem;
+	font-size:.38rem;
 	margin-top:.1rem;
 	color:#fff;}
 .mine_top .deg{
@@ -88,23 +89,20 @@
 .mine_top.groupTop .message{
 	width:1px;
 	height:1.3rem;}
-.mine_top.groupTop .bottom{
-	height:1.5rem;}
-.mine_top.groupTop .nav{
-	width:33.33%;
-	float:left;
-	height:1.5rem;
-	text-align:center;
-	font-size:.4rem;
-	}
-.mine_top.groupTop .nav.hl{
-	color:#009eff;
-	border-bottom:2px solid #009eff;}
-.mine_top.groupTop .nav .main{
-	border-right:1px solid #dcdcdc;
-	width:100%;
-	margin-top:.45rem;
-	}</style>
+ .mine_top.groupTop .Joinbutton{
+	 width:2.5rem;
+	 border-radius:.2rem;
+	 height:.8rem;
+	 line-height:.8rem;
+	 text-align:center;
+	 color:#fff;
+	 font-size:.45rem;
+	 position:absolute;
+	 right:.5rem;
+	 bottom:.5rem;
+	 background-color:#ff840a;
+	 }   
+    </style>
 <div class="mine_top groupTop">
 	<div class="top">
         <div class="logined">
@@ -115,18 +113,11 @@
             <div class="right">
             	<div class="title"><% if(name.length<8){print(name)}else{print(name.substr(0,8)+"...")} %>&nbsp;&nbsp;<img class="step" src="img/vip<%= step %>.png"/></div>
                 <div class="dsc">ID:<%= id %></div>
-                <div class="dsc">人气:<%= hot %> 财富:<%= money %></div>
+                <div class="dsc">人气:<%= hot %>&nbsp;&nbsp; 财富:<%= money %></div>
+                <div class="dsc">一句话</div>
             </div>
-            <div class="deg"><span class="fa fa-right"></span></div>
             <div class="clear"></div>
+            <div class="Joinbutton">加入圈子</div>
         </div>
-    </div>
-    <div class="bottom">
-    	<div class="nav">
-        	<div class="main">成员</div>
-        </div>
-        <div class="nav"><div class="main">游记</div></div>
-        <div class="nav"><div class="main">聊天</div></div>
-        <div class="clear"></div>
     </div>
 </div>

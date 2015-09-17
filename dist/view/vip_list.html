@@ -24,15 +24,16 @@
   top:-1.3rem;
   left:-1.3rem;}
 .vip_list .num{
-	font-size:.4rem;
+	font-size:.38rem;
 	color:#fff;
 	position:absolute;
 	top:0rem;
-	left:.1rem;}
+	left:.06rem;}
 .vip_list .top{
 	width:100%;
 	padding:.4rem;
 	border-bottom:1px solid #dcdcdc;
+	padding-bottom:.38rem;
 	}
 .vip_list .top .left{
 	width:2rem;
@@ -43,9 +44,9 @@
 	width: 6.5rem;
   	margin-left: .5rem;}
 .vip_list .top .right .title{
-	 font-size:.5rem;}
+	 font-size:.45rem;}
 .vip_list .top .right .title img{
-	width:1rem;
+	width:.7rem;
 	position:relative;
 	top:.1rem;
 	}
@@ -80,7 +81,13 @@
             <div class="right">
             	<div class="title"><%= n.title %>&nbsp;&nbsp;&nbsp;<img src="img/vip<%= n.step %>.png"/></div>
                 <div class="des">ID:<%= n.id %></div>
-                <div class="des"><%= n.des %></div>
+                <div class="des"><%
+                if( n.des&&n.des.length&&n.des.length>15){
+                print(n.des.substr(0,15)+"...")
+                }else{
+                print(n.des)
+                }
+                 %></div>
             </div>
             <div class="clear"></div>
         </div>

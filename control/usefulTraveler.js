@@ -79,7 +79,7 @@
 							}
 					$.each(returnData,function(i,n){
 							resultB.push(n);
-							resultA.push({title:n.b,dsc:n.f,type:n.q});
+							resultA.push({title:n.b,dsc:n.f,type:n.q,enable:(n.q==="1")?true:false});
 						});
 					layout(returnData);
 					if(callback){callback();}

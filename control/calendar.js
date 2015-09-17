@@ -28,14 +28,11 @@
 				$("#scroller .enable").unbind("tap").bind("tap",function(){
 					result.date=_.indexBy(returnData,"b")[$(this).attr("did")];
 					obj.cache("pruduct_input_"+data.id,result);
-					if(data.page===1){
+					if(data.page==="1"){
 						window.location.hash="productInput/"+data.type+"/"+data.id+"/"+data.state;	
 						}else{
 							window.location.hash="productDetail/"+data.type+"/"+data.id;	
 							}
-						
-
-					
 					});
 			var delay=setTimeout(function(){
 				myScroll.refresh();

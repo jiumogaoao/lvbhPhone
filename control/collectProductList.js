@@ -56,12 +56,9 @@
 					if(returnData.pn === page+""){
 						page++;
 						returnData=returnData.data;
-					$.each(returnData,function(i,n){
+					$.each(returnData,function(i,n){console.log(n);
 						var addData=[];
-						if(n.f){
-							addData=n.f.split(",");
-							}
-						var add={image:addData[5],title:n.d,dsc:n.e,price:addData[4],old:addData[3],star:addData[1],com:addData[0],id:n.a};
+						var add={image:n.g,title:n.d,dsc:n.e,price:n.ae,old:n.ad,star:n.ab,com:n.a,id:n.a};
 					result.push(add);
 						});
 						layout(result,at);

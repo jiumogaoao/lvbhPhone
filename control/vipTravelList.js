@@ -3,7 +3,7 @@
 	obj.control.set({
 		name:"vipTravelList",
 		par:"id/number",
-		tem:["top_second","groupTop","group_nav","travel_list"],
+		tem:["top_second","groupTop","group_top_nav","group_nav","travel_listA"],
 		fn:function(data){
 			var page=1;
 			var type=0;
@@ -17,28 +17,50 @@
 				window.history.go(-1);
 				});
 			obj.scrollFn.add("vipTravelList",function(y){
+				var juli=1.5;
 				$("#head").css("background-color","rgba(0,158,255,"+((-1*y)/200)+")");
+				if(app.cache("phone")&&app.cache("phone").phone){
+					juli=0;
+					$("#otherFrame").css("top","-.4rem");
+					}
+				if(($(".group_top_nav").offset().top*10)/$(window).width()<=juli){
+					$("#otherFrame").show();
+					
+					}else{$("#otherFrame").hide();}
 				});
 			
 			function layout(at,sour){
-				var list=_.template(data.tem[3])({list:result,type:"0"});
+				var list=_.template(data.tem[4])({list:result,type:"0"});
 			var top=_.template(data.tem[1])(sour);
-			var nav=_.template(data.tem[2])({list:[{id:"0",name:"全部"},{id:"1",name:"国内"},{id:"2",name:"国际"}]});
-			
-			$("#scroller").html(top+nav+list);
+			var topNav=_.template(data.tem[2])();
+			var nav=_.template(data.tem[3])({list:[{id:"0",name:"全部"},{id:"1",name:"国内"},{id:"2",name:"国际"}]});
+			$("#otherFrame").html(topNav);
+			$("#otherFrame").css({
+				width:"100%",
+				height:"1.3rem",
+				position:"absolute",
+				top:"1.5rem",
+				"z-index":"10"
+				});
+			$("#otherFrame").hide();
+			$("#scroller").html(top+topNav+nav+list);
 			$("#scroller .travel_list .point").unbind("tap").bind("tap",function(){
 			window.location.hash="vipTravelDetail/"+$(this).attr("pid")+"/"+data.id;	
 				});
-			$("#scroller .groupTop .nav").eq(1).addClass("hl");
+			
 			$("#scroller .group_nav .point[nid='"+type+"']").addClass("hl");
 			$("#scroller .group_nav .point").unbind("tap").bind("tap",function(){
 				type=Number($(this).attr("nid"));
 				result=[];
 				getList(at,sour);
 				});
-			$("#scroller .groupTop .nav").eq(0).unbind("tap").bind("tap",function(){
+			$(".group_top_nav").each(function(){
+				$(this).find(".nav").eq(1).addClass("hl");
+				$(this).find(".nav").eq(0).unbind("tap").bind("tap",function(){
 				window.location.hash="vipMemberList/"+data.id+"/"+data.number;
 				});
+				});
+			
 			$("#scroller .group_member").css({"background-color":"#fff","padding-bottom":".3rem","margin-top":"0px"});
 			var delay=setTimeout(function(){
 				myScroll.refresh();
@@ -57,7 +79,7 @@
 				var code=returnData.data.invitecode;
 				returnData=returnData.data.travellist;
 					$.each(returnData,function(i,n){
-						result.push({"id":code,"title":n.f,"place":n.g,"image":n.e,"pra":n.j,"star":n.i,"com":n.h});
+						result.push({"id":n.c,"title":n.f,"place":n.g,"image":n.e,"pra":n.j,"star":n.i,"com":n.h});
 						});
 					layout(at,sour);
 					},function(e){obj.pop.on("alert",{text:(JSON.stringify(e))});});

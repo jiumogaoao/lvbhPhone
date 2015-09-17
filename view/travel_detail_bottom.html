@@ -11,12 +11,16 @@
 	margin-left:.3rem;
 	font-size:.4rem;}
 .travel_detail_bottom .name{
-	float:left;}
+	float:left;
+	color:#7c7c7c;}
 .travel_detail_bottom .time{
 	float:right;
+	color:#7c7c7c;
+	font-size:.35rem;
 	margin-right:.5rem;}
 .travel_detail_bottom .desc{
 	padding-top:.3rem;
+	color:#555;
 	min-height:1.5rem;
 	padding-bottom:.3rem;
 	border-bottom:1px solid #dcdcdc;}</style>
@@ -26,7 +30,7 @@
     	<img src="<%= n.img %>" class="left" onerror="app.nofound('img/circle_member_list_img_picture.png')"/>
         <div class="right">
     		<div class="name"><%= n.name %></div>
-            <div class="time"><%= n.time %></div>
+            <div class="time"><%= n.time.split(" ")[0] %></div>
             <div class="clear"></div>
             <div class="desc"><%= n.main %></div>
     	</div>

@@ -54,21 +54,12 @@
 				window.location.hash="productInput/"+data.type+"/"+data.id+"/"+result.state;
 				}
 			$("#payButton").unbind("tap").bind("tap",function(){
-				if(app.cookies("login_"+at)&&app.cookies("login_"+at).login){
-					obj.cache("pruduct_input_"+data.id,result);
+				obj.api.run("user_get","at="+at,function(user){
 				window.location.hash="productInput/"+data.type+"/"+data.id+"/"+result.state;
-					}else{
-						if(typeof(android)!=="undefined"&&android.loginCheck){
-						loginReturn=android.loginCheck();
-						if(loginReturn){
-							app.cookies("login_"+at,{login:loginReturn});
-							go2();
-							}				
-						}else{
-							obj.pop.on("alert",{text:("请先登录")});
-							window.location.hash="login/productDetail$"+data.type+"$"+data.id+"$"+result.state;
-							}
-						}
+					},function(e){
+					obj.pop.on("alert",{text:("请先登录")});
+					window.location.hash="login/productDetail$"+data.type+"$"+data.id+"$"+result.state;
+					});
 				});
 			var delay=setTimeout(function(){
 				myScroll.refresh();

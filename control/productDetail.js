@@ -108,31 +108,12 @@
 				obj.cache("pruduct_input_"+data.id,result);
 				window.location.hash="calendar/"+data.type+"/"+data.id+"/"+result.state+"/0";
 				});
-			function go2(){
-				obj.cache("pruduct_input_"+data.id,result);
-				window.location.hash="productInput/"+data.type+"/"+data.id+"/"+result.state;
-				}
 			$("#payButton").unbind("tap").bind("tap",function(){
-				if(app.cookies("login_"+at)&&app.cookies("login_"+at).login){
-					if(typeof(android)!=="undefined"&&android.loginCheck){
-						loginReturn=android.loginCheck();
-						if(loginReturn){
-							app.cookies("login_"+at,{login:loginReturn});
-							go2();
-							}					
-						}else{go2();}
-					
-					}else{
-						if(typeof(android)!=="undefined"&&android.loginCheck){
-						loginReturn=android.loginCheck();
-						if(loginReturn){
-							app.cookies("login_"+at,{login:loginReturn});
-							go2();
-							}					
-						}else{
-							window.location.hash="login/productDetail$"+data.type+"$"+data.id+"$$"+result.state;
-							}
-						}
+				obj.api.run("user_get","at="+at,function(user){
+				window.location.hash="productInput/"+data.type+"/"+data.id+"/"+result.state;
+					},function(e){
+					window.location.hash="login/productDetail$"+data.type+"$"+data.id+"$$"+result.state;
+					});
 				});
 			$(".title_input_list [name='message']").unbind("tap").bind("tap",function(){
 				obj.cache("pruduct_input_"+data.id,result);

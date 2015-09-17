@@ -12,7 +12,7 @@
 			$(".top_third .top_nav a").eq(data.type).addClass("hl");
 			function layout(list,at){
 				$.each(list,function(i,n){
-					var add={"image":n.e,"name":n.c,"fans":n.i,"money":n.g,"id":n.a,"code":n.b};
+					var add={"image":config.sour+"center/tp.jspx?at="+at+"&a=2&b="+n.l,"name":n.c,"fans":n.r,"money":n.p,"id":n.b,"code":n.i};
 					result.push(add);
 					});
 				var listA=_.template(data.tem[1])({at:at,list:result});

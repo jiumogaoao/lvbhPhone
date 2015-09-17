@@ -5,6 +5,7 @@
 		par:"type/at/ut",
 		tem:["top_second","diy_hot","diy_nav","product_group_list"],
 		fn:function(data){
+			$("body").css({"background-color":"#fff"});
 			var result=[];
 			var page=1;
 			var head=_.template(data.tem[0])({
@@ -21,7 +22,8 @@
 			{main:result}
 			]});
 			$("#scroller").html(list+'<div class="clear"></div>');
-			$(".product_group_list .group").css({"border-top":"0px","margin-top":"0px","padding-top":"2.8rem"});
+			$(".product_group_list").addClass("found");
+			$(".product_group_list .group").css({"border-top":"0px","margin-top":"0px","padding-top":"2.2rem"});
 			$(".product_group_list .point").unbind("tap").bind("tap",function(){
 				window.location.hash="productDetail/"+$(this).attr("type")+"/"+$(this).attr("pid");
 				});

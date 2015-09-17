@@ -61,6 +61,9 @@
 					});
 						});
 					}
+			$(".travel_list .point").unbind("tap").bind("tap",function(){
+				window.location.hash="vipTravelDetail/"+$(this).attr("pid")+"/"+$(this).attr("gid");
+				});
 			$(".nav_third .nav_point_frame").eq(data.nav).addClass("hl");
 			$(".nav_third #left").unbind("tap").bind("tap",function(){
 				window.location.hash="travelList/0/0";
@@ -96,7 +99,7 @@
 					if(returnData.pn === page+""){
 						page++;
 						returnData=returnData.data;
-					$.each(returnData,function(i,n){
+					$.each(returnData.travellist,function(i,n){
 						var add={image:n.e,title:n.f,place:n.g,tag:n.m,pra:n.j,star:n.i,com:n.h,id:n.c,gid:n.d};
 					result.push(add);
 						});

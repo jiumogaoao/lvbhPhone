@@ -12,7 +12,7 @@
 			$("body").css({"background-color":"#eeeeee"});
 			$("#head").css("background-color","#009eff");
 			myScroll.scrollTo(0, 0);
-			if(hashArry[0]==="index"||hashArry[0]==="mineIndex"||hashArry[0]==="vipTravelDetail"){
+			if(hashArry[0]==="index"||hashArry[0]==="mineIndex"){
 				$("#foot").empty();
 				$("#foot").css("height","1.5rem");
 				$("#foot").show();
@@ -23,7 +23,20 @@
 						bottom:"0rem"
 						});
 					$("#scroller").css({"padding-bottom":"1.5rem"});
-				}else if(hashArry[0]==="vipIndex"){
+				}else if(hashArry[0]==="vipTravelDetail"){
+					
+				$("#foot").empty();
+				$("#foot").css("height","1.3rem");
+				$("#foot").show();
+				$("#head").height("1.5rem");
+				$("#head").css("background-color","rgba(0,158,255,0)");
+					$("#middle").css({
+						top:"0rem",
+						bottom:"0rem"
+						});
+					$("#scroller").css({"padding-bottom":"1.3rem"});
+				
+					}else if(hashArry[0]==="vipIndex"){
 					$("#foot").empty();
 				$("#foot").css("height","1.5rem");
 				$("#foot").show();
@@ -44,7 +57,7 @@
 						bottom:"0rem"
 						});
 					$("#scroller").css({"padding-bottom":"1.5rem"});
-					}else if(hashArry[0]==="productDetail"||hashArry[0]==="productInput"||hashArry[0]==="messageList"||hashArry[0]==="dealFlow"){
+					}else if(hashArry[0]==="productDetail"||hashArry[0]==="productInput"||hashArry[0]==="messageList"||hashArry[0]==="dealFlow"||hashArry[0]==="travelAdd"){
 						$("#head").height("1.5rem");
 						$("#middle").css({
 						top:"1.5rem",

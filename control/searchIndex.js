@@ -5,6 +5,7 @@
 		par:"type/state",
 		tem:["top_search","search_place","tap_right","nav_third"],
 		fn:function(data){
+			$("body").css({"background-color":"#fff"});
 			function layout(at,list){
 				var nav="";
 				var urlArry=["","12","13"];

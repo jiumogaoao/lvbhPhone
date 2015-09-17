@@ -1,0 +1,76 @@
+<style>
+.travel_add{
+	width:100%;}
+.travel_add .point{
+	width:95%;
+	background-color:#fff;
+	margin:auto;
+	margin-top:.3rem;}
+.travel_add .text{
+	font-size:.4rem;
+	width:100%;
+	height:4rem;
+	line-height:.7rem;
+	letter-spacing:.1rem;}
+.travel_add img{width:100%;}
+.travel_add .foot{
+	width:100%;
+	height:1rem;
+	background-color:#fafafa;
+	border-top:1px solid #dcdcdc;
+	margin-top:.2rem;
+	}
+.travel_add .delectButton{
+	width:2rem;
+	height:.6rem;
+	text-align:center;
+	line-height:.6rem;
+	color:#fff;
+	font-size:.4rem;
+	border-radius:.2rem;
+	background-color:#ff840b;
+	position:relative;
+	top:.2rem;
+	left:.2rem;}
+.travel_add .addPic{
+	width:2rem;
+	height:.6rem;
+	text-align:center;
+	line-height:.6rem;
+	color:#fff;
+	font-size:.4rem;
+	border-radius:.2rem;
+	background-color:#ff840b;
+	float:right;
+	margin-right:.2rem;
+	position:relative;
+	}
+.travel_add .addPic input{
+	width:100%;
+	height:100%;
+	opacity:0;
+	position:absolute;
+	top:0px;
+	left:0px;
+	}
+</style>
+<div class="travel_add">
+	<% _.each(text,function(n,i){ %>
+    <div class="point" num="<%= i %>">
+    	<% if(img[i].length){ %>
+        	<img src="<%= img[i] %>" onerror="app.nofound('img/product_list_img.png')"/>
+        <% } %>
+    	<textarea class="text"><%= n %></textarea>
+        <% if(!img[i].length){ %>
+        	<div class="clear"></div>
+        	<div class="addPic"><form>添加图片<input class="addInput" type="file"/></form></div>
+        	<div class="clear"></div>
+        <% } %>
+        <div class="foot">
+        	<% if(i){ %>
+            <div class="delectButton">删除</div>
+            <% } %> 
+        </div>
+    </div>
+    <% }) %>
+</div>

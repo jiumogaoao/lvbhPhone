@@ -57,11 +57,7 @@
 						page++;
 						returnData=returnData.data;
 					$.each(returnData,function(i,n){
-						var addData=[];
-						if(n.f){
-							addData=n.f.split(",");
-							}
-						var add={image:addData[3],title:n.d,place:addData[4],tag:addData[5],pra:addData[2],star:addData[1],com:addData[0],id:n.a};
+						var add={id:n.a,title:n.d,place:n.ag,tag:n.ah,at:at,image:n.af,pra:n.ac,star:n.ab,com:n.aa};
 					result.push(add);
 						});
 						layout(result,at);

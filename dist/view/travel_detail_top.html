@@ -1,34 +1,49 @@
 <style>.travel_detail_top{
 	width:100%;
-	height:6rem;
+	height:5.5rem;
 	position:relative;
 	font-size:.4rem;
 	color:#fff;}
+.travel_detail_top .mask{
+	position:absolute;
+	bottom:0px;
+	left:0px;
+	width:100%;
+	height:26%;
+	background-image:-webkit-linear-gradient(to top, rgba(0,0,0,0.4), rgba(0,0,0,0));
+  background-image:linear-gradient(to top,rgba(0,0,0,0.4), rgba(0,0,0,0));}
 .travel_detail_top .tag{
 	position:absolute;
-	bottom:1rem;
+	bottom:.75rem;
 	left:.5rem;
+	font-size:.35rem;
 	background-color:#fe3a3c;
+	padding-left:.1rem;
+	padding-right:.1rem;
 	}
 .travel_detail_top .title{
 	position:absolute;
-	bottom:1rem;
+	bottom:.7rem;
 	left:1.5rem;
+	font-size:.45rem;
 	}
 .travel_detail_top .place{
 	position:absolute;
-	bottom:.3rem;
+	bottom:.1rem;
 	left:.5rem;
+	font-size:.35rem;
 	}
 .travel_detail_top .time{
 	position:absolute;
-	bottom:.3rem;
-	left:2.5rem;
+	bottom:.1rem;
+	left:3.8rem;
+	font-size:.35rem;
 	}</style>
 <div class="travel_detail_top">
+	<div class="mask"></div>
 	<img class="bg" src="<%= image %>" onerror="app.nofound('img/travel_particulars_cover_img_default.png')"/>
     <div class="tag">其他</div>
     <div class="title"><%= title %></div>
-    <div class="place"><span class="fa fa-place"></span><%= place %></div>
-    <div class="time"><span class="fa fa-time"></span><%= star %></div>
+    <div class="place"><span class="fa fa-place"></span>&nbsp;<%= place %></div>
+    <div class="time"><span class="fa fa-time"></span>&nbsp;<%= star %></div>
 </div>

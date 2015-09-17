@@ -2,7 +2,7 @@
 	width:100%;}
 .mine_top .top{
 	width:100%;
-	height:4rem;
+	height:3.7rem;
 	background: radial-gradient(circle at top,rgba(120,230,220,1),rgba(20,100,110,1));
 	background: -webkit-radial-gradient(circle at top,rgba(120,230,220,1),rgba(20,100,110,1));
 	}
@@ -10,7 +10,7 @@
 	margin:auto;
 	width:4.4rem;
 	padding-top:1.5rem;
-	display:none;}
+}
 .mine_top .button{
 	width:2rem;
 	height:1rem;
@@ -27,18 +27,19 @@
 	margin-right:.5rem;
 	margin-top:.3rem;
 	color:#fff;
-	position:relative;}
+	position:relative;
+	font-size:.7rem;}
 .mine_top .num{
-	width:.5rem;
-	height:.5rem;
-	border-radius:.5rem;
-	line-height:.5rem;
+	width:.35rem;
+	height:.35rem;
+	border-radius:.35rem;
+	line-height:.35rem;
 	text-align:center;
-	font-size:.4rem;
+	font-size:.25rem;
 	background-color:#ff3131;
 	position:absolute;
 	top:0rem;
-	right:-.3rem;}
+	right:-.15rem;}
 .mine_top .left{
 	margin-left:.5rem;
 	float:left;
@@ -46,50 +47,57 @@
 	width:2rem;
 	}
 .mine_top .right{
-	margin-left:.5rem;
+	margin-left:.4rem;
 	float:left;
 	width:6rem;
 	}
 .mine_top .title{
-	font-size:.5rem;
+	font-size:.45rem;
 	color:#fff;}
 .mine_top .title img{
-	width:.8rem;
+	width:.6rem;
 	position:relative;
-	top:.1rem;}
+	top:.06rem;}
 .mine_top .dsc{
-	font-size:.4rem;
+	font-size:.35rem;
 	margin-top:.1rem;
 	color:#fff;}
 .mine_top .deg{
-	float:right;
 	line-height:2rem;
 	font-size:.5rem;
 	color:#fff;
-	margin-right:.5rem;}
+	position:absolute;
+	top:1.3rem;
+	right:.5rem;}
 .mine_top .bottom{
-	height:2rem;
+	height:1.7rem;
 	background-color:#fff;
-	border:1px solid #dcdcdc;}
+	border:1px solid #dcdcdc;
+	position:relative;}
 .mine_top .point{
 	float:left;
 	width:25%;
 	padding-top:.2rem;
 	}
+.mine_top .point.lastPoint{
+	position:absolute;
+	top:0px;
+	right:0px;}
 .mine_top .point img{
-	width:1rem;
-	height:1rem;
+	width:.7rem;
+	height:.75rem;
 	margin:auto;
 	display:block;}
 .mine_top .name{
-	font-size:.4rem;
+	font-size:.3rem;
 	text-align:center;
 	margin-top:.1rem;}
 .mine_top.groupTop .message{
 	width:1px;
 	height:1.3rem;}
 .mine_top.groupTop .bottom{
-	height:1.5rem;}
+	height:1.5rem;
+	}
 .mine_top.groupTop .nav{
 	width:33.33%;
 	float:left;
@@ -107,26 +115,31 @@
 	}</style>
 <div class="mine_top">
 	<div class="top">
-    	<div class="nologin">
-        	<div class="button login">登录</div>
-            <div class="button regist">注册</div>
-            <div class="clear"></div>
-        </div>
-        <div class="logined">
+    <% if(login){ %>
+    <div class="logined">
         	<div class="message">
             	<span class="fa fa-email"></span>
-                <div class="num">0</div>
+                <div class="num"><%= user.number||99 %></div>
             </div>
             <div class="clear"></div>
-            <img class="left" src="http://"  onerror="app.nofound('img/circle_member_list_img_picture.png')"/>
+            <img class="left" src="<%= user.image %>"  onerror="app.nofound('img/circle_member_list_img_picture.png')"/>
             <div class="right">
-            	<div class="title">名字&nbsp;&nbsp;<img class="step" src="img/vip0.png"/></div>
-                <div class="dsc">ID:32423423</div>
-                <div class="dsc">人气:324234 财富:2332432</div>
+            	<div class="title"><%= user.name %>&nbsp;&nbsp;<img class="step" src="img/vip<%= user.tap||0 %>.png"/></div>
+                <div class="dsc">ID:<%= user.id %></div>
+                <div class="dsc">人气:<%= user.hot %>&nbsp;&nbsp;&nbsp;财富:<%= user.money %></div>
             </div>
             <div class="deg"><span class="fa fa-right"></span></div>
             <div class="clear"></div>
         </div>
+   <% }else{ %>
+   <div class="nologin">
+        	<div class="button login">登录</div>
+            <div class="button regist">注册</div>
+            <div class="clear"></div>
+        </div>
+   <% } %>
+    	
+        
     </div>
     <div class="bottom">
     	<div class="point" src="dealIndex">
@@ -141,7 +154,7 @@
         	<img src="img/mine_icon_orders_plane.png"/>
             <div class="name">机票+酒店</div>
         </div>
-        <div class="point">
+        <div class="point lastPoint">
         	<img src="img/mine_icon_orders_ticket.png"/>
             <div class="name">门票+酒店</div>
         </div>
