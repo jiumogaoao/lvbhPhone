@@ -3,8 +3,14 @@ var sourArry=["http://112.74.25.12:48080/","http://m.lvbh.cn/","http://192.168.1
 var config={
 	sour:sourArry[0],
 	loadingOn:function(){
-		$("#loading").show();
-		$("#loadingBG").show();
+		if(app.cache("phone")&&app.cache("phone").phone){
+			$("#loading").hide();
+			$("#loadingBG").hide();	
+			}else{
+			$("#loading").show();
+			$("#loadingBG").show();	
+				}
+		
 		},
 	loadingOff:function(){
 		$("#loading").hide();

@@ -8,10 +8,14 @@
 			var page=1;
 			var result=[];
 			var type=0;
-			var head=_.template(data.tem[1])({left:"",center:'<div class="top_nav"><a class="top_nav_point top_nav_pointL">人气</a><a class="top_nav_point top_nav_pointR">财富</a><div class="clear"></div></div>',"right":'<span style="font-size:.7rem;" class="fa fa-search"></span>'});
-			$("#head").html(head);
-			$("#head .top_nav_pointL").addClass("hl");
+			var now="";
 			function layout(){
+				var head=_.template(data.tem[1])({left:"<div style='font-size:.4rem;width:2rem;'>"+now.c+" <span class='fa fa-open'></span></div>",center:'<div class="top_nav"><a class="top_nav_point top_nav_pointL">人气</a><a class="top_nav_point top_nav_pointR">财富</a><div class="clear"></div></div>',"right":'<span style="font-size:.7rem;" class="fa fa-search"></span>'});
+			$("#head").html(head);
+			$("#head .rightButton").unbind("tap").bind("tap",function(){
+				window.location.hash="vipSearch";
+				});
+			$("#head .top_nav_pointL").addClass("hl");
 				var main=_.template(data.tem[2])({list:result});
 				$("#scroller").html(main);
 				$("#scroller .vip_list .point").unbind("tap").bind("tap",function(){
@@ -74,7 +78,16 @@
 					});
 				getVip(at);
 				}
-			obj.api.at(typeBind);
+			function getNow(at){
+				obj.api.run("city_get_now","at="+at,function(returnData){
+					now=returnData;
+					typeBind(at);
+					},function(e){
+					obj.pop.on("alert",{text:(e)});
+					});
+				}
+			
+			obj.api.at(getNow);
 			}
 		});
 	})($,app,config);

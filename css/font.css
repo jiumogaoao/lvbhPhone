@@ -23,6 +23,9 @@
 	-moz-osx-font-smoothing: grayscale;
 }
 
+.fa-close2:before {
+	content: "\e659";
+}
 .fa-share2:before {
 	content: "\e658";
 }
