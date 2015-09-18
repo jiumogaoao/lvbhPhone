@@ -23,7 +23,7 @@
 				window.history.go(-1);
 				});
 			$(".top_third .rightButton").unbind("tap").bind("tap",function(){
-				window.location.hash="regist";
+				window.location.href="https://passport.lvbh.cn/mobile/reg.jspx";
 				});
 			$(".nav_two #right").unbind("tap").bind("tap",function(){
 				window.location.hash="phoneLogin";

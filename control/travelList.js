@@ -9,9 +9,9 @@
 			var page=1;
 			var titleArry=["管理","取消"];
 			var navArry=[
-			'<div class="newButton"><span class="fa fa-edit"></span></div><div class="clear"></div>',
-			'<div class="newButton"><span class="fa fa-edit"></span></div><div class="clear"></div>',
-			'<div class="newButton"><span class="fa fa-edit"></span></div><div class="manageButton">'+titleArry[data.type]+'</div><div class="clear"></div>'
+			'<div class="newButton" id="creat"><span class="fa fa-edit"></span></div><div class="clear"></div>',
+			'<div class="newButton" id="creat"><span class="fa fa-edit"></span></div><div class="clear"></div>',
+			'<div class="newButton" id="manage"><span class="fa fa-edit"></span></div><div class="manageButton">'+titleArry[data.type]+'</div><div class="clear"></div>'
 			];
 			var pageArry=["1","0"];
 			var typeArry=["2","8","1"];
@@ -26,6 +26,12 @@
 				list:list
 				});	
 			var button=_.template(data.tem[2])({left:"删除",right:"提交审核"});
+			function preview2(file,target) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+            };
+            reader.readAsDataURL(file);
+        }
 			if(data.type === "0"){
 				$("#scroller").html(nav+listA);
 				}else{

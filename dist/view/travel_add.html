@@ -63,7 +63,7 @@
     	<textarea class="text"><%= n %></textarea>
         <% if(!img[i].length){ %>
         	<div class="clear"></div>
-        	<div class="addPic"><form>添加图片<input class="addInput" type="file"/></form></div>
+        	<div class="addPic"><form action="<%= config.sour %>tra/tf.jspx" method="post" enctype="multipart/form-data">添加图片<input class="addInput" type="file" name="filename"/><input type="hidden" name="at" value="<%= at %>"/></form></div>
         	<div class="clear"></div>
         <% } %>
         <div class="foot">

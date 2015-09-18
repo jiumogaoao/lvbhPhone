@@ -24,7 +24,8 @@
 			function layout(at){
 			var list=_.template(data.tem[2])({
 				text:text,
-				img:img
+				img:img,
+				at:at
 				});	
 			$("#scroller").html(top+list);
 			$(".travel_add .delectButton").unbind("tap").bind("tap",function(){
@@ -35,8 +36,13 @@
 			$(".travel_add text").unbind("change").bind("change",function(){
 				text[Number($(this).parents(".point").attr("num"))]=$(this).val();
 				});
-			$(".travel_add input").unbind("change").bind("change",function(){
-				
+			$(".travel_add form").each(function(){
+				$(this).ajaxForm();
+				});
+			$(".travel_add input").unbind("change").bind("change",function(e){
+				$(this).parents("form").ajaxSubmit(function(ureturn){
+					console.log(ureturn.data.imgname);
+					});
 				});
 			$("[name='title'] input").css({height:"1.8rem"});
 			myScroll.refresh();

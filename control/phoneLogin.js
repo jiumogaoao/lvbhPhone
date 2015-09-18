@@ -14,18 +14,19 @@
 			]});
 			var button=_.template(data.tem[3])({"text":"登录","id":"loginButton"});
 			$("#scroller").html(nav+list+button);
-			$(".top_third .leftButton").unbind("tap").bind("tap",function(){
+
+			function layout(at){
+				$(".top_third .leftButton").unbind("tap").bind("tap",function(){
 				window.history.go(-1);
 				});
 			$(".top_third .rightButton").unbind("tap").bind("tap",function(){
-				window.location.hash="regist";
+				window.location.href="https://passport.lvbh.cn/mobile/reg.jspx";
 				});
 			$(".nav_two #left").unbind("tap").bind("tap",function(){
 				window.location.hash="login";
 				});
 			$("#loginButton").unbind("tap").bind("tap",function(){
 				if($("[name='user'] input").val() && $("[name='user'] input").val().length&&$("[name='key'] input").val() && $("[name='key'] input").val().length){
-					obj.api.at(function(at){
 						obj.api.run("login_phone",{
 							at:at,
 							mobile:$("[name='user'] input").val(),
@@ -35,8 +36,8 @@
 							},function(e){
 							obj.pop.on("alert",{text:JSON.stringify(e)});
 							});
-						});
-					}
+					
+					}else{obj.pop.on("alert",{text:"请完整填写登录信息"});}
 				});
 				$('img').load(function(){
 				myScroll.refresh();
@@ -45,7 +46,6 @@
 				$("[name='key'] .other span").html("发送动态密码");
 				$("[name='key'] .other").unbind("tap").bind("tap",function(){
 				if($("[name='user'] input").val() && $("[name='user'] input").val().length){
-					obj.api.at(function(at){
 						obj.api.run("login_phone_message",{
 							at:at,
 							mobile:$("[name='user'] input").val()
@@ -61,17 +61,16 @@
 										delay();
 										}
 								},1000);
-							//window.location.hash="index";
 						},function(e){
 						obj.pop.on("alert",{text:JSON.stringify(e)});
-						});
-						});
-					
-					}
+						});	
+					}else{obj.pop.on("alert",{text:"请填写手机号"});}
 				});
 				}	
 			delay();
 			myScroll.refresh();
+				}
+			obj.api.at(layout);
 			}
 		});
 	})($,app,config);
