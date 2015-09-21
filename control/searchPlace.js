@@ -6,6 +6,15 @@
 		tem:["top_second","search_place","tap_right"],
 		fn:function(data){
 			function layout(at,list){
+				var result={
+				phone:"",
+				code:"",
+				key:"",
+				key2:"",
+				place:{},
+				pro:""
+				};
+				if(obj.cache("regist")){result=obj.cache("regist");}
 				var tag=_.template(data.tem[2])(list);
 			$("#otherFrame").html(tag);
 			$(".tap").unbind("tap").bind("tap",function(){
@@ -31,8 +40,10 @@
 				window.location.hash="index";
 				});
 			$(".point").unbind("tap").bind("tap",function(){
-				$(".point").removeClass("hl");
-				$(this).addClass("hl");
+				result.place={name:$(this).attr("value"),id:$(this).attr("pid")};
+				result.pro=$(this).attr("pro");
+				obj.cache("regist",result);
+				window.location.hash="regist";
 				});
 			var delay=setTimeout(function(){myScroll.refresh();},200);
 			$('img').load(function(){
@@ -77,7 +88,7 @@
 				}
 				};
 					$.each(returnData,function(i,n){
-						placeList.place[n.f[0]].main.push({name:n.b,id:n.a});
+						placeList.place[n.f[0]].main.push({name:n.b,id:n.a,pro:n.c});
 						});
 					layout(at,placeList);
 					},function(e){

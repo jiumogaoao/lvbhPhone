@@ -49,8 +49,10 @@
 				$(".point").removeClass("hl");
 				$(this).addClass("hl");
 				if(data.type !== "0"){
-					window.location.hash="#travelIndex/"+(Number(data.type)-1)+"/"+$(this).attr("type")+"/"+$(this).attr("pid");
-					}
+					window.location.hash="travelSearch/"+(Number(data.type)-1)+"/"+$(this).attr("type")+"/"+$(this).attr("pid");
+					}else{
+					window.location.hash="vipListSearch/"+$(this).attr("pid");	
+						}
 				});
 			if(data.type === "0"){
 				$(".search_place .list").css("width","90%");
