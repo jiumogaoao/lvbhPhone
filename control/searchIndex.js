@@ -49,7 +49,7 @@
 				$(".point").removeClass("hl");
 				$(this).addClass("hl");
 				if(data.type !== "0"){
-					window.location.hash="travelSearch/"+(Number(data.type)-1)+"/"+$(this).attr("type")+"/"+$(this).attr("pid");
+					window.location.hash="travelSearch/"+(Number(data.type)-1)+"/"+($(this).attr("type")||data.state)+"/"+$(this).attr("value");
 					}else{
 					window.location.hash="vipListSearch/"+$(this).attr("pid");	
 						}
@@ -115,7 +115,7 @@
 						});
 					}else{
 					placeList.now=false;
-					if(data.state === "0"){
+					
 						placeList.title=false;
 						placeList.place.al={title:"al",main:[
 						{name:"海南",id:"163",type:"1"},
@@ -128,24 +128,42 @@
 						{name:"东南亚连线",id:"0",type:"2"},
 						{name:"欧洲连线",id:"0",type:"2"}
 						]};
-						}else{
-						$.each(pro,function(i,n){
-						placeList.place[n.a+""]={title:n.b,main:[]};
-						});	
-						$.each(returnData,function(i,n){
-						placeList.place[n.c].main.push({name:n.b,id:n.a,type:data.state});
-						});
-							}
-						
 						}
 					layout(at,placeList);
 					},function(e){
 					obj.pop.on("alert",{text:(e)});
 					});
 				}
+			function area(at,now,pro){
+				var placeList={
+				input:false,
+				title:true,
+				now:now.c,
+				place:{}
+				};
+				placeList.now=false;
+				if(data.state==="0"){
+					placeList.title=false;
+					}
+				obj.api.run("search_place_get",null,function(returnData){
+					$.each(returnData[data.state],function(i,n){
+						placeList.place["place"+i]={title:n.name,main:[]};
+						$.each(n.member,function(o,p){
+							placeList.place["place"+i].main.push({name:p.name,id:"",type:p.type});
+							});
+						});	
+					layout(at,placeList);	
+					},function(e){
+					obj.pop.on("alert",{text:(e)});
+					});
+				}
 			function province(at,now){
 				obj.api.run("province_getAll","at="+at,function(returnData){
-					place(at,now,returnData);
+					if(data.type === "0"){
+						place(at,now,returnData);
+						}else{
+							area(at,now,returnData);
+							}
 					},function(e){obj.pop.on("alert",{text:(e)});});
 				}
 			function now(at){

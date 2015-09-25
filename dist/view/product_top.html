@@ -32,7 +32,7 @@
 .product_top .pointFrame{
 	position:absolute;
 	bottom:.6rem;
-	left:4rem;}
+	left:<%= (10-(image.length*0.45))/2 %>rem;}
 .product_top .typeHead{
 	color:#fff;
 	width:3.6rem;
@@ -136,10 +136,9 @@
             <div class="clear"></div>
         </div>
         <div class="pointFrame">
-        	<div class="writePoint hl"></div>
-            <div class="writePoint"></div>
-            <div class="writePoint"></div>
-            <div class="writePoint"></div>
+        <% _.each(image,function(n,i){ %>
+        	<div class="writePoint<% if(i==0){print(" hl")}%>"></div>
+       <% })%>            
             <div class="clear"></div>
         </div>
         <img class="typeHead" src="img/product_icon.png"/>
@@ -167,7 +166,7 @@
 	var delay=setInterval(function(){
 		if(!lock){
 			lock=true;
-			if(num!=3){
+			if(num!=<%= (image.length-1)%>){
 			num++;
 			}else{
 				num=0;

@@ -29,6 +29,18 @@
 				window.location.hash="phoneLogin";
 				});
 			$("#loginButton").unbind("tap").bind("tap",function(){
+				if(!$("[name='user'] input").val()){
+					obj.pop.on("alert",{text:"请输入登录账号"});
+					return false;
+					}
+				if(!$("[name='key'] input").val()){
+					obj.pop.on("alert",{text:"请输入登录密码"});
+					return false;
+					}
+				if(!$("[name='code'] input").val()){
+					obj.pop.on("alert",{text:"请输入验证码"});
+					return false;
+					}
 				obj.api.at(function(at){
 					obj.api.run("login",{
 						at:at,

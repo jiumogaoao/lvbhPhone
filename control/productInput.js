@@ -217,7 +217,7 @@
 				if(correct){
 					obj.api.run("deal_add",'at='+at+'&goparam='+JSON.stringify(goparam)+'&goiparam='+JSON.stringify(goiparam),function(returnData){
 					obj.cache("pruduct_input_"+data.id,result);
-					window.location.hash="dealSuccess/"+data.id;
+					window.location.hash="dealSuccess/"+returnData.go.x+"/"+returnData.go.i+"/"+data.type+"/"+data.id;
 					},function(e){
 					obj.pop.on("alert",{text:(JSON.stringify(e))});
 					});
@@ -409,7 +409,7 @@
 					});	
 				if(correct){
 					obj.api.run("deal_add",'at='+at+'&goparam='+JSON.stringify(goparam)+'&goiparam='+JSON.stringify(goiparam),function(returnData){
-					window.location.hash="dealSuccess/"+returnData.go.x+"/"+returnData.go.m;
+					window.location.hash="dealSuccess/"+returnData.go.x+"/"+returnData.go.i+"/"+data.type+"/"+data.id;
 					},function(e){
 					obj.pop.on("alert",{text:(JSON.stringify(e))});
 					});

@@ -27,7 +27,7 @@
 				window.location.hash="protocol";
 				});
 			$("[name='mzsm']").unbind("tap").bind("tap",function(){
-				window.location.hash="exempy";
+				window.location.hash="exempt";
 				});
 			$("[name='ysbh']").unbind("tap").bind("tap",function(){
 				window.location.hash="conceal";

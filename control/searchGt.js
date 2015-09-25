@@ -21,7 +21,11 @@
 			$(".point").unbind("tap").bind("tap",function(){
 				$(".point").removeClass("hl");
 				$(this).addClass("hl");
-				window.location.hash="travelIndex/"+data.type+"/"+(Number(data.state)+1)+"/"+$(this).attr("pid");
+				obj.api.run("place_id_get","at="+at+"&pen="+$(this).attr("value"),function(returnData){
+				window.location.hash="travelIndex/"+data.type+"/"+(Number(data.state)+1)+"/"+returnData;
+				},function(e){
+					obj.pop.on("alert",{text:(JSON.stringify(e))});
+					});
 				});
 
 			var delay=setTimeout(function(){myScroll.refresh();},200);
@@ -30,9 +34,8 @@
 				});
 				}
 			
-			
 			function place(at,now,pro){
-				obj.api.run("city_getAll","at="+at,function(returnData){
+				obj.api.run("search_place_get","at="+at,function(returnData){
 					var placeList={
 				input:true,
 				title:true,
@@ -42,12 +45,13 @@
 				if(data.type === "1"){
 					placeList.now=false;
 					}
-				$.each(pro,function(i,n){
-						placeList.place[n.a+""]={title:n.b,main:[]};
-					});	
-				$.each(returnData,function(i,n){
-						placeList.place[n.c].main.push({name:n.b,id:n.a});
-					});	
+				
+				$.each(returnData[Number(data.state)+1],function(i,n){
+						placeList.place["place"+i]={title:n.name,main:[]};
+						$.each(n.member,function(o,p){
+							placeList.place["place"+i].main.push({name:p.name,id:"",type:p.type});
+							});
+						});	
 					layout(at,placeList);
 					},function(e){
 					obj.pop.on("alert",{text:(JSON.stringify(e))});

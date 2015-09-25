@@ -87,7 +87,7 @@
     <% if(n.title){ %>
     	<div class="head">
         	<div class="title blue"><%= n.title %></div>
-            <div class="icon"><span class="fa fa-right"></span></div>
+            <div class="icon" href="<%= n.href||"" %>"><span class="fa fa-right"></span></div>
             <div class="clear"></div>
         </div>
         <% } %>

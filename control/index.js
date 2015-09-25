@@ -17,6 +17,9 @@
 			var list=_.template(data.tem[3])({list:main});
 			var group=_.template(data.tem[4])({list:vip});
 			$("#scroller").html(banner+data.tem[2]+list+group);
+			$(".product_group_list .icon").unbind("tap").bind("tap",function(){
+				window.location.hash=$(this).attr("href");
+				});
 			$(".product_group_list .group").css("border-top","0px");
 $(".product_group_list .point").unbind("tap").bind("tap",function(){
 				window.location.hash="productDetail/"+$(this).attr("type")+"/"+$(this).attr("pid");
@@ -38,10 +41,10 @@ $(".product_group_list .point").unbind("tap").bind("tap",function(){
 			
 			function getMessage(at){
 				var main=[
-					{title:"出发地跟团-国内精选",main:[]},
-					{title:"出发地跟团-出境精选",main:[]},
-					{title:"目的地跟团-国内惠",main:[]},
-					{title:"目的地跟团-出境惠",main:[]},
+					{title:"出发地跟团-国内精选",href:"travelIndex/0/1",main:[]},
+					{title:"出发地跟团-出境精选",href:"travelIndex/0/2",main:[]},
+					{title:"目的地跟团-国内惠",href:"travelIndex/1/1",main:[]},
+					{title:"目的地跟团-出境惠",href:"travelIndex/1/2",main:[]},
 					{title:"旅游达人圈",main:[]}
 				];
 				var vip=[];

@@ -26,7 +26,7 @@
 				var that=this;
 				$(that).find("[D_type='radioPoint']").unbind("tap").bind("tap",function(){
 					result[$(that).attr("D_key")]=$(this).attr("D_value");
-					$(that).find("[D_type='radioPoint']").removeClass("hl");
+					$(that).find(".radio").removeClass("hl");
 					$(this).addClass("hl");
 					});
 				});
@@ -35,7 +35,7 @@
 				});
 			$(".top_third .rightButton").unbind("tap").bind("tap",function(){
 				obj.api.at(function(at){
-					obj.api.run("linker_get",'at='+at+'&tp=0&jparam='+JSON.stringify({b:result.name,c:result.phone,d:result.mail,e:result.sex,h:result.dsc}),function(){
+					obj.api.run("linker_add",'at='+at+'&tp=0&jparam='+JSON.stringify({b:result.name,c:result.phone,d:result.mail,e:result.sex,g:result.dsc}),function(){
 						window.location.hash="usefulLinkman/"+data.type+"/"+data.id+"/"+data.state;
 						},function(e){JSON.stringify(e);});
 					});

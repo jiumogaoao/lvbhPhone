@@ -1,0 +1,24 @@
+{"success":true, "data":[
+[
+{"name":"","member":[{"name":"海南","type":"1"},{"name":"云南","type":"1"},{"name":"四川","type":"1"},{"name":"广西","type":"1"},{"name":"贵州","type":"1"},{"name":"华东连线","type":"1"},{"name":"泰国","type":"2"},{"name":"东南亚连线","type":"2"},{"name":"欧洲连线","type":"2"}]}
+],
+[
+{"name":"华北","member":[{"name":"北京","type":"1"},{"name":"天津","type":"1"},{"name":"河北","type":"1"},{"name":"山西","type":"1"},{"name":"内蒙","type":"1"},{"name":"华北连线","type":"1"}]},
+{"name":"东北","member":[{"name":"辽宁","type":"1"},{"name":"吉林","type":"1"},{"name":"黑龙江","type":"1"},{"name":"东北连线","type":"1"}]},
+{"name":"华东","member":[{"name":"上海","type":"1"},{"name":"江苏","type":"1"},{"name":"浙江","type":"1"},{"name":"安徽","type":"1"},{"name":"福建","type":"1"},{"name":"江西","type":"1"},{"name":"山东","type":"1"},{"name":"华东连线","type":"1"}]},
+{"name":"华南","member":[{"name":"广东","type":"1"},{"name":"广西","type":"1"},{"name":"海南","type":"1"}]},
+{"name":"华中","member":[{"name":"湖北","type":"1"},{"name":"湖南","type":"1"},{"name":"河南","type":"1"}]},
+{"name":"西南","member":[{"name":"重庆","type":"1"},{"name":"四川","type":"1"},{"name":"贵州","type":"1"},{"name":"云南","type":"1"},{"name":"西藏","type":"1"},{"name":"西南连线","type":"1"}]},
+{"name":"西北","member":[{"name":"陕西","type":"1"},{"name":"甘肃","type":"1"},{"name":"青海","type":"1"},{"name":"宁夏","type":"1"},{"name":"新疆","type":"1"},{"name":"西北连线","type":"1"}]}
+],
+[
+{"name":"东亚","member":[{"name":"日本","type":"2"},{"name":"韩国","type":"2"},{"name":"朝鲜","type":"2"},{"name":"东南连线","type":"2"}]},
+{"name":"东南亚","member":[{"name":"新加坡","type":"2"},{"name":"马来西亚","type":"2"},{"name":"泰国","type":"2"},{"name":"印度尼西亚","type":"2"},{"name":"越南","type":"2"},{"name":"菲律宾","type":"2"},{"name":"柬埔寨","type":"2"},{"name":"老挝","type":"2"},{"name":"塞班岛","type":"2"},{"name":"文莱","type":"2"},{"name":"缅甸","type":"2"},{"name":"东南亚连线","type":"2"}]},
+{"name":"南亚","member":[{"name":"马尔代夫","type":"2"},{"name":"印度","type":"2"},{"name":"巴基斯坦","type":"2"},{"name":"尼泊尔","type":"2"},{"name":"不丹","type":"2"},{"name":"斯里兰卡","type":"2"},{"name":"南亚连线","type":"2"}]},
+{"name":"欧洲","member":[{"name":"北欧","type":"2"},{"name":"南欧","type":"2"},{"name":"西欧","type":"2"},{"name":"中欧","type":"2"},{"name":"东欧","type":"2"},{"name":"欧洲连线","type":"2"}]},
+{"name":"大洋洲","member":[{"name":"澳大利亚","type":"2"},{"name":"新西兰","type":"2"},{"name":"斐济","type":"2"},{"name":"帕劳","type":"2"},{"name":"澳新连线","type":"2"}]},
+{"name":"中东非洲","member":[{"name":"迪拜","type":"2"},{"name":"土耳其","type":"2"},{"name":"南非","type":"2"},{"name":"埃及","type":"2"},{"name":"毛里求斯","type":"2"},{"name":"肯尼亚","type":"2"},{"name":"中东非洲连线","type":"2"}]},
+{"name":"美洲","member":[{"name":"美国","type":"2"},{"name":"加拿大","type":"2"},{"name":"巴西","type":"2"},{"name":"阿根廷","type":"2"},{"name":"美洲连线","type":"2"}]},
+{"name":"港澳台","member":[{"name":"香港","type":"2"},{"name":"澳门","type":"2"},{"name":"台湾","type":"2"},{"name":"港澳台连线","type":"2"}]}
+]
+]}

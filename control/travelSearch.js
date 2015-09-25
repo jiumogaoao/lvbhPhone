@@ -91,7 +91,15 @@
 											
 					});
 				}
-			obj.api.at(getNow,data.at);	
+			function changeId(at){
+				obj.api.run("place_id_get","at="+at+"&pen="+data.id,function(returnData){
+					data.id=returnData;
+					getNow(at);
+					},function(e){
+					obj.pop.on("alert",{text:(JSON.stringify(e))});
+					});
+				}
+			obj.api.at(changeId,data.at);	
 				
 			}
 		});
