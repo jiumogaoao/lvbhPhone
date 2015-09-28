@@ -73,7 +73,8 @@ var myScroll = new IScroll('#middle', { probeType: 3,scrollbars: false,
 		interactiveScrollbars: false,
 		shrinkScrollbars: 'scale',
 		fadeScrollbars: true,
-		checkDOMChanges:true
+		checkDOMChanges:true,
+		click: true
 		 });
 function updatePosition(){
 	app.scrollFn.run(this.y>>0);}

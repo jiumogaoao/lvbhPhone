@@ -24,7 +24,7 @@
 .product_list .dsc{
 	font-size:.5rem;
 	color:#7c7c7c;
-	margin-top:.2rem;}
+	}
 .product_list .money{
 	font-size:.3rem;
 	color:#7c7c7c;
@@ -68,7 +68,7 @@
 </style>
 <div class="product_list<% if(type=="1"){print(" edit")} %>">
 <% _.each(list,function(n){ %>
-<div class="point" pid="<%= n.id %>">
+<div class="point" pid="<%= n.id %>" type="<%= n.type||"" %>" oid="<%= n.oid||"" %>">
 <% if(type=="1"){ %>
 	<div class="left">
     	<span class="fa fa-radio"></span>
@@ -78,8 +78,8 @@
     	<div class="top">
         	<img class="topL" src="<%= n.image %>" onerror="app.nofound('img/collect_img_picture.png')"/>
             <div class="topR">
-            	<div class="title">&lt;<%= n.title %>&gt;</div>
-                <div class="dsc"><%= n.dsc %></div>
+            	<div class="title"><% if(n.title.length>14){print(n.title.substr(0,14)+"...")}else{print(n.title)} %></div>
+                <div class="dsc"><% if(n.dsc.length>14){print(n.dsc.substr(0,14)+"...")}else{print(n.dsc)} %></div>
                 <div class="money"><span class="red">￥<%= n.price %></span>起 <del>￥<%= n.old %></del></div>
             </div>
             <div class="clear"></div>
@@ -99,7 +99,8 @@
 
 </div>
 <script>
-$(".product_list.edit .left").unbind("tap").bind("tap",function(){
+$(".product_list.edit .left").unbind("tap").bind("tap",function(e){
+	e.stopPropagation();
 	if(!$(this).data("choose")){
 		$(this).data("choose",true);
 		$(this).find(".fa").addClass("hl");

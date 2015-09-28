@@ -7,18 +7,19 @@
 		fn:function(data){
 			var head=_.template(data.tem[0])({left:"",center:"圈子设置"});
 			$("#head").html(head);
-			function layout(result){
+			function layout(result,at){
 				var list=[
-				{name:"icon",left:"头像",right:'<img id="groupIcon" src="'+config.sour+'sns/tpu.jspx?a=1&b='+result.a+'&c='+result.f+'"/><span class="fa fa-right"></span><input type="file" id="upload"/>',link:true},
+				{name:"icon",left:"头像",right:'<img id="groupIcon" src="'+config.sour+'center/tp.jspx?at='+at+'&a=1&b='+result.f+'"/><span class="fa fa-right"></span><form id="headform" action="'+config.sour+'center/tu.jspx" method="post" enctype="multipart/form-data"><input type="file" id="upload" name="filename"/><input type="hidden" name="at" value="'+at+'"/></form>',link:true},
 				{name:"id",left:"圈子ID",right:result.a,link:true},
-				{name:"name",left:"名称",right:result.c+' <apan class="fa fa-right"></span>',link:true},
-				{name:"word",left:"宣言",right:result.d+' <apan class="fa fa-right"></span>',link:true},
+				{name:"name",left:"名称",right:(result.c||"")+' <apan class="fa fa-right"></span>',link:true},
+				{name:"word",left:"宣言",right:(result.d||"")+' <apan class="fa fa-right"></span>',link:true},
 				{name:"dsc",left:"介绍",right:'<apan class="fa fa-right"></span>',link:true},
 				{name:"group",left:"加入的圈子",right:'<apan class="fa fa-right"></span>',link:true},
 				{name:"invite",left:"分享与邀请",right:'<apan class="fa fa-right"></span>',link:true},
 				];
 				var listA=_.template(data.tem[1])({list:list});
 			$("#scroller").html(listA);
+			$("#headform").ajaxForm();
 			$("[name='name']").unbind("tap").bind("tap",function(){
 				window.location.hash="groupEdit/0/"+result.c;
 				});
@@ -59,8 +60,12 @@
             reader.readAsDataURL(file);
         }
 			 $("[name='icon'] input").change(function(e) {
-                var file = e.target.files[0];
-                preview2(file);
+                config.loadingOn();
+				$("#headform").ajaxSubmit(function(upreturn){
+					config.loadingOff();
+					var file = e.target.files[0];
+               		 preview2(file);
+					});
             });
 			$(".top_third .leftButton").unbind("tap").bind("tap",function(){
 				window.history.go(-1);
@@ -74,7 +79,9 @@
 				});
 				}
 			function getGroup(at){
-				obj.api.run("group_getMy","at="+at,layout,function(e){
+				obj.api.run("group_getMy","at="+at,function(returnData){
+					layout(returnData,at);
+					},function(e){
 					obj.pop.on("alert",{text:(JSON.stringify(e))});
 					});
 				}

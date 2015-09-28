@@ -23,9 +23,9 @@
 					$("#scroller").html(listA+button);
 					$("#send").unbind("tap").bind("tap",function(){
 								var remove="";
-				$(".product_list .hl").each(function(i){
+				$(".product_list .point.hl").each(function(i){
 					remove+=$(this).attr("pid");
-					if(i !== ($(".product_list .hl").length-1)){
+					if(i !== ($(".product_list .point.hl").length-1)){
 						remove+="-";
 						}
 					});
@@ -36,7 +36,9 @@
 					});
 						});
 					}
-			
+			$(".product_list .point").unbind("tap").bind("tap",function(){
+				window.location.hash="productDetail/"+$(this).attr("type")+"/"+$(this).attr("oid");
+				});
 			$(".top_third .leftButton").unbind("tap").bind("tap",function(){
 				window.history.go(-1);
 				});
@@ -52,13 +54,13 @@
 				}
 			function getPage(callback){
 			obj.api.at(function(at){
-			obj.api.run("collect_get",'at='+at+'&c=0&a='+page,function(returnData){
+			obj.api.run("collect_get",'at='+at+'&c=1&a='+page,function(returnData){
 					if(returnData.pn === page+""){
 						page++;
 						returnData=returnData.data;
 					$.each(returnData,function(i,n){console.log(n);
 						var addData=[];
-						var add={image:n.g,title:n.d,dsc:n.e,price:n.ae,old:n.ad,star:n.ab,com:n.a,id:n.a};
+						var add={image:n.g,title:n.d,dsc:n.e,price:n.ae,old:n.ad,star:n.ab,com:n.a,id:n.a,type:(n.b+8),oid:n.c};
 					result.push(add);
 						});
 						layout(result,at);
