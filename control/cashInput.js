@@ -18,15 +18,15 @@
 			]});
 			var button=_.template(data.tem[3])({"text":"提交申请","id":"cashButton"});
 			$("#scroller").html(nav+list+button);
-			$("#scroller .link").unbind("tap").bind("tap",function(){
+			$("#scroller .link").unbind("click").bind("click",function(){
 				window.location.hash="bankList/"+($("[name='name'] input").val()||"")+"/"+($("[name='number'] input").val()||"")+"/"+($("[name='money'] input").val()||"")+"/"+($("[name='dsc'] input").val()||"");
 				});	
-			$(".top_third .leftButton").unbind("tap").bind("tap",function(){
+			$(".top_third .leftButton").unbind("click").bind("click",function(){
 				window.history.go(-1);
 				});
-			$("#cashButton").unbind("tap").bind("tap",function(){
+			$("#cashButton").unbind("click").bind("click",function(){
 				app.pop.on("password",null,function(){
-					$("#pop .left").unbind("tap").bind("tap",function(){
+					$("#pop .left").unbind("click").bind("click",function(){
 						if(!$("[name='name'] input").val()){
 							obj.pop.on("alert",{text:"开户名不能为空"});
 							return false;
@@ -55,7 +55,7 @@
 							obj.pop.on("alert",{text:(JSON.stringify(e))});
 							});
 						});
-					$("#pop .right").unbind("tap").bind("tap",function(){
+					$("#pop .right").unbind("click").bind("click",function(){
 						obj.pop.off();
 						});	
 					});

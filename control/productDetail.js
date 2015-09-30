@@ -99,46 +99,46 @@
 						}
 					}else{$("#otherFrame").hide();}
 				});
-			$("#scroller .product_top .collect").unbind("tap").bind("tap",function(){
+			$("#scroller .product_top .collect").unbind("click").bind("click",function(){
 				obj.api.run("collect_add",'at='+at+'&t='+collectArry[data.type]+'&id='+data.id+'&cn='+result.title+'&desc='+result.title,function(returnData){
 					obj.pop.on("alert",{text:("收藏成功")});
 					},function(e){obj.pop.on("alert",{text:(JSON.stringify(e))});});
 				});
-			$("#scroller #date").unbind("tap").bind("tap",function(){
+			$("#scroller #date").unbind("click").bind("click",function(){
 				obj.cache("pruduct_input_"+data.id,result);
 				window.location.hash="calendar/"+data.type+"/"+data.id+"/"+result.state+"/0";
 				});
-			$("#payButton").unbind("tap").bind("tap",function(){
+			$("#payButton").unbind("click").bind("click",function(){
 				obj.api.run("user_get","at="+at,function(user){
 				window.location.hash="productInput/"+data.type+"/"+data.id+"/"+result.state;
 					},function(e){
 					window.location.hash="login/productDetail$"+data.type+"$"+data.id+"$$"+result.state;
 					});
 				});
-			$(".title_input_list [name='message']").unbind("tap").bind("tap",function(){
+			$(".title_input_list [name='message']").unbind("click").bind("click",function(){
 				obj.cache("pruduct_input_"+data.id,result);
 				window.location.hash="messageList/"+data.type+"/"+data.id+"/"+result.state;
 				});
-			$(".title_input_list [name='flow']").unbind("tap").bind("tap",function(){
+			$(".title_input_list [name='flow']").unbind("click").bind("click",function(){
 				obj.cache("pruduct_input_"+data.id,result);
 				window.location.hash="dealFlow/"+data.type+"/"+data.id+"/"+result.state;
 				});
-			$(".title_input_list [name='comment']").unbind("tap").bind("tap",function(){
+			$(".title_input_list [name='comment']").unbind("click").bind("click",function(){
 				window.location.hash="commentList/"+data.id;
 				});
-			$("#scroller .share").unbind("tap").bind("tap",function(){
+			$("#scroller .share").unbind("click").bind("click",function(){
 				obj.bottom.on("share",{list:[
 				{image:"img/weibo.png",name:"新浪微博",id:"xinlang"},
 				{image:"img/qq.png",name:"腾讯QQ",id:"qq"},
 				{image:"img/qzone.png",name:"QQ空间",id:"qzone"}
 				]},function(){
-					$(".share [sid='xinlang']").unbind("tap").bind("tap",function(){
+					$(".share [sid='xinlang']").unbind("click").bind("click",function(){
 						window.location.href="http://service.weibo.com/share/share.php?url="+window.location.href+"&appkey=&searchPic=true";
 						});
-					$(".share [sid='qq']").unbind("tap").bind("tap",function(){
+					$(".share [sid='qq']").unbind("click").bind("click",function(){
 						window.location.href="http://connect.qq.com/widget/shareqq/index.html?url="+encodeURIComponent(window.location.href)+"&desc=&title="+encodeURIComponent(top.title)+"&summary=&pics=&flash=&site=&style=201&width=32&height=32&showcount=";
 						});
-					$(".share [sid='qzone']").unbind("tap").bind("tap",function(){
+					$(".share [sid='qzone']").unbind("click").bind("click",function(){
 						window.location.href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url="+window.location.href+"&title="+top.title+"&desc="+top.title+"&summary=&site=lvbh";
 						});
 					},function(e){
@@ -146,19 +146,19 @@
 					});
 				});
 			
-			$(".nav_third #left").unbind("tap").bind("tap",function(){
+			$(".nav_third #left").unbind("click").bind("click",function(){
 				$(".nav_third .nav_point_frame").removeClass("hl");
 				$(this).addClass("hl");
 				myScroll.scrollToElement($("#noChange")[0]);
 				myScroll.refresh();
 				});
-			$(".nav_third #center").unbind("tap").bind("tap",function(){
+			$(".nav_third #center").unbind("click").bind("click",function(){
 				$(".nav_third .nav_point_frame").removeClass("hl");
 				$(this).addClass("hl");
 				myScroll.scrollToElement($("#xxxc")[0]);
 				myScroll.refresh();
 				});
-			$(".nav_third #right").unbind("tap").bind("tap",function(){
+			$(".nav_third #right").unbind("click").bind("click",function(){
 				$(".nav_third .nav_point_frame").removeClass("hl");
 				$(this).addClass("hl");
 				myScroll.scrollToElement($("#fysm")[0]);

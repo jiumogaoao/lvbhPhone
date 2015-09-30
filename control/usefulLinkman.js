@@ -29,17 +29,24 @@
 					
 			var button=_.template(data.tem[2])({text:'<span class="fa fa-add2" style="position: relative;top: .05rem;"></span> 添加常用联系人',id:"addLinkman"});
 			$("#scroller").html(main+button);
-			$("#scroller #addLinkman").unbind("tap").bind("tap",function(){
-				window.location.hash="linkmanAdd/"+data.type+"/"+data.id+"/"+data.state;
+			$("#scroller #addLinkman").unbind("click").bind("click",function(){
+				if(data.type){
+					window.location.hash="linkmanAdd/"+data.type+"/"+data.id+"/"+data.state;
+					}else{
+						window.location.hash="linkmanAdd";
+						}
+				
 				});
-			$("#scroller .point").unbind("tap").bind("tap",function(){
-				result.linkMan={
+			$("#scroller .point").unbind("click").bind("click",function(){
+				if(data.type){
+					result.linkMan={
 					name:resultA[$(this).attr("num")].title,
 					tel:resultA[$(this).attr("num")].dsc,
 					email:resultA[$(this).attr("num")].email
 				};
 				obj.cache("pruduct_input_"+data.id,result);
 					window.location.hash="productInput/"+data.type+"/"+data.id+"/"+data.state;
+					}
 				});
 			var delay=setTimeout(function(){
 				myScroll.refresh();

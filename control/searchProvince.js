@@ -18,10 +18,10 @@
 			var searchList=_.template(data.tem[1])(list);
 			$("#scroller").html(searchList);
 			$("#scroller .list").css("width","100%");
-			$(".top_third .leftButton").unbind("tap").bind("tap",function(){
+			$(".top_third .leftButton").unbind("click").bind("click",function(){
 				window.history.go(-1);
 				});
-			$(".point").unbind("tap").bind("tap",function(){
+			$(".point").unbind("click").bind("click",function(){
 				result.province=$(this).attr("value");
 				obj.cache("mail",result);
 				window.location.hash="emailAdd/"+data.type+"/"+data.id+"/"+data.state;

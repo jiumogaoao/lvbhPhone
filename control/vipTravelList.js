@@ -13,7 +13,7 @@
 				center:"TA的达人圈"
 				});
 			$("#head").html(head);
-			$(".top_third .leftButton").unbind("tap").bind("tap",function(){
+			$(".top_third .leftButton").unbind("click").bind("click",function(){
 				window.history.go(-1);
 				});
 			obj.scrollFn.add("vipTravelList",function(y){
@@ -44,19 +44,19 @@
 				});
 			$("#otherFrame").hide();
 			$("#scroller").html(top+topNav+nav+list);
-			$("#scroller .travel_list .point").unbind("tap").bind("tap",function(){
+			$("#scroller .travel_list .point").unbind("click").bind("click",function(){
 			window.location.hash="vipTravelDetail/"+$(this).attr("pid")+"/"+data.id;	
 				});
 			
 			$("#scroller .group_nav .point[nid='"+type+"']").addClass("hl");
-			$("#scroller .group_nav .point").unbind("tap").bind("tap",function(){
+			$("#scroller .group_nav .point").unbind("click").bind("click",function(){
 				type=Number($(this).attr("nid"));
 				result=[];
 				getList(at,sour);
 				});
 			$(".group_top_nav").each(function(){
 				$(this).find(".nav").eq(1).addClass("hl");
-				$(this).find(".nav").eq(0).unbind("tap").bind("tap",function(){
+				$(this).find(".nav").eq(0).unbind("click").bind("click",function(){
 				window.location.hash="vipMemberList/"+data.id+"/"+data.number;
 				});
 				});

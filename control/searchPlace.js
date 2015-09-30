@@ -17,7 +17,7 @@
 				if(obj.cache("regist")){result=obj.cache("regist");}
 				var tag=_.template(data.tem[2])(list);
 			$("#otherFrame").html(tag);
-			$(".tap").unbind("tap").bind("tap",function(){
+			$(".tap").unbind("click").bind("click",function(){
 				myScroll.scrollToElement($(".title[index='"+$(this).html()+"']")[0]);
 				});
 			$("#otherFrame").css({
@@ -33,13 +33,13 @@
 			$("#head").html(head);
 			var searchList=_.template(data.tem[1])(list);
 			$("#scroller").html(searchList);
-			$(".top_third .leftButton").unbind("tap").bind("tap",function(){
+			$(".top_third .leftButton").unbind("click").bind("click",function(){
 				window.history.go(-1);
 				});
-			$("#registButton").unbind("tap").bind("tap",function(){
+			$("#registButton").unbind("click").bind("click",function(){
 				window.location.hash="index";
 				});
-			$(".point").unbind("tap").bind("tap",function(){
+			$(".point").unbind("click").bind("click",function(){
 				result.place={name:$(this).attr("value"),id:$(this).attr("pid")};
 				result.pro=$(this).attr("pro");
 				obj.cache("regist",result);

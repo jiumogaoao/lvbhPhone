@@ -17,14 +17,11 @@
 			var listA=_.template(data.tem[1])({list:list});
 			var button=_.template(data.tem[2])({"text":"保存","id":"passButton"});
 			$("#scroller").html(listA+button);				
-			$(".top_third .leftButton").unbind("tap").bind("tap",function(){
+			$(".top_third .leftButton").unbind("click").bind("click",function(){
 				window.history.go(-1);
 				});
-			$("#passButton").unbind("tap").bind("tap",function(){
-				if(!$("[name='old']").val()){
-					$("[name='old']").parent().addClass("err");
-					return false;
-					}
+			$("#passButton").unbind("click").bind("click",function(){
+				
 				if(!$("[name='new']").val()){
 					$("[name='new']").parent().addClass("err");
 					return false;
@@ -33,11 +30,20 @@
 					$("[name='new2']").parent().addClass("err");
 					return false;
 					}
-				obj.api.run("deal_password",{at:at,o:$("[name='old']").val(),p:$("[name='new']").val()},function(){
+					if(!$("[name='old']").val()){
+					obj.api.run("deal_password_new",{at:at,p:$("[name='new']").val()},function(){
 					obj.pop.on("alert",{text:("修改成功")});
 					},function(e){
 						obj.pop.on("alert",{text:(JSON.stringify(e))});
 						});
+					}else{
+					obj.api.run("deal_password",{at:at,o:$("[name='old']").val(),p:$("[name='new']").val()},function(){
+					obj.pop.on("alert",{text:("修改成功")});
+					},function(e){
+						obj.pop.on("alert",{text:(JSON.stringify(e))});
+						});	
+						}
+				
 				});
 			myScroll.refresh();
 			$('img').load(function(){

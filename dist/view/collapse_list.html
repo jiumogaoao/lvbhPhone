@@ -123,7 +123,7 @@
 </div>
 <script>
 ;(function(){
-	$(".collapse_list .list .head").unbind("tap").bind("tap",function(){
+	$(".collapse_list .list .head").unbind("click").bind("click",function(){
 	if($(this).parents(".list").attr("class")=="list hl"){
 	$(this).parents(".list").removeClass("hl");
 	$(this).parents(".list").find(".fa").removeClass("fa-close");

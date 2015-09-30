@@ -14,24 +14,24 @@
 			function layout(at,result){
 				var main = _.template(data.tem[1])(result);
 				$("#scroller").html(main+button);
-				$("#pay").unbind("tap").bind("tap",function(){
+				$("#pay").unbind("click").bind("click",function(){
 					if(result.balance>=result.price){
 						app.pop.on("password",null,function(){
-					$("#pop .left").unbind("tap").bind("tap",function(){
+					$("#pop .left").unbind("click").bind("click",function(){
 						if(!$("#pop .top").val()){
-							app.pop.on("alert",{text:"交易密码不能为空"});
+							app.pop.on("alert",{text:"交易密码不能为空,若未设置交易密码，请先行设置"});
 							return false;
 							}
-						obj.api.run("key_check",'at='+at+'&a='+data.id+'&b='+$("#pop .top").val(),function(returnData){
+						obj.api.run("key_check",'at='+at+'&a='+result.number+'&b='+$("#pop .top").val(),function(returnData){
 							if(returnData === 1){
-								obj.api.run("pay_account",'at='+at+'&a='+data.id+'&b='+$("#pop .top").val(),function(dataA){
+								obj.api.run("pay_account",'at='+at+'&a='+result.number+'&b='+$("#pop .top").val(),function(dataA){
 									obj.pop.on("alert",{text:("支付成功")});
 									window.location.hash="dealList/0";
 									},function(e){obj.pop.on("alert",{text:(e)});});
 								}
 							},function(e){obj.pop.on("alert",{text:(e)});});
 						});
-					$("#pop .right").unbind("tap").bind("tap",function(){
+					$("#pop .right").unbind("click").bind("click",function(){
 						app.pop.off();
 						});	
 					});
@@ -41,7 +41,7 @@
 					
 					});
 				}
-			$(".top_third .leftButton").unbind("tap").bind("tap",function(){
+			$(".top_third .leftButton").unbind("click").bind("click",function(){
 				window.history.go(-1);
 				});
 			var delay=setTimeout(function(){

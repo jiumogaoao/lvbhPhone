@@ -25,7 +25,7 @@
 			$(".title_input_list").css("background-color","#eeeeee");
 			$(".title_input_list .point").css("background-color","#fff");
 			$("[name='zhzcsj'],[name='zhsj']").css("margin-top",".3rem");
-			$(".top_third .leftButton").unbind("tap").bind("tap",function(){
+			$(".top_third .leftButton").unbind("click").bind("click",function(){
 				window.history.go(-1);
 				});
 			myScroll.refresh();

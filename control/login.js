@@ -8,7 +8,7 @@
 			var head=_.template(data.tem[0])({left:"",center:"登录",right:"注册"});
 			$("#head").html(head);
 			function layout(at){
-				var nav=_.template(data.tem[1])({left:{text:"普通登录",hl:true},right:{text:"手动动态密码登录",hl:false}});
+				var nav=_.template(data.tem[1])({left:{text:"普通登录",hl:true},right:{text:"手机动态密码登录",hl:false}});
 				var list=_.template(data.tem[2])({list:[
 				{"name":"user","placehold":"请输入手机号/邮箱","icon":"fa-man","value":"","other":""},
 				{"name":"key","placehold":"请输入密码","icon":"fa-lock","value":"","other":"","type":"password"},
@@ -16,19 +16,19 @@
 			]});
 			var button=_.template(data.tem[3])({"text":"登录","id":"loginButton"});
 			$("#scroller").html(nav+list+button);
-			$("#code").unbind("tap").bind("tap",function(){
+			$("#code").unbind("click").bind("click",function(){
 				$(this).attr("src",config.sour+'user/v.jspx?at='+at+'&t='+new Date().getTime());
 				});
-			$(".top_third .leftButton").unbind("tap").bind("tap",function(){
+			$(".top_third .leftButton").unbind("click").bind("click",function(){
 				window.history.go(-1);
 				});
-			$(".top_third .rightButton").unbind("tap").bind("tap",function(){
+			$(".top_third .rightButton").unbind("click").bind("click",function(){
 				window.location.hash="regist";
 				});
-			$(".nav_two #right").unbind("tap").bind("tap",function(){
+			$(".nav_two #right").unbind("click").bind("click",function(){
 				window.location.hash="phoneLogin";
 				});
-			$("#loginButton").unbind("tap").bind("tap",function(){
+			$("#loginButton").unbind("click").bind("click",function(){
 				if(!$("[name='user'] input").val()){
 					obj.pop.on("alert",{text:"请输入登录账号"});
 					return false;

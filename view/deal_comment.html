@@ -95,7 +95,7 @@
 </div>
 </div>
 <script>
-	$(".point").unbind("tap").bind("tap",function(){
+	$(".point").unbind("click").bind("click",function(){
 		$(this).parents(".list").find(".point").removeClass("hl");
 		$(this).addClass("hl");
 		});

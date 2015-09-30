@@ -13,10 +13,10 @@
 			{name:"取消订单退回",lid:"2"}
 			]});
 			$("#scroller").html(list);
-			$(".top_third .leftButton").unbind("tap").bind("tap",function(){
+			$(".top_third .leftButton").unbind("click").bind("click",function(){
 				window.history.go(-1);
 				});
-			$(".simple_list").unbind("tap").bind("tap",function(){
+			$(".simple_list").unbind("click").bind("click",function(){
 					window.location.hash="accountList/"+$(this).attr("lid");
 				});
 			myScroll.refresh();

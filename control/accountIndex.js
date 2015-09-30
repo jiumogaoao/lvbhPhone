@@ -18,10 +18,10 @@
 			{name:"支出明细",lid:"1"}
 			]});
 			$("#scroller").html(index+list);
-			$(".top_third .leftButton").unbind("tap").bind("tap",function(){
+			$(".top_third .leftButton").unbind("click").bind("click",function(){
 				window.history.go(-1);
 				});
-			$(".simple_list").unbind("tap").bind("tap",function(){
+			$(".simple_list").unbind("click").bind("click",function(){
 				if($(this).attr("lid")==="0"){
 					window.location.hash="inIndex";
 					}else{

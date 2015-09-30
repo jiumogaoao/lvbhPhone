@@ -99,7 +99,7 @@
 
 </div>
 <script>
-$(".product_list.edit .left").unbind("tap").bind("tap",function(e){
+$(".product_list.edit .left").unbind("click").bind("click",function(e){
 	e.stopPropagation();
 	if(!$(this).data("choose")){
 		$(this).data("choose",true);

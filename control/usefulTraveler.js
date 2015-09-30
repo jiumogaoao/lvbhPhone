@@ -16,7 +16,7 @@
 			var head=_.template(data.tem[0])({
 				left:"",
 				center:"常用旅客",
-				right:"确定"
+				right:data.type?"确定":""
 				});
 			$("#head").html(head);
 			$("#head .leftButton").unbind("click").bind("click",function(){
@@ -35,13 +35,13 @@
 					window.location.hash="productInput/"+data.type+"/"+data.id+"/"+data.state;
 				});
 				var main=_.template(data.tem[1])({
-					enable:true,
+					enable:data.type?true:false,
 					list:resultA,
 					dscName:"手机号"
 					});
 				var button=_.template(data.tem[2])({text:'<span class="fa fa-add2" style="position: relative;top: .05rem;"></span> 添加常用旅客',id:"addTraveller"});
 			$("#scroller").html(main+button);
-			$("#scroller .fa-checkbox").unbind("tap").bind("tap",function(){
+			$("#scroller .fa-checkbox").unbind("click").bind("click",function(){
 				if($(this).data("choose")){
 					$(this).data("choose",false);
 					$(this).removeClass("hl");
@@ -55,8 +55,13 @@
 						
 						}
 				});
-			$("#scroller #addTraveller").unbind("tap").bind("tap",function(){
-				window.location.hash="travellerAdd/"+data.type+"/"+data.id+"/"+data.state;
+			$("#scroller #addTraveller").unbind("click").bind("click",function(){
+				if(data.type){
+					window.location.hash="travellerAdd/"+data.type+"/"+data.id+"/"+data.state;
+					}else{
+						window.location.hash="travellerAdd";
+					}
+				
 				});	
 				var delay=setTimeout(function(){
 				myScroll.refresh();

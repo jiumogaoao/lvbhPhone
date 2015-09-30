@@ -201,29 +201,29 @@
         </div>
     </div>
 </div>
-<form action="http://zf.lvbh.cn/lvbhinterface/payment" method="post" style="display:none">
+<form action="http://zf.lvbh.cn/lvbhinterface/payment" method="post" style="display:none" id="alipay">
 	<input name="outTradeNo" type="hidden" value="<%= number %>"/>
     <input name="bankCode" type="hidden" value="Alipay"/>
     <input name="totalFee" type="hidden" value="<%= price %>"/>
     <input name="subject" type="hidden" value="<%= name %>"/>
-	<input name="returnUrl" type="hidden" value="http://www.lvbh.cn/shop/alipayReturn.jspx"/>
-    <input name="sign" type="hidden" value="<% print($.md5("outTradeNo="+number+"&bankCode=Alipay&totalFee="+price+"&returnUrl="+"http://www.lvbh.cn/shop/alipayReturn.jspx"+"lvbh2015@lvbh.cn")) %>"/>
-    <input type="submit" id="alipay"/>
+	<input name="returnUrl" type="hidden" value="<%= window.location.href.split("#")[0]+"#dealList/0" %>"/>
+    <input name="sign" type="hidden" value="<% print($.md5("outTradeNo="+number+"&bankCode=Alipay&totalFee="+price+"&returnUrl="+window.location.href.split("#")[0]+"#dealList/0"+"lvbh2015@lvbh.cn")) %>"/>
+    <input type="submit"/>
 </form>
-<form action="http://zf.lvbh.cn/lvbhinterface/payment" method="post" style="display:none">
+<form action="http://zf.lvbh.cn/lvbhinterface/payment" method="post" style="display:none" id="tenpay">
 	<input name="outTradeNo" type="hidden" value="<%= number %>"/>
     <input name="bankCode" type="hidden" value="Tenpay"/>
     <input name="totalFee" type="hidden" value="<%= price %>"/>
     <input name="subject" type="hidden" value="<%= name %>"/>
-	<input name="returnUrl" type="hidden" value="http://www.lvbh.cn/shop/tenpayReturnUrl.jspx"/>
+	<input name="returnUrl" type="hidden" value="<%= window.location.href.split("#")[0]+"#dealList/0" %>"/>
     <input name="clientIp" type="hidden" value="<%= app.ip %>"/>
     <input name="sign" type="hidden" value="<% print($.md5("outTradeNo="+number+"&bankCode=Tenpay&totalFee="+price+"&returnUrl="+window.location.href.split("#")[0]+"#dealList/0"+"lvbh2015@lvbh.cn")) %>"/>
-    <input type="submit" id="tenpay"/>
+    <input type="submit"/>
 </form>
 <script>
 ;(function(){
 	$(".pay_index [name='returnUrl']").val(window.location.href.split("#")[0]+"#dealList/0");
-	$(".pay_index .bottom .head .dsc").unbind("tap").bind("tap",function(){
+	$(".pay_index .bottom .head .dsc").unbind("click").bind("click",function(){
 		if($(this).find(".fa").data("choose")){
 			$(this).find(".fa").data("choose",false);
 			$(this).find(".fa").removeClass("hl");

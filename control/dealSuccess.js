@@ -11,7 +11,7 @@
 				right:"关闭"
 				});
 			$("#head").html(head);
-			$("#head .rightButton").unbind("tap").bind("tap",function(){
+			$("#head .rightButton").unbind("click").bind("click",function(){
 				window.location.hash="productDetail/"+data.type+"/"+data.id;
 				});
 			var main=_.template(data.tem[1])({
@@ -19,8 +19,8 @@
 				price:data.price
 				});
 			$("#scroller").html(main);
-			$("#scroller .single_button").unbind("tap").bind("tap",function(){
-				window.location.hash="dealIndex";
+			$("#scroller .single_button").unbind("click").bind("click",function(){
+				window.location.hash="dealList/0";
 				});
 			var delay=setTimeout(function(){
 				myScroll.refresh();

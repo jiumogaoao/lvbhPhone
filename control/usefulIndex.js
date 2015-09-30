@@ -22,16 +22,16 @@
 				]
 				});	
 			$("#scroller").html(main);
-			$(".point[name='traveller']").unbind("tap").bind("tap",function(){
+			$(".point[name='traveller']").unbind("click").bind("click",function(){
 				window.location.hash="usefulTraveler";
 				});
-			$(".point[name='linkman']").unbind("tap").bind("tap",function(){
+			$(".point[name='linkman']").unbind("click").bind("click",function(){
 				window.location.hash="usefulLinkman";
 				});
-			$(".point[name='mail']").unbind("tap").bind("tap",function(){
+			$(".point[name='mail']").unbind("click").bind("click",function(){
 				window.location.hash="usefulEmail";
 				});
-			$(".point[name='invoice']").unbind("tap").bind("tap",function(){
+			$(".point[name='invoice']").unbind("click").bind("click",function(){
 				window.location.hash="usefulInvoice";
 				});
 			var delay=setTimeout(function(){

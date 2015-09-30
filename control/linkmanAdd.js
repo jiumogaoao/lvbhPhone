@@ -24,19 +24,24 @@
 				});
 			$("#scroller [D_type='radio']").each(function(){
 				var that=this;
-				$(that).find("[D_type='radioPoint']").unbind("tap").bind("tap",function(){
+				$(that).find("[D_type='radioPoint']").unbind("click").bind("click",function(){
 					result[$(that).attr("D_key")]=$(this).attr("D_value");
 					$(that).find(".radio").removeClass("hl");
 					$(this).addClass("hl");
 					});
 				});
-			$(".top_third .leftButton").unbind("tap").bind("tap",function(){
+			$(".top_third .leftButton").unbind("click").bind("click",function(){
 				window.history.go(-1);
 				});
-			$(".top_third .rightButton").unbind("tap").bind("tap",function(){
+			$(".top_third .rightButton").unbind("click").bind("click",function(){
 				obj.api.at(function(at){
 					obj.api.run("linker_add",'at='+at+'&tp=0&jparam='+JSON.stringify({b:result.name,c:result.phone,d:result.mail,e:result.sex,g:result.dsc}),function(){
-						window.location.hash="usefulLinkman/"+data.type+"/"+data.id+"/"+data.state;
+						if(data.type){
+							window.location.hash="usefulLinkman/"+data.type+"/"+data.id+"/"+data.state;
+							}else{
+								window.location.hash="usefulLinkman";
+								}
+						
 						},function(e){JSON.stringify(e);});
 					});
 				});

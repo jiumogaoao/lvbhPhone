@@ -11,10 +11,10 @@
 
 			$("#scroller").html(data.tem[1]);
 			
-			$(".top_third .leftButton").unbind("tap").bind("tap",function(){
+			$(".top_third .leftButton").unbind("click").bind("click",function(){
 				window.history.go(-1);
 				});
-			$(".group_add .button").unbind("tap").bind("tap",function(){
+			$(".group_add .button").unbind("click").bind("click",function(){
 				window.location.hash="groupSet";
 				});
 			var delay=setTimeout(function(){

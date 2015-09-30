@@ -9,10 +9,10 @@
 			$("#head").html(head);
 			var button=_.template(data.tem[2])({text:"提交",id:"submit"});
 			$("#scroller").html(data.tem[1]+button);
-			$(".top_third .leftButton").unbind("tap").bind("tap",function(){
+			$(".top_third .leftButton").unbind("click").bind("click",function(){
 				window.history.go(-1);
 				});
-			$("#submit").unbind("tap").bind("tap",function(){
+			$("#submit").unbind("click").bind("click",function(){
 				obj.api.at(function(at){
 					var sendString='at='+at+'&a=';
 					$(".list").each(function(i){

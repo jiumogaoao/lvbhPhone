@@ -47,7 +47,7 @@
     <% }) %>
         <div class="clear"></div>
     </div>
-    <form action="http://zf.lvbh.cn/lvbhinterface/payment" method="post" style="display:none">
+    <form action="http://zf.lvbh.cn/lvbhinterface/payment" id="tenpay" method="post" style="display:none">
 	<input name="outTradeNo" type="hidden" value="<%= number %>"/>
     <input name="bankCode" type="hidden" value="Tenpay"/>
     <input name="totalFee" type="hidden" value="<%= price %>"/>
@@ -56,7 +56,7 @@
     <input name="clientIp" type="hidden" value="<%= app.ip %>"/>
     <input name="bankType" type="hidden" value=""/>
     <input name="sign" type="hidden" value="<% print($.md5("outTradeNo="+number+"&bankCode=Tenpay&totalFee="+price+"&returnUrl="+window.location.href.split("#")[0]+"#dealList/0"+"lvbh2015@lvbh.cn")) %>"/>
-    <input type="submit" id="tenpay"/>
+    <input type="submit"/>
 </form>
 <script>
 $(".card_list [name='returnUrl']").val(window.location.href.split("#")[0]+"#dealList/0");

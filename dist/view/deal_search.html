@@ -110,7 +110,7 @@
     </div>
 </div>
 <script>
-	$(".button_both,.button_single").unbind("tap").bind("tap",function(){
+	$(".button_both,.button_single").unbind("click").bind("click",function(){
 		$(this).parents(".button_frame").find(".button_both,.button_single").removeClass("hl");
 		$(this).addClass("hl");
 		});

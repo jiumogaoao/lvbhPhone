@@ -27,7 +27,7 @@
 					"line-height":"1.4rem",
 					"text-align":"right"
 					});
-			$(".top_third .leftButton").unbind("tap").bind("tap",function(){
+			$(".top_third .leftButton").unbind("click").bind("click",function(){
 				window.history.go(-1);
 				});
 			

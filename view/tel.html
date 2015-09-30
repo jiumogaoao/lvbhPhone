@@ -111,11 +111,11 @@
     </div>
 </div>
 <script>
-	$(".alert .call").unbind("tap").bind("tap",function(){
+	$(".alert .call").unbind("click").bind("click",function(){
 		window.location.href="tel:400-606-2111";
 		app.bottom.off();
 		})
-	$(".alert .cancel").unbind("tap").bind("tap",function(){
+	$(".alert .cancel").unbind("click").bind("click",function(){
 		app.bottom.off();
 		})
 </script>

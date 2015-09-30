@@ -8,7 +8,7 @@
 			$("body").css("background-color","#fff");
 			var head=_.template(data.tem[0])({left:"",center:"关于我们"});
 			$("#head").html(head);
-			$(".top_third .leftButton").unbind("tap").bind("tap",function(){
+			$(".top_third .leftButton").unbind("click").bind("click",function(){
 				window.history.go(-1);
 				});
 			var list=_.template(data.tem[1])({list:[
@@ -20,22 +20,22 @@
 			{link:true,name:"kfdh",left:"客服电话",right:'400-606-2111 <span class="fa fa-right"></span>'},
 			]});
 			$("#scroller").html(list);
-			$("[name='gsjs']").unbind("tap").bind("tap",function(){
+			$("[name='gsjs']").unbind("click").bind("click",function(){
 				window.location.hash="company";
 				});
-			$("[name='yhxy']").unbind("tap").bind("tap",function(){
+			$("[name='yhxy']").unbind("click").bind("click",function(){
 				window.location.hash="protocol";
 				});
-			$("[name='mzsm']").unbind("tap").bind("tap",function(){
+			$("[name='mzsm']").unbind("click").bind("click",function(){
 				window.location.hash="exempt";
 				});
-			$("[name='ysbh']").unbind("tap").bind("tap",function(){
+			$("[name='ysbh']").unbind("click").bind("click",function(){
 				window.location.hash="conceal";
 				});
-			$("[name='zscqbh']").unbind("tap").bind("tap",function(){
+			$("[name='zscqbh']").unbind("click").bind("click",function(){
 				window.location.hash="intellectual";
 				});
-			$("[name='kfdh']").unbind("tap").bind("tap",function(){
+			$("[name='kfdh']").unbind("click").bind("click",function(){
 				obj.bottom.on("tel");
 				});
 			myScroll.refresh();

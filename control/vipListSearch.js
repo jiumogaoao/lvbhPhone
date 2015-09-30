@@ -17,7 +17,7 @@
 				});
 				var main=_.template(data.tem[1])({list:result});
 				$("#scroller").html(main);
-				$("#scroller .vip_list .point").unbind("tap").bind("tap",function(){
+				$("#scroller .vip_list .point").unbind("click").bind("click",function(){
 					window.location.hash="vipMemberList/"+$(this).attr("vid")+"/"+$(this).attr("number");
 					});
 				var delay=setTimeout(function(){

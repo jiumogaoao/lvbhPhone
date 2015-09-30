@@ -14,10 +14,10 @@
 
 			$("#scroller").html(nav+data.tem[2]+button);
 				
-			$(".top_third .leftButton").unbind("tap").bind("tap",function(){
+			$(".top_third .leftButton").unbind("click").bind("click",function(){
 				window.history.go(-1);
 				});
-			$("#cashButton").unbind("tap").bind("tap",function(){
+			$("#cashButton").unbind("click").bind("click",function(){
 				window.location.hash="cashInput";
 				});
 			myScroll.refresh();

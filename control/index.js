@@ -5,23 +5,24 @@
 		par:"",
 		tem:["foot_nav","index_head","index_nav","product_group_list","group_member","index_banner"],
 		fn:function(data){
-			function layout(main,vip,pomo){
+			function layout(main,vip,pomo,client){
 			obj.scrollFn.add("index",function(y){
 				$("#head").css("background-color","rgba(0,158,255,"+((-1*y)/200)+")");
 				});
 			var banner=	_.template(data.tem[5])({list:pomo});
-			$("#head").html(data.tem[1]);
+			var head=_.template(data.tem[1])({client:client});
+			$("#head").html(head);
 			$("#head .right").unbind("click").bind("click",function(){
 				obj.bottom.on("tel");
 				});
 			var list=_.template(data.tem[3])({list:main});
 			var group=_.template(data.tem[4])({list:vip});
 			$("#scroller").html(banner+data.tem[2]+list+group);
-			$(".product_group_list .icon").unbind("tap").bind("tap",function(){
+			$(".product_group_list .icon").unbind("click").bind("click",function(){
 				window.location.hash=$(this).attr("href");
 				});
 			$(".product_group_list .group").css("border-top","0px");
-$(".product_group_list .point").unbind("tap").bind("tap",function(){
+$(".product_group_list .point").unbind("click").bind("click",function(){
 				window.location.hash="productDetail/"+$(this).attr("type")+"/"+$(this).attr("pid");
 				});
 			$("#scroller .group_member").css({
@@ -53,7 +54,10 @@ $(".product_group_list .point").unbind("tap").bind("tap",function(){
 				function totalCount(){
 					total++;
 					if(total===6){
-						layout(main,vip,promo);
+						obj.api.run("client_get","at="+at+"&s="+(obj.cache("client_id").id||""),function(returnData){
+						layout(main,vip,promo,returnData);	
+							},function(e){obj.pop.on("alert",{text:JSON.stringify(e)});});
+						
 						}
 					}
 				obj.api.run("pomo_get",'at="'+at+'"',function(returnData){

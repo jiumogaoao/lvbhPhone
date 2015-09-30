@@ -24,17 +24,25 @@
 			$("#head").html(head);
 			var main=_.template(data.tem[1])(result);
 			$("#scroller").html(main);
-			$("#scroller #province").unbind("tap").bind("tap",function(){
+			$("#scroller #province").unbind("click").bind("click",function(){
 				obj.cache("mail",result);
 				window.location.hash="searchProvince/"+data.type+"/"+data.id+"/"+data.state;
 				});
-			$("#scroller #city").unbind("tap").bind("tap",function(){
+			$("#scroller #city").unbind("click").bind("click",function(){
 				obj.cache("mail",result);
-				window.location.hash="searchCity/"+data.type+"/"+data.id+"/"+data.state;
+				if(data.type){
+					window.location.hash="searchCity/"+data.type+"/"+data.id+"/"+data.state;
+					}else{
+						window.location.hash="searchCity";
+						}
 				});
-			$("#scroller #area").unbind("tap").bind("tap",function(){
+			$("#scroller #area").unbind("click").bind("click",function(){
 				obj.cache("mail",result);
-				window.location.hash="searchArea/"+data.type+"/"+data.id+"/"+data.state;
+				if(data.type){
+					window.location.hash="searchArea/"+data.type+"/"+data.id+"/"+data.state;
+					}else{
+				window.location.hash="searchArea";
+					}
 				});
 			$("#scroller [D_type='input']").each(function(){
 				var that=this;
@@ -42,14 +50,23 @@
 					result[$(that).attr("D_key")]=$(that).val();
 					});
 				});
-			$(".top_third .leftButton").unbind("tap").bind("tap",function(){
+			$(".top_third .leftButton").unbind("click").bind("click",function(){
 				window.history.go(-1);
 				});
-			$(".top_third .rightButton").unbind("tap").bind("tap",function(){
+			$(".top_third .rightButton").unbind("click").bind("click",function(){
+				if(result.tel.split("-").length<2){
+					obj.pop.on("alert",{text:"固话格式为“区号-电话号码”"});
+					return false;
+					}
 				obj.api.at(function(at){
-					obj.api.run("email_get",'at='+at+'&tp=0&jparam='+JSON.stringify({b:result.name,c:result.place,d:result.detail,e:result.code,f:result.phone,g:result.tel,i:result.province,j:result.city,k:result.area}),function(){
-						window.location.hash="usefulEmail/"+data.type+"/"+data.id+"/"+data.state;
-						},function(e){JSON.stringify(e);});
+					obj.api.run("email_add",'at='+at+'&tp=0&jparam='+JSON.stringify({b:result.name,c:result.place,d:result.detail,e:result.code,f:result.phone,g:result.tel,i:result.province,j:result.city,k:result.area,h:1}),function(){
+						if(data.type){
+							window.location.hash="usefulEmail/"+data.type+"/"+data.id+"/"+data.state;
+							}else{
+								window.location.hash="usefulEmail";
+								}
+						
+						},function(e){obj.pop.on("alert",{text:JSON.stringify(e)});});
 					});
 				});
 			var delay=setTimeout(function(){

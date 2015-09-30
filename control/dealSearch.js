@@ -11,14 +11,14 @@
 			var list=_.template(data.tem[1])({type:data.type});
 			var button=_.template(data.tem[2])({text:"立即查询",id:"search"});
 			$("#scroller").html(list+button);
-			$(".top_third .leftButton").unbind("tap").bind("tap",function(){
+			$(".top_third .leftButton").unbind("click").bind("click",function(){
 				window.history.go(-1);
 				});
-			$(".top_third .rightButton").unbind("tap").bind("tap",function(){
+			$(".top_third .rightButton").unbind("click").bind("click",function(){
 				$("#scroller input").val("");
 				$("#scroller .button_both").removeClass("hl");
 				});
-			$("#scroller #search").unbind("tap").bind("tap",function(){
+			$("#scroller #search").unbind("click").bind("click",function(){
 				var searchString="";
 				if($("#goStart").val()){
 					searchString+=',"g"="'+$("#goStart").val()+'"';

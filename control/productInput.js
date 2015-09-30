@@ -133,7 +133,7 @@
 				var foot=_.template(data.tem[2])(result);
 				$("#foot").html(foot);
 				
-					$("#foot .pay_list .payButton").unbind("tap").bind("tap",function(){
+					$("#foot .pay_list .payButton").unbind("click").bind("click",function(){
 						
 				if(!result.date.b){
 					obj.pop.on("alert",{text:("请先选择团期")});
@@ -233,35 +233,35 @@
 			
 			totalCount();
 
-			$("#scroller #postScript").unbind("tap").bind("tap",function(){
+			$("#scroller #postScript").unbind("click").bind("click",function(){
 				obj.cache("pruduct_input_"+data.id,result);
 				window.location.hash="postScript/"+data.type+"/"+data.id+"/"+data.state;
 				});
-			$("#scroller #message").unbind("tap").bind("tap",function(){
+			$("#scroller #message").unbind("click").bind("click",function(){
 				obj.cache("pruduct_input_"+data.id,result);
 				window.location.hash="dealMessage";
 				});
-			$("#scroller #usefulEmail0").unbind("tap").bind("tap",function(){
+			$("#scroller #usefulEmail0").unbind("click").bind("click",function(){
 				obj.cache("pruduct_input_"+data.id,result);
 				window.location.hash="usefulEmail/"+data.type+"/"+data.id+"/"+data.state+"/0";
 				});
-			$("#scroller #usefulEmail1").unbind("tap").bind("tap",function(){
+			$("#scroller #usefulEmail1").unbind("click").bind("click",function(){
 				obj.cache("pruduct_input_"+data.id,result);
 				window.location.hash="usefulEmail/"+data.type+"/"+data.id+"/"+data.state+"/1";
 				});
-			$("#scroller #usefulInvoice").unbind("tap").bind("tap",function(){
+			$("#scroller #usefulInvoice").unbind("click").bind("click",function(){
 				obj.cache("pruduct_input_"+data.id,result);
 				window.location.hash="usefulInvoice/"+data.type+"/"+data.id+"/"+data.state;
 				});
-			$("#scroller #usefulLinkman").unbind("tap").bind("tap",function(){
+			$("#scroller #usefulLinkman").unbind("click").bind("click",function(){
 				obj.cache("pruduct_input_"+data.id,result);
 				window.location.hash="usefulLinkman/"+data.type+"/"+data.id+"/"+data.state;
 				});
-			$("#scroller #usefulTraveler").unbind("tap").bind("tap",function(){
+			$("#scroller #usefulTraveler").unbind("click").bind("click",function(){
 				obj.cache("pruduct_input_"+data.id,result);
 				window.location.hash="usefulTraveler/"+data.type+"/"+data.id+"/"+data.state;
 				});
-			$("#scroller #date").unbind("tap").bind("tap",function(){
+			$("#scroller #date").unbind("click").bind("click",function(){
 				obj.cache("pruduct_input_"+data.id,result);
 				window.location.hash="calendar/"+data.type+"/"+data.id+"/"+data.state+"/1";
 				});
@@ -276,7 +276,7 @@
 				});
 			$("#scroller [D_type='number']").each(function(){
 				var that=this;
-				$(that).find(".numberSub").unbind("tap").bind("tap",function(){
+				$(that).find(".numberSub").unbind("click").bind("click",function(){
 					if(obj.control.pointParse(result,$(that).attr("D_key"))&&obj.control.pointParse(result,$(that).attr("D_key"))>0){
 						obj.control.pointParse(result,$(that).attr("D_key"),obj.control.pointParse(result,$(that).attr("D_key"))-1);
 						}else{
@@ -285,7 +285,7 @@
 					$(that).find("input").val(obj.control.pointParse(result,$(that).attr("D_key")));
 					totalCount();
 					});
-				$(that).find(".numberAdd").unbind("tap").bind("tap",function(){
+				$(that).find(".numberAdd").unbind("click").bind("click",function(){
 						if(!obj.control.pointParse(result,$(that).attr("D_key"))){
 							obj.control.pointParse(result,$(that).attr("D_key"),Number($(that).find("input").val()));
 							}
@@ -298,7 +298,7 @@
 					totalCount();
 					});	
 				});
-			$("#scroller [D_type='checkBox']").unbind("tap").bind("tap",function(){
+			$("#scroller [D_type='checkBox']").unbind("click").bind("click",function(){
 				var that=this;
 				if(obj.control.pointParse(result,$(that).attr("D_key"))){
 					obj.control.pointParse(result,$(that).attr("D_key"),false);
@@ -311,7 +311,7 @@
 				});
 			$("#scroller [D_type='toggle']").each(function(){
 				var that=this;
-				$(that).unbind("tap").bind("tap",function(){
+				$(that).unbind("click").bind("click",function(){
 				if(obj.control.pointParse(result,$(this).attr("D_key"))){
 					obj.control.pointParse(result,$(this).attr("D_key"),false);
 					$(this).find(".fa").removeClass("hl");
@@ -327,7 +327,7 @@
 				});
 				});
 			
-			$("#foot .pay_list .payButton").unbind("tap").bind("tap",function(){
+			$("#foot .pay_list .payButton").unbind("click").bind("click",function(){
 				if(!result.date.b){
 					obj.pop.on("alert",{text:("请先选择团期")});
 					return false;

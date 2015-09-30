@@ -24,7 +24,7 @@
 				list:[{title:false,main:product}]
 				});
 			$("#scroller").html(list);
-			$(".product_group_list .point").unbind("tap").bind("tap",function(){
+			$(".product_group_list .point").unbind("click").bind("click",function(){
 				window.location.hash="productDetail/"+$(this).attr("type")+"/"+$(this).attr("pid");
 				});
 			var delay=setTimeout(function(){

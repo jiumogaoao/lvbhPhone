@@ -55,7 +55,7 @@
 				obj.cache("pruduct_input_"+data.id,result);
 				window.location.hash="productInput/"+data.type+"/"+data.id+"/"+result.state;
 				}
-			$("#payButton").unbind("tap").bind("tap",function(){
+			$("#payButton").unbind("click").bind("click",function(){
 				obj.api.run("user_get","at="+at,function(user){
 				window.location.hash="productInput/"+data.type+"/"+data.id+"/"+result.state;
 					},function(e){

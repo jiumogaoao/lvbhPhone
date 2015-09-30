@@ -75,10 +75,10 @@
         <div class="hot"></div>
         <% } %>
         <div class="right">
-        	<div class="title"><%= n.title %></div>
-            <div class="time"><%= n.time %></div>
+        	<div class="title"><% if(n.title.length>8){print(n.title.substr(0,8)+"...")}else{print(n.title)} %></div>
+            <div class="time"><%= n.time.split(" ")[0] %></div>
             <div class="clear"></div>
-            <div class="desc"><%= n.desc %></div>
+            <div class="desc"><% if(n.desc.length>20){print(n.desc.substr(0,20)+"...")}else{print(n.desc)} %></div>
         </div>
         <div class="clear"></div>
     </div>    

@@ -15,10 +15,10 @@
 				var listA=_.template(data.tem[1])({type:1,value:result.dsc||"",placeholder:"请输入你的附言说明"});
 			$("#scroller").html(listA);
 			
-			$(".top_third .leftButton").unbind("tap").bind("tap",function(){
+			$(".top_third .leftButton").unbind("click").bind("click",function(){
 				window.history.go(-1);
 				});
-			$(".top_third .rightButton").unbind("tap").bind("tap",function(){
+			$(".top_third .rightButton").unbind("click").bind("click",function(){
 				result.dsc=$(".input_single textarea").val();
 				obj.cache("pruduct_input_"+data.id,result);
 				window.location.hash="productInput/"+data.type+"/"+data.id;

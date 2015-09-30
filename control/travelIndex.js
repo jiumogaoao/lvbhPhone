@@ -19,7 +19,7 @@
 			$("#head .leftButton").unbind("click").bind("click",function(){
 				window.history.go(-1);
 				});
-			function layout(at,now,product,hot){
+			function layout(at,now,product,client,hot){
 				if(!hot){
 					hot="";
 					}
@@ -27,7 +27,7 @@
 				left:{text:"推荐"},
 				center:{text:"国内"},
 				right:{text:"出境"},
-				four:{text:'<span class="fa fa-place2" style="color:#ff840c"></span> '+now.startName}
+				four:{text:'<span class="fa fa-place2" style="color:#ff840c"></span> '+client.s}
 				});
 			var list=_.template(data.tem[4])({
 				list:[{title:false,main:product}]
@@ -36,26 +36,26 @@
 			if(data.id){
 				$(".hot_nav .point#"+data.id).addClass("hl");
 				}
-			$(".product_group_list .point").unbind("tap").bind("tap",function(){
+			$(".product_group_list .point").unbind("click").bind("click",function(){
 				window.location.hash="productDetail/"+$(this).attr("type")+"/"+$(this).attr("pid");
 				});
-			$(".hot_nav .point").unbind("tap").bind("tap",function(){
+			$(".hot_nav .point").unbind("click").bind("click",function(){
 					window.location.hash="travelIndex/"+data.type+"/"+data.state+"/"+$(this).attr("id");
 					});
-			$(".nav_four #four").unbind("tap").bind("tap",function(){
-					window.location.hash="searchGt/"+data.type+"/"+(Number(data.state)-1);
+			$(".nav_four #four").unbind("click").bind("click",function(){
+					window.location.hash="searchGt/"+data.type+"/4";
 					});
-			$(".hot_nav .button").unbind("tap").bind("tap",function(){
+			$(".hot_nav .button").unbind("click").bind("click",function(){
 				window.location.hash="searchGt/"+data.type+"/"+(Number(data.state)-1);
 				});
 			$(".nav_two #"+hlArry[data.state]).addClass("hl");
-			$(".nav_two #left").unbind("tap").bind("tap",function(){
+			$(".nav_two #left").unbind("click").bind("click",function(){
 				window.location.hash="travelIndex/"+data.type+"/0";
 				});
-			$(".nav_two #center").unbind("tap").bind("tap",function(){
+			$(".nav_two #center").unbind("click").bind("click",function(){
 				window.location.hash="travelIndex/"+data.type+"/1";
 				});
-			$(".nav_two #right").unbind("tap").bind("tap",function(){
+			$(".nav_two #right").unbind("click").bind("click",function(){
 				window.location.hash="travelIndex/"+data.type+"/2";
 				});
 			var delay=setTimeout(function(){
@@ -66,43 +66,43 @@
 				});
 				}
 			
-			function getRecommend(at,now){
+			function getRecommend(at,now,client){
 				obj.api.run(apiArry[data.type],'aid='+now.startId,function(returnData){
 					var productList=[];
 					$.each(returnData,function(i,n){
 						var addData={image:"http://"+n.gd.cc,name:n.gd.b,price:n.gd.f,place:n.gd.w,tag:{name:n.cd.a,class:n.cd.b},date:n.sd,id:n.gd.a,type:typeArry[data.type],state:n.gd.e};
 						productList.push(addData);
 						});
-					layout(at,now,productList);
+					layout(at,now,productList,client);
 					},function(e){
 					obj.pop.on("alert",{text:(JSON.stringify(e))});
 					});
 				}
-			function getcf(at,now,hot){
+			function getcf(at,now,hot,client){
 				obj.api.run("cf_product_get",'aid='+now.startId+'&bid='+data.id,function(returnData){
 					var productList=[];
 					$.each(returnData,function(i,n){
 						var addData={image:"http://"+n.gd.cc,name:n.gd.b,price:n.gd.f,place:n.gd.w,date:n.sd,id:n.gd.a,type:12,state:n.gd.e};
 						productList.push(addData);
 						});
-					layout(at,now,productList,hot);
+					layout(at,now,productList,client,hot);
 					},function(e){
 						obj.pop.on("alert",{text:(JSON.stringify(e))});
 						});
 				}
-			function getmd(at,now,hot){
+			function getmd(at,now,hot,client){
 				obj.api.run("md_product_get",'aid='+data.id,function(returnData){
 					var productList=[];
 					$.each(returnData,function(i,n){
 						var addData={image:"http://"+n.gd.cc,name:n.gd.b,price:n.gd.f,place:n.gd.w,date:n.sd,id:n.gd.a,type:13,state:n.gd.e};
 						productList.push(addData);
 						});
-					layout(at,now,productList,hot);
+					layout(at,now,productList,client,hot);
 					},function(e){
 						obj.pop.on("alert",{text:(JSON.stringify(e))});
 						});
 				}
-			function getTable(at,now){
+			function getTable(at,now,client){
 				obj.api.run(tableAtty[data.type],"tp="+data.state,function(returnData){
 					var table=[];
 					if(returnData&&returnData.length){
@@ -115,9 +115,9 @@
 					data.id=returnData[0].a;
 					}
 				if(data.type==="0"){
-					getcf(at,now,hot);
+					getcf(at,now,hot,client);
 					}else{
-					getmd(at,now,hot);	
+					getmd(at,now,hot,client);	
 						}	
 						}else{
 							obj.pop.on("alert",{text:("该项暂无数据")});
@@ -127,13 +127,22 @@
 					obj.pop.on("alert",{text:(JSON.stringify(e))});
 					});
 				}
-			function getNow(at){
-				obj.api.run("city_cf_get","at="+at,function(returnData){
+			function getClient(at,now){
+				console.log(obj.cache("client_id"));
+				obj.api.run("client_get","at="+at+"&s="+(obj.cache("client_id").id||""),function(returnData){
 					if(data.state==="0"){
-						getRecommend(at,returnData);
+						getRecommend(at,now,returnData);
 						}else{
-							getTable(at,returnData);
-							}				
+							getTable(at,now,returnData);
+							}	
+					},function(e){
+					obj.pop.on("alert",{text:JSON.stringify(e)});
+					});
+				}
+			function getNow(at){
+				
+				obj.api.run("city_cf_get","at="+at,function(returnData){
+						getClient(at,returnData);		
 					});
 				}
 			obj.api.at(getNow,data.at);	

@@ -22,10 +22,10 @@
 				"padding-top":".4rem",
 				"padding-bottom":".4rem"
 				});
-			$(".top_third .leftButton").unbind("tap").bind("tap",function(){
+			$(".top_third .leftButton").unbind("click").bind("click",function(){
 				window.history.go(-1);
 				});
-			$(".top_third .rightButton").unbind("tap").bind("tap",function(){
+			$(".top_third .rightButton").unbind("click").bind("click",function(){
 				obj.bottom.on("share",{list:[
 				{image:"img/weixin.png",name:"微信"},
 				{image:"img/friend.png",name:"朋友圈"},

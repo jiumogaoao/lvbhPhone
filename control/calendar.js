@@ -25,7 +25,7 @@
 				if(result&&result.date&&result.date.c){
 					$("td[date='"+result.date.c+"']").addClass("hl");
 					}
-				$("#scroller .enable").unbind("tap").bind("tap",function(){
+				$("#scroller .enable").unbind("click").bind("click",function(){
 					result.date=_.indexBy(returnData,"b")[$(this).attr("did")];
 					obj.cache("pruduct_input_"+data.id,result);
 					if(data.page==="1"){

@@ -5,6 +5,7 @@
 		var hash="index";
 		if(location.hash){
 			hash=location.hash.replace("#","");
+			hash=hash.split("?")[0];
 			}
 		var hashArry=hash.split("/");
 		function runRoute(){

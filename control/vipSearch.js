@@ -24,7 +24,7 @@
 								"<div class=\"clear\"></div>"+
 							"</div>").appendTo($("#scroller .bottom"));
 							});
-							$("#scroller .bottom .point").unbind("tap").bind("tap",function(){
+							$("#scroller .bottom .point").unbind("click").bind("click",function(){
 								window.location.hash="vipMemberList/"+$(this).attr("gid")+"/"+$(this).attr("gname");
 								});
 							myScroll.refresh();
@@ -35,7 +35,7 @@
 						obj.pop.on("alert",{text:JSON.stringify(e)});
 						});
 					});
-				$(".top_third .rightButton").unbind("tap").bind("tap",function(){
+				$(".top_third .rightButton").unbind("click").bind("click",function(){
 					window.history.go(-1);
 					});
 				myScroll.refresh();

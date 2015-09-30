@@ -10,10 +10,10 @@
 			function layout(listData){
 				var list=_.template(data.tem[1])({list:listData});
 			$("#scroller").html(list);
-			$(".top_third .leftButton").unbind("tap").bind("tap",function(){
+			$(".top_third .leftButton").unbind("click").bind("click",function(){
 				window.history.go(-1);
 				});
-			$(".simple_list").unbind("tap").bind("tap",function(){
+			$(".simple_list").unbind("click").bind("click",function(){
 				window.location.hash="dealList/"+$(this).attr("lid");
 				});
 				

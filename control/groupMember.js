@@ -17,7 +17,7 @@
 					});
 				var listA=_.template(data.tem[1])({at:at,list:result});
 			$("#scroller").html(listA);
-			$(".top_third .leftButton").unbind("tap").bind("tap",function(){
+			$(".top_third .leftButton").unbind("click").bind("click",function(){
 				window.history.go(-1);
 				});
 			$("#scroller .group_member").css({

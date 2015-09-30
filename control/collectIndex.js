@@ -13,13 +13,13 @@
 			{name:"travel",left:"游记",link:true,right:'<span class="fa fa-right"></span>'}
 			]});
 			$("#scroller").html(list);
-			$("[name='product']").unbind("tap").bind("tap",function(){
+			$("[name='product']").unbind("click").bind("click",function(){
 				window.location.hash="collectProductList/0";
 				});
-			$("[name='travel']").unbind("tap").bind("tap",function(){
+			$("[name='travel']").unbind("click").bind("click",function(){
 				window.location.hash="collectTravelList/0";
 				});
-			$(".top_third .leftButton").unbind("tap").bind("tap",function(){
+			$(".top_third .leftButton").unbind("click").bind("click",function(){
 				window.history.go(-1);
 				});
 

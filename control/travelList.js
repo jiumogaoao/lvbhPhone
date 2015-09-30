@@ -36,7 +36,7 @@
 				$("#scroller").html(nav+listA);
 				}else{
 					$("#scroller").html(nav+listA+button);
-					$(".third_button #left").unbind("tap").bind("tap",function(){
+					$(".third_button #left").unbind("click").bind("click",function(){
 						
 						var remove="";
 				$(".travel_list .hl").each(function(i){
@@ -52,7 +52,7 @@
 					});
 						
 						});
-					$(".third_button #right").unbind("tap").bind("tap",function(){
+					$(".third_button #right").unbind("click").bind("click",function(){
 						var remove="";
 				$(".travel_list .hl").each(function(i){
 					remove+=$(this).attr("pid");
@@ -67,27 +67,27 @@
 					});
 						});
 					}
-			$(".travel_list .point").unbind("tap").bind("tap",function(){
+			$(".travel_list .point").unbind("click").bind("click",function(){
 				window.location.hash="vipTravelDetail/"+$(this).attr("pid")+"/"+$(this).attr("gid");
 				});
 			$(".nav_third .nav_point_frame").eq(data.nav).addClass("hl");
-			$(".nav_third #left").unbind("tap").bind("tap",function(){
+			$(".nav_third #left").unbind("click").bind("click",function(){
 				window.location.hash="travelList/0/0";
 				});
-			$(".nav_third #center").unbind("tap").bind("tap",function(){
+			$(".nav_third #center").unbind("click").bind("click",function(){
 				window.location.hash="travelList/1/0";
 				});
-			$(".nav_third #right").unbind("tap").bind("tap",function(){
+			$(".nav_third #right").unbind("click").bind("click",function(){
 				window.location.hash="travelList/2/0";
 				});
-			$(".top_third .leftButton").unbind("tap").bind("tap",function(){
+			$(".top_third .leftButton").unbind("click").bind("click",function(){
 				window.history.go(-1);
 				});
-			$(".top_third .manageButton").unbind("tap").bind("tap",function(){
+			$(".top_third .manageButton").unbind("click").bind("click",function(){
 				window.location.hash="travelList/2/"+pageArry[data.type];
 				});
 			if(data.nav==="2"&&data.type==="1"){
-				$(".travel_list .right").unbind("tap").bind("tap",function(){
+				$(".travel_list .right").unbind("click").bind("click",function(){
 				window.location.hash="travelEdit/"+$(this).parents(".point").attr("pid");
 				});
 				}

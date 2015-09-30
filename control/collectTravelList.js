@@ -21,7 +21,7 @@
 				$("#scroller").html(listA);
 				}else{
 					$("#scroller").html(listA+button);
-					$("#send").unbind("tap").bind("tap",function(){
+					$("#send").unbind("click").bind("click",function(){
 						var remove="";
 				$(".travel_list .hl").each(function(i){
 					remove+=$(this).attr("pid");
@@ -37,10 +37,10 @@
 						});
 					}
 			
-			$(".top_third .leftButton").unbind("tap").bind("tap",function(){
+			$(".top_third .leftButton").unbind("click").bind("click",function(){
 				window.history.go(-1);
 				});
-			$(".top_third .rightButton").unbind("tap").bind("tap",function(){
+			$(".top_third .rightButton").unbind("click").bind("click",function(){
 				window.location.hash="collectTravelList/"+pageArry[data.type];
 				});
 			var delay=setTimeout(function(){

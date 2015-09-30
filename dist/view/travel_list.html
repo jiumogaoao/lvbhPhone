@@ -105,7 +105,7 @@
 <% }) %>
 </div>
 <script>
-$(".travel_list.edit .left").unbind("tap").bind("tap",function(){
+$(".travel_list.edit .left").unbind("click").bind("click",function(){
 	if(!$(this).data("choose")){
 		$(this).data("choose",true);
 		$(this).find(".fa").addClass("hl");

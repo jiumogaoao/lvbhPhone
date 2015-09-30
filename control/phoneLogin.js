@@ -7,7 +7,7 @@
 		fn:function(data){
 			var head=_.template(data.tem[0])({left:"",center:"登录",right:"注册"});
 			$("#head").html(head);
-			var nav=_.template(data.tem[1])({left:{text:"普通登录",hl:false},right:{text:"手动动态密码登录",hl:true}});
+			var nav=_.template(data.tem[1])({left:{text:"普通登录",hl:false},right:{text:"手机动态密码登录",hl:true}});
 			var list=_.template(data.tem[2])({list:[
 				{"name":"user","placehold":"请输入手机号","icon":"fa-man","value":"","other":""},
 				{"name":"key","placehold":"请输入动态密码","icon":"fa-lock","value":"","other":"<span style='font-size:.5rem;display:block;'>发送动态密码</span>"}
@@ -16,16 +16,16 @@
 			$("#scroller").html(nav+list+button);
 
 			function layout(at){
-				$(".top_third .leftButton").unbind("tap").bind("tap",function(){
+				$(".top_third .leftButton").unbind("click").bind("click",function(){
 				window.history.go(-1);
 				});
-			$(".top_third .rightButton").unbind("tap").bind("tap",function(){
+			$(".top_third .rightButton").unbind("click").bind("click",function(){
 				window.location.href="https://passport.lvbh.cn/mobile/reg.jspx";
 				});
-			$(".nav_two #left").unbind("tap").bind("tap",function(){
+			$(".nav_two #left").unbind("click").bind("click",function(){
 				window.location.hash="login";
 				});
-			$("#loginButton").unbind("tap").bind("tap",function(){
+			$("#loginButton").unbind("click").bind("click",function(){
 				if($("[name='user'] input").val() && $("[name='user'] input").val().length&&$("[name='key'] input").val() && $("[name='key'] input").val().length){
 						obj.api.run("login_phone",{
 							at:at,
@@ -44,13 +44,13 @@
 				});
 			function delay(){
 				$("[name='key'] .other span").html("发送动态密码");
-				$("[name='key'] .other").unbind("tap").bind("tap",function(){
+				$("[name='key'] .other").unbind("click").bind("click",function(){
 				if($("[name='user'] input").val() && $("[name='user'] input").val().length){
 						obj.api.run("login_phone_message",{
 							at:at,
 							mobile:$("[name='user'] input").val()
 							},function(data){
-							$("[name='key'] .other").unbind("tap");
+							$("[name='key'] .other").unbind("click");
 							var total=60;
 							var timeOut=setInterval(function(){
 								if(total !== 0){

@@ -160,7 +160,7 @@
 </div>
 <% }) %>
 <script>
-	$(".deal_list").unbind("tap").bind("tap",function(){
+	$(".deal_list").unbind("click").bind("click",function(){
 		window.location.hash="dealDetail/"+$(this).attr("lid");
 		});
 </script>

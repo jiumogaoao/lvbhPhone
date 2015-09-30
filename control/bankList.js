@@ -28,10 +28,10 @@
 			];
 			var list=_.template(data.tem[1])({list:listA});
 			$("#scroller").html(list);
-			$(".top_third .leftButton").unbind("tap").bind("tap",function(){
+			$(".top_third .leftButton").unbind("click").bind("click",function(){
 				window.history.go(-1);
 				});
-			$(".bank_list .button").unbind("tap").bind("tap",function(){
+			$(".bank_list .button").unbind("click").bind("click",function(){
 	window.location.hash="#cashInput/"+(data.name||"")+"/"+(data.card||"")+"/"+($(this).html()||"")+"/"+(data.money||"")+"/"+(data.dsc||"");
 	});
 			myScroll.refresh();

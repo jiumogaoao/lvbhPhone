@@ -43,13 +43,13 @@
 					});
 			function delay(){
 				$("[name='code'] .other span").html("发送动态密码");
-				$("[name='code'] .other").unbind("tap").bind("tap",function(){
+				$("[name='code'] .other").unbind("click").bind("click",function(){
 				if($("[name='user'] input").val() && $("[name='user'] input").val().length){
 						obj.api.run("regist_phone_message",{
 							at:at,
 							mobile:$("[name='user'] input").val()
 							},function(data){
-							$("[name='code'] .other").unbind("tap");
+							$("[name='code'] .other").unbind("click");
 							var total=60;
 							var timeOut=setInterval(function(){
 								if(total !== 0){
@@ -68,10 +68,10 @@
 				}	
 			delay();
 			
-			$(".top_third .leftButton").unbind("tap").bind("tap",function(){
+			$(".top_third .leftButton").unbind("click").bind("click",function(){
 				window.history.go(-1);
 				});
-			$("#registButton").unbind("tap").bind("tap",function(){
+			$("#registButton").unbind("click").bind("click",function(){
 				if(!result.phone.length){
 					obj.pop.on("alert",{text:JSON.stringify("请输入手机号")});
 					return false;
@@ -97,7 +97,7 @@
 					window.location.hash="index";
 					},function(e){obj.pop.on("alert",{text:JSON.stringify(e)});});
 				});
-			$(".icon_input_list.place").unbind("tap").bind("tap",function(){
+			$(".icon_input_list.place").unbind("click").bind("click",function(){
 				obj.cache("regist",result);
 				window.location.hash="searchPlace";
 				});

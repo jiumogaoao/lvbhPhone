@@ -26,11 +26,16 @@
 					list:resultA,
 					dscName:""});
 			$("#scroller").html(main+button);
-			$("#scroller #addMail").unbind("tap").bind("tap",function(){
-				window.location.hash="emailAdd/"+data.type+"/"+data.id+"/"+data.state;
+			$("#scroller #addMail").unbind("click").bind("click",function(){
+				if(data.type){
+					window.location.hash="emailAdd/"+data.type+"/"+data.id+"/"+data.state;
+					}else{
+						window.location.hash="emailAdd";
+						}
 				});
-			$("#scroller .point").unbind("tap").bind("tap",function(){
-				if(data.key==="0"){
+			$("#scroller .point").unbind("click").bind("click",function(){
+				if(data.type){
+					if(data.key==="0"){
 					result.invoice.place=resultA[$(this).attr("num")].dsc;
 					result.invoice.name=resultA[$(this).attr("num")].name;
 					result.invoice.phone=resultA[$(this).attr("num")].phone;
@@ -41,6 +46,7 @@
 					}
 				obj.cache("pruduct_input_"+data.id,result);
 					window.location.hash="productInput/"+data.type+"/"+data.id+"/"+data.state;
+					}	
 				});
 			var delay=setTimeout(function(){
 				myScroll.refresh();
