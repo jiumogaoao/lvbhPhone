@@ -109,6 +109,11 @@
 	var scrollArry={};
 	app.scrollFn={};
 	app.scrollFn.run=function(h){
+		if(h<0){
+			$("#GoToTop").show();
+			}else{
+				$("#GoToTop").hide();
+				}
 			var page=window.location.hash.replace("#","").split("/")[0]||"index";
 			if(scrollArry[page]){
 				scrollArry[page](h);

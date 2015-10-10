@@ -66,8 +66,13 @@ document.addEventListener('touchmove', function (e) { e.preventDefault(); }, fal
 	
 </div>
 <div id="bottomBG"></div>
+<div id="GoToTop"></div>
 </body>
 <script>
+$("#GoToTop").unbind("click").bind("click",function(){
+	myScroll.scrollTo(0, 0);
+	$("#GoToTop").hide();
+	});
 var myScroll = new IScroll('#middle', { probeType: 3,scrollbars: false,
 		mouseWheel: true,
 		interactiveScrollbars: false,

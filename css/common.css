@@ -106,6 +106,17 @@ body{
   -webkit-animation: fa-spin 2s infinite linear;
   animation: fa-spin 2s infinite linear;
 }
+#GoToTop{
+	width:1.5rem;
+	height:1.5rem;
+	background-image:url(../img/back_btn_un@2x.png);
+	background-size:1.5rem 1.5rem;
+	position:fixed;
+	right:.5rem;
+	bottom:2.2rem;
+	z-index:22222;
+	display:none;
+	}
 @-webkit-keyframes fa-spin {
   0% {
     -webkit-transform: rotate(0deg);

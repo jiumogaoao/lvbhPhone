@@ -2,6 +2,7 @@
 ;(function($,obj,config){
 	var routeArry={};
 	function changePage(){
+		$("#GoToTop").hide();
 		var hash="index";
 		if(location.hash){
 			hash=location.hash.replace("#","");
