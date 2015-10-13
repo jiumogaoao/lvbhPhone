@@ -3,7 +3,7 @@
 	obj.control.set({
 		name:"usefulLinkman",
 		par:"type/id/state",
-		tem:["top_second","double_line_list","single_button"],
+		tem:["top_second","double_line_list","single_button","bottom_button"],
 		fn:function(data){
 			var page=1;
 			var resultA=[];
@@ -27,8 +27,17 @@
 					dscName:"手机号"
 					});
 					
-			var button=_.template(data.tem[2])({text:'<span class="fa fa-add2" style="position: relative;top: .05rem;"></span> 添加常用联系人',id:"addLinkman"});
-			$("#scroller").html(main+button);
+			var button=_.template(data.tem[3])({text:'<span class="fa fa-add2" style="position: relative;top: .05rem;"></span> 添加常用联系人',id:"addLinkman"});
+			$("#scroller").html(main);
+			$("#foot").height("1.3rem");
+			$("#foot").html(button);
+			$(".bottom_button_frame").css({"height":"1.3rem","padding":"0px"});
+			$(".bottom_button").css({
+				"background-color":"#009eff",
+				"width": "100%",
+				"border-radius":"0px"
+				});
+			$("#foot").show();
 			$("#scroller #addLinkman").unbind("click").bind("click",function(){
 				if(data.type){
 					window.location.hash="linkmanAdd/"+data.type+"/"+data.id+"/"+data.state;

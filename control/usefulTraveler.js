@@ -3,20 +3,20 @@
 	obj.control.set({
 		name:"usefulTraveler",
 		par:"type/id/state",
-		tem:["top_third","double_line_list","single_button"],
+		tem:["top_second","double_line_list","single_button","bottom_button"],
 		fn:function(data){
 			var page=1;
 			var last=false;
 			var result={};
 			var resultA=[];
 			var resultB=[];
+			
 			if(obj.cache("pruduct_input_"+data.id)){
 				result=obj.cache("pruduct_input_"+data.id);
 				}
 			var head=_.template(data.tem[0])({
 				left:"",
-				center:"常用旅客",
-				right:data.type?"确定":""
+				center:"常用旅客"
 				});
 			$("#head").html(head);
 			$("#head .leftButton").unbind("click").bind("click",function(){
@@ -24,7 +24,16 @@
 				});
 			
 			function layout(returnData){
-				$("#head .rightButton").unbind("click").bind("click",function(){
+				
+				var main=_.template(data.tem[1])({
+					enable:data.type?true:false,
+					list:resultA,
+					dscName:"手机号"
+					});
+				var button=_.template(data.tem[3])({text:'<span class="fa fa-add2" style="position: relative;top: .05rem;"></span> 添加常用旅客',id:"addTraveller"});
+				var buttonSend=_.template(data.tem[2])({text:'确定',id:"addTravellerA"});
+			$("#scroller").html(main+buttonSend);
+			$("#addTravellerA").unbind("click").bind("click",function(){
 				if(!result.traveler){
 					result.traveler=[""];
 					}
@@ -34,13 +43,15 @@
 				obj.cache("pruduct_input_"+data.id,result);
 					window.location.hash="productInput/"+data.type+"/"+data.id+"/"+data.state;
 				});
-				var main=_.template(data.tem[1])({
-					enable:data.type?true:false,
-					list:resultA,
-					dscName:"手机号"
-					});
-				var button=_.template(data.tem[2])({text:'<span class="fa fa-add2" style="position: relative;top: .05rem;"></span> 添加常用旅客',id:"addTraveller"});
-			$("#scroller").html(main+button);
+			$("#foot").height("1.3rem");
+			$("#foot").html(button);
+			$(".bottom_button_frame").css({"height":"1.3rem","padding":"0px"});
+			$(".bottom_button").css({
+				"background-color":"#009eff",
+				"width": "100%",
+				"border-radius":"0px"
+				});
+			$("#foot").show();
 			$("#scroller .fa-checkbox").unbind("click").bind("click",function(){
 				if($(this).data("choose")){
 					$(this).data("choose",false);

@@ -5,7 +5,10 @@
 .hot_nav .mian{
 	float:left;
 	width:9rem;
-	height:2rem;}
+	height:2rem;
+	padding-top:.03rem;
+	padding-left:.03rem;
+	background-color:#dcdcdc;}
 .hot_nav .button{
 	float:left;
 	width:1rem;
@@ -16,20 +19,25 @@
 	font-size:.4rem;
 	}
 .hot_nav .point{
-	height:1rem;
-	border:1px solid #dcdcdc;
+	height:.955rem;
+	margin-right:.03rem;
+	margin-bottom:.03rem;
 	text-align:center;
 	line-height:1rem;
+	background-color:#fff;
 	float:left;
-	font-size:.45rem;}
+	width: 2.21rem;
+	font-size:.45rem;
+	position: relative;
+  left: .02rem;}
 .hot_nav .point.hl{
-	border:1px solid #009eff;
+	box-shadow:0px 0px .02rem .03rem #009eff;
 	color:#009eff;
 	}</style>
 <div class="hot_nav">
 	<div class="mian">
     	<% for(var i=0;i<8;i++){ %>
-        <div class="point" <% if(list[i]){print('id="'+ list[i].id +'"')} %> style="width:25%;"><% if(list[i]){print( list[i].name )} %></div>
+        <div class="point" <% if(list[i]){print('id="'+ list[i].id +'"')} %>><% if(list[i]){print( list[i].name )} %></div>
         <% } %>
         <div class="clear"></div>
     </div>

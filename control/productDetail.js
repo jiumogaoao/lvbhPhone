@@ -111,7 +111,7 @@
 			$("#payButton").unbind("click").bind("click",function(){
 				obj.api.run("user_get","at="+at,function(user){
 				window.location.hash="productInput/"+data.type+"/"+data.id+"/"+result.state;
-					},function(e){
+					},function(e){	
 					window.location.hash="login/productDetail$"+data.type+"$"+data.id+"$$"+result.state;
 					});
 				});

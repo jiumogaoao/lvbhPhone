@@ -3,7 +3,7 @@
 	obj.control.set({
 		name:"usefulEmail",
 		par:"type/id/state/key",
-		tem:["top_second","double_line_list","single_button"],
+		tem:["top_second","double_line_list","single_button","bottom_button"],
 		fn:function(data){
 			var resultA=[];
 			var page=1;
@@ -21,11 +21,20 @@
 				window.history.go(-1);
 				});
 			function layout(){
-				var button=_.template(data.tem[2])({text:'<span class="fa fa-add2" style="position: relative;top: .05rem;"></span> 添加常用邮寄地址',id:"addMail"});
+				var button=_.template(data.tem[3])({text:'<span class="fa fa-add2" style="position: relative;top: .05rem;"></span> 添加常用邮寄地址',id:"addMail"});
 				var main=_.template(data.tem[1])({enable:false,
 					list:resultA,
 					dscName:""});
-			$("#scroller").html(main+button);
+			$("#scroller").html(main);
+			$("#foot").height("1.3rem");
+			$("#foot").html(button);
+			$(".bottom_button_frame").css({"height":"1.3rem","padding":"0px"});
+			$(".bottom_button").css({
+				"background-color":"#009eff",
+				"width": "100%",
+				"border-radius":"0px"
+				});
+			$("#foot").show();
 			$("#scroller #addMail").unbind("click").bind("click",function(){
 				if(data.type){
 					window.location.hash="emailAdd/"+data.type+"/"+data.id+"/"+data.state;

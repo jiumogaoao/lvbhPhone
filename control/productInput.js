@@ -66,6 +66,11 @@
 				});
 		function layout(at){
 			function totalCount(target){
+				if(result.agree){
+					$(".payButton").css("background-color","#ff840c");
+					}else{
+						$(".payButton").css("background-color","#7c7c7c");
+						}
 				if((result.child||result.child2)&&!result.man){
 					obj.pop.on("alert",{text:("儿童必须有成人陪同")});
 					result.man=1;

@@ -3,7 +3,7 @@
 	obj.control.set({
 		name:"usefulInvoice",
 		par:"type/id/state",
-		tem:["top_second","single_line_list","single_button"],
+		tem:["top_second","single_line_list","single_button","bottom_button"],
 		fn:function(data){
 			var resultA=[];
 			var page=1;
@@ -24,8 +24,17 @@
 			var main=_.template(data.tem[1])({
 				list:resultA
 				});
-			var button=_.template(data.tem[2])({text:'<span class="fa fa-add2" style="position: relative;top: .05rem;"></span> 添加常用发票抬头',id:"addInvoice"});
-			$("#scroller").html(main+button);
+			var button=_.template(data.tem[3])({text:'<span class="fa fa-add2" style="position: relative;top: .05rem;"></span> 添加常用发票抬头',id:"addInvoice"});
+			$("#scroller").html(main);
+			$("#foot").height("1.3rem");
+			$("#foot").html(button);
+			$(".bottom_button_frame").css({"height":"1.3rem","padding":"0px"});
+			$(".bottom_button").css({
+				"background-color":"#009eff",
+				"width": "100%",
+				"border-radius":"0px"
+				});
+			$("#foot").show();
 			$("#scroller #addInvoice").unbind("click").bind("click",function(){
 				if(data.type){
 					window.location.hash="invoiceAdd/"+data.type+"/"+data.id+"/"+data.state;
