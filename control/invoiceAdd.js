@@ -9,10 +9,10 @@
 			$("#head").html(head);
 			var main=_.template(data.tem[1])({type:0,value:"",placeholder:"请填写发票抬头"});
 			$("#scroller").html(main);
-			$(".top_third .leftButton").unbind("click").bind("click",function(){
+			$(".top_third .leftButton").unbind("tap").bind("tap",function(){
 				window.history.go(-1);
 				});
-			$(".top_third .rightButton").unbind("click").bind("click",function(){
+			$(".top_third .rightButton").unbind("tap").bind("tap",function(){
 				obj.api.at(function(at){
 					obj.api.run("invoice_add",'at='+at+'&tp=0&jparam='+JSON.stringify({b:$(".input_single .main").val()}),function(){
 						if(data.type){
@@ -25,7 +25,7 @@
 					});
 				});
 			var delay=setTimeout(function(){
-				myScroll.refresh();
+				//myScroll.refresh();
 				},200);	
 			
 			

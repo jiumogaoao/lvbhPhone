@@ -10,18 +10,18 @@
 			function layout(listData){
 				var list=_.template(data.tem[1])({list:listData});
 			$("#scroller").html(list);
-			$(".top_third .leftButton").unbind("click").bind("click",function(){
+			$(".top_third .leftButton").unbind("tap").bind("tap",function(){
 				window.history.go(-1);
 				});
-			$(".simple_list").unbind("click").bind("click",function(){
+			$(".simple_list").unbind("tap").bind("tap",function(){
 				window.location.hash="dealList/"+$(this).attr("lid");
 				});
 				
 			var delay=setTimeout(function(){
-				myScroll.refresh();
+				//myScroll.refresh();
 				},200);
 			$('img').load(function(){
-				myScroll.refresh();
+				//myScroll.refresh();
 				});
 				}
 			function getData(at){

@@ -13,19 +13,19 @@
 			{name:"取消订单支出",lid:"4"}
 			]});
 			$("#scroller").html(list);
-			$(".top_third .leftButton").unbind("click").bind("click",function(){
+			$(".top_third .leftButton").unbind("tap").bind("tap",function(){
 				window.history.go(-1);
 				});
-			$(".simple_list").unbind("click").bind("click",function(){
+			$(".simple_list").unbind("tap").bind("tap",function(){
 				if($(this).attr("lid")==="5"){
 					window.location.hash="cashList/5";
 					}else{
 						window.location.hash="accountList/"+$(this).attr("lid");
 						}
 				});
-			myScroll.refresh();
+			//myScroll.refresh();
 			$('img').load(function(){
-				myScroll.refresh();
+				//myScroll.refresh();
 				});
 			}
 		});

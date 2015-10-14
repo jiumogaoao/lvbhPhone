@@ -14,28 +14,28 @@
 				right:'<span class="fa fa-share2"></span>'
 				});
 			$("#head").html(head);
-			$(".top_third .leftButton").unbind("click").bind("click",function(){
+			$(".top_third .leftButton").unbind("tap").bind("tap",function(){
 				window.history.go(-1);
 				});
 			obj.scrollFn.add("vipTravelDetail",function(y){
-				$("#head").css("background-color","rgba(0,158,255,"+((-1*y)/200)+")");
+				$("#head").css("background-color","rgba(0,158,255,"+(y/200)+")");
 				});
 			
 			function layout(at,source,messageArry,com){
-				$("#head .rightButton").unbind("click").bind("click",function(){
+				$("#head .rightButton").unbind("tap").bind("tap",function(){
 				
 				obj.bottom.on("share",{list:[
 				{image:"img/weibo.png",name:"新浪微博",id:"xinlang"},
 				{image:"img/qq.png",name:"腾讯QQ",id:"qq"},
 				{image:"img/qzone.png",name:"QQ空间",id:"qzone"}
 				]},function(){
-					$(".share [sid='xinlang']").unbind("click").bind("click",function(){
+					$(".share [sid='xinlang']").unbind("tap").bind("tap",function(){
 						window.location.href="http://service.weibo.com/share/share.php?url="+window.location.href+"&appkey=&searchPic=true";
 						});
-					$(".share [sid='qq']").unbind("click").bind("click",function(){
+					$(".share [sid='qq']").unbind("tap").bind("tap",function(){
 						window.location.href="http://connect.qq.com/widget/shareqq/index.html?url="+encodeURIComponent(window.location.href)+"&desc=&title="+encodeURIComponent(source.title)+"&summary=&pics=&flash=&site=&style=201&width=32&height=32&showcount=";
 						});
-					$(".share [sid='qzone']").unbind("click").bind("click",function(){
+					$(".share [sid='qzone']").unbind("tap").bind("tap",function(){
 						window.location.href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url="+window.location.href+"&title="+source.title+"&desc="+source.title+"&summary=&site=lvbh";
 						});
 					},function(e){
@@ -61,7 +61,7 @@
 						window.location.hash="login/vipTravelDetail$"+data.id+"$"+data.group;
 					});
 					});
-				$("#prise.enable").unbind("click").bind("click",function(){
+				$("#prise.enable").unbind("tap").bind("tap",function(){
 					obj.api.run("user_get","at="+at,function(user){
 				obj.api.run("pra_add",'at='+at+'&a='+data.id,function(){
 						window.location.reload();
@@ -73,7 +73,7 @@
 						window.location.hash="login/vipTravelDetail$"+data.id+"$"+data.group;
 					});	
 					});
-				$("#showchang.enable").unbind("click").bind("click",function(){
+				$("#showchang.enable").unbind("tap").bind("tap",function(){
 					
 					obj.api.run("user_get","at="+at,function(user){
 				obj.api.run("collect_add","at="+at+"&t=2&id="+data.id+"&cn="+source.title+"&desc= ",function(){
@@ -87,10 +87,10 @@
 					});		
 					});
 			var delay=setTimeout(function(){
-				myScroll.refresh();
+				//myScroll.refresh();
 				},200);
 			$('img').load(function(){
-				myScroll.refresh();
+				//myScroll.refresh();
 				});
 				}
 			

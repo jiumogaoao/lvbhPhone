@@ -14,10 +14,10 @@
 			var button=_.template(data.tem[2])({id:"bindPhone",text:"保存"});
 			$("#scroller").html(main);
 			var delay=setTimeout(function(){
-				myScroll.refresh();
+				//myScroll.refresh();
 				},200);
 				$('img').load(function(){
-				myScroll.refresh();
+				//myScroll.refresh();
 				});
 				
 			

@@ -24,11 +24,11 @@
 			$("#head").html(head);
 			var main=_.template(data.tem[1])(result);
 			$("#scroller").html(main);
-			$("#scroller #province").unbind("click").bind("click",function(){
+			$("#scroller #province").unbind("tap").bind("tap",function(){
 				obj.cache("mail",result);
 				window.location.hash="searchProvince/"+data.type+"/"+data.id+"/"+data.state;
 				});
-			$("#scroller #city").unbind("click").bind("click",function(){
+			$("#scroller #city").unbind("tap").bind("tap",function(){
 				obj.cache("mail",result);
 				if(data.type){
 					window.location.hash="searchCity/"+data.type+"/"+data.id+"/"+data.state;
@@ -36,7 +36,7 @@
 						window.location.hash="searchCity";
 						}
 				});
-			$("#scroller #area").unbind("click").bind("click",function(){
+			$("#scroller #area").unbind("tap").bind("tap",function(){
 				obj.cache("mail",result);
 				if(data.type){
 					window.location.hash="searchArea/"+data.type+"/"+data.id+"/"+data.state;
@@ -50,10 +50,10 @@
 					result[$(that).attr("D_key")]=$(that).val();
 					});
 				});
-			$(".top_third .leftButton").unbind("click").bind("click",function(){
+			$(".top_third .leftButton").unbind("tap").bind("tap",function(){
 				window.history.go(-1);
 				});
-			$(".top_third .rightButton").unbind("click").bind("click",function(){
+			$(".top_third .rightButton").unbind("tap").bind("tap",function(){
 				if(result.tel.split("-").length<2){
 					obj.pop.on("alert",{text:"固话格式为“区号-电话号码”"});
 					return false;
@@ -70,7 +70,7 @@
 					});
 				});
 			var delay=setTimeout(function(){
-				myScroll.refresh();
+				//myScroll.refresh();
 				},200);	
 			
 			

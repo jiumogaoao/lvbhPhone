@@ -43,7 +43,7 @@
 					});
 			function delay(){
 				$("[name='code'] .other span").html("发送动态密码");
-				$("[name='code'] .other").unbind("click").bind("click",function(){
+				$("[name='code'] .other").unbind("tap").bind("tap",function(){
 				if($("[name='user'] input").val() && $("[name='user'] input").val().length){
 						obj.api.run("regist_phone_message",{
 							at:at,
@@ -68,10 +68,10 @@
 				}	
 			delay();
 			
-			$(".top_third .leftButton").unbind("click").bind("click",function(){
+			$(".top_third .leftButton").unbind("tap").bind("tap",function(){
 				window.history.go(-1);
 				});
-			$("#registButton").unbind("click").bind("click",function(){
+			$("#registButton").unbind("tap").bind("tap",function(){
 				if(!result.phone.length){
 					obj.pop.on("alert",{text:JSON.stringify("请输入手机号")});
 					return false;
@@ -97,13 +97,13 @@
 					window.location.hash="index";
 					},function(e){obj.pop.on("alert",{text:JSON.stringify(e)});});
 				});
-			$(".icon_input_list.place").unbind("click").bind("click",function(){
+			$(".icon_input_list.place").unbind("tap").bind("tap",function(){
 				obj.cache("regist",result);
 				window.location.hash="searchPlace";
 				});
-			myScroll.refresh();
+			//myScroll.refresh();
 			$('img').load(function(){
-				myScroll.refresh();
+				//myScroll.refresh();
 				});
 				}
 			obj.api.at(layout);

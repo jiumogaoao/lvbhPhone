@@ -42,7 +42,7 @@
 				center:"预订须知"
 				});
 			$("#head").html(head);
-			$("#head .leftButton").unbind("click").bind("click",function(){
+			$("#head .leftButton").unbind("tap").bind("tap",function(){
 				window.history.go(-1);
 				});
 			function layout(at,list){
@@ -55,7 +55,7 @@
 				obj.cache("pruduct_input_"+data.id,result);
 				window.location.hash="productInput/"+data.type+"/"+data.id+"/"+result.state;
 				}
-			$("#payButton").unbind("click").bind("click",function(){
+			$("#payButton").unbind("tap").bind("tap",function(){
 				obj.api.run("user_get","at="+at,function(user){
 				window.location.hash="productInput/"+data.type+"/"+data.id+"/"+result.state;
 					},function(e){
@@ -64,10 +64,10 @@
 					});
 				});
 			var delay=setTimeout(function(){
-				myScroll.refresh();
+				//myScroll.refresh();
 				},200);
 				$('img').load(function(){
-				myScroll.refresh();
+				//myScroll.refresh();
 				});
 				}	
 			

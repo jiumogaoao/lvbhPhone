@@ -13,16 +13,16 @@
 			$("#head").html(head);
 			var main=_.template(data.tem[1])({list:["身份证","护照","军官证","港澳通行证","台胞证","回乡证"]});
 			$("#scroller").html(main);
-			$("#scroller .point").unbind("click").bind("click",function(){
+			$("#scroller .point").unbind("tap").bind("tap",function(){
 				result.cardType=Number($(this).attr("num"))+1;
 				obj.cache("traveler",result);
 				window.location.hash="travellerAdd/"+data.type+"/"+data.id+"/"+data.state;
 				});
-			$(".top_third .leftButton").unbind("click").bind("click",function(){
+			$(".top_third .leftButton").unbind("tap").bind("tap",function(){
 				window.history.go(-1);
 				});
 			var delay=setTimeout(function(){
-				myScroll.refresh();
+				//myScroll.refresh();
 				},200);	
 			
 			

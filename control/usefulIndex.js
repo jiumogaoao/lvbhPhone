@@ -10,7 +10,7 @@
 				center:"常用信息"
 				});
 			$("#head").html(head);
-			$("#head .leftButton").unbind("click").bind("click",function(){
+			$("#head .leftButton").unbind("tap").bind("tap",function(){
 				window.history.go(-1);
 				});
 			var main=_.template(data.tem[1])({
@@ -22,23 +22,23 @@
 				]
 				});	
 			$("#scroller").html(main);
-			$(".point[name='traveller']").unbind("click").bind("click",function(){
+			$(".point[name='traveller']").unbind("tap").bind("tap",function(){
 				window.location.hash="usefulTraveler";
 				});
-			$(".point[name='linkman']").unbind("click").bind("click",function(){
+			$(".point[name='linkman']").unbind("tap").bind("tap",function(){
 				window.location.hash="usefulLinkman";
 				});
-			$(".point[name='mail']").unbind("click").bind("click",function(){
+			$(".point[name='mail']").unbind("tap").bind("tap",function(){
 				window.location.hash="usefulEmail";
 				});
-			$(".point[name='invoice']").unbind("click").bind("click",function(){
+			$(".point[name='invoice']").unbind("tap").bind("tap",function(){
 				window.location.hash="usefulInvoice";
 				});
 			var delay=setTimeout(function(){
-				myScroll.refresh();
+				//myScroll.refresh();
 				},200);
 				$('img').load(function(){
-				myScroll.refresh();
+				//myScroll.refresh();
 				});
 
 		}

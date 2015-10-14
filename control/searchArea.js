@@ -11,24 +11,26 @@
 				}
 			var head=_.template(data.tem[0])({left:"",center:"选择区/县"});
 			$("#head").html(head);
-			$("#head .leftButton").unbind("click").bind("click",function(){
+			$("#head .leftButton").unbind("tap").bind("tap",function(){
 				window.history.go(-1);
 				});
 			function layout(at,list){		
 			var searchList=_.template(data.tem[1])(list);
 			$("#scroller").html(searchList);
-			$(".top_third .leftButton").unbind("click").bind("click",function(){
+			$(".top_third .leftButton").unbind("tap").bind("tap",function(){
 				window.history.go(-1);
 				});
-			$(".point").unbind("click").bind("click",function(){
+			$(".point").unbind("tap").bind("tap",function(){
 				result.area=$(this).html();
 				obj.cache("mail",result);
 				window.location.hash="emailAdd/"+data.type+"/"+data.id+"/"+data.state;
 				});
 
-			var delay=setTimeout(function(){myScroll.refresh();},200);
+			var delay=setTimeout(function(){
+				//myScroll.refresh();
+				},200);
 			$('img').load(function(){
-				myScroll.refresh();
+				//myScroll.refresh();
 				});
 				}
 			

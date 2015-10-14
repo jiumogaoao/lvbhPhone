@@ -94,7 +94,7 @@
         <div class="main">
         	<% _.each(n.main,function(x){ %>
             <div class="point" pid="<%= x.id %>" type="<%= x.type %>" state="<%= x.state %>">
-            	<img src="<%= x.image %>" onerror="app.nofound('img/product_list_img.png')"/>
+            	<img src="<%= x.image %>" onerror="app.nofound(this,'img/product_list_img.png')"/>
                 <div class="name"><%= x.name %></div>
                 <div class="clear"></div>
                 <div class="price"><span class="red">￥<span class="xl numCLASS"><%= x.price %></span></span>起</div>

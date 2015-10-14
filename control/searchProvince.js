@@ -12,24 +12,26 @@
 			function layout(at,list){				
 			var head=_.template(data.tem[0])({left:"",center:"选择省/直辖市"});
 			$("#head").html(head);
-			$("#head .leftButton").unbind("click").bind("click",function(){
+			$("#head .leftButton").unbind("tap").bind("tap",function(){
 				window.history.go(-1);
 				});
 			var searchList=_.template(data.tem[1])(list);
 			$("#scroller").html(searchList);
 			$("#scroller .list").css("width","100%");
-			$(".top_third .leftButton").unbind("click").bind("click",function(){
+			$(".top_third .leftButton").unbind("tap").bind("tap",function(){
 				window.history.go(-1);
 				});
-			$(".point").unbind("click").bind("click",function(){
+			$(".point").unbind("tap").bind("tap",function(){
 				result.province=$(this).attr("value");
 				obj.cache("mail",result);
 				window.location.hash="emailAdd/"+data.type+"/"+data.id+"/"+data.state;
 				});
 
-			var delay=setTimeout(function(){myScroll.refresh();},200);
+			var delay=setTimeout(function(){
+				//myScroll.refresh();
+				},200);
 			$('img').load(function(){
-				myScroll.refresh();
+				//myScroll.refresh();
 				});
 				}
 			

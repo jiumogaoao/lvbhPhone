@@ -18,10 +18,10 @@
 			{name:"支出明细",lid:"1"}
 			]});
 			$("#scroller").html(index+list);
-			$(".top_third .leftButton").unbind("click").bind("click",function(){
+			$(".top_third .leftButton").unbind("tap").bind("tap",function(){
 				window.history.go(-1);
 				});
-			$(".simple_list").unbind("click").bind("click",function(){
+			$(".simple_list").unbind("tap").bind("tap",function(){
 				if($(this).attr("lid")==="0"){
 					window.location.hash="inIndex";
 					}else{
@@ -29,10 +29,10 @@
 						}
 				});
 			var delay=setTimeout(function(){
-				myScroll.refresh();
+				//myScroll.refresh();
 				},200);
 				$('img').load(function(){
-				myScroll.refresh();
+				//myScroll.refresh();
 				});
 				}
 			

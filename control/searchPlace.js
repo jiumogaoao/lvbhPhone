@@ -17,7 +17,7 @@
 				if(obj.cache("regist")){result=obj.cache("regist");}
 				var tag=_.template(data.tem[2])(list);
 			$("#otherFrame").html(tag);
-			$(".tap").unbind("click").bind("click",function(){
+			$(".tap").unbind("tap").bind("tap",function(){
 				myScroll.scrollToElement($(".title[index='"+$(this).html()+"']")[0]);
 				});
 			$("#otherFrame").css({
@@ -33,21 +33,23 @@
 			$("#head").html(head);
 			var searchList=_.template(data.tem[1])(list);
 			$("#scroller").html(searchList);
-			$(".top_third .leftButton").unbind("click").bind("click",function(){
+			$(".top_third .leftButton").unbind("tap").bind("tap",function(){
 				window.history.go(-1);
 				});
-			$("#registButton").unbind("click").bind("click",function(){
+			$("#registButton").unbind("tap").bind("tap",function(){
 				window.location.hash="index";
 				});
-			$(".point").unbind("click").bind("click",function(){
+			$(".point").unbind("tap").bind("tap",function(){
 				result.place={name:$(this).attr("value"),id:$(this).attr("pid")};
 				result.pro=$(this).attr("pro");
 				obj.cache("regist",result);
 				window.location.hash="regist";
 				});
-			var delay=setTimeout(function(){myScroll.refresh();},200);
+			var delay=setTimeout(function(){
+				//myScroll.refresh();
+				},200);
 			$('img').load(function(){
-				myScroll.refresh();
+				//myScroll.refresh();
 				});
 				}
 			

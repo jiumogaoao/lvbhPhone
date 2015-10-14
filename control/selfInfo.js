@@ -28,19 +28,19 @@
 				"border":"1px solid red",
 				"color":"red"
 				});
-			$(".single_button").unbind("click").bind("click",function(){
+			$(".single_button").unbind("tap").bind("tap",function(){
 				Cookies("lvbh_at","",{expires:-1});
 				window.location.hash="login";
 				});
 			$(".title_input_list").css("background-color","#eeeeee");
 			$(".title_input_list .point").css("background-color","#fff");
 			$("[name='zhzcsj'],[name='zhsj']").css("margin-top",".3rem");
-			$(".top_third .leftButton").unbind("click").bind("click",function(){
+			$(".top_third .leftButton").unbind("tap").bind("tap",function(){
 				window.history.go(-1);
 				});
-			myScroll.refresh();
+			//myScroll.refresh();
 			$('img').load(function(){
-				myScroll.refresh();
+				//myScroll.refresh();
 				});
 				}
 			

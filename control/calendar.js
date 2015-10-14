@@ -15,7 +15,7 @@
 				center:"选择团期"
 				});
 			$("#head").html(head);
-			$("#head .leftButton").unbind("click").bind("click",function(){
+			$("#head .leftButton").unbind("tap").bind("tap",function(){
 				window.history.go(-1);
 				});
 			function layout(list,returnData){
@@ -25,7 +25,7 @@
 				if(result&&result.date&&result.date.c){
 					$("td[date='"+result.date.c+"']").addClass("hl");
 					}
-				$("#scroller .enable").unbind("click").bind("click",function(){
+				$("#scroller .enable").unbind("tap").bind("tap",function(){
 					result.date=_.indexBy(returnData,"b")[$(this).attr("did")];
 					obj.cache("pruduct_input_"+data.id,result);
 					if(data.page==="1"){
@@ -35,11 +35,11 @@
 							}
 					});
 			var delay=setTimeout(function(){
-				myScroll.refresh();
+				//myScroll.refresh();
 				},200);
 				}
 			$('img').load(function(){
-				myScroll.refresh();
+				//myScroll.refresh();
 				});
 			
 			

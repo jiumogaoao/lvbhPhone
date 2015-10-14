@@ -8,7 +8,7 @@
 			var titleArry=["写游记","编辑游记"];
 			var head=_.template(data.tem[0])({left:"",center:titleArry[data.type],right:"保存"});
 			$("#head").html(head);
-			$(".top_third .leftButton").unbind("click").bind("click",function(){
+			$(".top_third .leftButton").unbind("tap").bind("tap",function(){
 				window.history.go(-1);
 				});
 			var foot=_.template(data.tem[3])({id:"sendButton",text:"继续添加"});
@@ -28,7 +28,7 @@
 				at:at
 				});	
 			$("#scroller").html(top+list);
-			$(".travel_add .delectButton").unbind("click").bind("click",function(){
+			$(".travel_add .delectButton").unbind("tap").bind("tap",function(){
 				text.splice(Number($(this).parents(".point").attr("num")),1);
 				img.splice(Number($(this).parents(".point").attr("num")),1);
 				layout(at);
@@ -45,13 +45,13 @@
 					});
 				});
 			$("[name='title'] input").css({height:"1.8rem"});
-			myScroll.refresh();
+			//myScroll.refresh();
 			$('img').load(function(){
-				myScroll.refresh();
+				//myScroll.refresh();
 				});
 				}
 			function bind(at){
-				$("#sendButton").unbind("click").bind("click",function(){
+				$("#sendButton").unbind("tap").bind("tap",function(){
 				text.push("");
 				img.push("");
 				layout(at);

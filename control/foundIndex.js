@@ -16,10 +16,10 @@
 			$("#foot .fa-found").addClass("hl");
 			$("#foot .point").eq(1).addClass("hl");
 			var delay=setTimeout(function(){
-				myScroll.refresh();
+				//myScroll.refresh();
 				},200);
 			$('img').load(function(){
-				myScroll.refresh();
+				//myScroll.refresh();
 				});
 			function getIndex(at){
 				obj.api.run("found_index_get","at="+at,function(returnData){

@@ -15,19 +15,19 @@
 				var listA=_.template(data.tem[1])({type:typeArry[data.type],value:data.value||"",placeholder:placeholderArry[data.type]});
 			$("#scroller").html(listA);
 			
-			$(".top_third .leftButton").unbind("click").bind("click",function(){
+			$(".top_third .leftButton").unbind("tap").bind("tap",function(){
 				window.history.go(-1);
 				});
-			$(".top_third .rightButton").unbind("click").bind("click",function(){
+			$(".top_third .rightButton").unbind("tap").bind("tap",function(){
 				obj.api.run("group_set","at="+at+"&"+sendArry[data.type]+"="+$(".input_single .main").val(),function(){
 					window.location.hash="groupSet";
 					},function(e){obj.pop.on("alert",{text:(JSON.stringify(e))});});
 				});
 			var delay=setTimeout(function(){
-				myScroll.refresh();
+				//myScroll.refresh();
 				},200);
 				$('img').load(function(){
-				myScroll.refresh();
+				//myScroll.refresh();
 				});
 				}
 

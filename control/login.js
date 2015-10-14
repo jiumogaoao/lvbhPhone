@@ -16,19 +16,19 @@
 			]});
 			var button=_.template(data.tem[3])({"text":"登录","id":"loginButton"});
 			$("#scroller").html(nav+list+button);
-			$("#code").unbind("click").bind("click",function(){
+			$("#code").unbind("tap").bind("tap",function(){
 				$(this).attr("src",config.sour+'user/v.jspx?at='+at+'&t='+new Date().getTime());
 				});
-			$(".top_third .leftButton").unbind("click").bind("click",function(){
+			$(".top_third .leftButton").unbind("tap").bind("tap",function(){
 				window.history.go(-1);
 				});
-			$(".top_third .rightButton").unbind("click").bind("click",function(){
+			$(".top_third .rightButton").unbind("tap").bind("tap",function(){
 				window.location.hash="regist";
 				});
-			$(".nav_two #right").unbind("click").bind("click",function(){
+			$(".nav_two #right").unbind("tap").bind("tap",function(){
 				window.location.hash="phoneLogin";
 				});
-			$("#loginButton").unbind("click").bind("click",function(){
+			$("#loginButton").unbind("tap").bind("tap",function(){
 				if(!$("[name='user'] input").val()){
 					obj.pop.on("alert",{text:"请输入登录账号"});
 					return false;
@@ -60,9 +60,9 @@
 						});
 					});
 				});
-			myScroll.refresh();
+			//myScroll.refresh();
 			$('img').load(function(){
-				myScroll.refresh();
+				//myScroll.refresh();
 				});
 				}
 			obj.api.at(function(at){

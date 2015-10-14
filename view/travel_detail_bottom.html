@@ -27,7 +27,7 @@
 <div class="travel_detail_bottom">
 <% _.each(list,function(n){ %>
 <div class="point">
-    	<img src="<%= n.img %>" class="left" onerror="app.nofound('img/circle_member_list_img_picture.png')"/>
+    	<img src="<%= n.img %>" class="left" onerror="app.nofound(this,'img/circle_member_list_img_picture.png')"/>
         <div class="right">
     		<div class="name"><%= n.name %></div>
             <div class="time"><%= n.time.split(" ")[0] %></div>

@@ -76,7 +76,7 @@
 <% } %>
 	<div class="right">
     	<div class="top">
-        	<img class="topL" src="<%= n.image %>" onerror="app.nofound('img/collect_img_picture.png')"/>
+        	<img class="topL" src="<%= n.image %>" onerror="app.nofound(this,'img/collect_img_picture.png')"/>
             <div class="topR">
             	<div class="title"><% if(n.title.length>14){print(n.title.substr(0,14)+"...")}else{print(n.title)} %></div>
                 <div class="dsc"><% if(n.dsc.length>14){print(n.dsc.substr(0,14)+"...")}else{print(n.dsc)} %></div>
@@ -99,7 +99,7 @@
 
 </div>
 <script>
-$(".product_list.edit .left").unbind("click").bind("click",function(e){
+$(".product_list.edit .left").unbind("tap").bind("tap",function(e){
 	e.stopPropagation();
 	if(!$(this).data("choose")){
 		$(this).data("choose",true);

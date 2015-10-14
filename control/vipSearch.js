@@ -16,7 +16,7 @@
 						returnData=returnData.data;
 						$.each(returnData,function(i,n){
 							$("<div class=\"point\" gid=\""+n.b+"\" gname=\""+n.i+"\">"+
-								"<img src=\""+config.sour+"sns/tpu.jspx?at="+at+"&a=1&b="+n.i+"&c="+n.l+"\" class=\"left\" onerror=\"app.nofound('img/collect_img_picture.png')\"/>"+
+								"<img src=\""+config.sour+"sns/tpu.jspx?at="+at+"&a=1&b="+n.i+"&c="+n.l+"\" class=\"left\" onerror=\"app.nofound(this,'img/collect_img_picture.png')\"/>"+
 								"<div class=\"right\">"+
 									"<div class=\"name\">"+n.c+"</div>"+
 									"<div class=\"id\">ID: "+n.b+"</div>"+
@@ -24,23 +24,23 @@
 								"<div class=\"clear\"></div>"+
 							"</div>").appendTo($("#scroller .bottom"));
 							});
-							$("#scroller .bottom .point").unbind("click").bind("click",function(){
+							$("#scroller .bottom .point").unbind("tap").bind("tap",function(){
 								window.location.hash="vipMemberList/"+$(this).attr("gid")+"/"+$(this).attr("gname");
 								});
-							myScroll.refresh();
+							//myScroll.refresh();
 				$('img').load(function(){
-					myScroll.refresh();
+					//myScroll.refresh();
 					});
 						},function(e){
 						obj.pop.on("alert",{text:JSON.stringify(e)});
 						});
 					});
-				$(".top_third .rightButton").unbind("click").bind("click",function(){
+				$(".top_third .rightButton").unbind("tap").bind("tap",function(){
 					window.history.go(-1);
 					});
-				myScroll.refresh();
+				//myScroll.refresh();
 				$('img').load(function(){
-					myScroll.refresh();
+					//myScroll.refresh();
 					});
 				
 				}

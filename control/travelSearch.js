@@ -16,7 +16,7 @@
 				value:titleArry[data.type]
 				});
 			$("#head").html(head);
-			$("#head .leftButton").unbind("click").bind("click",function(){
+			$("#head .leftButton").unbind("tap").bind("tap",function(){
 				window.history.go(-1);
 				});
 			function layout(at,product){
@@ -24,14 +24,14 @@
 				list:[{title:false,main:product}]
 				});
 			$("#scroller").html(list);
-			$(".product_group_list .point").unbind("click").bind("click",function(){
+			$(".product_group_list .point").unbind("tap").bind("tap",function(){
 				window.location.hash="productDetail/"+$(this).attr("type")+"/"+$(this).attr("pid");
 				});
 			var delay=setTimeout(function(){
-				myScroll.refresh();
+				//myScroll.refresh();
 				},200);
 				$('img').load(function(){
-				myScroll.refresh();
+				//myScroll.refresh();
 				});
 				}
 			

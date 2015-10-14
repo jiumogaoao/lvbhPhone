@@ -16,35 +16,35 @@
 			function layout(result){
 				var main=_.template(data.tem[1])(result);
 				$("#scroller").html(main);
-			$("#scroller #zfb").unbind("click").bind("click",function(){
+			$("#scroller #zfb").unbind("tap").bind("tap",function(){
 				if($("#scroller .fa-checkbox.hl").length){
 					$("#alipay").submit();
 					}else{
 						obj.pop.on("alert",{text:("必须同意旅游条款才能继续")});
 						}
 				});
-			$("#scroller #cft").unbind("click").bind("click",function(){
+			$("#scroller #cft").unbind("tap").bind("tap",function(){
 				if($("#scroller .fa-checkbox.hl").length){
 					$("#tenpay").submit();
 					}else{
 						obj.pop.on("alert",{text:("必须同意旅游条款才能继续")});
 						}
 				});
-			$("#scroller #lvbh").unbind("click").bind("click",function(){
+			$("#scroller #lvbh").unbind("tap").bind("tap",function(){
 				if($("#scroller .fa-checkbox.hl").length){
 					window.location.hash="payLvbh/"+data.id;
 					}else{
 						obj.pop.on("alert",{text:("必须同意旅游条款才能继续")});
 						}
 				});
-			$("#scroller #cxk").unbind("click").bind("click",function(){
+			$("#scroller #cxk").unbind("tap").bind("tap",function(){
 				if($("#scroller .fa-checkbox.hl").length){
 					window.location.hash="cardList/"+data.id+"/0";
 					}else{
 						obj.pop.on("alert",{text:("必须同意旅游条款才能继续")});
 						}
 				});
-			$("#scroller #xyk").unbind("click").bind("click",function(){
+			$("#scroller #xyk").unbind("tap").bind("tap",function(){
 				if($("#scroller .fa-checkbox.hl").length){
 					window.location.hash="cardList/"+data.id+"/1";
 					}else{
@@ -52,14 +52,14 @@
 						}
 				});
 				var delay=setTimeout(function(){
-				myScroll.refresh();
+				//myScroll.refresh();
 				},200);
 				$('img').load(function(){
-				myScroll.refresh();
+				//myScroll.refresh();
 				});
 				}
 			
-			$(".top_third .leftButton").unbind("click").bind("click",function(){
+			$(".top_third .leftButton").unbind("tap").bind("tap",function(){
 				window.history.go(-1);
 				});
 			

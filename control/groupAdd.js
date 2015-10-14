@@ -11,17 +11,17 @@
 
 			$("#scroller").html(data.tem[1]);
 			
-			$(".top_third .leftButton").unbind("click").bind("click",function(){
+			$(".top_third .leftButton").unbind("tap").bind("tap",function(){
 				window.history.go(-1);
 				});
-			$(".group_add .button").unbind("click").bind("click",function(){
+			$(".group_add .button").unbind("tap").bind("tap",function(){
 				window.location.hash="groupSet";
 				});
 			var delay=setTimeout(function(){
-				myScroll.refresh();
+				//myScroll.refresh();
 				},200);
 				$('img').load(function(){
-				myScroll.refresh();
+				//myScroll.refresh();
 				});
 				}
 

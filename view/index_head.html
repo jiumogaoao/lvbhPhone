@@ -122,21 +122,21 @@ top:.1rem;}
 </div>
 <script>
 ;(function(){
-	$("body").on("click",function(){
+	$("body").on("tap",function(){
 		$(".index_head .menu").hide();
 		});
-	$(".index_head .left").unbind("click").bind("click",function(e){
+	$(".index_head .left").unbind("tap").bind("tap",function(e){
 		e.stopPropagation();
 		$(".index_head .menu").show();
 		});
-	$(".index_head .point").unbind("click").bind("click",function(){
+	$(".index_head .point").unbind("tap").bind("tap",function(){
 		app.cache("client_id",{id:$(this).attr("pid")});
 		$("#place").html($(this).html());
 		});
 	$(".index_head select").unbind("change").bind("change",function(){
 		$("#place").html($(this).find("[value='"+$(this).val()+"']").html());
 		})
-	$(".index_head .center").unbind("click").bind("click",function(){
+	$(".index_head .center").unbind("tap").bind("tap",function(){
 		window.location.hash="searchIndex/0/0";
 		})
 	})();

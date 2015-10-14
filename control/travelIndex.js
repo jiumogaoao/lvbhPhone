@@ -16,7 +16,7 @@
 				center:titleArry[data.type]
 				});
 			$("#head").html(head);
-			$("#head .leftButton").unbind("click").bind("click",function(){
+			$("#head .leftButton").unbind("tap").bind("tap",function(){
 				window.history.go(-1);
 				});
 			function layout(at,now,product,client,hot){
@@ -36,33 +36,33 @@
 			if(data.id){
 				$(".hot_nav .point#"+data.id).addClass("hl");
 				}
-			$(".product_group_list .point").unbind("click").bind("click",function(){
+			$(".product_group_list .point").unbind("tap").bind("tap",function(){
 				window.location.hash="productDetail/"+$(this).attr("type")+"/"+$(this).attr("pid");
 				});
-			$(".hot_nav .point").unbind("click").bind("click",function(){
+			$(".hot_nav .point").unbind("tap").bind("tap",function(){
 					window.location.hash="travelIndex/"+data.type+"/"+data.state+"/"+$(this).attr("id");
 					});
-			$(".nav_four #four").unbind("click").bind("click",function(){
+			$(".nav_four #four").unbind("tap").bind("tap",function(){
 					window.location.hash="searchGt/"+data.type+"/4";
 					});
-			$(".hot_nav .button").unbind("click").bind("click",function(){
+			$(".hot_nav .button").unbind("tap").bind("tap",function(){
 				window.location.hash="searchGt/"+data.type+"/"+(Number(data.state)-1);
 				});
 			$(".nav_two #"+hlArry[data.state]).addClass("hl");
-			$(".nav_two #left").unbind("click").bind("click",function(){
+			$(".nav_two #left").unbind("tap").bind("tap",function(){
 				window.location.hash="travelIndex/"+data.type+"/0";
 				});
-			$(".nav_two #center").unbind("click").bind("click",function(){
+			$(".nav_two #center").unbind("tap").bind("tap",function(){
 				window.location.hash="travelIndex/"+data.type+"/1";
 				});
-			$(".nav_two #right").unbind("click").bind("click",function(){
+			$(".nav_two #right").unbind("tap").bind("tap",function(){
 				window.location.hash="travelIndex/"+data.type+"/2";
 				});
 			var delay=setTimeout(function(){
-				myScroll.refresh();
+				//myScroll.refresh();
 				},200);
 				$('img').load(function(){
-				myScroll.refresh();
+				//myScroll.refresh();
 				});
 				}
 			

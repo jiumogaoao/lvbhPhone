@@ -14,10 +14,10 @@
 			function layout(at,result){
 				var main = _.template(data.tem[1])(result);
 				$("#scroller").html(main+button);
-				$("#pay").unbind("click").bind("click",function(){
+				$("#pay").unbind("tap").bind("tap",function(){
 					if(result.balance>=result.price){
 						app.pop.on("password",null,function(){
-					$("#pop .left").unbind("click").bind("click",function(){
+					$("#pop .left").unbind("tap").bind("tap",function(){
 						if(!$("#pop .top").val()){
 							app.pop.on("alert",{text:"交易密码不能为空,若未设置交易密码，请先行设置"});
 							return false;
@@ -31,7 +31,7 @@
 								}
 							},function(e){obj.pop.on("alert",{text:(e)});});
 						});
-					$("#pop .right").unbind("click").bind("click",function(){
+					$("#pop .right").unbind("tap").bind("tap",function(){
 						app.pop.off();
 						});	
 					});
@@ -41,14 +41,14 @@
 					
 					});
 				}
-			$(".top_third .leftButton").unbind("click").bind("click",function(){
+			$(".top_third .leftButton").unbind("tap").bind("tap",function(){
 				window.history.go(-1);
 				});
 			var delay=setTimeout(function(){
-				myScroll.refresh();
+				//myScroll.refresh();
 				},200);
 				$('img').load(function(){
-				myScroll.refresh();
+				//myScroll.refresh();
 				});
 			function getDetail(at){
 				obj.api.run("pay_detail",'at='+at+'&a='+data.id,function(returnData){

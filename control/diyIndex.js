@@ -13,7 +13,7 @@
 				center:"主题游"
 				});
 			$("#head").html(head);
-			$("#head .leftButton").unbind("click").bind("click",function(){
+			$("#head .leftButton").unbind("tap").bind("tap",function(){
 				window.history.go(-1);
 				});
 			$("#head .center").css("font-size",".5rem");
@@ -24,7 +24,7 @@
 			$("#scroller").html(list+'<div class="clear"></div>');
 			$(".product_group_list").addClass("found");
 			$(".product_group_list .group").css({"border-top":"0px","margin-top":"0px"});
-			$(".product_group_list .point").unbind("click").bind("click",function(){
+			$(".product_group_list .point").unbind("tap").bind("tap",function(){
 				window.location.hash="productDetail/"+$(this).attr("type")+"/"+$(this).attr("pid");
 				});
 			$(".product_group_list").css({
@@ -33,10 +33,10 @@
 				"background-color":"#fff"
 				});
 				var delay=setTimeout(function(){
-				myScroll.refresh();
+				//myScroll.refresh();
 				},200);
 				$('img').load(function(){
-				myScroll.refresh();
+				//myScroll.refresh();
 				});
 				}
 			var otherTop="1.5rem";
@@ -58,11 +58,7 @@
 			var delay=setTimeout(function(){
 				var leftScroll = new IScroll('.diy_nav', { probeType: 3,scrollbars: false,
 		mouseWheel: true,
-		interactiveScrollbars: false,
-		shrinkScrollbars: 'scale',
-		fadeScrollbars: true,
-		checkDOMChanges:true,
-		click:true
+		checkDOMChanges:true
 		 });
 				},200);	
 				})();

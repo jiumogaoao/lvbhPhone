@@ -99,12 +99,12 @@
 			dataFn[data.type](result);
 			var list=_.template(data.tem[1])({list:listA});
 			$("#scroller").html(list);
-			$(".top_third .leftButton").unbind("click").bind("click",function(){
+			$(".top_third .leftButton").unbind("tap").bind("tap",function(){
 				window.history.go(-1);
 				});
-			myScroll.refresh();
+			//myScroll.refresh();
 			$('img').load(function(){
-				myScroll.refresh();
+				//myScroll.refresh();
 				});
 				}
 			

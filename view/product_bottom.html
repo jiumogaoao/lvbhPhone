@@ -145,7 +145,7 @@
     </div>
 </div>
 <script>
-	$(".product_bottom .list").unbind("click").bind("click",function(){
+	$(".product_bottom .list").unbind("tap").bind("tap",function(){
 		if($(this).attr("id") !== "noChange"){
 			if($(this).data("open")){
 				$(this).data("open",false);

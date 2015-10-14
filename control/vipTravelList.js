@@ -13,12 +13,12 @@
 				center:"TA的达人圈"
 				});
 			$("#head").html(head);
-			$(".top_third .leftButton").unbind("click").bind("click",function(){
+			$(".top_third .leftButton").unbind("tap").bind("tap",function(){
 				window.history.go(-1);
 				});
 			obj.scrollFn.add("vipTravelList",function(y){
 				var juli=1.5;
-				$("#head").css("background-color","rgba(0,158,255,"+((-1*y)/200)+")");
+				$("#head").css("background-color","rgba(0,158,255,"+(y/200)+")");
 				if(app.cache("phone")&&app.cache("phone").phone){
 					juli=0;
 					$("#otherFrame").css("top","-.4rem");
@@ -44,29 +44,29 @@
 				});
 			$("#otherFrame").hide();
 			$("#scroller").html(top+topNav+nav+list);
-			$("#scroller .travel_list .point").unbind("click").bind("click",function(){
+			$("#scroller .travel_list .point").unbind("tap").bind("tap",function(){
 			window.location.hash="vipTravelDetail/"+$(this).attr("pid")+"/"+data.id;	
 				});
 			
 			$("#scroller .group_nav .point[nid='"+type+"']").addClass("hl");
-			$("#scroller .group_nav .point").unbind("click").bind("click",function(){
+			$("#scroller .group_nav .point").unbind("tap").bind("tap",function(){
 				type=Number($(this).attr("nid"));
 				result=[];
 				getList(at,sour);
 				});
 			$(".group_top_nav").each(function(){
 				$(this).find(".nav").eq(1).addClass("hl");
-				$(this).find(".nav").eq(0).unbind("click").bind("click",function(){
+				$(this).find(".nav").eq(0).unbind("tap").bind("tap",function(){
 				window.location.hash="vipMemberList/"+data.id+"/"+data.number;
 				});
 				});
 			
 			$("#scroller .group_member").css({"background-color":"#fff","padding-bottom":".3rem","margin-top":"0px"});
 			var delay=setTimeout(function(){
-				myScroll.refresh();
+				//myScroll.refresh();
 				},200);
 			$('img').load(function(){
-				myScroll.refresh();
+				//myScroll.refresh();
 				});
 				}	
 			

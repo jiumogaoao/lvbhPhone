@@ -13,24 +13,24 @@
 				
 				var main=_.template(data.tem[2])({list:result});
 				$("#scroller").html(main);
-				$("#scroller .vip_list .point").unbind("click").bind("click",function(){
+				$("#scroller .vip_list .point").unbind("tap").bind("tap",function(){
 					window.location.hash="vipMemberList/"+$(this).attr("vid")+"/"+$(this).attr("number");
 					});
 				var delay=setTimeout(function(){
-				myScroll.refresh();
+				//myScroll.refresh();
 				},200);
 			$('img').load(function(){
-				myScroll.refresh();
+				//myScroll.refresh();
 				});
 				}
 			$("#foot").html(data.tem[0]);
 			$("#foot .fa-group").addClass("hl");
 			$("#foot .point").eq(2).addClass("hl");
 			var delay=setTimeout(function(){
-				myScroll.refresh();
+				//myScroll.refresh();
 				},200);
 			$('img').load(function(){
-				myScroll.refresh();
+				//myScroll.refresh();
 				});
 			function getVip(at){
 			function getPage(callback){
@@ -57,11 +57,11 @@
 			function typeBind(at,now){
 				var head=_.template(data.tem[1])({left:"<div style='font-size:.4rem;width:2rem;'>"+now.c+" <span class='fa fa-open'></span></div>",center:'<div class="top_nav"><a class="top_nav_point top_nav_pointL">人气</a><a class="top_nav_point top_nav_pointR">财富</a><div class="clear"></div></div>',"right":'<span style="font-size:.7rem;" class="fa fa-search"></span>'});
 			$("#head").html(head);
-			$("#head .rightButton").unbind("click").bind("click",function(){
+			$("#head .rightButton").unbind("tap").bind("tap",function(){
 				window.location.hash="vipSearch";
 				});
 			$("#head .top_nav_pointL").addClass("hl");
-				$("#head .top_nav_pointL").unbind("click").bind("click",function(){
+				$("#head .top_nav_pointL").unbind("tap").bind("tap",function(){
 					type=0;
 					page=1;
 					result=[];
@@ -69,7 +69,7 @@
 					$(this).addClass("hl");
 					getVip(at);
 					});
-				$("#head .top_nav_pointR").unbind("click").bind("click",function(){
+				$("#head .top_nav_pointR").unbind("tap").bind("tap",function(){
 					type=1;
 					page=1;
 					result=[];

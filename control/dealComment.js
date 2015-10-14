@@ -9,10 +9,10 @@
 			$("#head").html(head);
 			var button=_.template(data.tem[2])({text:"提交",id:"submit"});
 			$("#scroller").html(data.tem[1]+button);
-			$(".top_third .leftButton").unbind("click").bind("click",function(){
+			$(".top_third .leftButton").unbind("tap").bind("tap",function(){
 				window.history.go(-1);
 				});
-			$("#submit").unbind("click").bind("click",function(){
+			$("#submit").unbind("tap").bind("tap",function(){
 				obj.api.at(function(at){
 					var sendString='at='+at+'&a=';
 					$(".list").each(function(i){
@@ -32,10 +32,10 @@
 				
 				});
 			var delay=setTimeout(function(){
-				myScroll.refresh();
+				//myScroll.refresh();
 				},200);
 			$('img').load(function(){
-				myScroll.refresh();
+				//myScroll.refresh();
 				});
 			}
 		});

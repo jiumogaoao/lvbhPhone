@@ -86,7 +86,7 @@
         <div class="place"><span class="fa fa-place2"></span><%= n.place%></div>
         <div class="tag"><%= n.tag %></div>
         <div class="clear"></div>
-    	<img src="<%= config.sour %>tra/ppu.jspx?at=<%= n.at||3 %>&a=2&b=<%= n.id %>&c=<%= n.image %>" onerror="app.nofound('img/product_list_img.png')"/>
+    	<img src="<%= config.sour %>tra/ppu.jspx?at=<%= n.at||3 %>&a=2&b=<%= n.id %>&c=<%= n.image %>" onerror="app.nofound(this,'img/product_list_img.png')"/>
         </div>
         <div class="bottom">
         	<div class="bottomL">
@@ -105,7 +105,7 @@
 <% }) %>
 </div>
 <script>
-$(".travel_list.edit .left").unbind("click").bind("click",function(){
+$(".travel_list.edit .left").unbind("tap").bind("tap",function(){
 	if(!$(this).data("choose")){
 		$(this).data("choose",true);
 		$(this).find(".fa").addClass("hl");

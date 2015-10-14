@@ -12,27 +12,27 @@
 			function layout(){
 				var head=_.template(data.tem[0])({left:"",value:"达人圈"});
 			$("#head").html(head);
-			$("#head .leftButton").unbind("click").bind("click",function(){
+			$("#head .leftButton").unbind("tap").bind("tap",function(){
 				window.history.go(-1);
 				});
 				var main=_.template(data.tem[1])({list:result});
 				$("#scroller").html(main);
-				$("#scroller .vip_list .point").unbind("click").bind("click",function(){
+				$("#scroller .vip_list .point").unbind("tap").bind("tap",function(){
 					window.location.hash="vipMemberList/"+$(this).attr("vid")+"/"+$(this).attr("number");
 					});
 				var delay=setTimeout(function(){
-				myScroll.refresh();
+				//myScroll.refresh();
 				},200);
 			$('img').load(function(){
-				myScroll.refresh();
+				//myScroll.refresh();
 				});
 				}
 			
 			var delay=setTimeout(function(){
-				myScroll.refresh();
+				//myScroll.refresh();
 				},200);
 			$('img').load(function(){
-				myScroll.refresh();
+				//myScroll.refresh();
 				});
 			function getVip(at){
 			function getPage(callback){

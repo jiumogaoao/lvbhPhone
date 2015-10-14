@@ -19,7 +19,7 @@
 				center:"常用旅客"
 				});
 			$("#head").html(head);
-			$("#head .leftButton").unbind("click").bind("click",function(){
+			$("#head .leftButton").unbind("tap").bind("tap",function(){
 				window.history.go(-1);
 				});
 			
@@ -33,7 +33,7 @@
 				var button=_.template(data.tem[3])({text:'<span class="fa fa-add2" style="position: relative;top: .05rem;"></span> 添加常用旅客',id:"addTraveller"});
 				var buttonSend=_.template(data.tem[2])({text:'确定',id:"addTravellerA"});
 			$("#scroller").html(main+buttonSend);
-			$("#addTravellerA").unbind("click").bind("click",function(){
+			$("#addTravellerA").unbind("tap").bind("tap",function(){
 				if(!result.traveler){
 					result.traveler=[""];
 					}
@@ -52,7 +52,7 @@
 				"border-radius":"0px"
 				});
 			$("#foot").show();
-			$("#scroller .fa-checkbox").unbind("click").bind("click",function(){
+			$("#scroller .fa-checkbox").unbind("tap").bind("tap",function(){
 				if($(this).data("choose")){
 					$(this).data("choose",false);
 					$(this).removeClass("hl");
@@ -66,7 +66,7 @@
 						
 						}
 				});
-			$("#scroller #addTraveller").unbind("click").bind("click",function(){
+			$("#scroller #addTraveller").unbind("tap").bind("tap",function(){
 				if(data.type){
 					window.location.hash="travellerAdd/"+data.type+"/"+data.id+"/"+data.state;
 					}else{
@@ -75,10 +75,10 @@
 				
 				});	
 				var delay=setTimeout(function(){
-				myScroll.refresh();
+				//myScroll.refresh();
 				},200);
 				$('img').load(function(){
-				myScroll.refresh();
+				//myScroll.refresh();
 				});
 				}
 			

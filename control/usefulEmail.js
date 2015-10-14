@@ -17,7 +17,7 @@
 				center:"常用邮寄地址"
 				});
 			$("#head").html(head);
-			$("#head .leftButton").unbind("click").bind("click",function(){
+			$("#head .leftButton").unbind("tap").bind("tap",function(){
 				window.history.go(-1);
 				});
 			function layout(){
@@ -35,14 +35,14 @@
 				"border-radius":"0px"
 				});
 			$("#foot").show();
-			$("#scroller #addMail").unbind("click").bind("click",function(){
+			$("#scroller #addMail").unbind("tap").bind("tap",function(){
 				if(data.type){
 					window.location.hash="emailAdd/"+data.type+"/"+data.id+"/"+data.state;
 					}else{
 						window.location.hash="emailAdd";
 						}
 				});
-			$("#scroller .point").unbind("click").bind("click",function(){
+			$("#scroller .point").unbind("tap").bind("tap",function(){
 				if(data.type){
 					if(data.key==="0"){
 					result.invoice.place=resultA[$(this).attr("num")].dsc;
@@ -58,10 +58,10 @@
 					}	
 				});
 			var delay=setTimeout(function(){
-				myScroll.refresh();
+				//myScroll.refresh();
 				},200);
 				$('img').load(function(){
-				myScroll.refresh();
+				//myScroll.refresh();
 				});
 				}
 			

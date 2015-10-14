@@ -136,14 +136,14 @@
 </div>
 <script>
 ;(function(){
-	$("body").on("click",function(){
+	$("body").on("tap",function(){
 		$(".top_third.top_search .menu").hide();
 		});
-	$(".top_third.top_search .dropdown").unbind("click").bind("click",function(e){
+	$(".top_third.top_search .dropdown").unbind("tap").bind("tap",function(e){
 		e.stopPropagation();
 		$(".top_third.top_search .menu").show();
 		});
-	$(".top_third.top_search .point").unbind("click").bind("click",function(e){
+	$(".top_third.top_search .point").unbind("tap").bind("tap",function(e){
 		window.location.hash="searchIndex/"+$(this).attr("sid")+"/0";
 		})
 	})();

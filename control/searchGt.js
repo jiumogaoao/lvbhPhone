@@ -9,16 +9,16 @@
 				var titleArry=["选择出发地","选择目的地"];				
 			var head=_.template(data.tem[0])({left:"",center:titleArry[data.type]});
 			$("#head").html(head);
-			$("#head .leftButton").unbind("click").bind("click",function(){
+			$("#head .leftButton").unbind("tap").bind("tap",function(){
 				window.history.go(-1);
 				});
 			var searchList=_.template(data.tem[1])(list);
 			$("#scroller").html(searchList);
 			$("#scroller .list").css("width","100%");
-			$(".top_third .leftButton").unbind("click").bind("click",function(){
+			$(".top_third .leftButton").unbind("tap").bind("tap",function(){
 				window.history.go(-1);
 				});
-			$(".point").unbind("click").bind("click",function(){
+			$(".point").unbind("tap").bind("tap",function(){
 				if(data.state==="4"){
 					console.log($(this).attr("pid"));
 					obj.cache("client_id",{id:$(this).attr("pid")});
@@ -36,9 +36,11 @@
 				
 				});
 
-			var delay=setTimeout(function(){myScroll.refresh();},200);
+			var delay=setTimeout(function(){
+				//myScroll.refresh();
+				},200);
 			$('img').load(function(){
-				myScroll.refresh();
+				//myScroll.refresh();
 				});
 				}
 			

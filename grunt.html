@@ -75,11 +75,7 @@ $("#GoToTop").unbind("click").bind("click",function(){
 	});
 var myScroll = new IScroll('#middle', { probeType: 3,scrollbars: false,
 		mouseWheel: true,
-		interactiveScrollbars: false,
-		shrinkScrollbars: 'scale',
-		fadeScrollbars: true,
-		checkDOMChanges:true,
-		click: true
+		checkDOMChanges:true
 		 });
 function updatePosition(){
 	app.scrollFn.run(this.y>>0);}

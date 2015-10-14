@@ -20,19 +20,19 @@
 				var listA=_.template(data.tem[1])({list:list});
 			$("#scroller").html(listA);
 			$("#headform").ajaxForm();
-			$("[name='name']").unbind("click").bind("click",function(){
+			$("[name='name']").unbind("tap").bind("tap",function(){
 				window.location.hash="groupEdit/0/"+result.c;
 				});
-			$("[name='word']").unbind("click").bind("click",function(){
+			$("[name='word']").unbind("tap").bind("tap",function(){
 				window.location.hash="groupEdit/1/"+result.d;
 				});
-			$("[name='dsc']").unbind("click").bind("click",function(){
+			$("[name='dsc']").unbind("tap").bind("tap",function(){
 				window.location.hash="groupEdit/2/"+result.e;
 				});
-			$("[name='group']").unbind("click").bind("click",function(){
+			$("[name='group']").unbind("tap").bind("tap",function(){
 				window.location.hash="groupAdd";
 				});
-			$("[name='invite']").unbind("click").bind("click",function(){
+			$("[name='invite']").unbind("tap").bind("tap",function(){
 				window.location.hash="invite";
 				});
 			$(".title_input_list").css({
@@ -67,15 +67,15 @@
                		 preview2(file);
 					});
             });
-			$(".top_third .leftButton").unbind("click").bind("click",function(){
+			$(".top_third .leftButton").unbind("tap").bind("tap",function(){
 				window.history.go(-1);
 				});
 			
 			var delay=setTimeout(function(){
-				myScroll.refresh();
+				//myScroll.refresh();
 				},200);
 				$('img').load(function(){
-				myScroll.refresh();
+				//myScroll.refresh();
 				});
 				}
 			function getGroup(at){

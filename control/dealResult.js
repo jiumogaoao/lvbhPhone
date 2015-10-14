@@ -15,24 +15,24 @@
 				type:data.type,
 				list:list});
 			$("#scroller").html(listA);
-			$(".top_third .leftButton").unbind("click").bind("click",function(){
+			$(".top_third .leftButton").unbind("tap").bind("tap",function(){
 				window.history.go(-1);
 				});
-			$(".top_third .rightButton").unbind("click").bind("click",function(){
+			$(".top_third .rightButton").unbind("tap").bind("tap",function(){
 				window.location.hash="dealSearch/"+data.type;
 				});
-			$(".simple_list").unbind("click").bind("click",function(){
+			$(".simple_list").unbind("tap").bind("tap",function(){
 				window.location.hash="dealList/"+$(this).attr("lid");
 				});
-			$(".dianpin").unbind("click").bind("click",function(e){
+			$(".dianpin").unbind("tap").bind("tap",function(e){
 				e.stopPropagation();
 				window.location.hash="dealComment/"+$(this).parents(".deal_list").attr("lid");
 				});
-			$(".quxiao").unbind("click").bind("click",function(e){
+			$(".quxiao").unbind("tap").bind("tap",function(e){
 				e.stopPropagation();
 				var that=this;
 				function popFn(){
-					$("#pop .left").unbind("click").bind("click",function(){
+					$("#pop .left").unbind("tap").bind("tap",function(){
 						console.log("at="+at+"&a="+$(that).parents(".deal_list").attr("lid"));
 						obj.pop.off();
 					obj.api.run("deal_cancel","at="+at+"&a="+$(that).parents(".deal_list").attr("lid"),function(){
@@ -42,17 +42,17 @@
 							obj.pop.on("alert",{text:JSON.stringify(e)});
 							});
 					});
-					$("#pop .right").unbind("click").bind("click",function(){
+					$("#pop .right").unbind("tap").bind("tap",function(){
 						obj.pop.off();
 						});
 					}
 				obj.pop.on("confirm",{text:"确认要申请取消该订单吗？"},popFn);
 				});
-			$(".zuofei").unbind("click").bind("click",function(e){
+			$(".zuofei").unbind("tap").bind("tap",function(e){
 				e.stopPropagation();
 				var that=this;
 					function popFn(){
-						$("#pop .left").unbind("click").bind("click",function(){
+						$("#pop .left").unbind("tap").bind("tap",function(){
 							obj.pop.off();
 							console.log("at="+at+"&a="+$(that).parents(".deal_list").attr("lid"));
 				obj.api.run("deal_remove","at="+at+"&a="+$(that).parents(".deal_list").attr("lid"),function(){
@@ -61,21 +61,21 @@
 						obj.pop.on("alert",{text:JSON.stringify(e)});
 						});
 							});
-						$("#pop .right").unbind("click").bind("click",function(){
+						$("#pop .right").unbind("tap").bind("tap",function(){
 						obj.pop.off();
 						});
 						}
 					obj.pop.on("confirm",{text:"确认要作废该订单吗？"},popFn);
 				});
-			$(".dianpin").unbind("click").bind("click",function(e){
+			$(".dianpin").unbind("tap").bind("tap",function(e){
 				e.stopPropagation();
 				window.location.hash="dealComment/"+$(this).parents(".deal_list").attr("lid");
 				});
-			$(".sanchu").unbind("click").bind("click",function(e){
+			$(".sanchu").unbind("tap").bind("tap",function(e){
 				e.stopPropagation();
 				var that=this;
 				function popFn(){
-				$("#pop .left").unbind("click").bind("click",function(){
+				$("#pop .left").unbind("tap").bind("tap",function(){
 							obj.pop.off();	
 				console.log('at='+at+'&a='+$(that).parents(".deal_list").attr("lid"));
 				obj.api.run("deal_delect",'at='+at+'&a='+$(that).parents(".deal_list").attr("lid"),function(){
@@ -85,17 +85,17 @@
 					obj.pop.on("alert",{text:JSON.stringify(e)});
 					});
 				});	
-				$("#pop .right").unbind("click").bind("click",function(){
+				$("#pop .right").unbind("tap").bind("tap",function(){
 						obj.pop.off();
 						});
 				}
 				obj.pop.on("confirm",{text:"确认要删除该订单吗？"},popFn);
 			});
 			var delay=setTimeout(function(){
-				myScroll.refresh();
+				//myScroll.refresh();
 				},200);
 				$('img').load(function(){
-				myScroll.refresh();
+				//myScroll.refresh();
 				});
 			}
 			function getPage(callback){

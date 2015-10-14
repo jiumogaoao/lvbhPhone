@@ -46,7 +46,7 @@
 			$("#foot").html(button);
 			$(".single_button").css({"margin-top":"0px"});
 			$("#foot").show();
-			$("#gotopay").unbind("click").bind("click",function(){
+			$("#gotopay").unbind("tap").bind("tap",function(){
 				if($("#scroller [name='bankType']").val()){
 					$("#tenpay").submit();
 					}
@@ -54,7 +54,7 @@
 			function layout(result){
 				var main=_.template(data.tem[1])(result);
 				$("#scroller").html(main);
-				$("#scroller .point").unbind("click").bind("click",function(){
+				$("#scroller .point").unbind("tap").bind("tap",function(){
 					$("#scroller .point").removeClass("hl");
 					$("#scroller .point .fa").removeClass("hl");
 					$(this).addClass("hl");
@@ -63,13 +63,13 @@
 					});
 				$("#scroller").css("padding-bottom","1.5rem");
 				var delay=setTimeout(function(){
-				myScroll.refresh();
+				//myScroll.refresh();
 				},200);
 				$('img').load(function(){
-				myScroll.refresh();
+				//myScroll.refresh();
 				});
 				}
-			$(".top_third .leftButton").unbind("click").bind("click",function(){
+			$(".top_third .leftButton").unbind("tap").bind("tap",function(){
 				window.history.go(-1);
 				});	
 			function getDetail(at){

@@ -17,7 +17,7 @@
 				center:"常用联系人"
 				});
 			$("#head").html(head);
-			$("#head .leftButton").unbind("click").bind("click",function(){
+			$("#head .leftButton").unbind("tap").bind("tap",function(){
 				window.history.go(-1);
 				});
 			function layout(){
@@ -38,7 +38,7 @@
 				"border-radius":"0px"
 				});
 			$("#foot").show();
-			$("#scroller #addLinkman").unbind("click").bind("click",function(){
+			$("#scroller #addLinkman").unbind("tap").bind("tap",function(){
 				if(data.type){
 					window.location.hash="linkmanAdd/"+data.type+"/"+data.id+"/"+data.state;
 					}else{
@@ -46,7 +46,7 @@
 						}
 				
 				});
-			$("#scroller .point").unbind("click").bind("click",function(){
+			$("#scroller .point").unbind("tap").bind("tap",function(){
 				if(data.type){
 					result.linkMan={
 					name:resultA[$(this).attr("num")].title,
@@ -58,10 +58,10 @@
 					}
 				});
 			var delay=setTimeout(function(){
-				myScroll.refresh();
+				//myScroll.refresh();
 				},200);
 				$('img').load(function(){
-				myScroll.refresh();
+				//myScroll.refresh();
 				});
 			}
 			

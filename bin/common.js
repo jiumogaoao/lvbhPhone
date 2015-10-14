@@ -109,7 +109,7 @@
 	var scrollArry={};
 	app.scrollFn={};
 	app.scrollFn.run=function(h){
-		if(h<0){
+		if(h>0){
 			$("#GoToTop").show();
 			}else{
 				$("#GoToTop").hide();
@@ -125,8 +125,8 @@
 			scrollArry[key]=fn;
 			}
 		};
-	app.nofound=function(url){
-		var img=event.srcElement;
+	app.nofound=function(target,url){
+		var img=$(target)[0];
 		img.src=url;
 		img.onerror=null; 
 		};

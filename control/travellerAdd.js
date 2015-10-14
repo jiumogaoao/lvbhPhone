@@ -163,16 +163,16 @@
 				});
 			$("#scroller [D_type='radio']").each(function(){
 				var that=this;
-				$(that).find("[D_type='radioPoint']").unbind("click").bind("click",function(){
+				$(that).find("[D_type='radioPoint']").unbind("tap").bind("tap",function(){
 					result[$(that).attr("D_key")]=$(this).attr("D_value");
 					$(that).find("[D_type='radioPoint']").removeClass("hl");
 					$(this).addClass("hl");
 					});
 				});
-			$(".top_third .leftButton").unbind("click").bind("click",function(){
+			$(".top_third .leftButton").unbind("tap").bind("tap",function(){
 				window.history.go(-1);
 				});
-			$(".top_third .rightButton").unbind("click").bind("click",function(){
+			$(".top_third .rightButton").unbind("tap").bind("tap",function(){
 				obj.api.at(function(at){
 					obj.api.run("traveler_add",'at='+at+'&tp=0&jparam='+apiArry[result.cardType](),function(){
 						if(data.type){
@@ -186,7 +186,7 @@
 					});
 				});
 			var delay=setTimeout(function(){
-				myScroll.refresh();
+				//myScroll.refresh();
 				},200);	
 			
 			

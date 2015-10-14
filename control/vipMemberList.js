@@ -13,11 +13,11 @@
 				center:"TA的达人圈"
 				});
 			$("#head").html(head);
-			$(".top_third .leftButton").unbind("click").bind("click",function(){
+			$(".top_third .leftButton").unbind("tap").bind("tap",function(){
 				window.history.go(-1);
 				});
 			obj.scrollFn.add("vipMemberList",function(y){
-				$("#head").css("background-color","rgba(0,158,255,"+((-1*y)/200)+")");
+				$("#head").css("background-color","rgba(0,158,255,"+(y/200)+")");
 				var juli=1.5;
 				if(app.cache("phone")&&app.cache("phone").phone){
 					juli=0;
@@ -45,31 +45,31 @@
 			$("#scroller").html(top+topNav+nav+list);
 			$(".group_top_nav").each(function(){
 				$(this).find(".nav").eq(0).addClass("hl");
-				$(this).find(".nav").eq(1).unbind("click").bind("click",function(){
+				$(this).find(".nav").eq(1).unbind("tap").bind("tap",function(){
 				window.location.hash="vipTravelList/"+data.id+"/"+data.number;
 				});
 				});
 			$("#scroller .group_nav .point[nid='"+type+"']").addClass("hl");
-			$("#scroller .group_nav .point").unbind("click").bind("click",function(){
+			$("#scroller .group_nav .point").unbind("tap").bind("tap",function(){
 				type=Number($(this).attr("nid"));
 				result=[];
 				getList(at,sour);
 				});
 			$("#scroller .group_member").css({"background-color":"#fff","padding-bottom":".3rem","margin-top":"0px"});
 				var delay=setTimeout(function(){
-				myScroll.refresh();
+				//myScroll.refresh();
 				},200);
 			$('img').load(function(){
-				myScroll.refresh();
+				//myScroll.refresh();
 				});
 				}
 			
 
 			var delay=setTimeout(function(){
-				myScroll.refresh();
+				//myScroll.refresh();
 				},200);
 			$('img').load(function(){
-				myScroll.refresh();
+				//myScroll.refresh();
 				});
 			function getList(at,sour){
 				obj.api.run("other_group_member_get",'at='+at+'&a='+page+'&c='+type+'&d='+data.id,function(returnData){

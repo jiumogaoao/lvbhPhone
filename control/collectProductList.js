@@ -21,7 +21,7 @@
 				$("#scroller").html(listA);
 				}else{
 					$("#scroller").html(listA+button);
-					$("#send").unbind("click").bind("click",function(){
+					$("#send").unbind("tap").bind("tap",function(){
 								var remove="";
 				$(".product_list .point.hl").each(function(i){
 					remove+=$(this).attr("pid");
@@ -36,20 +36,20 @@
 					});
 						});
 					}
-			$(".product_list .point").unbind("click").bind("click",function(){
+			$(".product_list .point").unbind("tap").bind("tap",function(){
 				window.location.hash="productDetail/"+$(this).attr("type")+"/"+$(this).attr("oid");
 				});
-			$(".top_third .leftButton").unbind("click").bind("click",function(){
+			$(".top_third .leftButton").unbind("tap").bind("tap",function(){
 				window.history.go(-1);
 				});
-			$(".top_third .rightButton").unbind("click").bind("click",function(){
+			$(".top_third .rightButton").unbind("tap").bind("tap",function(){
 				window.location.hash="collectProductList/"+pageArry[data.type];
 				});
 			var delay=setTimeout(function(){
-				myScroll.refresh();
+				//myScroll.refresh();
 				},200);
 				$('img').load(function(){
-				myScroll.refresh();
+				//myScroll.refresh();
 				});
 				}
 			function getPage(callback){

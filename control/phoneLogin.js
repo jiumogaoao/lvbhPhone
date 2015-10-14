@@ -16,16 +16,16 @@
 			$("#scroller").html(nav+list+button);
 
 			function layout(at){
-				$(".top_third .leftButton").unbind("click").bind("click",function(){
+				$(".top_third .leftButton").unbind("tap").bind("tap",function(){
 				window.history.go(-1);
 				});
-			$(".top_third .rightButton").unbind("click").bind("click",function(){
+			$(".top_third .rightButton").unbind("tap").bind("tap",function(){
 				window.location.href="https://passport.lvbh.cn/mobile/reg.jspx";
 				});
-			$(".nav_two #left").unbind("click").bind("click",function(){
+			$(".nav_two #left").unbind("tap").bind("tap",function(){
 				window.location.hash="login";
 				});
-			$("#loginButton").unbind("click").bind("click",function(){
+			$("#loginButton").unbind("tap").bind("tap",function(){
 				if($("[name='user'] input").val() && $("[name='user'] input").val().length&&$("[name='key'] input").val() && $("[name='key'] input").val().length){
 						obj.api.run("login_phone",{
 							at:at,
@@ -40,11 +40,11 @@
 					}else{obj.pop.on("alert",{text:"请完整填写登录信息"});}
 				});
 				$('img').load(function(){
-				myScroll.refresh();
+				//myScroll.refresh();
 				});
 			function delay(){
 				$("[name='key'] .other span").html("发送动态密码");
-				$("[name='key'] .other").unbind("click").bind("click",function(){
+				$("[name='key'] .other").unbind("tap").bind("tap",function(){
 				if($("[name='user'] input").val() && $("[name='user'] input").val().length){
 						obj.api.run("login_phone_message",{
 							at:at,
@@ -68,7 +68,7 @@
 				});
 				}	
 			delay();
-			myScroll.refresh();
+			//myScroll.refresh();
 				}
 			obj.api.at(layout);
 			}

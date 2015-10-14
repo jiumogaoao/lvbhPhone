@@ -14,15 +14,15 @@
 
 			$("#scroller").html(nav+data.tem[2]+button);
 				
-			$(".top_third .leftButton").unbind("click").bind("click",function(){
+			$(".top_third .leftButton").unbind("tap").bind("tap",function(){
 				window.history.go(-1);
 				});
-			$("#cashButton").unbind("click").bind("click",function(){
+			$("#cashButton").unbind("tap").bind("tap",function(){
 				window.location.hash="cashInput";
 				});
-			myScroll.refresh();
+			//myScroll.refresh();
 			$('img').load(function(){
-				myScroll.refresh();
+				//myScroll.refresh();
 				});
 				}
 			function getAccount(at){

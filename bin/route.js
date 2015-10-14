@@ -13,7 +13,7 @@
 			app.pop.off();
 			$("body").css({"background-color":"#eeeeee"});
 			$("#head").css("background-color","#009eff");
-			myScroll.scrollTo(0, 0);
+			$("#middle").scrollTop(0);
 			if(hashArry[0]==="index"){
 				$("#foot").empty();
 				$("#foot").css("height","1.5rem");

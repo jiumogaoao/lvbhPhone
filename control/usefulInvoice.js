@@ -17,7 +17,7 @@
 				center:"常用发票抬头"
 				});
 			$("#head").html(head);
-			$("#head .leftButton").unbind("click").bind("click",function(){
+			$("#head .leftButton").unbind("tap").bind("tap",function(){
 				window.history.go(-1);
 				});
 			function layout(){
@@ -35,7 +35,7 @@
 				"border-radius":"0px"
 				});
 			$("#foot").show();
-			$("#scroller #addInvoice").unbind("click").bind("click",function(){
+			$("#scroller #addInvoice").unbind("tap").bind("tap",function(){
 				if(data.type){
 					window.location.hash="invoiceAdd/"+data.type+"/"+data.id+"/"+data.state;
 					}else{
@@ -43,7 +43,7 @@
 						}
 				
 				});
-			$("#scroller .point").unbind("click").bind("click",function(){
+			$("#scroller .point").unbind("tap").bind("tap",function(){
 				if(data.type){
 					result.invoice.title=$(this).html();
 				obj.cache("pruduct_input_"+data.id,result);
@@ -51,10 +51,10 @@
 					}
 				});
 			var delay=setTimeout(function(){
-				myScroll.refresh();
+				//myScroll.refresh();
 				},200);	
 				$('img').load(function(){
-				myScroll.refresh();
+				//myScroll.refresh();
 				});
 				}
 			

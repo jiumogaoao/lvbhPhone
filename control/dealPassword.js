@@ -17,10 +17,10 @@
 			var listA=_.template(data.tem[1])({list:list});
 			var button=_.template(data.tem[2])({"text":"保存","id":"passButton"});
 			$("#scroller").html(listA+button);				
-			$(".top_third .leftButton").unbind("click").bind("click",function(){
+			$(".top_third .leftButton").unbind("tap").bind("tap",function(){
 				window.history.go(-1);
 				});
-			$("#passButton").unbind("click").bind("click",function(){
+			$("#passButton").unbind("tap").bind("tap",function(){
 				
 				if(!$("[name='new']").val()){
 					$("[name='new']").parent().addClass("err");
@@ -45,9 +45,9 @@
 						}
 				
 				});
-			myScroll.refresh();
+			//myScroll.refresh();
 			$('img').load(function(){
-				myScroll.refresh();
+				//myScroll.refresh();
 				});
 				}
 			obj.api.at(layout);

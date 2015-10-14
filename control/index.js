@@ -7,22 +7,22 @@
 		fn:function(data){
 			function layout(main,vip,pomo,client){
 			obj.scrollFn.add("index",function(y){
-				$("#head").css("background-color","rgba(0,158,255,"+((-1*y)/200)+")");
+				$("#head").css("background-color","rgba(0,158,255,"+(y/200)+")");
 				});
 			var banner=	_.template(data.tem[5])({list:pomo});
 			var head=_.template(data.tem[1])({client:client});
 			$("#head").html(head);
-			$("#head .right").unbind("click").bind("click",function(){
+			$("#head .right").unbind("tap").bind("tap",function(){
 				obj.bottom.on("tel");
 				});
 			var list=_.template(data.tem[3])({list:main});
 			var group=_.template(data.tem[4])({list:vip});
 			$("#scroller").html(banner+data.tem[2]+list+group);
-			$(".product_group_list .icon").unbind("click").bind("click",function(){
+			$(".product_group_list .icon").unbind("tap").bind("tap",function(){
 				window.location.hash=$(this).attr("href");
 				});
 			$(".product_group_list .group").css("border-top","0px");
-$(".product_group_list .point").unbind("click").bind("click",function(){
+$(".product_group_list .point").unbind("tap").bind("tap",function(){
 				window.location.hash="productDetail/"+$(this).attr("type")+"/"+$(this).attr("pid");
 				});
 			$("#scroller .group_member").css({
@@ -30,10 +30,10 @@ $(".product_group_list .point").unbind("click").bind("click",function(){
 				"padding-bottom":".2rem"
 				});
 			var delay=setTimeout(function(){
-				myScroll.refresh();
+				//myScroll.refresh();
 				},200);
 			$('img').load(function(){
-				myScroll.refresh();
+				//myScroll.refresh();
 				});	
 			}
 			$("#foot").html(data.tem[0]);
