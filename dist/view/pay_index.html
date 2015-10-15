@@ -223,7 +223,7 @@
 <script>
 ;(function(){
 	$(".pay_index [name='returnUrl']").val(window.location.href.split("#")[0]+"#dealList/0");
-	$(".pay_index .bottom .head .dsc").unbind("click").bind("click",function(){
+	$(".pay_index .bottom .head .dsc").unbind("tap").bind("tap",function(){
 		if($(this).find(".fa").data("choose")){
 			$(this).find(".fa").data("choose",false);
 			$(this).find(".fa").removeClass("hl");

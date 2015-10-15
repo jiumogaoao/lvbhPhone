@@ -109,7 +109,7 @@
         	<div class="message">
             </div>
             <div class="clear"></div>
-            <img class="left" src="<%= img %>"  onerror="app.nofound('img/circle_member_list_img_picture.png')"/>
+            <img class="left" src="<%= img %>"  onerror="app.nofound(this,'img/circle_member_list_img_picture.png')"/>
             <div class="right">
             	<div class="title"><% if(name.length<8){print(name)}else{print(name.substr(0,8)+"...")} %>&nbsp;&nbsp;<img class="step" src="img/vip<%= step %>.png"/></div>
                 <div class="dsc">ID:<%= id %></div>

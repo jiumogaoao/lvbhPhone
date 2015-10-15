@@ -56,7 +56,24 @@
 			$("#otherFrame").show();
 			;(function(){
 			var delay=setTimeout(function(){
-				var leftScroll = new IScroll('.diy_nav', { probeType: 3,scrollbars: false,
+				var leftScroll = {
+	refresh:function(){},
+	scrollToElement:function(target){
+		var scrollT=$(target).offset().top-$("#scroller").offset().top;
+		$("#middle").scrollTop(scrollT) ;
+		},
+	on:function(type,fn){
+		var scrollTypt={
+			"scroll":function(){
+				fn();
+				},
+			"scrollEnd":function(){
+				fn();
+				}
+			};
+		}
+	};
+				new IScroll('.diy_nav', { probeType: 3,scrollbars: false,
 		mouseWheel: true,
 		checkDOMChanges:true
 		 });

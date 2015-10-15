@@ -35,7 +35,7 @@
 				"border-radius":"0px"
 				});
 			$("#foot").show();
-			$("#scroller #addMail").unbind("tap").bind("tap",function(){
+			$("#addMail").unbind("tap").bind("tap",function(){
 				if(data.type){
 					window.location.hash="emailAdd/"+data.type+"/"+data.id+"/"+data.state;
 					}else{

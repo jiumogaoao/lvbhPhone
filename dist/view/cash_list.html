@@ -128,7 +128,7 @@
 </div>
 <% }) %>
 <script>
-	$(".account_list").unbind("click").bind("click",function(){
+	$(".account_list").unbind("tap").bind("tap",function(){
 		window.location.hash="accountDetail/"+$(this).attr("type")+"/"+$(this).attr("lid");
 		});
 </script>

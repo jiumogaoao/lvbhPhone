@@ -38,7 +38,7 @@
 				"border-radius":"0px"
 				});
 			$("#foot").show();
-			$("#scroller #addLinkman").unbind("tap").bind("tap",function(){
+			$("#addLinkman").unbind("tap").bind("tap",function(){
 				if(data.type){
 					window.location.hash="linkmanAdd/"+data.type+"/"+data.id+"/"+data.state;
 					}else{

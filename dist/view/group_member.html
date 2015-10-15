@@ -64,7 +64,7 @@
 <div class="group_member">
 <% _.each(list,function(n,i){ %>
 	<div class="point" gid="<%= n.id %>">
-		<img src="<%= n.image %>"  onerror="app.nofound('img/collect_img_picture.png')"/>
+		<img src="<%= n.image %>"  onerror="app.nofound(this,'img/collect_img_picture.png')"/>
         <div class="name"><%
         if(n.name){
         n.name=n.name+"";

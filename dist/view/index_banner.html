@@ -33,7 +33,7 @@
 <div class="index_banner">
     	<div class="bgR">
         <% _.each(list,function(n){ %>
-        	<img type="<%= n.categoryId %>" pid="<%= n.info %>" src="<%= n.pic %>" onerror="app.nofound('img/home_ad_img.png')"/>
+        	<img type="<%= n.categoryId %>" pid="<%= n.info %>" src="<%= n.pic %>" onerror="app.nofound(this,'img/home_ad_img.png')"/>
         <% }) %>
             <div class="clear"></div>
         </div>
@@ -65,7 +65,7 @@
 			}
 		
 		},3000);
-	$(".index_banner img").unbind("click").bind("click",function(){
+	$(".index_banner img").unbind("tap").bind("tap",function(){
 		window.location.hash="productDetail/"+$(this).attr("type")+"/"+$(this).attr("pid");
 		});
 	})();

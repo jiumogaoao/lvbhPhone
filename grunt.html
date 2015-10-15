@@ -35,9 +35,9 @@
 <script src="include/md5.js"></script>
 <script src="include/jquery.form.js"></script>
 <script src="include/touch.js"></script>
-<script>app.route.init()</script>
+
 <script type="text/javascript">
-document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+//document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
 </script>
 <link href="css/common.css" rel="stylesheet" rev="stylesheet" type="text/css"/>
 <link href="css/font.css" rel="stylesheet" rev="stylesheet" type="text/css"/>
@@ -70,22 +70,40 @@ document.addEventListener('touchmove', function (e) { e.preventDefault(); }, fal
 </body>
 <script>
 $("#GoToTop").unbind("click").bind("click",function(){
-	myScroll.scrollTo(0, 0);
+	$("#middle").scrollTop(0);
 	$("#GoToTop").hide();
 	});
-var myScroll = new IScroll('#middle', { probeType: 3,scrollbars: false,
-		mouseWheel: true,
-		checkDOMChanges:true
-		 });
-function updatePosition(){
-	app.scrollFn.run(this.y>>0);}
-myScroll.on('scroll', updatePosition);
-myScroll.on('scrollEnd', function(){if(this.y === this.maxScrollY){app.reflash.run();}});
+window.myScroll = {
+	refresh:function(){},
+	scrollToElement:function(target){
+		var scrollT=$(target).offset().top-$("#scroller").offset().top
+		$("#middle").scrollTop(scrollT) 
+		},
+	on:function(type,fn){
+		var scrollTypt={
+			"scroll":function(){
+				fn();
+				},
+			"scrollEnd":function(){
+				fn();
+				}
+			}
+		}
+	}
+$("#middle").on("scroll",function(){
+	var oldValue=0;
+	app.scrollFn.run($("#middle").scrollTop()>>0)
+	if($("#middle").scrollTop()>=($("#scroller").height()-$("#middle").height()-1)){
+		if($("#middle").scrollTop()>oldValue){
+			app.reflash.run();
+			}
+		}
+		oldValue=$("#middle").scrollTop();
+	})
 
 function resize(){
 
 	$("html").css("font-size",$(window).width()*0.1);
-
 		myScroll.refresh();
 		$("#loading").css("top",($(window).height()/($(window).width()/10)-1)/2+"rem");
 		$("#pop").css("top",(($(window).height()-$("#pop").height())/($(window).width()/10))/2+"rem")
@@ -95,4 +113,5 @@ $(window).on("resize",resize);
 
 
 </script>
+<script>app.route.init()</script>
 </html>

@@ -35,7 +35,7 @@
 				"border-radius":"0px"
 				});
 			$("#foot").show();
-			$("#scroller #addInvoice").unbind("tap").bind("tap",function(){
+			$("#addInvoice").unbind("tap").bind("tap",function(){
 				if(data.type){
 					window.location.hash="invoiceAdd/"+data.type+"/"+data.id+"/"+data.state;
 					}else{

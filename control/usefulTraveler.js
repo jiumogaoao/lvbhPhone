@@ -66,7 +66,7 @@
 						
 						}
 				});
-			$("#scroller #addTraveller").unbind("tap").bind("tap",function(){
+			$("#addTraveller").unbind("tap").bind("tap",function(){
 				if(data.type){
 					window.location.hash="travellerAdd/"+data.type+"/"+data.id+"/"+data.state;
 					}else{
