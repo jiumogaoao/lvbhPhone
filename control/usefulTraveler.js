@@ -66,6 +66,12 @@
 						
 						}
 				});
+			if(result&&result.traveler&&result.traveler.length){
+				$.each(result.traveler,function(i,n){
+					$(".fa-checkbox[pid='"+n.e+"']").addClass("hl");
+					$(".fa-checkbox[pid='"+n.e+"']").data("choose",true);
+					});
+				}
 			$("#addTraveller").unbind("tap").bind("tap",function(){
 				if(data.type){
 					window.location.hash="travellerAdd/"+data.type+"/"+data.id+"/"+data.state;
@@ -95,7 +101,7 @@
 							}
 					$.each(returnData,function(i,n){
 							resultB.push(n);
-							resultA.push({title:n.b,dsc:n.f,type:n.q,enable:(n.q==="2")?true:false});
+							resultA.push({title:n.b,dsc:n.f,type:n.q,enable:(n.q==="2")?true:false,id:n.e});
 						});
 					layout(returnData);
 					if(callback){callback();}

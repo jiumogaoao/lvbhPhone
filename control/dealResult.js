@@ -48,6 +48,10 @@
 					}
 				obj.pop.on("confirm",{text:"确认要申请取消该订单吗？"},popFn);
 				});
+			$(".zhifu").unbind("tap").bind("tap",function(e){
+				e.stopPropagation();
+				window.location.hash="payIndex/"+$(this).parents(".deal_list").attr("lid");
+				});
 			$(".zuofei").unbind("tap").bind("tap",function(e){
 				e.stopPropagation();
 				var that=this;

@@ -26,6 +26,7 @@
 							dataType:"text",
 							method:api[name].method,
 							data:sendData,
+							cache:false,
 							error:function(e){
 								config.loadingOff();
 								err(e);

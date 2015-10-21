@@ -11,6 +11,7 @@
 				$.ajax({ 
 							url:"view/"+view+".html",
 							dataType:"html",
+							cache:true,
 							error:function(err){
 								config.loadingOff();
 								app.pop.on("alert",{text:"错误"+JSON.stringify(err)});
@@ -86,19 +87,15 @@
 	var reflashLock=false;
 	var reflashArry={};
 	app.reflash={};
-	app.reflash.run=function(){
-		if(!reflashLock){
-			reflashLock=true;
+	app.reflash.run=function(fn){
+		
 			var page=window.location.hash.replace("#","").split("/")[0]||"index";
-			console.log(page);
 			if(reflashArry[page]){
-				reflashArry[page](function(){
-					reflashLock=false;
-					});
+				reflashArry[page](fn);
 				}else{
-					reflashLock=false;
+					fn();
 					}
-			}
+			
 		};
 	app.reflash.add=function(key,fn){
 		if(!reflashArry[key]){

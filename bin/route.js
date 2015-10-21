@@ -128,7 +128,7 @@
 						$.ajax({ 
 							url:"view/"+n+".html",
 							dataType:"html",
-							cache:false,
+							cache:true,
 							error:function(err){
 								config.loadingOff();
 								window.app.pop.on("alert",{text:"错误"+JSON.stringify(err)});
@@ -155,7 +155,7 @@
 				$.ajax({ 
 							url:"control/"+hashArry[0]+".js",
 							dataType:"script",
-							cache:false,
+							cache:true,
 							error:function(err){
 								config.loadingOff();
 								window.app.pop.on("alert",{text:"错误"+JSON.stringify(err)});

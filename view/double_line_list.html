@@ -32,7 +32,7 @@
             <% } %>
             <%= n.dsc %></div>
             <% if(enable&&n.enable){ %>
-            <div class="check"><div class="fa fa-checkbox"></div></div>
+            <div class="check"><div class="fa fa-checkbox" pid="<%= n.id||""%>"></div></div>
             <% } %>
         </div>
     <% }) %>

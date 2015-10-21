@@ -73,10 +73,6 @@
 			};
 		}
 	};
-				new IScroll('.diy_nav', { probeType: 3,scrollbars: false,
-		mouseWheel: true,
-		checkDOMChanges:true
-		 });
 				},200);	
 				})();
 			

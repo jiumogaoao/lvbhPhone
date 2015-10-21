@@ -94,15 +94,25 @@ window.myScroll = {
 			}
 		}
 	}
+var endlock=false;
+var movelock=false;	
+var oldscroll=0;
 $("#middle").on("scroll",function(){
-	var oldValue=0;
 	app.scrollFn.run($("#middle").scrollTop()>>0)
-	if($("#middle").scrollTop()>=($("#scroller").height()-$("#middle").height()-1)){
-		if($("#middle").scrollTop()>oldValue){
-			app.reflash.run();
+	if(!endlock&&movelock){
+		if(($("#middle").scrollTop()>oldscroll+100)||($("#middle").scrollTop()<oldscroll-100)){
+			 movelock=false;
 			}
 		}
-		oldValue=$("#middle").scrollTop();
+	
+	if(($("#middle").scrollTop()>=($("#scroller").height()-$("#middle").height()-1))&&!endlock&&!movelock){
+		endlock=true;
+		movelock=true;
+		oldscroll=$("#middle").scrollTop();
+			app.reflash.run(function(){
+				endlock=false;
+				});
+		}
 	})
 
 function resize(){
