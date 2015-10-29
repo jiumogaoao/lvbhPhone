@@ -17,6 +17,9 @@
 				$("#pay").unbind("tap").bind("tap",function(){
 					if(result.balance>=result.price){
 						app.pop.on("password",null,function(){
+					$("#pop .setKey").unbind("click").bind("click",function(){
+						window.location.hash="dealPassword";
+						});
 					$("#pop .left").unbind("tap").bind("tap",function(){
 						if(!$("#pop .top").val()){
 							app.pop.on("alert",{text:"交易密码不能为空,若未设置交易密码，请先行设置"});
@@ -28,7 +31,9 @@
 									obj.pop.on("alert",{text:("支付成功")});
 									window.location.hash="dealList/0";
 									},function(e){obj.pop.on("alert",{text:(e)});});
-								}
+								}else{
+									obj.pop.on("alert",{text:("密码有误")});
+									}
 							},function(e){obj.pop.on("alert",{text:(e)});});
 						});
 					$("#pop .right").unbind("tap").bind("tap",function(){

@@ -8,11 +8,17 @@
 			var head=_.template(data.tem[0])({left:"",center:"圈子设置"});
 			$("#head").html(head);
 			function layout(result,at){
+				groupSet={
+				name:result.c||"",
+				word:result.d||"",
+				dsc:result.e||""
+				}
+				
 				var list=[
 				{name:"icon",left:"头像",right:'<img id="groupIcon" src="'+config.sour+'center/tp.jspx?at='+at+'&a=1&b='+result.f+'"/><span class="fa fa-right"></span><form id="headform" action="'+config.sour+'center/tu.jspx" method="post" enctype="multipart/form-data"><input type="file" id="upload" name="filename"/><input type="hidden" name="at" value="'+at+'"/></form>',link:true},
 				{name:"id",left:"圈子ID",right:result.a,link:true},
-				{name:"name",left:"名称",right:(result.c||"")+' <apan class="fa fa-right"></span>',link:true},
-				{name:"word",left:"宣言",right:(result.d||"")+' <apan class="fa fa-right"></span>',link:true},
+				{name:"name",left:"名称",right:((result.c.length>13)?(result.c.substr(0,13)+"..."):(result.c)||"")+' <apan class="fa fa-right"></span>',link:true},
+				{name:"word",left:"宣言",right:((result.d.length>13)?(result.d.substr(0,13)+"..."):(result.d)||"")+' <apan class="fa fa-right"></span>',link:true},
 				{name:"dsc",left:"介绍",right:'<apan class="fa fa-right"></span>',link:true},
 				{name:"group",left:"加入的圈子",right:'<apan class="fa fa-right"></span>',link:true},
 				{name:"invite",left:"分享与邀请",right:'<apan class="fa fa-right"></span>',link:true},
@@ -21,13 +27,16 @@
 			$("#scroller").html(listA);
 			$("#headform").ajaxForm();
 			$("[name='name']").unbind("tap").bind("tap",function(){
-				window.location.hash="groupEdit/0/"+result.c;
+				obj.cache("group_set",groupSet);
+				window.location.hash="groupEdit/0";
 				});
 			$("[name='word']").unbind("tap").bind("tap",function(){
-				window.location.hash="groupEdit/1/"+result.d;
+				obj.cache("group_set",groupSet);
+				window.location.hash="groupEdit/1";
 				});
 			$("[name='dsc']").unbind("tap").bind("tap",function(){
-				window.location.hash="groupEdit/2/"+result.e;
+				obj.cache("group_set",groupSet);
+				window.location.hash="groupEdit/2";
 				});
 			$("[name='group']").unbind("tap").bind("tap",function(){
 				window.location.hash="groupAdd";

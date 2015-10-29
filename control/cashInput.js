@@ -5,21 +5,45 @@
 		par:"name/card/bank/money/dsc",
 		tem:["top_second","balance","title_input_list","single_button"],
 		fn:function(data){
+			var resultA={
+					name:"",
+					card:"",
+					bank:"",
+					money:"",
+					dsc:""
+				};
+				if(obj.cache("cash_input")){
+				resultA=obj.cache("cash_input");
+				}
 			var head=_.template(data.tem[0])({left:"",center:"提现金额"});
 			$("#head").html(head);
 			function layout(result,at){
 				var nav=_.template(data.tem[1])({number:result.a2});
 				var list=_.template(data.tem[2])({list:[
-				{"name":"name","placehold":"请输入开户名","value":data.name||"","left":"开户名"},
-				{"name":"number","placehold":"请输入卡号","value":data.card||"","left":"卡号"},
-				{"name":"bank","placehold":"请输入右侧验证码","value":"","right":'<span class="result">'+(data.bank||"请选择银行")+'</span>'+' <span class="fa fa-right"></span>',"left":"银行","link":true},
-				{"name":"money","placehold":"本次最多可提xxxx元，限100的倍数。","value":data.money||"","left":"金额"},
-				{"name":"dsc","placehold":"填写您对本次提现的备注说明","value":data.dsc||"","left":"备注"}
+				{"name":"name","placehold":"请输入开户名","value":resultA.name||"","left":"开户名"},
+				{"name":"number","placehold":"请输入卡号","value":resultA.card||"","left":"卡号"},
+				{"name":"bank","placehold":"请输入右侧验证码","value":"","right":'<span class="result">'+(resultA.bank||"请选择银行")+'</span>'+' <span class="fa fa-right"></span>',"left":"银行","link":true},
+				{"name":"money","placehold":"本次最多可提xxxx元，限100的倍数。","value":resultA.money||"","left":"金额"},
+				{"name":"dsc","placehold":"填写您对本次提现的备注说明","value":resultA.dsc||"","left":"备注"}
 			]});
 			var button=_.template(data.tem[3])({"text":"提交申请","id":"cashButton"});
 			$("#scroller").html(nav+list+button);
+			$("[name='name'] input").unbind("change").bind("change",function(){
+				resultA.name=$(this).val();
+				});
+			$("[name='number'] input").unbind("change").bind("change",function(){
+				resultA.card=$(this).val();
+				});
+			$("[name='money'] input").unbind("change").bind("change",function(){
+				resultA.money=$(this).val();
+				});
+			$("[name='dsc'] input").unbind("change").bind("change",function(){
+				resultA.dsc=$(this).val();
+				});
 			$("#scroller .link").unbind("tap").bind("tap",function(){
-				window.location.hash="bankList/"+($("[name='name'] input").val()||"")+"/"+($("[name='number'] input").val()||"")+"/"+($("[name='money'] input").val()||"")+"/"+($("[name='dsc'] input").val()||"");
+				obj.cache("cash_input",resultA);
+				window.location.hash="bankList";
+				
 				});	
 			$(".top_third .leftButton").unbind("tap").bind("tap",function(){
 				window.history.go(-1);

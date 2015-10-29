@@ -5,6 +5,7 @@
 		par:"type/state",
 		tem:["top_second","search_place"],
 		fn:function(data){
+			var apiArry=["cf_table_get","md_table_get"];
 			function layout(at,list){
 				var titleArry=["选择出发地","选择目的地"];				
 			var head=_.template(data.tem[0])({left:"",center:titleArry[data.type]});
@@ -44,7 +45,7 @@
 				});
 				}
 			
-			function place(at,now,client,pro){
+			function place(at,now,client,city){
 				var placeList={
 				input:true,
 				title:true,
@@ -59,20 +60,17 @@
 						});
 						layout(at,placeList);
 					}else{
-					obj.api.run("search_place_get","at="+at,function(returnData){
 				if(data.type === "1"){
 					placeList.now=false;
 					}	
-				$.each(returnData[Number(data.state)+1],function(i,n){
-						placeList.place["place"+i]={title:n.name,main:[]};
-						$.each(n.member,function(o,p){
-							placeList.place["place"+i].main.push({name:p.name,id:"",type:p.type});
-							});
+				$.each(city,function(i,n){
+						if(!placeList.place["place"+n.c[0]]){
+							placeList.place["place"+n.c[0]]={title:n.c[0],main:[]};
+							}
+							placeList.place["place"+n.c[0]].main.push({name:n.b,id:n.a,type:"12"});
 						});	
 					layout(at,placeList);
-					},function(e){
-					obj.pop.on("alert",{text:(JSON.stringify(e))});
-					});	
+						
 						}
 				
 					
@@ -82,9 +80,14 @@
 					place(at,now,client,returnData);
 					},function(e){obj.pop.on("alert",{text:(JSON.stringify(e))});});
 				}
+			function tableGet(at,now,client){
+				obj.api.run(apiArry[data.type],"at="+at+"&tp="+(data.state+1),function(returnData){
+					place(at,now,client,returnData);
+					});
+				}
 			function getClient(at,now){
 				obj.api.run("client_get","at="+at+"&s="+(obj.cache("client_id").id||""),function(returnData){
-					province(at,now,returnData);
+					tableGet(at,now,returnData);
 					},function(e){
 					obj.pop.on("alert",{text:JSON.stringify(e)});
 					});

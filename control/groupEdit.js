@@ -2,9 +2,13 @@
 ;(function($,obj,config){
 	obj.control.set({
 		name:"groupEdit",
-		par:"type/value",
+		par:"type",
 		tem:["top_third","input_single"],
 		fn:function(data){
+			var valueArry=["","",""];
+			if(obj.cache("group_set")){
+				valueArry=[obj.cache("group_set").name,obj.cache("group_set").word,obj.cache("group_set").dsc]
+				}
 			var nameArry=["编辑名称","编辑宣言","编辑介绍"];
 			var typeArry=[0,0,1];
 			var sendArry=["a","b","c"];
@@ -12,7 +16,7 @@
 			var head=_.template(data.tem[0])({left:"",center:nameArry[data.type],right:"保存"});
 			$("#head").html(head);
 			function layout(at){
-				var listA=_.template(data.tem[1])({type:typeArry[data.type],value:data.value||"",placeholder:placeholderArry[data.type]});
+				var listA=_.template(data.tem[1])({type:typeArry[data.type],value:valueArry[data.type],placeholder:placeholderArry[data.type]});
 			$("#scroller").html(listA);
 			
 			$(".top_third .leftButton").unbind("tap").bind("tap",function(){

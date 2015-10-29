@@ -45,27 +45,53 @@
 						"2048":"退款中"};
 						var contactArry=[];
 						var sexArry={"1":"男","2":"女"};
-						$.each(returnData.shopcontact,function(i,n){
-							contactArry[i]={point:[
-					{key:"姓名",value:n.b,hl:false},
-					{key:"性别",value:sexArry[n.e+""],hl:false},
-					{key:"手机号",value:n.c,hl:false},
-					{key:"邮箱",value:n.d,hl:false}
+						/*$.each(returnData.shopcontact,function(i,n){*/
+							contactArry[0]={point:[
 				],hl:false};
-							});
+							if(returnData.shopcontact.b&&returnData.shopcontact.b!="-"){
+								contactArry[0].point.push({key:"姓名",value:returnData.shopcontact.b,hl:false})
+								}
+							if(returnData.shopcontact.e&&returnData.shopcontact.e!="-"){
+								contactArry[0].point.push({key:"性别",value:sexArry[returnData.shopcontact.e+""],hl:false})
+								}
+							if(returnData.shopcontact.c&&returnData.shopcontact.c!="-"){
+								contactArry[0].point.push({key:"手机号",value:returnData.shopcontact.c,hl:false})
+								}
+							if(returnData.shopcontact.d&&returnData.shopcontact.d!="-"){
+								contactArry[0].point.push({key:"邮箱",value:returnData.shopcontact.d,hl:false})
+								}
+							/*});*/
+
 						var touristArry=[];
 						$.each(returnData.touristlist,function(i,n){
-							touristArry[i]={point:[
-					{key:"姓名",value:n.a,hl:false},
-					{key:"英文名",value:n.f,hl:false},
-					{key:"证件类型",value:n.b,hl:false},
-					{key:"证件号码",value:n.c,hl:false},
-					{key:"证件有效期",value:n.k,hl:false},
-					{key:"国籍",value:n.h,hl:false},
-					{key:"性别",value:sexArry[n.d+""],hl:false},
-					{key:"出生日期",value:n.i,hl:false},
-					{key:"手机号",value:n.e,hl:false}
-				],hl:false};
+							touristArry[i]={point:[],hl:false};
+							if(n.a&&n.a!="-"){
+								touristArry[i].point.push({key:"姓名",value:n.a,hl:false})
+								}
+							if(n.f&&n.f!="-"){
+								touristArry[i].point.push({key:"英文名",value:n.f,hl:false})
+								}
+							if(n.b&&n.b!="-"){
+								touristArry[i].point.push({key:"证件类型",value:n.b,hl:false})
+								}
+							if(n.c&&n.c!="-"){
+								touristArry[i].point.push({key:"证件号码",value:n.c,hl:false})
+								}	
+							if(n.k&&n.k!="-"){
+								touristArry[i].point.push({key:"证件有效期",value:n.k,hl:false})
+								}
+							if(n.h&&n.h!="-"){
+								touristArry[i].point.push({key:"国籍",value:n.h,hl:false})
+								}
+							if(n.d&&n.d!="-"){
+								touristArry[i].point.push({key:"性别",value:sexArry[n.d+""],hl:false})
+								}
+							if(n.i&&n.i!="-"){
+								touristArry[i].point.push({key:"出生日期",value:n.i,hl:false})
+								}
+							if(n.e&&n.e!="-"){
+								touristArry[i].point.push({key:"手机号",value:n.e,hl:false})
+								}	
 							});
 					var invoiceinfo={point:[
 					{key:"发票抬头",value:"-",hl:false},
@@ -88,7 +114,7 @@
 				],hl:false};
 					if(returnData.pactinfo){
 						pactinfo={point:[
-					{key:"邮寄地址",value:returnData.pactinfo.a+returnData.pactinfo.b+returnData.pactinfo.c+returnData.pactinfo.e,hl:false},
+					{key:"邮寄地址",value:returnData.pactinfo.d,hl:false},
 					{key:"收件人",value:returnData.pactinfo.f,hl:false},
 					{key:"手机号",value:returnData.pactinfo.e,hl:false}
 				],hl:false};
@@ -109,14 +135,15 @@
 					point:[
 						{key:"产品名称",value:returnData.shoporder.f,hl:false}
 						],
-					hl:true
+					hl:true,
+					src:"productDetail/"+returnData.shoporder.e+"/"+returnData.shoporder.z6
 				},
 				{
 					point:[
 						{key:"出发地",value:returnData.shoporder.j,hl:false},
 						{key:"目的地",value:returnData.shoporder.g,hl:false},
 						{key:"行程天数",value:returnData.shoporder.k+"天",hl:false},
-						{key:"起止时间",value:returnData.shoporder.l.split(" ")[0]+"至"+returnData.shoporder.m.split(" ")[0],hl:false}
+						{key:"起止时间",value:returnData.shoporder.l.split(" ")[0]+"<br/>至<br/>"+returnData.shoporder.m.split(" ")[0],hl:false}
 						],
 					hl:false
 				},
@@ -141,12 +168,7 @@
 				}
 			]},
 			{title:"联系人信息",
-			group:[{point:[
-					{key:"姓名",value:returnData.shopcontact.b,hl:false},
-					{key:"性别",value:sexArry[returnData.shopcontact.e+""],hl:false},
-					{key:"手机号",value:returnData.shopcontact.c,hl:false},
-					{key:"邮箱",value:returnData.shopcontact.d,hl:false}
-				],hl:false}]},
+			group:contactArry},
 			{title:"出游人信息",
 			group:touristArry},
 			{title:"发票",

@@ -8,8 +8,7 @@
 			var bankArry={
 				"1":{"id":"zfb","name":"支付宝支付","dsc":"支持支付宝和网银的用户使用","img":"img/center_icom_alipay.png"},
 				"2":{"id":"cft","name":"财付通支付","dsc":"支持腾讯旗下财付通支付","img":"img/center_icom_tenpay.png"},
-				"51":{"id":"jj","name":"奖金支付","dsc":"支持奖金支付","img":"img/center_icon_bonus.png"},
-				"101":{"id":"wx","name":"微信支付","dsc":"支持微信支付安全快捷","img":"img/center_ciom_micro letter.png"},
+				"51":{"id":"jj","name":"奖金支付","dsc":"支持奖金支付","img":"img/center_icon_bonus.png"}
 				};
 			var head=_.template(data.tem[0])({left:"",center:"支付"});
 			$("#head").html(head);
@@ -78,7 +77,10 @@
 									lastTime=hour+"时"+minute+"分"+second+"秒";
 									}}
 					$.each(returnData.list1,function(i,n){
-						payList.push(bankArry[n.a]);
+						if(bankArry[n.a]){
+							payList.push(bankArry[n.a]);
+							}
+						
 						});
 					layout({
 						lastTime:lastTime,

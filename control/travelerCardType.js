@@ -16,7 +16,7 @@
 			$("#scroller .point").unbind("tap").bind("tap",function(){
 				result.cardType=Number($(this).attr("num"))+1;
 				obj.cache("traveler",result);
-				window.location.hash="travellerAdd/"+data.type+"/"+data.id+"/"+data.state;
+				window.location.hash="travellerAdd/"+(data.type||"")+"/"+(data.id||"")+"/"+(data.state||"");
 				});
 			$(".top_third .leftButton").unbind("tap").bind("tap",function(){
 				window.history.go(-1);

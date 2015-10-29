@@ -2,9 +2,19 @@
 ;(function($,obj,config){
 	obj.control.set({
 		name:"bankList",
-		par:"name/card/money/dsc",
+		par:"",
 		tem:["top_second","bank_list"],
 		fn:function(data){
+			var result={
+					name:"",
+					card:"",
+					bank:"",
+					money:"",
+					dsc:""
+				};
+			if(obj.cache("cash_input")){
+				result=obj.cache("cash_input");
+				}
 			var head=_.template(data.tem[0])({left:"",center:"选择银行"});
 			$("#head").html(head);
 			var listA=[
@@ -32,7 +42,9 @@
 				window.history.go(-1);
 				});
 			$(".bank_list .button").unbind("tap").bind("tap",function(){
-	window.location.hash="#cashInput/"+(data.name||"")+"/"+(data.card||"")+"/"+($(this).html()||"")+"/"+(data.money||"")+"/"+(data.dsc||"");
+				result.bank=$(this).html();
+				obj.cache("cash_input",result);
+	window.location.hash="#cashInput";
 	});
 			//myScroll.refresh();
 			$('img').load(function(){

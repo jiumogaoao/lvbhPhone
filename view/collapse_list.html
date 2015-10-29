@@ -102,7 +102,7 @@
         <% } %>
             <div class="main">
             	<% _.each(l.group,function(g,i){ %>
-                    <div class="group<% if(i!=l.group.length-1){print(" bd")} %><% if(g.hl){print(" link")} %>">
+                    <div class="group<% if(i!=l.group.length-1){print(" bd")} %><% if(g.hl){print(" link")} %>" <% if(g.src){print('src="'+g.src+'"')} %>>
                     	<% _.each(g.point,function(p){ %>
                             <div class="point<% if(p.hl){print(" hl")} %>">
                                 <div class="left"><%= p.key %></div>
@@ -123,6 +123,11 @@
 </div>
 <script>
 ;(function(){
+	$(".collapse_list .group.link").unbind("tap").bind("tap",function(){
+		if($(this).attr("src")){
+			window.location.hash=$(this).attr("src");
+			}
+		})
 	$(".collapse_list .list .head").unbind("tap").bind("tap",function(){
 	if($(this).parents(".list").attr("class")=="list hl"){
 	$(this).parents(".list").removeClass("hl");

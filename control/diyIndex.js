@@ -39,11 +39,42 @@
 				//myScroll.refresh();
 				});
 				}
-			var otherTop="1.5rem";
+			
+			
+			
+			
+			function getPage(at,callback){
+
+				obj.api.run("diy_get","at="+at+"&tId="+data.type+"&pn="+page,function(returnData){
+					if(returnData.pn === page+""){
+					page++;
+					returnData=returnData.data;
+					$.each(returnData,function(i,n){
+						if(n.ai=="出发地跟团"){
+							n.ai=12;
+							}
+						if(n.ai=="目的地跟团"){
+							n.ai=13;
+							}
+						var addData={image:n.ac,name:n.ak,price:n.ad,place:n.ae,id:n.ab.split("=")[1],type:n.ai};
+						result.push(addData);
+						});
+					layout();}
+					if(callback){callback();}
+					},function(e){
+					obj.pop.on("alert",{text:(JSON.stringify(e))});
+					});
+				
+				
+				}
+			obj.api.at(function(at){
+			obj.api.run("diy_type_get","at="+at,function(returnData){
+				var otherTop="1.5rem";
 			if(app.cache("phone")&&app.cache("phone").phone){
 				 otherTop="0rem";
-				}	
-			$("#otherFrame").html(data.tem[2]);
+				}
+				var otherFrame=_.template(data.tem[2])({list:returnData});	
+			$("#otherFrame").html(otherFrame);
 			$("#otherFrame").css({
 				"position":"fixed",
 				"top":otherTop,
@@ -78,31 +109,13 @@
 			
 			
 			$("#otherFrame [num='"+data.type+"']").addClass("hl");
-			
-			
-			
-			function getPage(callback){
-				function getList(at){
-				obj.api.run("diy_get","at="+at+"&d="+data.type+"&a="+page,function(returnData){
-					if(returnData.pn === page+""){
-					page++;
-					returnData=returnData.data;
-					$.each(returnData,function(i,n){
-						var addData={image:n.e,name:n.b,price:n.d,place:n.f,id:n.a,type:n.c};
-						result.push(addData);
-						});
-					layout();}
-					if(callback){callback();}
-					},function(e){
-					obj.pop.on("alert",{text:(JSON.stringify(e))});
-					});
-				}
-				obj.api.at(getList,data.at);
-				}
-			getPage();
+				});
+			getPage(at);
 			obj.reflash.add("diyIndex",function(callback){
-			getPage(callback);
+			getPage(at,callback);
 			});
+				},data.at);
+			
 			}
 		});
 	})($,app,config);

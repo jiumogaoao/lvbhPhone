@@ -181,7 +181,7 @@
 				}
 			
 			function getList(at){
-				obj.api.run(apiArry[data.type],'aid='+data.id,function(returnData){
+				obj.api.run(apiArry[data.type],'aid='+data.id+"&at="+at,function(returnData){
 				result.state=returnData.gtinfo.gd.e;
 					var gd=returnData.gtinfo.gd;
 					if(!result.date){

@@ -388,7 +388,7 @@
 					};
 				var goiparam={
 					d:result.invoice.on?"1":"0",
-					f:result.contract.on?"1":"0",
+					f:result.contract.on?"2":"0",
 					g:result.agree.on?"1":"0",
 					h:result.dsc,
 					toursParam:[],

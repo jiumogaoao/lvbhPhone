@@ -37,8 +37,10 @@
 	border-left:4px solid #019fff;
 	color:#019fff;}
 .diy_nav .point .icon{
+	width:1rem;
+	height:1rem;
 	font-size:.8rem;
-	padding-top:.3rem;}
+	margin-top:.3rem;}
 .diy_nav .point .title{
 	font-size:.3rem;
 	  position: relative;
@@ -46,48 +48,14 @@
 	}</style>
 <div class="diy_nav">
 <div>
-	<div class="point" num="1">
-    	<div class="icon">
-        	<span class="fa fa-tree"></span>
-        </div>
-        <div class="title">海岛游</div>
+	<% _.each(list,function(n){ %>
+    <div class="point" num="<%= n.a %>">
+    	<img class="icon" src="<%= n.d %>"/>
+        <div class="title"><%= n.b %></div>
     </div>
-    <div class="point" num="4">
-    	<div class="icon">
-        	<span class="fa fa-car"></span>
-        </div>
-        <div class="title">自驾游</div>
-    </div>
-    <div class="point" num="3">
-    	<div class="icon">
-        	<span class="fa fa-heart"></span>
-        </div>
-        <div class="title">蜜月之旅</div>
-    </div>
-    <div class="point" num="2">
-    	<div class="icon">
-        	<span class="fa fa-clown"></span>
-        </div>
-        <div class="title">亲子游</div>
-    </div>
-    <div class="point" num="7">
-    	<div class="icon">
-        	<span class="fa fa-older"></span>
-        </div>
-        <div class="title">老玩童</div>
-    </div>
-    <div class="point" num="5">
-    	<div class="icon">
-        	<span class="fa fa-camera"></span>
-        </div>
-        <div class="title">摄影之旅</div>
-    </div>
-    <div class="point" num="6">
-    	<div class="icon">
-        	<span class="fa fa-water"></span>
-        </div>
-        <div class="title">温泉之旅</div>
-    </div>
+    <% }) %>
+	
+    
     </div>
 </div>
 <script>

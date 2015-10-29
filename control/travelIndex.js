@@ -67,7 +67,7 @@
 				}
 			
 			function getRecommend(at,now,client){
-				obj.api.run(apiArry[data.type],'aid='+now.startId,function(returnData){
+				obj.api.run(apiArry[data.type],'aid='+now.startId+'&at='+at,function(returnData){
 					var productList=[];
 					$.each(returnData,function(i,n){
 						var addData={image:n.gd.cc,name:n.gd.b,price:n.gd.f,place:n.gd.w,tag:{name:n.cd.a,class:n.cd.b},date:n.sd,id:n.gd.a,type:typeArry[data.type],state:n.gd.e};
@@ -79,7 +79,7 @@
 					});
 				}
 			function getcf(at,now,hot,client){
-				obj.api.run("cf_product_get",'aid='+now.startId+'&bid='+data.id,function(returnData){
+				obj.api.run("cf_product_get",'aid='+now.startId+'&bid='+data.id+'&at='+at,function(returnData){
 					var productList=[];
 					$.each(returnData,function(i,n){
 						var addData={image:n.gd.cc,name:n.gd.b,price:n.gd.f,place:n.gd.w,date:n.sd,id:n.gd.a,type:12,state:n.gd.e};
@@ -91,7 +91,7 @@
 						});
 				}
 			function getmd(at,now,hot,client){
-				obj.api.run("md_product_get",'aid='+data.id,function(returnData){
+				obj.api.run("md_product_get",'aid='+data.id+'&at='+at,function(returnData){
 					var productList=[];
 					$.each(returnData,function(i,n){
 						var addData={image:n.gd.cc,name:n.gd.b,price:n.gd.f,place:n.gd.w,date:n.sd,id:n.gd.a,type:13,state:n.gd.e};
@@ -103,7 +103,7 @@
 						});
 				}
 			function getTable(at,now,client){
-				obj.api.run(tableAtty[data.type],"tp="+data.state,function(returnData){
+				obj.api.run(tableAtty[data.type],"tp="+data.state+'&at='+at,function(returnData){
 					var table=[];
 					if(returnData&&returnData.length){
 						$.each(returnData,function(i,n){

@@ -2,7 +2,7 @@
 ;(function($,obj,config){
 	obj.control.set({
 		name:"dealSuccess",
-		par:"id/price/type/id",
+		par:"id/price/type/oid",
 		tem:["top_third","deal_success"],
 		fn:function(data){
 			var head=_.template(data.tem[0])({
@@ -12,7 +12,7 @@
 				});
 			$("#head").html(head);
 			$("#head .rightButton").unbind("tap").bind("tap",function(){
-				window.location.hash="productDetail/"+data.type+"/"+data.id;
+				window.location.hash="productDetail/"+data.type+"/"+data.oid;
 				});
 			var main=_.template(data.tem[1])({
 				number:data.id,

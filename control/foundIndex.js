@@ -22,8 +22,14 @@
 				//myScroll.refresh();
 				});
 			function getIndex(at){
-				obj.api.run("found_index_get","at="+at,function(returnData){
-
+				obj.api.run("diy_type_get","at="+at,function(returnData){
+					for (var i=0;i<7;i++){
+						if(returnData[i]){
+							$("#scroller .frame_"+i).attr("num",returnData[i].a);
+							$("#scroller .frame_"+i+" .title").html(returnData[i].b);
+							$("#scroller .frame_"+i+" .icon").attr("src",returnData[i].d);
+							}
+						}
 					},function(e){
 					obj.pop.on("alert",{text:(JSON.stringify(e))});
 					});

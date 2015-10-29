@@ -1,1 +1,1 @@
-app.api.add("pay_account",config.sour+"shop/weixinprepay.jspx",null,"post");
+app.api.add("pay_account",config.sour+"shop/jiangjinpay.jspx",null,"post");

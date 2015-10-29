@@ -32,6 +32,8 @@
 .pic_table .frame .icon{
 	font-size:.9rem;
 	position:relative;
+	width:1rem;
+	height:1rem;
 	z-index:2}
 .pic_table .frame .title{
 	font-size:.4rem;

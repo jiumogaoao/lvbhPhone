@@ -114,7 +114,7 @@
             	<div class="title"><% if(name.length<8){print(name)}else{print(name.substr(0,8)+"...")} %>&nbsp;&nbsp;<img class="step" src="img/vip<%= step %>.png"/></div>
                 <div class="dsc">ID:<%= id %></div>
                 <div class="dsc">人气:<%= hot %>&nbsp;&nbsp; 财富:<%= money %></div>
-                <div class="dsc">一句话</div>
+                <div class="dsc"><% if(dsc.length<14){print(dsc)}else{print(dsc.substr(0,14)+"...")} %></div>
             </div>
             <div class="clear"></div>
             <div class="Joinbutton">加入圈子</div>
