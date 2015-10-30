@@ -170,7 +170,7 @@
 					});
 				});
 			$("#scroller #cardType").unbind("tap").bind("tap",function(){
-				obj.cache("traveler",result)
+				obj.cache("traveler",result);
 				window.location.hash="travelerCardType/"+(data.type||"")+"/"+(data.id||"")+"/"+(data.state||"");
 				});
 			$(".top_third .leftButton").unbind("tap").bind("tap",function(){

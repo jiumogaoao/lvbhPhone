@@ -7,7 +7,7 @@
 		fn:function(data){
 			var valueArry=["","",""];
 			if(obj.cache("group_set")){
-				valueArry=[obj.cache("group_set").name,obj.cache("group_set").word,obj.cache("group_set").dsc]
+				valueArry=[obj.cache("group_set").name,obj.cache("group_set").word,obj.cache("group_set").dsc];
 				}
 			var nameArry=["编辑名称","编辑宣言","编辑介绍"];
 			var typeArry=[0,0,1];

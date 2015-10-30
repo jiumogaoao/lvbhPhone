@@ -12,7 +12,7 @@
 				name:result.c||"",
 				word:result.d||"",
 				dsc:result.e||""
-				}
+				};
 				
 				var list=[
 				{name:"icon",left:"头像",right:'<img id="groupIcon" src="'+config.sour+'center/tp.jspx?at='+at+'&a=1&b='+result.f+'"/><span class="fa fa-right"></span><form id="headform" action="'+config.sour+'center/tu.jspx" method="post" enctype="multipart/form-data"><input type="file" id="upload" name="filename"/><input type="hidden" name="at" value="'+at+'"/></form>',link:true},

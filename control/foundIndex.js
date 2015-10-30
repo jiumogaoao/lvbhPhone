@@ -27,7 +27,7 @@
 						if(returnData[i]){
 							$("#scroller .frame_"+i).attr("num",returnData[i].a);
 							$("#scroller .frame_"+i+" .title").html(returnData[i].b);
-							$("#scroller .frame_"+i+" .icon").attr("src",returnData[i].d);
+							$("#scroller .frame_"+i+" .icon").attr("src",returnData[i].f+"62_"+returnData[i].e);
 							}
 						}
 					},function(e){

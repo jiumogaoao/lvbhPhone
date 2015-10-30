@@ -60,41 +60,41 @@ $(".product_group_list .point").unbind("tap").bind("tap",function(){
 						
 						}
 					}
-				obj.api.run("pomo_get",'at="'+at+'"',function(returnData){
+				obj.api.run("pomo_get",'at='+at,function(returnData){
 					promo=returnData;
 					totalCount();
 					},function(e){
 					obj.pop.on("alert",{text:(JSON.stringify(e))});
 					});
-				obj.api.run("index_cfgj",'at="'+at+'"',function(returnData){
+				obj.api.run("index_cfgj",'at='+at,function(returnData){
 					$.each(returnData,function(i,n){
-						var addData={image:n.a,name:n.b,price:n.c,place:n.d,id:n.e,type:12};
+						var addData={image:n.a,name:(n.b.length>40)?(n.b.substr(0,40)+"..."):n.b,price:n.c,place:n.d,id:n.e,type:12};
 						main[1].main.push(addData);
 						});
 						totalCount();
 					});
-				obj.api.run("index_cfgn",'at="'+at+'"',function(returnData){
+				obj.api.run("index_cfgn",'at='+at,function(returnData){
 					$.each(returnData,function(i,n){
-						var addData={image:n.a,name:n.b,price:n.c,place:n.d,id:n.e,type:12};
+						var addData={image:n.a,name:(n.b.length>40)?(n.b.substr(0,40)+"..."):n.b,price:n.c,place:n.d,id:n.e,type:12};
 						main[0].main.push(addData);
 						});
 						totalCount();
 					});
-				obj.api.run("index_mdgj",'at="'+at+'"',function(returnData){
+				obj.api.run("index_mdgj",'at='+at,function(returnData){
 					$.each(returnData,function(i,n){
-						var addData={image:n.a,name:n.b,price:n.c,place:n.d,id:n.e,type:13};
+						var addData={image:n.a,name:(n.b.length>40)?(n.b.substr(0,40)+"..."):n.b,price:n.c,place:n.d,id:n.e,type:13};
 						main[3].main.push(addData);
 						});
 						totalCount();
 					});
-				obj.api.run("index_mdgn",'at="'+at+'"',function(returnData){
+				obj.api.run("index_mdgn",'at='+at,function(returnData){
 					$.each(returnData,function(i,n){
-						var addData={image:n.a,name:n.b,price:n.c,place:n.d,id:n.e,type:13};
+						var addData={image:n.a,name:(n.b.length>40)?(n.b.substr(0,40)+"..."):n.b,price:n.c,place:n.d,id:n.e,type:13};
 						main[2].main.push(addData);
 						});
 						totalCount();
 					});
-				obj.api.run("index_vip",'at="'+at+'"',function(returnData){
+				obj.api.run("index_vip",'at='+at,function(returnData){
 					$.each(returnData,function(i,n){
 						var addData={image:config.sour+"sns/tpu.jspx?at="+at+"&a=1&b="+n.i+"&c="+n.l,name:n.c,fans:n.r,money:n.p,id:n.b};
 						vip.push(addData);

@@ -50,13 +50,13 @@
 					page++;
 					returnData=returnData.data;
 					$.each(returnData,function(i,n){
-						if(n.ai=="出发地跟团"){
+						if(n.ai==="出发地跟团"){
 							n.ai=12;
 							}
-						if(n.ai=="目的地跟团"){
+						if(n.ai==="目的地跟团"){
 							n.ai=13;
 							}
-						var addData={image:n.ac,name:n.ak,price:n.ad,place:n.ae,id:n.ab.split("=")[1],type:n.ai};
+						var addData={image:n.ao+n.ac,name:n.ak,price:n.ad,place:n.ae,id:n.ab.split("=")[1],type:n.ai};
 						result.push(addData);
 						});
 					layout();}
@@ -73,7 +73,7 @@
 			if(app.cache("phone")&&app.cache("phone").phone){
 				 otherTop="0rem";
 				}
-				var otherFrame=_.template(data.tem[2])({list:returnData});	
+				var otherFrame=_.template(data.tem[2])({list:returnData,hot:data.type});	
 			$("#otherFrame").html(otherFrame);
 			$("#otherFrame").css({
 				"position":"fixed",

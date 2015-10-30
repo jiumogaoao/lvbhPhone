@@ -432,13 +432,13 @@
             </div>
             <div class="inputList" <% if(!invoice.on){print('style="display:none;"')} %>>
             	<div class="inputTitle">发票抬头</div>
-                <input placeholder="请输入发票抬头" D_type="input" D_key="invoice.title" value="<%= invoice.title %>"/>
+                <input placeholder="请输入发票抬头" D_type="input" D_key="invoice.title" value="<%= invoice.title %>" style="width:4rem;"/>
                 <div class="link" id="usefulInvoice">常用发票抬头</div>
                 <div class="clear"></div>
             </div>
             <div class="inputList" <% if(!invoice.on){print('style="display:none;"')} %>>
             	<div class="inputTitle">邮寄地址</div>
-                <input placeholder="请输入邮寄地址" D_type="input" D_key="invoice.place" value="<%= invoice.place %>"/>
+                <input placeholder="请输入邮寄地址" D_type="input" D_key="invoice.place" value="<%= invoice.place %>" style="width:4rem;"/>
                 <div class="link" id="usefulEmail0">常用邮寄地址</div>
                 <div class="clear"></div>
             </div>
@@ -461,7 +461,7 @@
             </div>
             <div class="inputList" <% if(!contract.on){print('style="display:none;"')} %>>
             	<div class="inputTitle">邮寄地址</div>
-                <input placeholder="请输入邮寄地址" D_type="input" D_key="contract.place" value="<%= contract.place %>"/>
+                <input placeholder="请输入邮寄地址" D_type="input" D_key="contract.place" value="<%= contract.place %>" style="width:4rem;"/>
                 <div class="link" id="usefulEmail1">常用邮寄地址</div>
                 <div class="clear"></div>
             </div>

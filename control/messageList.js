@@ -72,7 +72,7 @@
 				}	
 			
 			function getList(at){
-				obj.api.run(apiArry[data.type],'aid='+data.id,function(returnData){
+				obj.api.run(apiArry[data.type],'aid='+data.id+"&at="+at,function(returnData){
 					var list=[{title:"预定说明",main:returnData.gtinfo.gd.u},{title:"注意事项",main:returnData.gtinfo.gd.v}];
 					layout(at,list);
 					});
