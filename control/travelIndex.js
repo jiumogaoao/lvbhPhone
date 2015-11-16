@@ -70,7 +70,7 @@
 				obj.api.run(apiArry[data.type],'aid='+now.startId+'&at='+at,function(returnData){
 					var productList=[];
 					$.each(returnData,function(i,n){
-						var addData={image:n.gd.cc,name:(n.gd.b.length>40)?(n.gd.b.substr(0,40)+"..."):n.gd.b,price:n.gd.f,place:n.gd.w,tag:{name:n.cd.a,class:n.cd.b},date:n.sd,id:n.gd.a,type:typeArry[data.type],state:n.gd.e};
+						var addData={image:n.gd.cc,name:(n.gd.b.length>40)?(n.gd.b.substr(0,40)+"..."):n.gd.b,price:n.gd.f,place:n.gd.w,tag:{name:n.cd.a,class:n.cd.b},date:n.sd,id:n.gd.a,type:typeArry[data.type],state:n.gd.e,rePrice:n.gd.hh};
 						productList.push(addData);
 						});
 					layout(at,now,productList,client);
@@ -82,7 +82,7 @@
 				obj.api.run("cf_product_get",'aid='+now.startId+'&bid='+data.id+'&at='+at,function(returnData){
 					var productList=[];
 					$.each(returnData,function(i,n){
-						var addData={image:n.gd.cc,name:n.gd.b,price:n.gd.f,place:n.gd.w,date:n.sd,id:n.gd.a,type:12,state:n.gd.e};
+						var addData={image:n.gd.cc,name:n.gd.b,price:n.gd.f,place:n.gd.w,date:n.sd,id:n.gd.a,type:12,state:n.gd.e,rePrice:n.gd.hh};
 						productList.push(addData);
 						});
 					layout(at,now,productList,client,hot);
@@ -94,7 +94,7 @@
 				obj.api.run("md_product_get",'aid='+data.id+'&at='+at,function(returnData){
 					var productList=[];
 					$.each(returnData,function(i,n){
-						var addData={image:n.gd.cc,name:n.gd.b,price:n.gd.f,place:n.gd.w,date:n.sd,id:n.gd.a,type:13,state:n.gd.e};
+						var addData={image:n.gd.cc,name:n.gd.b,price:n.gd.f,place:n.gd.w,date:n.sd,id:n.gd.a,type:13,state:n.gd.e,rePrice:n.gd.hh};
 						productList.push(addData);
 						});
 					layout(at,now,productList,client,hot);
