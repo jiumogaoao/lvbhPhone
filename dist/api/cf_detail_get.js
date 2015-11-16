@@ -1,1 +1,1 @@
-app.api.add("cf_detail_get",config.sour+"gtcf/gtcfinfo.jspx",null,"post");
+app.api.add("cf_detail_get",config.sour+"gty/gtyinfo.jspx",null,"post");

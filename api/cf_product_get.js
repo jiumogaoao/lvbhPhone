@@ -1,3 +1,3 @@
 // JavaScript Document
 
-app.api.add("cf_product_get",config.sour+"gtcf/getallproducts.jspx",null,"post");
+app.api.add("cf_product_get",config.sour+"gty/getallproducts.jspx",null,"post");

@@ -25,7 +25,7 @@
 	margin:auto;
 	padding-bottom:.4rem;
 	position:relative;}
-.product_group_list img{
+.product_group_list .img{
 	display:block;
 	margin:auto;
 	width:100%;
@@ -70,7 +70,7 @@
 	border-radius:.6rem;
 	position:absolute;
 	top:.2rem;
-	left:.2rem;}
+	right:.2rem;}
 .product_group_list .tag_1{
 	background-color:#ffb54c;}
 .product_group_list .tag_2{
@@ -94,7 +94,10 @@
         <div class="main">
         	<% _.each(n.main,function(x){ %>
             <div class="point" pid="<%= x.id %>" type="<%= x.type %>" state="<%= x.state %>">
-            	<img src="<%= x.image %>" onerror="app.nofound(this,'img/product_list_img.png')"/>
+            	<div class="rePrice">
+                	
+                </div>
+            	<img class="img" src="<%= x.image %>" onerror="app.nofound(this,'img/product_list_img.png')"/>
                 <div class="name"><%= x.name %></div>
                 <div class="clear"></div>
                 <div class="price"><span class="red">￥<span class="xl numCLASS"><%= x.price %></span></span>起</div>

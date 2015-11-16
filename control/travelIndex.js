@@ -67,7 +67,7 @@
 				}
 			
 			function getRecommend(at,now,client){
-				obj.api.run(apiArry[data.type],'aid='+now.startId+'&at='+at,function(returnData){
+				obj.api.run(apiArry[data.type],'siteIdRes='+now.startId+'&at='+at+'&categoryIdRes='+typeArry[data.type],function(returnData){
 					var productList=[];
 					$.each(returnData,function(i,n){
 						var addData={image:n.gd.cc,name:(n.gd.b.length>40)?(n.gd.b.substr(0,40)+"..."):n.gd.b,price:n.gd.f,place:n.gd.w,tag:{name:n.cd.a,class:n.cd.b},date:n.sd,id:n.gd.a,type:typeArry[data.type],state:n.gd.e,rePrice:n.gd.hh};
@@ -78,8 +78,8 @@
 					obj.pop.on("alert",{text:(JSON.stringify(e))});
 					});
 				}
-			function getcf(at,now,hot,client){
-				obj.api.run("cf_product_get",'aid='+now.startId+'&bid='+data.id+'&at='+at,function(returnData){
+			function getcf(at,now,hot,client,table){
+				obj.api.run("cf_product_get",'siteIdRes='+now.startId+'&at='+at+'&categoryIdRes='+typeArry[data.type]+'&typeIdRes='+data.state+'&startIdRes='+now.startId+'&endIdRes='+(data.id||table[0].id),function(returnData){
 					var productList=[];
 					$.each(returnData,function(i,n){
 						var addData={image:n.gd.cc,name:n.gd.b,price:n.gd.f,place:n.gd.w,date:n.sd,id:n.gd.a,type:12,state:n.gd.e,rePrice:n.gd.hh};
@@ -90,8 +90,8 @@
 						obj.pop.on("alert",{text:(JSON.stringify(e))});
 						});
 				}
-			function getmd(at,now,hot,client){
-				obj.api.run("md_product_get",'aid='+data.id+'&at='+at,function(returnData){
+			function getmd(at,now,hot,client,table){
+				obj.api.run("md_product_get",'siteIdRes='+now.startId+'&at='+at+'&categoryIdRes='+typeArry[data.type]+'&typeIdRes='+data.state+'&endIdRes='+(data.id||table[0].id),function(returnData){
 					var productList=[];
 					$.each(returnData,function(i,n){
 						var addData={image:n.gd.cc,name:n.gd.b,price:n.gd.f,place:n.gd.w,date:n.sd,id:n.gd.a,type:13,state:n.gd.e,rePrice:n.gd.hh};
@@ -103,7 +103,7 @@
 						});
 				}
 			function getTable(at,now,client){
-				obj.api.run(tableAtty[data.type],"tp="+data.state+'&at='+at,function(returnData){
+				obj.api.run(tableAtty[data.type],'at='+at+'&siteIdRes='+now.startId+'&categoryIdRes='+typeArry[data.type]+'&typeIdRes='+data.state,function(returnData){
 					var table=[];
 					if(returnData&&returnData.length){
 						$.each(returnData,function(i,n){
@@ -115,9 +115,9 @@
 					data.id=returnData[0].a;
 					}
 				if(data.type==="0"){
-					getcf(at,now,hot,client);
+					getcf(at,now,hot,client,table);
 					}else{
-					getmd(at,now,hot,client);	
+					getmd(at,now,hot,client,table);	
 						}	
 						}else{
 							obj.pop.on("alert",{text:("该项暂无数据")});

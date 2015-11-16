@@ -1,1 +1,1 @@
-app.api.add("md_table_get",config.sour+"gtmd/getendlines.jspx",null,"post");
+app.api.add("md_table_get",config.sour+"gty/getendlines.jspx",null,"post");
