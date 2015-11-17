@@ -6,6 +6,7 @@
 		tem:["top_second","search_place"],
 		fn:function(data){
 			var apiArry=["cf_table_get","md_table_get"];
+			var typeArry=[12,13];
 			function layout(at,list){
 				var titleArry=["选择出发地","选择目的地"];				
 			var head=_.template(data.tem[0])({left:"",center:titleArry[data.type]});
@@ -81,7 +82,7 @@
 					},function(e){obj.pop.on("alert",{text:(JSON.stringify(e))});});
 				}
 			function tableGet(at,now,client){
-				obj.api.run(apiArry[data.type],"at="+at+"&tp="+(data.state+1),function(returnData){
+				obj.api.run(apiArry[data.type],'at='+at+'&siteIdRes='+now.cid+'&categoryIdRes='+typeArry[data.type]+'&typeIdRes='+(data.state+1),function(returnData){
 					place(at,now,client,returnData);
 					});
 				}

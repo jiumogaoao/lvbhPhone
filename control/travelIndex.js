@@ -102,8 +102,14 @@
 						obj.pop.on("alert",{text:(JSON.stringify(e))});
 						});
 				}
-			function getTable(at,now,client){
-				obj.api.run(tableAtty[data.type],'at='+at+'&siteIdRes='+now.startId+'&categoryIdRes='+typeArry[data.type]+'&typeIdRes='+data.state,function(returnData){
+			function getNow(at,hot,client,table){
+				
+				obj.api.run("city_cf_get","at="+at+"&siteIdRes="+client.cid+"&categoryIdRes="+typeArry[data.type]+'&typeIdRes='+data.state+'&endIdRes='+,function(returnData){
+						getClient(at,returnData);		
+					});
+				}
+			function getTable(at,client){debugger;
+				obj.api.run(tableAtty[data.type],'at='+at+'&siteIdRes='+client.sid+'&categoryIdRes='+typeArry[data.type]+'&typeIdRes='+data.state,function(returnData){
 					var table=[];
 					if(returnData&&returnData.length){
 						$.each(returnData,function(i,n){
@@ -114,11 +120,14 @@
 				if(!data.id){
 					data.id=returnData[0].a;
 					}
+				getNow(at,hot,client,table)
+/*
 				if(data.type==="0"){
 					getcf(at,now,hot,client,table);
 					}else{
 					getmd(at,now,hot,client,table);	
 						}	
+*/
 						}else{
 							obj.pop.on("alert",{text:("该项暂无数据")});
 							}
@@ -127,25 +136,23 @@
 					obj.pop.on("alert",{text:(JSON.stringify(e))});
 					});
 				}
-			function getClient(at,now){
+			function getClient(at){
 				console.log(obj.cache("client_id"));
 				obj.api.run("client_get","at="+at+"&s="+(obj.cache("client_id").id||""),function(returnData){
+					getTable(at,returnData)
+					/*
 					if(data.state==="0"){
 						getRecommend(at,now,returnData);
 						}else{
 							getTable(at,now,returnData);
 							}	
+							*/
 					},function(e){
 					obj.pop.on("alert",{text:JSON.stringify(e)});
 					});
 				}
-			function getNow(at){
-				
-				obj.api.run("city_cf_get","at="+at,function(returnData){
-						getClient(at,returnData);		
-					});
-				}
-			obj.api.at(getNow,data.at);	
+			
+			obj.api.at(getClient,data.at);	
 				
 			}
 		});
