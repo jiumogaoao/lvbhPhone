@@ -78,7 +78,7 @@
 							}
 					returnData=returnData.data;
 					$.each(returnData,function(i,n){
-						resultA.push({title:n.b,dsc:n.d,name:n.b,phone:n.f});
+						resultA.push({title:n.b,dsc:(n.i||"")+(n.j||"")+(n.k||"")+(n.d||""),name:n.b,phone:n.f});
 						});
 					layout();
 					if(callback){callback();}

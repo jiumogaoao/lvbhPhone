@@ -19,16 +19,21 @@
 				}
 			var head=_.template(data.tem[0])({left:"",center:"注册"});
 			$("#head").html(head);
-			var list=_.template(data.tem[2])({list:[
+			
+			function layout(at){
+				var list=_.template(data.tem[2])({list:[
 				{"name":"user","placehold":"请输入11位手机号","icon":"fa-pad","value":result.phone||"","other":""},
+				{"name":"picCode","placehold":"请输入图片验证码","icon":"fa-node","value":"","other":"<img src='"+config.sour+"user/mv.jspx?at="+at+"&t="+new Date().getTime()+"'/>"},
 				{"name":"code","placehold":"请输入短信验证码","icon":"fa-node","value":result.code||"","other":"<span style='font-size:.5rem;display:block;'>发送短信验证码</span>"},
 				{"name":"key","placehold":"请输入6-16位字母数字组合密码","icon":"fa-lock","value":result.key||"","other":"","type":"password"},
 				{"name":"key2","placehold":"请再次输入密码","icon":"fa-lock","value":result.key2||"","other":"","type":"password"}
 				]});
 			var button=_.template(data.tem[3])({"text":"注册","id":"registButton"});
 			var place=_.template(data.tem[1])({place:result.place.name||""});
-			function layout(at){
 				$("#scroller").html(place+list+button);
+				$("[name='picCode'] img").unbind("tap").bind("tap",function(){
+				$(this).attr("src",config.sour+"user/mv.jspx?at="+at+"&t="+new Date().getTime());
+			});
 				$("[name='user'] input").unbind("change").bind("change",function(){
 					result.phone=$(this).val();
 					});
@@ -44,10 +49,15 @@
 			function delay(){
 				$("[name='code'] .other span").html("发送动态密码");
 				$("[name='code'] .other").unbind("tap").bind("tap",function(){
+				if(!$("[name='picCode'] input").val()){
+					obj.pop.on("alert",{text:"获取动态密码必须先输入验证码"});
+					return false;
+				}	
 				if($("[name='user'] input").val() && $("[name='user'] input").val().length){
 						obj.api.run("regist_phone_message",{
 							at:at,
-							mobile:$("[name='user'] input").val()
+							mobile:$("[name='user'] input").val(),
+							v:$("[name='picCode'] input").val()
 							},function(data){
 							$("[name='code'] .other").unbind("click");
 							var total=60;
@@ -63,7 +73,9 @@
 						},function(e){
 						obj.pop.on("alert",{text:JSON.stringify(e)});
 						});	
-					}else{obj.pop.on("alert",{text:"请填写手机号"});}
+					}else{obj.pop.on("alert",{text:"请填写手机号"});
+					$("[name='picCode'] img").attr("src",config.sour+"user/mv.jspx?at="+at+"&t="+new Date().getTime());
+				}
 				});
 				}	
 			delay();
@@ -95,7 +107,9 @@
 				obj.api.run("regist","at="+at+"&mobile="+result.phone+"&t=11&p="+result.key+"&v="+result.code+"&s1="+result.pro+"&s2="+result.place.id+"&pid=&r=",function(sc){
 					obj.pop.on("alert",{text:"注册成功"});
 					window.location.hash="index";
-					},function(e){obj.pop.on("alert",{text:JSON.stringify(e)});});
+					},function(e){obj.pop.on("alert",{text:JSON.stringify(e)});
+					$("[name='picCode'] img").attr("src",config.sour+"user/mv.jspx?at="+at+"&t="+new Date().getTime());
+				});
 				});
 			$(".icon_input_list.place").unbind("tap").bind("tap",function(){
 				obj.cache("regist",result);

@@ -73,7 +73,7 @@
 				if(data[year]&&data[year][showMonth]){
 					$.each(data[year][showMonth],function(x,y){
 						if(!y.full){
-							point.find("[date='"+year+"-"+showMonth+"-"+x+"']").removeClass("disable").addClass("enable").attr("did",y.id).append('<div class="price">￥<span class="numCLASS">'+y.price+'</span></div>');	
+							point.find("[date='"+year+"-"+showMonth+"-"+x+"']").removeClass("disable").addClass("enable").attr("did",y.id).append('<div class="price">￥<span class="numCLASS">'+y.price+'</span></div><div class="rest">'+"余"+y.rest+'</div>');	
 							}else{
 							point.find("[date='"+year+"-"+showMonth+"-"+x+"']").append('<div class="price">已满</div>');		
 								}
@@ -87,7 +87,9 @@
 					point.find("[num='28']").parent().remove();
 					}
 			}
+		var noempty=0;
 		$.each(data,function(i,n){
+			noempty=1;
 			if(firstYear===0||firstYear>Number(i)){
 				firstYear=Number(i);
 				}
@@ -95,6 +97,7 @@
 				lastYear=Number(i);
 				}
 			})
+		if(noempty){
 			$.each(data[firstYear],function(i){
 				if(firstMonth===0||firstMonth>Number(i)){
 					firstMonth=Number(i);
@@ -118,6 +121,10 @@
 					layout(y,i);
 					}
 				}
+			}else{
+				app.pop.on("alert",{text:"没有有效团期"});
+			}
+			
 			
 			
 			

@@ -5,16 +5,28 @@
 		par:"",
 		tem:["foot_nav","index_head","index_nav","product_group_list","group_member","index_banner"],
 		fn:function(data){
+			var at="";
+			var site={};
 			function layout(main,vip,pomo,client){
 			obj.scrollFn.add("index",function(y){
 				$("#head").css("background-color","rgba(0,158,255,"+(y/200)+")");
 				});
 			var banner=	_.template(data.tem[5])({list:pomo});
-			var head=_.template(data.tem[1])({client:client});
+
+			var head=_.template(data.tem[1])({client:site});
 			$("#head").html(head);
 			$("#head .right").unbind("tap").bind("tap",function(){
 				obj.bottom.on("tel");
 				});
+		$(".index_head .point").unbind("tap").bind("tap",function(){
+		//app.cache("client_id",{id:$(this).attr("pid")});
+		app.api.run("site_set","at="+at+"&s="+$(this).attr("pid"),function(){
+			window.location.reload();
+		},function(e){
+			obj.pop.on("alert",{text:(JSON.stringify(e))});
+		});
+		//$("#place").html($(this).html());
+		});
 			var list=_.template(data.tem[3])({list:main});
 			var group=_.template(data.tem[4])({list:vip});
 			$("#scroller").html(banner+data.tem[2]+list+group);
@@ -40,7 +52,8 @@ $(".product_group_list .point").unbind("tap").bind("tap",function(){
 			$("#foot .fa-home").addClass("hl");
 			$("#foot .point").eq(0).addClass("hl");
 			
-			function getMessage(at){
+			function getMessage(ata){
+				at=ata;
 				var main=[
 					{title:"出发地跟团-国内精选",href:"travelIndex/0/1",main:[]},
 					{title:"出发地跟团-出境精选",href:"travelIndex/0/2",main:[]},
@@ -53,14 +66,14 @@ $(".product_group_list .point").unbind("tap").bind("tap",function(){
 				var total=0;
 				function totalCount(){
 					total++;
-					if(total===6){
+					if(total===7){
 						obj.api.run("client_get","at="+at+"&s="+(obj.cache("client_id").id||""),function(returnData){
 						layout(main,vip,promo,returnData);	
 							},function(e){obj.pop.on("alert",{text:JSON.stringify(e)});});
 						
 						}
 					}
-				obj.api.run("pomo_get",'at='+at,function(returnData){
+				obj.api.run("pomo_get",'at='+at+'&t=1',function(returnData){
 					promo=returnData;
 					totalCount();
 					},function(e){
@@ -103,6 +116,12 @@ $(".product_group_list .point").unbind("tap").bind("tap",function(){
 					},function(e){
 					obj.pop.on("alert",{text:(JSON.stringify(e))});
 					});
+				obj.api.run("site_get",'at='+at,function(returnData){
+					site=returnData;
+					totalCount();
+				},function(e){
+					obj.pop.on("alert",{text:(JSON.stringify(e))});
+				});
 				}
 			obj.api.at(getMessage);
 			}

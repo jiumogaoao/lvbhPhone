@@ -3,34 +3,19 @@
 	obj.control.set({
 		name:"searchIndex",
 		par:"type/state",
-		tem:["top_search","search_place","tap_right","nav_third"],
+		tem:["top_search","search_place","tap_right","nav_two"],
 		fn:function(data){
 			$("body").css({"background-color":"#fff"});
 			function layout(at,list){
 				var nav="";
 				var urlArry=["","12","13"];
 				var hlArry=[
-				{left:{text:"热门",hl:true},center:{text:"国内"},right:{text:"出境"}},{left:{text:"热门"},center:{text:"国内",hl:true},right:{text:"出境"}},{left:{text:"热门"},center:{text:"国内"},right:{text:"出境",hl:true}}
+				{left:{text:"国内",hl:true},right:{text:"出境"}},{left:{text:"国内"},right:{text:"出境"}},{left:{text:"国内"},right:{text:"出境",hl:true}}
 				];
 				var titleArry=["达人圈","出发地跟团","目的地跟团"];
-				if(data.type !== "0"){
+				
 					nav=_.template(data.tem[3])(hlArry[data.state]);
-					}else{
-					var tag=_.template(data.tem[2])(list);
-			$("#otherFrame").html(tag);	
-			$(".tap").unbind("tap").bind("tap",function(){
-				myScroll.scrollToElement($(".title[index='"+$(this).html()+"']")[0]);
-				});
-			$("#otherFrame").css({
-				"position":"fixed",
-				"top":"2rem",
-				"right":"0rem",
-				"width":"1rem",
-				"background-color":"#fff",
-				"z-index":"10"
-				});
-			$("#otherFrame").show();
-						}
+					
 			var head=_.template(data.tem[0])({left:"",value:titleArry[data.type]});
 			$("#head").html(head);
 			var searchList=_.template(data.tem[1])(list);

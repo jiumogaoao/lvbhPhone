@@ -2,7 +2,7 @@
 ;(function($,obj,config){
 	obj.control.set({
 		name:"searchGt",
-		par:"type/state",
+		par:"type/state/back",
 		tem:["top_second","search_place"],
 		fn:function(data){
 			var apiArry=["cf_table_get","md_table_get"];
@@ -22,10 +22,10 @@
 				});
 			$(".point").unbind("tap").bind("tap",function(){
 				if(data.state==="4"){
-					console.log($(this).attr("pid"));
-					obj.cache("client_id",{id:$(this).attr("pid")});
-					console.log(obj.cache("client_id"));
-					window.history.go(-1);
+					//console.log($(this).attr("pid"));
+					//obj.cache("client_id",{id:$(this).attr("pid")});
+					//console.log(obj.cache("client_id"));
+					window.location.hash=data.back.replace(/\$/g,"\/")+$(this).attr("pid");
 					}else{
 					$(".point").removeClass("hl");
 				$(this).addClass("hl");

@@ -5,7 +5,9 @@
 		par:"id",
 		tem:["top_second","comment_list"],
 		fn:function(data){
-			var stepArry=["不满意","不满意","不满意","一般","满意","满意"];
+			
+			obj.api.at(function(at){
+				var stepArry=["不满意","不满意","不满意","一般","满意","满意"];
 			var head=_.template(data.tem[0])({
 				left:"",
 				center:"产品点评"
@@ -25,7 +27,7 @@
 				});
 				}
 			
-			obj.api.run("comment_get",'c='+data.id+'&d=0&1=0&b=10',function(returnData){
+			obj.api.run("comment_get",'at='+at+'&c='+data.id+'&d=0&1=0&b=10',function(returnData){
 				var main={
 					total:returnData.totalCount,
 					good:returnData.goodNum,
@@ -40,6 +42,7 @@
 				},function(e){
 				obj.pop.on("alert",{text:(JSON.stringify(e))});
 				});	
+			});
 			}
 		});
 	})($,app,config);

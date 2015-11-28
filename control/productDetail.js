@@ -31,7 +31,8 @@
 					name:"",
 					phone:""
 					},
-				agree:false
+				agree:false,
+				collect:0
 				};
 			if(obj.cache("pruduct_input_"+data.id)){
 				result=obj.cache("pruduct_input_"+data.id);
@@ -67,6 +68,11 @@
 			var centerT=_.template(data.tem[3])(center);
 			var bottomT=_.template(data.tem[5])(bottom);
 			$("#scroller").html(topT+centerT+nav+bottomT+bottomList);
+			if(result.collect!==2){
+				$(".product_top .collect").css({"background-color":"#93d7ff"});
+			}else{
+				$(".product_top .collect").css({"background-color":"rgba(0,0,0,0.3)"});
+			}
 			$(".nav_two.nav_third").attr("id","guding");
 			$("#otherFrame").html(nav);
 			$("#otherFrame").css({
@@ -102,6 +108,7 @@
 			$("#scroller .product_top .collect").unbind("tap").bind("tap",function(){
 				obj.api.run("collect_add",'at='+at+'&t='+collectArry[data.type]+'&id='+data.id+'&cn='+result.title+'&desc='+result.title,function(returnData){
 					obj.pop.on("alert",{text:("收藏成功")});
+					$(".product_top .collect").css({"background-color":"rgba(0,0,0,0.3)"});
 					},function(e){obj.pop.on("alert",{text:(JSON.stringify(e))});});
 				});
 			$("#scroller #date").unbind("tap").bind("tap",function(){
@@ -179,7 +186,14 @@
 				//myScroll.refresh();
 				});
 				}
-			
+			function chechCollect(at,top,center,bottom){
+				obj.api.run("collect_check","at="+at+"&typeIdRes="+data.id+"&infoIdRes="+((data.type==="12")?4:5),function(returnData){
+					result.collect=returnData.data;
+					layout(at,top,center,bottom);
+				},function(e){
+					obj.pop.on("alert",{text:(JSON.stringify(e))});
+				});
+			}
 			function getList(at){
 				obj.api.run(apiArry[data.type],'aid='+data.id+"&at="+at,function(returnData){
 				result.state=returnData.gtinfo.gd.e;
@@ -205,7 +219,7 @@
 					oldPrice:gd.g||""
 				};
 					var center={
-					satisfy:gd.l,
+					satisfy:(gd.l*100).toFixed(0),
 					comment:gd.m,
 					collect:gd.gg,
 					date:pa.c||"",
@@ -229,7 +243,7 @@
 				noinclude:gd.s||"",
 				payself:gd.t||""
 				};
-					layout(at,top,center,bottom);
+					chechCollect(at,top,center,bottom);
 					},function(e){
 					obj.pop.on("alert",{text:(JSON.stringify(e))});
 					});

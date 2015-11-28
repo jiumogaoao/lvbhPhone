@@ -46,18 +46,22 @@
 			function getList(at){
 				obj.api.run(apiArry[data.type],'aid='+data.id+'&at='+at,function(returnData){
 				var list={};
+				var nowTime=new Date().getTime();
 			$.each(returnData.priceArray,function(i,n){
-				var date=n.c.split("-");
+				if(nowTime<=Number(moment(n.d, "YYYY-MM-DD hh:mm").format("x"))){
+					var date=n.c.split("-");
 				if(!list[date[0]]){
 					list[date[0]]={};
 					}
 				if(!list[date[0]][date[1]]){
 					list[date[0]][date[1]]={};
 					}
-				list[date[0]][date[1]][date[2]]={price:n.f,id:n.b};
+				list[date[0]][date[1]][date[2]]={price:n.f,id:n.b,rest:n.e};
 				if(n.e===0){
 					list[date[0]][date[1]][date[2]].full=true;
 					}
+				}
+				
 				});
 				layout(list,returnData.priceArray);
 				});
