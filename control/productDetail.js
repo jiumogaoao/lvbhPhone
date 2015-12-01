@@ -106,7 +106,7 @@
 					}else{$("#otherFrame").hide();}
 				});
 			$("#scroller .product_top .collect").unbind("tap").bind("tap",function(){
-				obj.api.run("collect_add",'at='+at+'&t='+collectArry[data.type]+'&id='+data.id+'&cn='+result.title+'&desc='+result.title,function(returnData){
+				obj.api.run("collect_add",'at='+at+'&t='+collectArry[data.type]+'&id='+data.id+'&cn='+result.title.replace(/&lt;/g,"<").replace(/&gt;/g,">")+'&desc='+result.title.replace(/&lt;/g,"<").replace(/&gt;/g,">"),function(returnData){
 					obj.pop.on("alert",{text:("收藏成功")});
 					$(".product_top .collect").css({"background-color":"rgba(0,0,0,0.3)"});
 					},function(e){obj.pop.on("alert",{text:(JSON.stringify(e))});});
@@ -131,7 +131,7 @@
 				window.location.hash="dealFlow/"+data.type+"/"+data.id+"/"+result.state;
 				});
 			$(".title_input_list [name='comment']").unbind("tap").bind("tap",function(){
-				window.location.hash="commentList/"+data.id;
+				window.location.hash="commentList/"+data.id+"/0";
 				});
 			$("#scroller .share").unbind("tap").bind("tap",function(){
 				obj.bottom.on("share",{list:[
@@ -191,7 +191,9 @@
 					result.collect=returnData.data;
 					layout(at,top,center,bottom);
 				},function(e){
-					obj.pop.on("alert",{text:(JSON.stringify(e))});
+					$("#scroller").html('<img src="img/upDate.png" style="width:100%;"/>');
+					$("#foot").hide();
+					//obj.pop.on("alert",{text:(JSON.stringify(e))});
 				});
 			}
 			function getList(at){
@@ -245,7 +247,9 @@
 				};
 					chechCollect(at,top,center,bottom);
 					},function(e){
-					obj.pop.on("alert",{text:(JSON.stringify(e))});
+					$("#scroller").html('<img src="img/upDate.png" style="width:100%;"/>');
+					$("#foot").hide();
+					//obj.pop.on("alert",{text:(JSON.stringify(e))});
 					});
 				}
 			obj.api.at(getList,data.at);	

@@ -10,7 +10,7 @@
 				var nav="";
 				var urlArry=["","12","13"];
 				var hlArry=[
-				{left:{text:"国内",hl:true},right:{text:"出境"}},{left:{text:"国内"},right:{text:"出境"}},{left:{text:"国内"},right:{text:"出境",hl:true}}
+				{left:{text:"国内"},right:{text:"出境"}},{left:{text:"国内",hl:true},right:{text:"出境"}},{left:{text:"国内"},right:{text:"出境",hl:true}}
 				];
 				var titleArry=["达人圈","出发地跟团","目的地跟团"];
 				
@@ -18,9 +18,12 @@
 					
 			var head=_.template(data.tem[0])({left:"",value:titleArry[data.type]});
 			$("#head").html(head);
-			var searchList=_.template(data.tem[1])(list);
-			$("#scroller").html(nav+searchList);
 			
+			var searchList=_.template(data.tem[1])({list:list});
+			$("#scroller").html(nav+searchList);
+			$(".nav_two .nav_point_frame").css({
+				"background-color":"#fff"	
+			});
 			if(data.state!=="0"){
 				$(".nav_two.nav_third").css({"margin-bottom":"0px"});
 				}
@@ -34,7 +37,7 @@
 				$(".point").removeClass("hl");
 				$(this).addClass("hl");
 				if(data.type !== "0"){
-					window.location.hash="travelSearch/"+(Number(data.type)-1)+"/"+($(this).attr("type")||data.state)+"/"+$(this).attr("value");
+					window.location.hash="travelSearch/"+$(this).html();
 					}else{
 					window.location.hash="vipListSearch/"+$(this).attr("pid");	
 						}
@@ -53,9 +56,6 @@
 				}else{
 					$(".search_place .list").css("width","100%");
 					$(".nav_two #left").unbind("tap").bind("tap",function(){
-						window.location.hash="searchIndex/"+data.type+"/0";
-						});
-					$(".nav_two #center").unbind("tap").bind("tap",function(){
 						window.location.hash="searchIndex/"+data.type+"/1";
 						});
 					$(".nav_two #right").unbind("tap").bind("tap",function(){
@@ -131,6 +131,7 @@
 					});
 				}
 			function area(at,now,pro){
+
 				var placeList={
 				input:false,
 				title:true,
@@ -141,14 +142,8 @@
 				if(data.state==="0"){
 					placeList.title=false;
 					}
-				obj.api.run("search_place_get",null,function(returnData){
-					$.each(returnData[data.state],function(i,n){
-						placeList.place["place"+i]={title:n.name,main:[]};
-						$.each(n.member,function(o,p){
-							placeList.place["place"+i].main.push({name:p.name,id:"",type:p.type});
-							});
-						});	
-					layout(at,placeList);	
+				obj.api.run("search_place_get","at="+at+"&typeIdRes="+data.state,function(returnData){
+					layout(at,returnData);	
 					},function(e){
 					obj.pop.on("alert",{text:(e)});
 					});

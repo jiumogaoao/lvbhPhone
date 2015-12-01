@@ -75,7 +75,7 @@
 				obj.api.run("other_group_member_get",'at='+at+'&a='+page+'&c='+type+'&d='+data.id,function(returnData){
 					returnData=returnData.data;
 					$.each(returnData,function(i,n){
-						result.push({image:config.sour+"center/tp.jspx?at="+at+"&a=1&b="+n.l,name:n.c,id:n.b,fans:n.r,money:n.p});
+						result.push({image:config.sour+"sns/tpu.jspx?at="+at+"&a=1&b="+n.i+"&c="+(n.l||""),name:n.c,id:n.b,fans:n.r,money:n.p});
 						});
 					layout(at,sour);
 					},function(e){

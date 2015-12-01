@@ -87,7 +87,7 @@
 					});
 				}
 			function getClient(at,now){
-				obj.api.run("client_get","at="+at+"&s="+(obj.cache("client_id").id||""),function(returnData){
+				obj.api.run("client_get","at="+at,function(returnData){
 					tableGet(at,now,returnData);
 					},function(e){
 					obj.pop.on("alert",{text:JSON.stringify(e)});

@@ -83,7 +83,7 @@
 				}
 			
 			function getRecommend(at,now,client){
-				obj.api.run(apiArry[data.type],'siteIdRes='+client.sid+'&at='+at+'&categoryIdRes='+typeArry[data.type],function(returnData){
+				obj.api.run(apiArry[data.type],'siteIdRes='+client.s+'&at='+at+'&categoryIdRes='+typeArry[data.type],function(returnData){
 					var productList=[];
 					$.each(returnData,function(i,n){
 						var addData={image:n.gd.cc,name:(n.gd.b.length>40)?(n.gd.b.substr(0,40)+"..."):n.gd.b,price:n.gd.f,place:n.gd.w,tag:{name:n.cd.a,class:n.cd.b},date:n.sd,id:n.gd.a,type:typeArry[data.type],state:n.gd.e,rePrice:n.gd.hh};
@@ -95,7 +95,7 @@
 					});
 				}
 			function getcf(at,now,hot,client,table){
-				obj.api.run("cf_product_get",'siteIdRes='+client.sid+'&at='+at+'&categoryIdRes='+typeArry[data.type]+'&typeIdRes='+data.state+'&startIdRes='+(data.sid||1214)+'&endIdRes='+(data.id||table[0].id),function(returnData){
+				obj.api.run("cf_product_get",'siteIdRes='+client.s+'&at='+at+'&categoryIdRes='+typeArry[data.type]+'&typeIdRes='+data.state+'&startIdRes='+(data.sid||0)+'&endIdRes='+(data.id||table[0].id),function(returnData){
 					var productList=[];
 					$.each(returnData,function(i,n){
 						var addData={image:n.gd.cc,name:n.gd.b,price:n.gd.f,place:n.gd.w,date:n.sd,id:n.gd.a,type:12,state:n.gd.e,rePrice:n.gd.hh};
@@ -107,7 +107,7 @@
 						});
 				}
 			function getmd(at,now,hot,client,table){
-				obj.api.run("md_product_get",'siteIdRes='+client.sid+'&at='+at+'&categoryIdRes='+typeArry[data.type]+'&typeIdRes='+data.state+'&endIdRes='+(data.id||table[0].id)+'&startIdRes='+(data.sid||1214),function(returnData){
+				obj.api.run("md_product_get",'siteIdRes='+client.s+'&at='+at+'&categoryIdRes='+typeArry[data.type]+'&typeIdRes='+data.state+'&endIdRes='+(data.id||table[0].id)+'&startIdRes='+(data.sid||0),function(returnData){
 					var productList=[];
 					$.each(returnData,function(i,n){
 						var addData={image:n.gd.cc,name:n.gd.b,price:n.gd.f,place:n.gd.w,date:n.sd,id:n.gd.a,type:13,state:n.gd.e,rePrice:n.gd.hh};
@@ -120,7 +120,7 @@
 				}
 			function getNow(at,hot,client,table){
 				
-				obj.api.run("city_cf_get","at="+at+"&siteIdRes="+client.sid+"&categoryIdRes="+typeArry[data.type]+'&typeIdRes='+data.state+'&endIdRes='+(data.id||table[0].id),function(returnData){
+				obj.api.run("city_cf_get","at="+at+"&siteIdRes="+client.s+"&categoryIdRes="+typeArry[data.type]+'&typeIdRes='+data.state+'&endIdRes='+(data.id||table[0].id),function(returnData){
 						if(data.state==="0"){
 						getRecommend(at,returnData,client);
 						}else{
@@ -132,8 +132,8 @@
 								}
 								startTable.push({name:n.b,id:n.a});
 							});
-							if(!startTable){
-							startTable={name:"全部",id:0};
+							if(!startValue){
+							startValue={name:"全部",id:0};
 						}
 							hot.push({
 									id:"startLine",
@@ -153,7 +153,7 @@
 					});
 				}
 			function getTable(at,client){
-				obj.api.run(tableAtty[data.type],'at='+at+'&siteIdRes='+client.sid+'&categoryIdRes='+typeArry[data.type]+'&typeIdRes='+Number(data.state),function(returnData){
+				obj.api.run(tableAtty[data.type],'at='+at+'&siteIdRes='+client.s+'&categoryIdRes='+typeArry[data.type]+'&typeIdRes='+Number(data.state),function(returnData){
 					var endValue=null;
 					var table=[];
 					if(returnData&&returnData.length){
@@ -198,7 +198,7 @@
 				}
 			function getClient(at){
 				console.log(obj.cache("client_id"));
-				obj.api.run("client_get","at="+at+"&s="+(obj.cache("client_id").id||""),function(returnData){
+				obj.api.run("client_get","at="+at,function(returnData){
 					getTable(at,returnData);
 					/*
 					if(data.state==="0"){

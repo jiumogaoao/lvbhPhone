@@ -88,6 +88,7 @@
 <script>
 	$(".product_dropdown .head").unbind("tap").bind("tap",function(){
 		$(this).parents(".list").find(".frame").show();
+		$(this).parents(".list").find(".bg").height($(window).height());
 		$(this).parents(".list").find(".bg").show();
 		})
 	$(".product_dropdown .bg").unbind("tap").bind("tap",function(){

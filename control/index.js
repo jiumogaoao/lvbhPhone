@@ -67,7 +67,7 @@ $(".product_group_list .point").unbind("tap").bind("tap",function(){
 				function totalCount(){
 					total++;
 					if(total===7){
-						obj.api.run("client_get","at="+at+"&s="+(obj.cache("client_id").id||""),function(returnData){
+						obj.api.run("client_get","at="+at,function(returnData){
 						layout(main,vip,promo,returnData);	
 							},function(e){obj.pop.on("alert",{text:JSON.stringify(e)});});
 						

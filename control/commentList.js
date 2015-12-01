@@ -2,7 +2,7 @@
 ;(function($,obj,config){
 	obj.control.set({
 		name:"commentList",
-		par:"id",
+		par:"id/type",
 		tem:["top_second","comment_list"],
 		fn:function(data){
 			
@@ -19,6 +19,10 @@
 			function layout(list){
 				var main=_.template(data.tem[1])(list);
 			$("#scroller").html(main);
+			$("#scroller .comment_list .button[pid='"+data.type+"']").addClass("hl");
+			$("#scroller .comment_list .button").unbind("tap").bind("tap",function(){
+				window.location.hash="commentList/"+data.id+"/"+$(this).attr("pid");
+			});
 			var delay=setTimeout(function(){
 				//myScroll.refresh();
 				},200);	
@@ -27,7 +31,7 @@
 				});
 				}
 			
-			obj.api.run("comment_get",'at='+at+'&c='+data.id+'&d=0&1=0&b=10',function(returnData){
+			obj.api.run("comment_get",'at='+at+'&c='+data.id+'&d='+data.type+'&1=0&b=10',function(returnData){
 				var main={
 					total:returnData.totalCount,
 					good:returnData.goodNum,
