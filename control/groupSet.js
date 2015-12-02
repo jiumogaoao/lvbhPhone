@@ -15,10 +15,10 @@
 				};
 				
 				var list=[
-				{name:"icon",left:"头像",right:'<img id="groupIcon" src="'+config.sour+'center/tp.jspx?at='+at+'&a=1&b='+result.f+'"/><span class="fa fa-right"></span><form id="headform" action="'+config.sour+'center/tu.jspx" method="post" enctype="multipart/form-data"><input type="file" id="upload" name="filename"/><input type="hidden" name="at" value="'+at+'"/></form>',link:true},
+				{name:"icon",left:"头像",right:'<img id="groupIcon" src="'+config.sour+'sns/tpu.jspx?at='+at+'&a=1&b='+result.a+'&c='+result.f+'"  onerror="app.nofound(this,\'img/circle_member_list_img_picture.png\')"/><span class="fa fa-right"></span><form id="headform" action="'+config.sour+'center/tu.jspx" method="post" enctype="multipart/form-data"><input type="file" id="upload" name="filename"/><input type="hidden" name="at" value="'+at+'"/></form>',link:true},
 				{name:"id",left:"圈子ID",right:result.a,link:true},
-				{name:"name",left:"名称",right:((result.c.length>13)?(result.c.substr(0,13)+"..."):(result.c)||"")+' <apan class="fa fa-right"></span>',link:true},
-				{name:"word",left:"宣言",right:((result.d.length>13)?(result.d.substr(0,13)+"..."):(result.d)||"")+' <apan class="fa fa-right"></span>',link:true},
+				{name:"name",left:"名称",right:((result.c&&result.c.length>13)?(result.c.substr(0,13)+"..."):(result.c)||"")+' <apan class="fa fa-right"></span>',link:true},
+				{name:"word",left:"宣言",right:((result.d&&result.d.length>13)?(result.d.substr(0,13)+"..."):(result.d)||"")+' <apan class="fa fa-right"></span>',link:true},
 				{name:"dsc",left:"介绍",right:'<apan class="fa fa-right"></span>',link:true},
 				{name:"group",left:"加入的圈子",right:'<apan class="fa fa-right"></span>',link:true},
 				{name:"invite",left:"分享与邀请",right:'<apan class="fa fa-right"></span>',link:true},

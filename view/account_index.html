@@ -80,12 +80,12 @@
     </div>
     <div class="bottom">
     	<div class="button hl">充值</div>
-        <div class="button">提现</div>
+        <div class="button" id="tixian">提现</div>
         <div class="clear"></div>
     </div>
 </div>
 <script>
-$(".account_index .button").unbind("tap").bind("tap",function(){
+$(".account_index .button#tixian").unbind("tap").bind("tap",function(){
 	window.location.hash="cashInput";
 	})
 </script>
